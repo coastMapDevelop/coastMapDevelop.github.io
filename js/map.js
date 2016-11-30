@@ -27,6 +27,8 @@ var simple = {
 	]
 };
 
+var clickedCountyName;
+
 if (!mapboxgl.supported()) {
 	alert('Your browser does not support Mapbox GL');
 } else {
@@ -67,6 +69,7 @@ map.on('click', function(e) {
 	
 	if (features.length) {
 		map.setFilter('countyPolygon-click', ['==', 'NAME10', features[0].properties.NAME10]);
+		clickedCountyName = features[0].properties.NAME10;
 	} else {
 		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
 		popup2.remove();
@@ -89,7 +92,11 @@ map.on('mousemove', function(e) {
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
 	
 	if (features.length) {
-		map.setFilter('countyPolygon-hover', ['==', 'NAME10', features[0].properties.NAME10]);
+		if (clickedCountyName = features[0].properties.NAME10) {
+			return;
+		} else {
+			map.setFilter('countyPolygon-hover', ['==', 'NAME10', features[0].properties.NAME10]);
+		}
 	} else {
 		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
 		popup.remove();
