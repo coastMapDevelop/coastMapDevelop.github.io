@@ -79,7 +79,7 @@ map.on('mousemove', function(e) {
 	// populate the popup and set its coordinates
 	// base on the feature found
 	
-	popup.setLngLat(feature.geometry.coordinates)
+	popup.setLngLat(map.unproject(e.point))
 		.setHTML('test')
 		.addTo(map);
 });
