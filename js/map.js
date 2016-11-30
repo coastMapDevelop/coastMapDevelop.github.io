@@ -71,7 +71,10 @@ map.on('click', function(e) {
 	
 	var feature = features[0];
 	
-	var popup = new mapboxgl.Popup()
+	popup.remove();
+	map.setFilter('countyPolygon-hover', ['==' 'NAME10', feature[0].properties.NAME10]);
+	
+	var popup2 = new mapboxgl.Popup()
 		.setLngLat(map.unproject(e.point))
 		.setHTML('test')
 		.addTo(map);
@@ -96,7 +99,7 @@ map.on('mousemove', function(e) {
 	// base on the feature found
 	
 	popup.setLngLat(map.unproject(e.point))
-		.setHTML(feature.properties.NAME10 + "<br>" + "Click for more info")
+		.setHTML(feature.properties.NAME10 + " County" + "<br>" + "Click for more info")
 		.addTo(map);
 });
 
