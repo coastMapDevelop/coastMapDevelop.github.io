@@ -65,14 +65,17 @@ map.on('load', function() {
 map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills'] });
 	
-	if (!features.length) {
+	if (features.length) {
+		map.setFilter('countyPolygon-click', ['==', 'NAME10', features[0].properties.NAME10]);
+	} else {
+		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
+		popup2.remove();
 		return;
 	}
 	
 	var feature = features[0];
 	
 	popup.remove();
-	map.setFilter('countyPolygon-hover', ['==', 'NAME10', feature.properties.NAME10]);
 	
 	var popup2 = new mapboxgl.Popup()
 		.setLngLat(map.unproject(e.point))
@@ -157,6 +160,18 @@ function addLayers() {
 	
 	map.addLayer({
 		'id': 'countyPolygon-hover',
+		'type': 'fill',
+		'source': 'countyPolygons',
+		'layout': {},
+		'paint': {
+			'fill-color': '#627BC1',
+			'fill-opacity': 1
+		},
+		'filter': ['==', 'NAME10', '']
+	});
+	
+	map.addLayer({
+		'id': 'countyPolygon-click',
 		'type': 'fill',
 		'source': 'countyPolygons',
 		'layout': {},
