@@ -72,7 +72,7 @@ map.on('click', function(e) {
 	var feature = features[0];
 	
 	popup.remove();
-	map.setFilter('countyPolygon-hover', ['==', 'NAME10', feature[0].properties.NAME10]);
+	map.setFilter('countyPolygon-hover', ['==', 'NAME10', feature.properties.NAME10]);
 	
 	var popup2 = new mapboxgl.Popup()
 		.setLngLat(map.unproject(e.point))
