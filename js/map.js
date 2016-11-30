@@ -62,6 +62,22 @@ map.on('load', function() {
 });
 
 
+map.on('click', function(e) {
+	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills'] });
+	
+	if (!features.length) {
+		return;
+	}
+	
+	var feature = features[0];
+	
+	var popup = new mapboxgl.Popup()
+		.setLngLat(map.unproject(e.point))
+		.setHTML('test')
+		.addTo(map);
+});
+
+
 map.on('mousemove', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {layers: ['countyPolygon-fills'] });
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
@@ -80,9 +96,10 @@ map.on('mousemove', function(e) {
 	// base on the feature found
 	
 	popup.setLngLat(map.unproject(e.point))
-		.setHTML('test')
+		.setHTML(feature.properties.NAME10 + "<br>" + "Click for more info")
 		.addTo(map);
 });
+
 
 
 map.on('mouseout', function() {
