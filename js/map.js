@@ -1,3 +1,4 @@
+
 var simple = {
 	"version": 8,
 	"sources": {
@@ -44,6 +45,11 @@ map.dragRotate.disable();
 map.touchZoomRotate.disableRotation();
 
 
+// Create a popup, but don't add it to the map yet
+var popup = new mapboxgl.Popup({
+	closeButton: false,
+	closeOnClick: false
+});
 
 
 
@@ -64,7 +70,18 @@ map.on('mousemove', function(e) {
 		map.setFilter('countyPolygon-hover', ['==', 'NAME10', features[0].properties.NAME10]);
 	} else {
 		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
+		popup.remove();
+		return;
 	}
+	
+	var feature = features[0];
+	
+	// populate the popup and set its coordinates
+	// base on the feature found
+	
+	popup.setLngLat(feature.geometry.coordinates)
+		.setHTML('test')
+		.addTo(map);
 });
 
 
@@ -114,7 +131,7 @@ function addLayers() {
 		'layout': {},
 		'paint': {
 			'line-color': '#627BC1',
-			'line-width': 2
+			'line-width': 1
 		}
 	});
 	
