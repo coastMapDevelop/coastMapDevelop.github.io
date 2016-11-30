@@ -83,8 +83,7 @@ map.on('click', function(e) {
 	var popup2 = new mapboxgl.Popup()
 		.setLngLat(map.unproject(e.point))
 		.setHTML(feature.properties.NAME10 + " County" + "<br>" + "Population 2010: " + feature.properties.POP2010 + "<br>" + "Population 2000: " + feature.properties.POP2000 + "<br>"
-			+ "Government Website: " + feature.properties.Govt_Websi + "<br>" + "Web Mapping Site: " + feature.properties.WebMap_URL + "<br>" + "Comprehensive Plan: " + feature.properties.Comp_Plan + "<br>" 
-			+ "Climate Plan: " + feautre.properties.Climate_Pl + "<br>" + "Zoning Ordinance: " + feature.properties.Zoning_URL)
+			+ "Government Website: " + feature.properties.Govt_Websi)
 		.addTo(map);
 });
 
