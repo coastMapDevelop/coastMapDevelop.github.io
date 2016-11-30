@@ -85,6 +85,8 @@ map.on('click', function(e) {
 		.setHTML(feature.properties.NAME10 + " County" + "<br>" + "Population 2010: " + feature.properties.POP2010 + "<br>" + "Population 2000: " + feature.properties.POP2000 + "<br>"
 			+ "<a href='"+ feature.properties.Govt_Websi + "' target='_blank'>Government Website</a>")
 		.addTo(map);
+	
+	console.log(popup2.innerHTML);
 });
 
 
