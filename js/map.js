@@ -42,7 +42,7 @@
 	}
 */
 
-var simple = {
+var simpleMapzen = {
     "version": 8,
     "sources": {
         "osm": {
@@ -70,6 +70,31 @@ var simple = {
     ]
 };
 
+var simpleOpenstreet = {
+	"version": 8,
+    "sources": {
+    "simple-tiles": {
+        "type": "raster",
+        // point to our third-party tiles. Note that some examples
+        // show a "url" property. This only applies to tilesets with
+        // corresponding TileJSON (such as mapbox tiles). 
+        "tiles": [
+            "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "http://b.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        ],
+        "tileSize": 256
+    }
+    },
+    "layers": [{
+		"id": "simple-tiles",
+		"type": "raster",
+        "source": "simple-tiles",
+        "minzoom": 0,
+        "maxzoom": 22
+    }]
+};
+
+
 
 
 
@@ -80,7 +105,7 @@ if (!mapboxgl.supported()) {
 } else {
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
-		style: simple, // variable above, using Mapzen tiles
+		style: simpleOpenstreet, // variable above
 		center: [-88.0198, 44.5192], // starting position
 		zoom: 5.75 // starting zoom
 	});
