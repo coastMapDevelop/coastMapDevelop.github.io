@@ -1,4 +1,5 @@
 
+/*
 var simple = {
 	"version": 8,
 	"sources": {
@@ -26,6 +27,9 @@ var simple = {
 		}
 	]
 };
+*/
+
+
 
 var clickedCountyName;
 
