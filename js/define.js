@@ -1,5 +1,6 @@
 
-var simple = {
+
+var sup = {
   "version": 8,
   "glyphs": "mapbox://fontstack/{fontstack}/{range}.pbf",
   "constants": {
@@ -358,3 +359,4 @@ var simple = {
     }
   ]
 };
+
