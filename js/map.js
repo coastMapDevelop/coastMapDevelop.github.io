@@ -66,76 +66,7 @@ var simple = {
             "paint": {
                 "fill-color": "#7acad0"
             }
-        }, {
-			"id": "river",
-			"source": "osm",
-			"source-layer": "water",
-			"type": "line",
-			"min-zoom": 6,
-			"filter": ["all", ["==", "$type", "LineString"], ["==", "kind", "river"]],
-			"layout": {
-				"line-cap": "round",
-				"line-join": "round"
-			},
-			"paint": {
-				"line-color": "#7acad0",
-				"line-width": {
-					"base": 1.2,
-					"stops": [[8, 0.75], [20, 15]]
-				}
-			}
-		}, {
-			"id": "stream-etc",
-			"source": "osm",
-			"source-layer": "water",
-			"type": "line",
-			"min-zoom": 11,
-			"filter": ["all", ["==", "$type", "LineString"], ["==", "kind", "stream", "canal"]],
-			"layout": {
-				"line-cap": "round",
-				"line-join": "round"
-			},
-			"paint": {
-				"line-color": "#7acad0",
-				"line-width": {
-					"base": 1.4,
-					"stops": [[10, 0.5], [20, 15]]
-				}
-			}
-		}, {
-			"id": "country-boundary",
-			"source": "osm",
-			"source-layer": "places",
-			"type": "line",
-			"filter": ["==", "admin_level", "2"],
-			"max-zoom": 4,
-			"layout": {
-				"line-cap": "round",
-				"line-join": "round"
-			},
-			"paint": {
-				"line-color": "#afd3d3",
-				"line-width": {
-					"base": 2,
-					"stops": [[1, 0.5], [7, 3]]
-				}
-			}
-		}, {
-			"id": "state-boundary",
-			"source": "osm",
-			"source-layer": "places",
-			"type": "fill",
-			"filter": ["==", "admin_level", "4"],
-			"max-zoom": 10,
-			"layout": {
-				"line-cap": "round",
-				"line-join": "round"
-			},
-			"paint": {
-				"fill-color": "#ededed",
-				"fill-outline-color": "#cacecc"
-			}
-		}
+        }
     ]
 };
 
