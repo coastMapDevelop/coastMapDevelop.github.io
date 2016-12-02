@@ -73,21 +73,15 @@ var simpleMapzen = {
 var simpleOpenstreet = {
 	"version": 8,
     "sources": {
-    "simple-tiles": {
-        "type": "raster",
-        // point to our third-party tiles. Note that some examples
-        // show a "url" property. This only applies to tilesets with
-        // corresponding TileJSON (such as mapbox tiles). 
-        "tiles": [
-            "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            "http://b.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        ],
-        "tileSize": 256
-    }
+        "simple-tiles": {
+            "type": "raster",
+            "tiles": ["http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            "tileSize": 256
+        }
     },
     "layers": [{
-		"id": "simple-tiles",
-		"type": "raster",
+        "id": "simple-tiles",
+        "type": "raster",
         "source": "simple-tiles",
         "minzoom": 0,
         "maxzoom": 22
