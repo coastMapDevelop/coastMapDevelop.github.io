@@ -1,6 +1,6 @@
 
 var simple = {
-  "version": 7,
+  "version": 8,
   "glyphs": "mapbox://fontstack/{fontstack}/{range}.pbf",
   "constants": {
     "@name": "{name_en}",
