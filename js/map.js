@@ -70,6 +70,7 @@ var simpleMapzen = {
     ]
 };
 
+/*
 var simpleOpenstreet = {
 	"version": 8,
     "sources": {
@@ -87,7 +88,7 @@ var simpleOpenstreet = {
         "maxzoom": 22
     }]
 };
-
+*/
 
 
 
@@ -99,23 +100,7 @@ if (!mapboxgl.supported()) {
 } else {
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
-		style: {
-			"version": 8,
-			"sources": {
-				"simple-tiles": {
-					"type": "raster",
-					"tiles": ["http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
-					"tileSize": 256
-				}
-			},
-			"layers": [{
-				"id": "simple-tiles",
-				"type": "raster",
-				"source": "simple-tiles",
-				"minzoom": 0,
-				"maxzoom": 22
-			}]
-		},
+		style: simpleMapzen,
 		center: [-88.7879, 43.7844], // starting position
 		zoom: 5.75 // starting zoom
 	});
