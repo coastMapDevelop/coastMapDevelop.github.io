@@ -106,7 +106,7 @@ if (!mapboxgl.supported()) {
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
 		style: simpleOpenstreet, // variable above
-		center: [-88.0198, 44.5192], // starting position
+		center: [-88.7879, 43.7844], // starting position
 		zoom: 5.75 // starting zoom
 	});
 }
