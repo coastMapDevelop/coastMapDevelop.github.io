@@ -23,7 +23,7 @@ function main() {
 	});
 	
 	//Esri_WorldStreetMap.addTo(map);
-	OpenSreetMap_Mapnik.addTo(map);
+	OpenStreetMap_Mapnik.addTo(map);
 	
 	/*
 	cartodb.createLayer(map, 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json')
