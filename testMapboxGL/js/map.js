@@ -139,6 +139,7 @@ map.on('mousemove', function(e) {
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
 	
 	if (features.length) {
+		console.log(features);
 		if (clickedCountyName == features[0].properties.NAME10) {
 			return;
 		} else {
