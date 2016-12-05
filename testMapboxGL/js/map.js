@@ -214,17 +214,17 @@ map.on('mouseout', function() {
 function addSources() {
 	map.addSource('countyPolygons', {
 		'type': 'geojson',
-		'data': '/data/geojson/countyPolygon_v2.geojson'
+		'data': '/testMapboxGL/data/geojson/countyPolygon_v2.geojson'
 	});
 	
 	map.addSource('cityPoints', {
 		'type': 'geojson',
-		'data': '/data/geojson/citiesPoints_v1.geojson'
+		'data': '/testMapboxGL/data/geojson/citiesPoints_v1.geojson'
 	});
 	
 	map.addSource('cityPolygons', {
 		'type': 'geojson',
-		'data': '/data/geojson/citiesPolygons_v2.geojson'
+		'data': '/testMapboxGL/data/geojson/citiesPolygons_v2.geojson'
 	});
 };
 
