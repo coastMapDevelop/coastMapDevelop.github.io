@@ -139,7 +139,7 @@ map.on('mousemove', function(e) {
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
 	
 	if (features.length) {
-		console.log(features);
+		
 		if (clickedCountyName == features[0].properties.NAME10) {
 			return;
 		} else {
@@ -152,6 +152,7 @@ map.on('mousemove', function(e) {
 	}
 	
 	var feature = features[0];
+	console.log(feature);
 	
 	// populate the popup and set its coordinates
 	// base on the feature found
