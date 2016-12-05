@@ -154,14 +154,9 @@ map.on('mousemove', function(e) {
 			return;
 		}
 	} else {
-		if (feature.layer.id == "countyPolygon-fills") {
-			map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
-			popup.remove();
-			return;
-		} else if (feature.layer.id == "cityPoints" || feature.layer.id == "villagePoints" || feature.layer.id == "townPoints") {
-			popup.remove();
-			return;
-		}
+		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
+		popup.remove();
+		return;
 	}
 	
 	// populate the popup and set its coordinates
