@@ -137,28 +137,48 @@ map.on('click', function(e) {
 map.on('mousemove', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+	var feature = features[0];
+	
+	var moveInfo;
+	
 	
 	if (features.length) {
-		
-		if (clickedCountyName == features[0].properties.NAME10) {
+		if (feature.layer.id == "countyPolygon-fills") {
+			if (clickedCountyName == feature.properties.NAME10) {
+				moveInfo = feature.properties.NAME10 + " County" + "<br>" + "Click for more info";
+				return;
+			} else {
+				map.setFilter('countyPolygon-hover', ['==', 'FID_1', feature.properties.FID_1]);
+			}
+		} else if (feature.layer.id == "cityPoints" || feature.layer.id == "villagePoints" || feature.layer.id == "townPoints") {
+			moveInfo = feature.properties.name + "<br>" + "Click for more info";
 			return;
-		} else {
-			map.setFilter('countyPolygon-hover', ['==', 'FID_1', features[0].properties.NAME10]);
 		}
 	} else {
-		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
-		popup.remove();
-		return;
+		if (feature.layer.id == "countyPolygon-fills") {
+			map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
+			popup.remove();
+			return;
+		} else if (feature.layer.id == "cityPoints" || feature.layer.id == "villagePoints" || feature.layer.id == "townPoints") {
+			popup.remove();
+			return;
+		}
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	var feature = features[0];
-	console.log(feature);
 	
 	// populate the popup and set its coordinates
 	// base on the feature found
 	
 	popup.setLngLat(map.unproject(e.point))
-		.setHTML(feature.properties.NAME10 + " County" + "<br>" + "Click for more info")
+		.setHTML(moveInfo)
 		.addTo(map);
 });
 
