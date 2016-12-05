@@ -141,7 +141,6 @@ map.on('mousemove', function(e) {
 	
 	var moveInfo;
 	
-	
 	if (features.length) {
 		if (feature.layer.id == "countyPolygon-fills") {
 			if (clickedCountyName == feature.properties.NAME10) {
@@ -164,15 +163,6 @@ map.on('mousemove', function(e) {
 			return;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	var feature = features[0];
 	
 	// populate the popup and set its coordinates
 	// base on the feature found
