@@ -45,25 +45,7 @@ function main() {
         });
         */
     
-    cartodb.createLayer(map, {
-    	user_name: 'skyvwilliams',
-    	type: 'cartodb',
-    	sublayers: [{
-    		sql: "SELECT * FROM countypolygon_v2",
-    		cartocss: '#countypolygon_v2 { polygon-fill: #F00; }'
-    	}]
-    })
-    .addTo(map)
-    .done(function(layer) {
-    	layer.setInteraction(true);
-    	layer.sexZindex(5);
-    	layer.on('featureOver', function(e, latlng, pos, data) {
-			cartodb.log.log(e, latlng, pos, data);
-		});
-		layer.on('error', function(err) {
-			cartodb.log.log('error: ' + err);
-		})
-	});
+    
 	
 };
 
