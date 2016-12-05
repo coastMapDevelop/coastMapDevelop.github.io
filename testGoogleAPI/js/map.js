@@ -14,4 +14,6 @@ function initMap() {
 			from: '1l2ADyWAVukfgStGrFCXa9F3TrJIy-jB3V8nV5a4g'
 		}
 	});
+	
+	layer.setMap(map);
 };
