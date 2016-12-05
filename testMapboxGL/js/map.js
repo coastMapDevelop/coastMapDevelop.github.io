@@ -1,46 +1,4 @@
 
-/*
-	"constants": {
-		"@name": "{name_en}",
-		"@sans": "Open Sans Regular, Arial Unicode MS Regular",
-		"@sans-it": "Open Sans Italic, Arial Unicode MS Regular",
-		"@sans-md": "Open Sans Semibold, Arial Unicode MS Bold",
-		"@sans-bd": "Open Sans Bold, Arial Unicode MS Bold",
-		"@big-label": "#cb4b49",
-		"@medium-label": "#f27a87",
-		"@small-label": "#384646",
-		"@label-halo": "rgba(255,255,255,0.5)",
-		"@label-halo-dark": "rgba(0,0,0,0.2)",
-		"@land": "#ededed",
-		"@water": "#7acad0",
-		"@park": "#c2cd44",
-		"@building": "#afd3d3",
-		"@highway": "#5d6765",
-		"@road": "#c0c4c2",
-		"@path": "#5d6765",
-		"@subway": "#ef7369",
-		"@highway-width": {
-			"base": 1.55,
-			"stops": [[4, 0.5], [8, 1.5], [20, 40]]
-		},
-		"@road-width": {
-			"base": 1.55,
-			"stops": [[4, 0.25], [20, 30]]
-		},
-		"@path-width": {
-			"base": 1.8,
-			"stops": [[10, 0.15], [20, 15]]
-		},
-		"@road-misc-width": {
-			"base": 1,
-			"stops": [[4, 0.25], [20, 30]]
-		},
-		"@stream-width":{
-			"base": 0.5,
-			"stops": [[4, 0.5], [10, 1.5], [20, 5]]
-		}
-	}
-*/
 
 
 
@@ -154,10 +112,10 @@ map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills'] });
 	
 	if (features.length) {
-		map.setFilter('countyPolygon-click', ['==', 'NAME10', features[0].properties.NAME10]);
+		map.setFilter('countyPolygon-click', ['==', 'FID_1', features[0].properties.NAME10]);
 		clickedCountyName = features[0].properties.NAME10;
 	} else {
-		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
+		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
 		popup2.remove();
 		return;
 	}
@@ -184,10 +142,10 @@ map.on('mousemove', function(e) {
 		if (clickedCountyName == features[0].properties.NAME10) {
 			return;
 		} else {
-			map.setFilter('countyPolygon-hover', ['==', 'NAME10', features[0].properties.NAME10]);
+			map.setFilter('countyPolygon-hover', ['==', 'FID_1', features[0].properties.NAME10]);
 		}
 	} else {
-		map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
+		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
 		popup.remove();
 		return;
 	}
@@ -205,7 +163,7 @@ map.on('mousemove', function(e) {
 
 
 map.on('mouseout', function() {
-	map.setFilter('countyPolygon-hover', ['==', 'NAME10', '']);
+	map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
 });
 
 
@@ -217,12 +175,12 @@ function addSources() {
 		'data': '/testMapboxGL/data/geojson/countyPolygon_v2.geojson'
 	});
 	
-	map.addSource('cityPoints', {
+	map.addSource('urbanPoints', {
 		'type': 'geojson',
 		'data': '/testMapboxGL/data/geojson/citiesPoints_v1.geojson'
 	});
 	
-	map.addSource('cityPolygons', {
+	map.addSource('urbanPolygons', {
 		'type': 'geojson',
 		'data': '/testMapboxGL/data/geojson/citiesPolygons_v2.geojson'
 	});
@@ -281,12 +239,13 @@ function addLayers() {
 	map.addLayer({
 		'id': 'cityPoints',
 		'type': 'circle',
-		'source': 'cityPoints',
+		'source': 'urbanPoints',
 		'layout': {},
 		'paint': {
 			'circle-color': 'orange',
 			'circle-radius': 5
-		}
+		},
+		'filter': ["==", "LSAD", 25]
 	});
 };
 
