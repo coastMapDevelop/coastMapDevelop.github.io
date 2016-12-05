@@ -109,7 +109,7 @@ map.on('load', function() {
 
 
 map.on('click', function(e) {
-	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills'] });
+	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
 	
 	if (features.length) {
 		map.setFilter('countyPolygon-click', ['==', 'FID_1', features[0].properties.NAME10]);
@@ -135,7 +135,7 @@ map.on('click', function(e) {
 
 
 map.on('mousemove', function(e) {
-	var features = map.queryRenderedFeatures(e.point, {layers: ['countyPolygon-fills'] });
+	var features = map.queryRenderedFeatures(e.point, {layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
 	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
 	
 	if (features.length) {
