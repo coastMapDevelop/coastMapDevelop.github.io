@@ -42,12 +42,14 @@
 	}
 */
 
+
+
 var simpleMapzen = {
     "version": 8,
     "sources": {
         "osm": {
             "type": "vector",
-            "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-LM25tq4"]
+            "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=mapzen-6449F4S"]
         }
     },
     "layers": [
@@ -70,7 +72,7 @@ var simpleMapzen = {
     ]
 };
 
-/*
+
 var simpleOpenstreet = {
 	"version": 8,
     "sources": {
@@ -88,7 +90,7 @@ var simpleOpenstreet = {
         "maxzoom": 22
     }]
 };
-*/
+
 
 
 
@@ -100,7 +102,7 @@ if (!mapboxgl.supported()) {
 } else {
 	var map = new mapboxgl.Map({
 		container: 'map', // container id
-		style: simpleMapzen,
+		style: simpleOpenstreet,
 		center: [-88.7879, 43.7844], // starting position
 		zoom: 5.75 // starting zoom
 	});
