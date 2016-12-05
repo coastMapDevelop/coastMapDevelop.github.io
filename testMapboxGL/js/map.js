@@ -247,6 +247,30 @@ function addLayers() {
 		},
 		'filter': ["==", "LSAD", 25]
 	});
+	
+	map.addLayer({
+		'id': 'villagePoints',
+		'type': 'circle',
+		'source': 'urbanPoints',
+		'layout': {},
+		'paint': {
+			'circle-color': 'black',
+			'circle-radius': 5
+		},
+		'filter': ["==", "LSAD", 47]
+	});
+	
+	map.addLayer({
+		'id': 'townPoints',
+		'type': 'circle',
+		'source': 'urbanPoints',
+		'layout': {},
+		'paint': {
+			'circle-color': 'green',
+			'circle-radius': 5
+		},
+		'filter': ["==", "LSAD", 43]
+	})
 };
 
 
