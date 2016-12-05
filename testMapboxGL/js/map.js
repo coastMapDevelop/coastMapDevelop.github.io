@@ -49,7 +49,7 @@ var simpleMapzen = {
     "sources": {
         "osm": {
             "type": "vector",
-            "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=mapzen-6449F4S"]
+            "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-mapzen-6449F4S"]
         }
     },
     "layers": [
@@ -68,6 +68,24 @@ var simpleMapzen = {
             "paint": {
                 "fill-color": "#7acad0"
             }
+        }, {
+        	"id": "river",
+    		"source": "osm",
+    		"source-layer": "water",
+    		"type": "line",
+    		"min-zoom": 6,
+    		"filter": ["all", ["==", "$type", "LineString"], ["==", "kind", "river"]],
+    		"layout": {
+        		"line-cap": "round",
+        		"line-join": "round"
+      		},
+    		"paint": {
+      			"line-color": "#7acad0",
+      			"line-width": {
+        			"base": 1.2,
+        			"stops": [[8, 0.75], [20, 15]]
+      			}
+    		}
         }
     ]
 };

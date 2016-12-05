@@ -46,7 +46,7 @@ var sup = {
   "sources": {
     "osm": {
       "type": "vector",
-      "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-LM25tq4"]
+      "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-mapzen-6449F4S"]
     }
   },
   "layers": [{
