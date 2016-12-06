@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		var CLIENT_ID = '770051880602-2o33pmlmlhrcknbroiabfbs4mmhpjumf.apps.googleusercontent.com';
+		
+		var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+		
+		function checkAuth() {
+			gapi.auth.authorize(
+				{
+					'client_id': CLIENT_ID,
+					'scope': SCOPES.join(' '),
+					'immediate': true
+				}, handleAuthResult);
+		}
+		
+		function handleAuthResult(authResult) {
+			var authorizeDiv = document.getElementById('authorize-div');
+			if (authResult && !authResult.error) {
+				authorizeDiv.style.display = 'none';
+				loadSheetsAPI();
+			} else {
+				authorizeDiv.style.display = 'inline';
+			}
+		}
+		
+		function handleAuthClick(event) {
+			gapi.auth.authorize(
+				{client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+				handleAuthResult);
+			return false;
+		}
+		
+		
+		function loadSheetsApi() {
+			var discoveryUrl = 
+				'https://sheets.googleapis.com/$discovery/rest?version=v4';
+			gapi.client.load(discoveryUrl).then(listSampleSpreadSheet);
+		}
+		
+		function listSampleSpreadSheet() {
+			gapi.client.sheets.spreadsheets.values.get({
+				spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+				range: 'Class Data!A2:E',
+			}).then(function(response) {
+				var range = response.result;
+				if (range.values.length) > 0) {
+					appendPre('Name, Major:');
+					for (i=0; i < range.values.length; i++) {
+						var row = range.values[i];
+						appendPre(row[0] + ', ' + row[4]);
+					}
+				} else {
+					appendPre('No data found.');
+				}
+			}, function (response) {
+				appendPre('Error: ' + response.result.error.message);
+			});
+		}
+		
+		function appendPre(message) {
+			var pre = document.getElementById('output');
+			var textContent = document.createTextNode(message + '\n');
+			pre.appendChild(textContent);
+		}
+		
+		</script>
+		<script src='https://apis.google.com/js/client.js?onload=checkAuth'></script>
+	</head>
+	<body>
+		<div id="authorize-div" style="display: none">
+			<span>Authorize access to Google Sheets API</span>
+			<button id="authorize-button" onclick="handleAuthClick(event)">
+				Authorize
+			</button>
+		</div>
+		<pre id="output"></pre>
+	</body>
+</html>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
