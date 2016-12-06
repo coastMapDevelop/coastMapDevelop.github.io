@@ -53,8 +53,7 @@
        * Load Sheets API client library.
        */
       function loadSheetsApi() {
-        var discoveryUrl =
-            'https://sheets.googleapis.com/$discovery/rest?version=v4';
+        var discoveryUrl = 'https://sheets.googleapis.com/key=AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU/$discovery/rest?version=v4';
         gapi.client.load(discoveryUrl).then(listMajors);
       }
 
