@@ -53,7 +53,7 @@
        * Load Sheets API client library.
        */
       function loadSheetsApi() {
-        var discoveryUrl = 'https://sheets.googleapis.com/key=AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU/$discovery/rest?version=v4';
+        var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
         gapi.client.load(discoveryUrl).then(listMajors);
       }
 
@@ -87,6 +87,7 @@
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw',
 			range: 'Sheet1!A2:C',
+			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU',
 		}).then(function(response) {
 			var range = response.result;
 			if (range.values.length > 0) {
