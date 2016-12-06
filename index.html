@@ -69,7 +69,7 @@
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
-            appendPre('Name, Major:');
+            appendPre('Student Name, Major:');
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
               // Print columns A and E, which correspond to indices 0 and 4.
@@ -101,12 +101,10 @@
     </script>
   </head>
   <body>
-    <div id="authorize-div" style="display: none">
+    <div id="authorize-div" style="display: inline">
       <span>Authorize access to Google Sheets API</span>
       <!--Button for the user to click to initiate auth sequence -->
-      <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize
-      </button>
+      <button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button>
     </div>
     <pre id="output"></pre>
   </body>
