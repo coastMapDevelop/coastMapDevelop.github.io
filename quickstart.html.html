@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script type="text/javascript">
-		var CLIENT_ID = '770051880602-2o33pmlmlhrcknbroiabfbs4mmhpjumf.apps.googleusercontent.com';
+		var CLIENT_ID = '770051880602-cn6ju1h9ci99n6slh2etehoc453v4546.apps.googleusercontent.com';
 		
 		var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 		
@@ -45,7 +45,7 @@
 			}).then(function(response) {
 				var range = response.result;
 				if (range.values.length) > 0) {
-					appendPre('Name, Major:');
+					appendPre('Student Name, Major:');
 					for (i=0; i < range.values.length; i++) {
 						var row = range.values[i];
 						appendPre(row[0] + ', ' + row[4]);
