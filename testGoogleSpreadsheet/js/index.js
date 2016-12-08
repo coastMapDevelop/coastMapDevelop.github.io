@@ -18,7 +18,7 @@ function listMajors() {
 	}).then(function(response) {
 		var range = response.result;
 		if (range.values.length > 0) {
-			appendPre('Column_1, Column_2:');
+			//appendPre('Column_1, Column_2:');
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
 				appendPre(row[0] + ', ' + row[2]);
