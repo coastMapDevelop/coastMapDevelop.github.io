@@ -5,7 +5,7 @@ function main() {
 		attributionControl: true,
     	zoomControl: true,
         center: [44, -88],
-		minZoom: 6,
+		minZoom: 5,
 		maxBounds: [
 			[25.9, -126.38], //southwest
 			[53.4, -68.1]    //northeast
