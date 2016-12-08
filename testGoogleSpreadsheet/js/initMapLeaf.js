@@ -28,6 +28,42 @@ function main() {
 	//use ajax to load file
 	var myLayer = new L.geoJson();
 	
+	$.ajax({
+		dataType: "json",
+		url: "data/geojson/countyPolygons.geojson",
+		success: function(data) {
+			$(data.features).each(function(key, data) {
+				myLayer.addData(data);
+			});
+		}
+	}).error(function() {});
+	
+	myLayer.addTo(map);
+	
+	var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
+	
+	
+	
+	//L.geoJson(hydro_s, {style: hydrosStyle}).addTo(hydro);
+	/*
+	var featureStyle = {
+		"color": "#ff7800",
+		"weight": 5, 
+		"opacity": 0.2
+	};
+	*/
+	
+	/*
+	var myStyle = {
+		"color": "#ff7800",
+		"weight": 5,
+		"opacity": 0.65
+	};
+
+	L.geoJSON(myLines, {
+		style: myStyle
+	}).addTo(map);
+	*/
 	
     
     
