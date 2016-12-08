@@ -2,7 +2,7 @@
 function main() {
 	// initiate basemap
     var map = new L.Map('map', {
-		attributionControl: true
+		attributionControl: true,
     	zoomControl: true,
         center: [44, -88],
 		minZoom: 6,
@@ -10,7 +10,6 @@ function main() {
 			[25.9, -126.38], //southwest
 			[53.4, -68.1]    //northeast
 		],
-		worldCopyJump: true,
         zoom: 6
     });
 	
