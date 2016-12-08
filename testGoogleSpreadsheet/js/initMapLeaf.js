@@ -23,22 +23,6 @@ function main() {
 	OpenStreetMap_Mapnik.addTo(map);
 	
 	
-	/*
-	cartodb.createLayer(map, 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json')
-        .addTo(map)
-        .on('done', function(layer) {
-			layer.setInteraction(true);
-			layer.setZindex(5);
-			layer.on('featureOver', function(e, latlng, pos, data) {
-				cartodb.log.log(e, latlng, pos, data);
-			});
-			layer.on('error', function(err) {
-				cartodb.log.log('error: ' + err);
-			});
-        }).on('error', function() {
-			cartodb.log.log("some error occurred");
-        });
-        */
     
     
 	
