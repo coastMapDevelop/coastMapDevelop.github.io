@@ -26,21 +26,33 @@ function main() {
 	
 	
 	//use ajax to load file
-	var myLayer = new L.geoJson();
+	var myStyle = {
+		"fillColor": 'orange',
+		'weight': 1,
+		'opacity': 0.75,
+		'color': 'white',
+		'fillOpacity': 0.75
+	};
+	
 	
 	$.ajax({
 		dataType: "json",
 		url: "data/geojson/countyPolygons.geojson",
 		success: function(data) {
+			/*
 			$(data.features).each(function(key, data) {
 				myLayer.addData(data);
 			});
+			*/
+			myLayer = L.geoJson(data, {
+				style: myStyle
+			}).addTo(map);
 		}
 	}).error(function() {});
 	
-	myLayer.addTo(map);
 	
-	var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
+	
+	//var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
 	
 	
 	
