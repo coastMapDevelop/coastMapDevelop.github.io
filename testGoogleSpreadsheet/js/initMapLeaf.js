@@ -1,5 +1,6 @@
 
 function main() {
+	// initiate basemap
     var map = new L.Map('map', {
     	zoomControl: false,
         center: [44, -88],
@@ -23,9 +24,10 @@ function main() {
 	OpenStreetMap_Mapnik.addTo(map);
 	
 	
-	
+	// county variable
 	var geojson;
-	//use ajax to load file
+	
+	// county style
 	var myStyle = {
 		"fillColor": 'orange',
 		'weight': 1,
@@ -34,6 +36,7 @@ function main() {
 		'fillOpacity': 0.75
 	};
 	
+	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target;
 		this.openPopup();
@@ -49,15 +52,18 @@ function main() {
 		}
 	};
 	
+	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
 		this.closePopup();
 	};
 	
+	// on click
 	function zoomToFeature(e) {
 		map.fitBounds(e.target.getBounds());
 	};
 	
+	// adds eventlisteners
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature,
@@ -70,16 +76,11 @@ function main() {
 	
 	
 	
-	
+	// loads in geojson data
 	$.ajax({
 		dataType: "json",
 		url: "data/geojson/countyPolygons.geojson",
 		success: function(data) {
-			/*
-			$(data.features).each(function(key, data) {
-				myLayer.addData(data);
-			});
-			*/
 			geojson = L.geoJson(data, {
 				style: myStyle,
 				onEachFeature: onEachFeature
@@ -88,7 +89,7 @@ function main() {
 	});
 	
 	
-	
+	// testing ajax plugin to streamline process
 	//var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
 	
 	
