@@ -2,8 +2,15 @@
 function main() {
 	// initiate basemap
     var map = new L.Map('map', {
-    	zoomControl: false,
+		attributionControl: true
+    	zoomControl: true,
         center: [44, -88],
+		minZoom: 6,
+		maxBounds: [
+			[25.9, -126.38], //southwest
+			[53.4, -68.1]    //northeast
+		],
+		worldCopyJump: true,
         zoom: 6
     });
 	
@@ -44,7 +51,7 @@ function main() {
 	});
 	
 	// add tiles to map
-	OpenStreetMap_Mapnik.addTo(map);
+	Hydda_Full.addTo(map);
 	
 	
 	// county variable
