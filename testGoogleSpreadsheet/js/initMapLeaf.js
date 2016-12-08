@@ -23,6 +23,12 @@ function main() {
 	OpenStreetMap_Mapnik.addTo(map);
 	
 	
+	
+	
+	//use ajax to load file
+	var myLayer = new L.geoJson();
+	
+	
     
     
 	
