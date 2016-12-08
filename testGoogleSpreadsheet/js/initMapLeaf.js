@@ -36,6 +36,7 @@ function main() {
 	
 	function highlightFeature(e) {
 		var layer = e.target;
+		this.openPopup();
 		
 		layer.setStyle({
 			weight: 5,
@@ -46,12 +47,11 @@ function main() {
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
 		}
-		
-		e.bindPopup(e.properties.NAMELSAD10);
 	};
 	
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
+		this.closePopup();
 	};
 	
 	function zoomToFeature(e) {
@@ -64,6 +64,8 @@ function main() {
 			mouseout: resetHighlight,
 			click: zoomToFeature
 		});
+		
+		layer.bindPopup(feature.properties.NAMELSAD10);
 	};
 	
 	
@@ -83,7 +85,7 @@ function main() {
 				onEachFeature: onEachFeature
 			}).addTo(map);
 		}
-	}).error(function() {});
+	});
 	
 	
 	
