@@ -31,6 +31,8 @@ function listMajors() {
 	});
 };
 
+// Store data in a 2D array for cross reference every time the page is loaded (initiated)
+
       
 //Append a pre element to the body containing the given message
 //as its text node.
