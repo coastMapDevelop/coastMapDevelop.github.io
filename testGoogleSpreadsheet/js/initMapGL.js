@@ -35,3 +35,7 @@ var map = new mapboxgl.Map({
 });
 
 map.addControl(new mapboxgl.NavigationControl());
+
+map.on('load', function() {
+	alert('test');
+});

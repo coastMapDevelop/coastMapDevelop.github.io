@@ -89,26 +89,7 @@ function main() {
 	
 	
 	
-	//L.geoJson(hydro_s, {style: hydrosStyle}).addTo(hydro);
-	/*
-	var featureStyle = {
-		"color": "#ff7800",
-		"weight": 5, 
-		"opacity": 0.2
-	};
-	*/
 	
-	/*
-	var myStyle = {
-		"color": "#ff7800",
-		"weight": 5,
-		"opacity": 0.65
-	};
-
-	L.geoJSON(myLines, {
-		style: myStyle
-	}).addTo(map);
-	*/
 	
     
     
