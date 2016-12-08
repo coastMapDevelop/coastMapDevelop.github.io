@@ -172,17 +172,17 @@ map.on('mouseout', function() {
 function addSources() {
 	map.addSource('countyPolygons', {
 		'type': 'geojson',
-		'data': '/testMapboxGL/data/geojson/countyPolygon_v2.geojson'
+		'data': 'data/geojson/countyPolygons.geojson'
 	});
 	
 	map.addSource('urbanPoints', {
 		'type': 'geojson',
-		'data': '/testMapboxGL/data/geojson/citiesPoints_v1.geojson'
+		'data': 'data/geojson/urbanPoints.geojson'
 	});
 	
 	map.addSource('urbanPolygons', {
 		'type': 'geojson',
-		'data': '/testMapboxGL/data/geojson/citiesPolygons_v2.geojson'
+		'data': 'data/geojson/urbanPolygons.geojson'
 	});
 };
 
