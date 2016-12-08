@@ -2,8 +2,8 @@
 function main() {
     var map = new L.Map('map', {
     	zoomControl: false,
-        center: [43, 0],
-        zoom: 3
+        center: [44, -88],
+        zoom: 6
     });
 	
 	
@@ -24,7 +24,7 @@ function main() {
 	
 	
 	
-	
+	var geojson;
 	//use ajax to load file
 	var myStyle = {
 		"fillColor": 'orange',
@@ -33,6 +33,38 @@ function main() {
 		'color': 'white',
 		'fillOpacity': 0.75
 	};
+	
+	function highlightFeature(e) {
+		var layer = e.target;
+		
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			fillOpacity: 1
+		});
+		
+		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			layer.bringToFront();
+		}
+	};
+	
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+	};
+	
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	};
+	
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	};
+	
+	
 	
 	
 	$.ajax({
@@ -44,8 +76,9 @@ function main() {
 				myLayer.addData(data);
 			});
 			*/
-			myLayer = L.geoJson(data, {
-				style: myStyle
+			geojson = L.geoJson(data, {
+				style: myStyle,
+				onEachFeature: onEachFeature
 			}).addTo(map);
 		}
 	}).error(function() {});
