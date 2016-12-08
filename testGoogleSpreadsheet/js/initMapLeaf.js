@@ -46,6 +46,8 @@ function main() {
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
 		}
+		
+		e.bindPopup(e.properties.NAMELSAD10);
 	};
 	
 	function resetHighlight(e) {
