@@ -2,6 +2,8 @@
 
 // Load Sheets API client library.
 
+var googleSpreadsheet = [];
+
 function loadSheetsApi() {
     var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
     gapi.client.load(discoveryUrl).then(listMajors);
@@ -18,11 +20,13 @@ function listMajors() {
 	}).then(function(response) {
 		var range = response.result;
 		if (range.values.length > 0) {
-			//appendPre('Column_1, Column_2:');
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
 				appendPre(row[0] + ', ' + row[2]);
+				var arr = [row[0], row[1], row[2], row[3]];
+				googleSpreadsheet.push(arr);
 			}
+			console.log(googleSpreadsheet);
 		} else {
 			appendPre('No data found.');
 		}
@@ -30,8 +34,6 @@ function listMajors() {
 		appendPre('Error: ' + response.result.error.message);
 	});
 };
-
-// Store data in a 2D array for cross reference every time the page is loaded (initiated)
 
       
 //Append a pre element to the body containing the given message

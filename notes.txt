@@ -1,0 +1,19 @@
+
+countyPolygons attribute columns:
+	- STATEFP10
+	- COUNTYFP10
+	- NAME10
+	- FID_1
+
+urbanPolygons attribute columns:
+	- Name
+	- FID_1
+	- STATEFP
+	- LSAD
+
+urbanPoints attribute columns:
+	- Name
+	- STATEFP
+	- LSAD
+	- maybe GEOID
+	- or add new column for id

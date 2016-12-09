@@ -118,14 +118,10 @@ function main() {
 	});
 	
 	
+	
+	
 	// testing ajax plugin to streamline process
 	//var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
-	
-	
-	
-	
-	
-    
     
 	
 };
