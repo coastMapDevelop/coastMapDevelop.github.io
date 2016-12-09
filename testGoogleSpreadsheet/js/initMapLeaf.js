@@ -50,7 +50,7 @@ function main() {
 	});
 	
 	// add tiles to map
-	Hydda_Full.addTo(map);
+	CartoDB_DarkMatter.addTo(map);
 	
 	
 	// county variable
