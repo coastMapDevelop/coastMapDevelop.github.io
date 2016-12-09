@@ -93,7 +93,9 @@ function main() {
 		
 		var layer = e.target;
 		
-		console.log(layer.feature.properties.NAME10);
+		crossReference(layer.feature.properties);
+		
+		
 	};
 	
 	// adds eventlisteners
@@ -105,6 +107,15 @@ function main() {
 		});
 		
 		layer.bindPopup(feature.properties.NAMELSAD10);
+	};
+	
+	
+	function crossReference(props) {
+		var target = props.NAME10;
+		
+		var arrSpot = googleSpreadsheet.indexOf(target);
+		
+		console.log(arrSpot);
 	};
 	
 	
