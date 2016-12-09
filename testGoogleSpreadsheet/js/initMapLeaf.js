@@ -111,14 +111,14 @@ function main() {
 	
 	
 	function crossReference(props) {
-		var target = String(props.NAME10);
+		var target = props.NAME10;
 		
-		console.log(target);
-		console.log(props.NAME10);
-		
-		var arrSpot = googleSpreadsheet.indexOf(target);
-		
-		console.log(arrSpot);
+		var i;
+		for (i=0; i < googleSpreadsheet.length; i++) {
+			if (target == googleSpreadsheet[i][0]) {
+				console.log(googleSpreadsheet[i][1]);
+			}
+		}
 	};
 	
 	
