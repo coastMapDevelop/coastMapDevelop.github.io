@@ -23,7 +23,7 @@ function listMajors() {
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
 				appendPre(row[0] + ', ' + row[2]);
-				var arr = [row[0], row[1], row[2], row[3]];
+				var arr = [row[0], row[1], row[2], row[3];
 				googleSpreadsheet.push(arr);
 			}
 			console.log(googleSpreadsheet);

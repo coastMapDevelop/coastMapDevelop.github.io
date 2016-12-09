@@ -90,6 +90,10 @@ function main() {
 	// on click
 	function zoomToFeature(e) {
 		map.fitBounds(e.target.getBounds());
+		
+		var layer = e.target;
+		
+		console.log(layer.features.properties.NAME10);
 	};
 	
 	// adds eventlisteners
