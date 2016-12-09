@@ -111,7 +111,7 @@ function main() {
 	
 	
 	function crossReference(props) {
-		var target = props.NAME10;
+		var target = String(props.NAME10);
 		
 		var arrSpot = googleSpreadsheet.indexOf(target);
 		

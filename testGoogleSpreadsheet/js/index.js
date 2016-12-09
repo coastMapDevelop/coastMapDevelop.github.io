@@ -1,9 +1,9 @@
 
 
-// Load Sheets API client library.
-
+// Array for storing google spreadsheets data
 var googleSpreadsheet = [];
 
+// Load Sheets API client library.
 function loadSheetsApi() {
     var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
     gapi.client.load(discoveryUrl).then(listMajors);
@@ -14,9 +14,9 @@ function loadSheetsApi() {
 // https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0
 function listMajors() {
 	gapi.client.sheets.spreadsheets.values.get({
-		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw', // can be found from link inside (or above)
-		range: 'Sheet1!A2:D', // get data from Sheet1, and from columns A through D, starting at row 2
-		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', // google sheets api key, authentication not required for reading
+		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw', 	// can be found from link inside (or above)
+		range: 'Sheet1!A2:D', 										   	// get data from Sheet1, and from columns A through D, starting at row 2
+		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
 	}).then(function(response) {
 		var range = response.result;
 		if (range.values.length > 0) {
@@ -24,7 +24,7 @@ function listMajors() {
 				var row = range.values[i];
 				appendPre(row[0] + ', ' + row[2]);
 				var arr = [row[0], row[1], row[2], row[3]];
-				googleSpreadsheet.push(arr);
+				googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 			}
 			console.log(googleSpreadsheet);
 		} else {
