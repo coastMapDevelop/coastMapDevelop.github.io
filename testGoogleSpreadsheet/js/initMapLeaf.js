@@ -93,7 +93,7 @@ function main() {
 		
 		var layer = e.target;
 		
-		console.log(layer.features.properties.NAME10);
+		console.log(layer.feature.properties.NAME10);
 	};
 	
 	// adds eventlisteners
