@@ -30,14 +30,99 @@ map.on('load', function () {
     });
 
     map.addLayer({
-        'id': 'trees',
+        'id': 'trees05',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#76D7C4',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 0], ['<', 'DIAMETER', 5]]
+    });
+    
+    map.addLayer({
+        'id': 'trees610',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#48C9B0',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 6], ['<', 'DIAMETER', 10]]
+    });
+    
+    map.addLayer({
+        'id': 'trees1120',
         'type': 'circle',
         'source': 'trees',
         'layout': {},
         'paint': {
             'circle-color': '#1ABC9C',
-            'circle-radius': 2
-        }
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 11], ['<', 'DIAMETER', 20]]
+    });
+    
+    map.addLayer({
+        'id': 'trees2130',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#17A589',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 21], ['<', 'DIAMETER', 30]]
+    });
+    
+    map.addLayer({
+        'id': 'trees3140',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#85C1E9',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 31], ['<', 'DIAMETER', 40]]
+    });
+    
+    map.addLayer({
+        'id': 'trees4150',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#5DADE2',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 41], ['<', 'DIAMETER', 50]]
+    });
+    
+    map.addLayer({
+        'id': 'trees5160',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#3498DB',
+            'circle-radius': 1
+        },
+        'filter': ['all', ['>=', 'DIAMETER', 51], ['<', 'DIAMETER', 60]]
+    });
+    
+    map.addLayer({
+        'id': 'trees60',
+        'type': 'circle',
+        'source': 'trees',
+        'layout': {},
+        'paint': {
+            'circle-color': '#2E86C1',
+            'circle-radius': 1
+        },
+        'filter': ['>=', 'DIAMETER', 60]
     });
 });
 
