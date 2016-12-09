@@ -14,9 +14,9 @@ function loadSheetsApi() {
 // https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0
 function listMajors() {
 	gapi.client.sheets.spreadsheets.values.get({
-		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw',
-		range: 'Sheet1!A2:D',
-		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU',
+		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw', // can be found from link inside (or above)
+		range: 'Sheet1!A2:D', // get data from Sheet1, and from columns A through D, starting at row 2
+		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', // google sheets api key, authentication not required for reading
 	}).then(function(response) {
 		var range = response.result;
 		if (range.values.length > 0) {
