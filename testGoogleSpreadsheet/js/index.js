@@ -15,7 +15,7 @@ function loadSheetsApi() {
 function listMajors() {
 	gapi.client.sheets.spreadsheets.values.get({
 		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw',
-		range: 'Sheet1!A2:C',
+		range: 'Sheet1!A2:D',
 		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU',
 	}).then(function(response) {
 		var range = response.result;
