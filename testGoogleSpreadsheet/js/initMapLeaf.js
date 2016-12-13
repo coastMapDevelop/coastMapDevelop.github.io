@@ -88,7 +88,8 @@ function main() {
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
-		fillOpacity: 0.9
+		fillOpacity: 0.9,
+		zIndex: 10
 	};
 	
 	// on mouseover
@@ -158,30 +159,35 @@ function main() {
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			})
 			.addTo(map);
+			
+			addPointData();
 		}
 	});
 	
 	// loads in geojson data for points
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/urbanPoints.geojson",
-		success: function(data) {
-			var points = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, urbanPointsStyle);
-				}
-			})
-			.addTo(map);
+	function addPointData() {
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/urbanPoints.geojson",
+			success: function(data) {
+				var points = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, urbanPointsStyle);
+					}
+				})
+				.addTo(map);
 			
-			/*
-			urbanPoints = L.featureGroup([points])
-				.addTo(map)
-				.bringToFront();
-			*/
+				/*
+				urbanPoints = L.featureGroup([points])
+					.addTo(map)
+					.bringToFront();
+				*/
 			
-		}
-	});
+			}
+		});
+	};
+	
 	
 	
 	
