@@ -133,7 +133,8 @@ function main() {
 		for (i=0; i < googleSpreadsheet.length; i++) {
 			if (target == googleSpreadsheet[i][0]) {
 				console.log(googleSpreadsheet[i][1]);
-				popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1]).openOn(map);
+				popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
+					googleSpreadsheet[i][3]).openOn(map);
 			}
 		}
 	};
