@@ -1,5 +1,9 @@
 
 function main() {
+	
+	// rune authorization for google spreadsheet API
+	loadSheetsApi();
+	
 	// hack leaflet to not close popup on new popup
 	/*
 	L.Map = L.Map.extend({
