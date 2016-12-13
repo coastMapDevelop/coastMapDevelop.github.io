@@ -157,10 +157,7 @@ function main() {
 				style: myStyle,					// set style to myStyle variable
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			})
-			.addTo(map)
-			.done(function(layer) {
-				layer.setZIndex(0);
-			});
+			.addTo(map);
 		}
 	});
 	
@@ -173,13 +170,10 @@ function main() {
 				// convert markers to points
 				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, urbanPointsStyle);
-				},
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+				}
 			})
 			.addTo(map)
-			.done(function(layer) {
-				layer.setZIndex(1);
-			});
+			.bringToFront();
 		}
 	});
 	
