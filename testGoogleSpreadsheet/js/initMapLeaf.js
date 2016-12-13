@@ -172,7 +172,6 @@ function main() {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				}
 			})
-			.setZIndexOffset(10)
 			.addTo(map);
 			
 			/*
