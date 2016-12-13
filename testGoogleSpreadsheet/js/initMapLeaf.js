@@ -85,8 +85,8 @@ function main() {
 	// urban points style
 	var urbanPointsStyle = {
 		radius: 8,
-		fillColor: 'blue',
-		color: 'black',
+		fillColor: '#2471A3',
+		color: '#fff',
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.9
