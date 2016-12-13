@@ -65,14 +65,12 @@ function main() {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 	});
 	
-	// add tiles to map
-	CartoDB_DarkMatter.addTo(map);
+	CartoDB_DarkMatter.addTo(map); // add tiles to map
 	
-	// add hover popup
-	var popup = L.popup();
+	var popup = L.popup(); 	// add hover popup
 	
-	// county variable
-	var geojson;
+	var geojson; // county variable layer
+	var urbanPoints; // urban point variable layer
 	
 	// county style
 	var myStyle = {
@@ -86,6 +84,7 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
+		console.log(layer);
 		layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 		// set new style for hover county polygon
@@ -123,28 +122,38 @@ function main() {
 		});
 	};
 	
+	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props) {
-		var target = props.NAME10;
+		var target = props.NAME10; // reference
 		
+		// loop to retrieve necessary data from spreadsheet 
 		var i;
 		for (i=0; i < googleSpreadsheet.length; i++) {
 			if (target == googleSpreadsheet[i][0]) {
-				console.log(googleSpreadsheet[i][1]);
+				// set clicked popup with data and add to map
 				popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
 					googleSpreadsheet[i][3]).openOn(map);
 			}
 		}
 	};
 	
-	
-	
-	// loads in geojson data
+	// loads in geojson data for counties
 	$.ajax({
 		dataType: "json",
 		url: "data/geojson/countyPolygons.geojson",
 		success: function(data) {
 			geojson = L.geoJson(data, {
 				style: myStyle,
+				onEachFeature: onEachFeature
+			}).addTo(map);
+		}
+	});
+	
+	$.ajax({
+		dataType: 'json',
+		url: "data/geojson/urbanPoints.geojson",
+		success: function(data) {
+			urbanPoints = L.geoJson(data, {
 				onEachFeature: onEachFeature
 			}).addTo(map);
 		}
