@@ -22,24 +22,28 @@ function listMajors() {
 		if (range.values.length > 0) {
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
-				appendPre(row[0] + ', ' + row[2]);
+				//appendPre(row[0] + ', ' + row[2]);
 				var arr = [row[0], row[1], row[2], row[3]];
 				googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 			}
 			console.log(googleSpreadsheet);
 		} else {
-			appendPre('No data found.');
+			//appendPre('No data found.');
+			console.log('No data found.');
 		}
 	}, function (response) {
-		appendPre('Error: ' + response.result.error.message);
+		//appendPre('Error: ' + response.result.error.message);
+		console.log('Error: ' + response.result.error.message);
 	});
 };
 
       
 //Append a pre element to the body containing the given message
 //as its text node.
+/*
 function appendPre(message) {
     var pre = document.getElementById('output');
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
 };
+*/
