@@ -169,14 +169,15 @@ function main() {
 			var points = L.geoJson(data, {
 				// convert markers to points
 				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, urbanPointsStyle).bringToFront();
+					var circles = L.circleMarker(latlng, urbanPointsStyle);
+					return;
 				}
 			});
-			/*
-			urbanPoints = L.featureGroup([points])
+			
+			urbanPoints = L.featureGroup([circles])
 				.bringToFront()
 				.addTo(map);
-			*/
+			
 		}
 	});
 	
