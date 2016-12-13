@@ -171,11 +171,15 @@ function main() {
 				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				}
-			});
+			})
+			.setZIndexOffset(10)
+			.addTo(map);
 			
+			/*
 			urbanPoints = L.featureGroup([points])
 				.addTo(map)
 				.bringToFront();
+			*/
 			
 		}
 	});
