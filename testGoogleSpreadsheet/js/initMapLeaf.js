@@ -172,10 +172,11 @@ function main() {
 					return L.circleMarker(latlng, urbanPointsStyle).bringToFront();
 				}
 			});
-			
+			/*
 			urbanPoints = L.featureGroup([points])
 				.bringToFront()
 				.addTo(map);
+			*/
 		}
 	});
 	
