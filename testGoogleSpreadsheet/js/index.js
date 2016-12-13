@@ -1,7 +1,7 @@
 
 
-// Array for storing google spreadsheets data
-var googleSpreadsheet = [];
+var googleSpreadsheet = []; // Array for storing google spreadsheets data: county
+var googleSpreadsheet2 = []; // Array for storing google spreadsheets data: urban
 
 // Load Sheets API client library.
 function loadSheetsApi() {

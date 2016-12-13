@@ -170,7 +170,7 @@ function main() {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				},
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			}).addTo(map);
+			}).addTo(map).bringToFront();
 		}
 	});
 	
