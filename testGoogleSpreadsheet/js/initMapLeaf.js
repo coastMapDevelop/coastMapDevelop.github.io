@@ -147,6 +147,24 @@ function main() {
 		}
 	};
 	
+	
+	// loads in geojson data for counties
+	$.ajax({
+		dataType: "json",
+		url: "data/geojson/countyPolygons.geojson",
+		success: function(data) {
+			geojson = L.geoJson(data, {
+				style: myStyle,					// set style to myStyle variable
+				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+			})
+			.addTo(map)
+			.done(function(layer) {
+				layer.setZIndex(0);
+			});
+		}
+	});
+	
+	// loads in geojson data for points
 	$.ajax({
 		dataType: 'json',
 		url: "data/geojson/urbanPoints.geojson",
@@ -157,23 +175,13 @@ function main() {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				},
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			}).addTo(map);
+			})
+			.addTo(map)
+			.done(function(layer) {
+				layer.setZIndex(1);
+			});
 		}
 	});
-	
-	// loads in geojson data for counties
-	$.ajax({
-		dataType: "json",
-		url: "data/geojson/countyPolygons.geojson",
-		success: function(data) {
-			geojson = L.geoJson(data, {
-				style: myStyle,					// set style to myStyle variable
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			}).addTo(map);
-		}
-	});
-	
-	
 	
 	
 	
