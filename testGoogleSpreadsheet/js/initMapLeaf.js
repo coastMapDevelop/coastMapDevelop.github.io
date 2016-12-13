@@ -53,7 +53,7 @@ function main() {
 	CartoDB_DarkMatter.addTo(map);
 	
 	// add hover popup
-	var popupHover = L.popup();
+	//var popupHover = L.popup();
 	
 	
 	// county variable
@@ -72,7 +72,8 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target;
 		//this.openPopup();
-		popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
+		//popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
+		marker.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip();
 		
 		layer.setStyle({
 			weight: 5,
