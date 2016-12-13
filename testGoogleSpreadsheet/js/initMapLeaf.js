@@ -166,13 +166,16 @@ function main() {
 		dataType: 'json',
 		url: "data/geojson/urbanPoints.geojson",
 		success: function(data) {
-			urbanPoints = L.geoJson(data, {
+			var points = L.geoJson(data, {
 				// convert markers to points
 				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, urbanPointsStyle).bringToFront();
 				}
-			})
-			.addTo(map);
+			});
+			
+			urbanPoints = L.featureGroup([points])
+				.bringToFront()
+				.addTo(map);
 		}
 	});
 	
