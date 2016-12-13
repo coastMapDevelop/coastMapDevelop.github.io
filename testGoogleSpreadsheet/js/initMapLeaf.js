@@ -169,11 +169,10 @@ function main() {
 			urbanPoints = L.geoJson(data, {
 				// convert markers to points
 				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, urbanPointsStyle);
+					return L.circleMarker(latlng, urbanPointsStyle).bringToFront();
 				}
 			})
-			.addTo(map)
-			.bringToFront();
+			.addTo(map);
 		}
 	});
 	
