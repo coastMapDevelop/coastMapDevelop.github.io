@@ -153,8 +153,8 @@ function main() {
 		url: "data/geojson/countyPolygons.geojson",
 		success: function(data) {
 			geojson = L.geoJson(data, {
-				style: myStyle,
-				onEachFeature: onEachFeature
+				style: myStyle,					// set style to myStyle variable
+				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			}).addTo(map);
 		}
 	});
@@ -164,10 +164,11 @@ function main() {
 		url: "data/geojson/urbanPoints.geojson",
 		success: function(data) {
 			urbanPoints = L.geoJson(data, {
+				// convert markers to points
 				pointerToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				},
-				onEachFeature: onEachFeature
+				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			}).addTo(map);
 		}
 	});
