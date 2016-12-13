@@ -1,6 +1,7 @@
 
 function main() {
 	// hack leaflet to not close popup on new popup
+	/*
 	L.Map = L.Map.extend({
 		openPopup: function(popup) {
 			// this.closePopup();
@@ -9,6 +10,7 @@ function main() {
 			return this.addLayer(popup).fire('popupopen', {popup: this._popup});
 		}
 	});
+	*/
 	
 	// initiate basemap
     var map = new L.Map('map', {
@@ -63,7 +65,7 @@ function main() {
 	CartoDB_DarkMatter.addTo(map);
 	
 	// add hover popup
-	var popupHover = L.popup();
+	var popup = L.popup();
 	
 	
 	// county variable
@@ -109,7 +111,7 @@ function main() {
 		
 		var layer = e.target;
 		
-		popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
+		popup.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
 		
 		crossReference(layer.feature.properties);
 		
