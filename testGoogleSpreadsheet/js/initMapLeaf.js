@@ -106,14 +106,12 @@ function main() {
 	
 	// on click
 	function zoomToFeature(e) {
-		map.fitBounds(e.target.getBounds());
+		//map.fitBounds(e.target.getBounds());
 		
 		
 		var layer = e.target;
 		
-		popup.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
-		
-		crossReference(layer.feature.properties);
+		crossReference(e, layer, layer.feature.properties);
 		
 		
 	};
@@ -128,13 +126,14 @@ function main() {
 	};
 	
 	
-	function crossReference(props) {
+	function crossReference(e, layer, props) {
 		var target = props.NAME10;
 		
 		var i;
 		for (i=0; i < googleSpreadsheet.length; i++) {
 			if (target == googleSpreadsheet[i][0]) {
 				console.log(googleSpreadsheet[i][1]);
+				popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1]).openOn(map);
 			}
 		}
 	};
