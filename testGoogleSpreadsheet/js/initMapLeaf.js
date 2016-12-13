@@ -81,14 +81,15 @@ function main() {
 		'fillOpacity': 0.75
 	};
 	
+	console.log('test');
 	// urban points style
 	var urbanPointsStyle = {
-		"radius": 8,
-		"fillColor": 'blue',
-		'color': 'black',
-		'weight': 1,
-		'opacity': 1,
-		'fillOpacity': 0.9
+		radius: 8,
+		fillColor: 'blue',
+		color: 'black',
+		weight: 1,
+		opacity: 1,
+		fillOpacity: 0.9
 	};
 	
 	// on mouseover
