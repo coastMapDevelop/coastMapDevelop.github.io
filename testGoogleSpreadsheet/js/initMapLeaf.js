@@ -80,8 +80,7 @@ function main() {
 		'color': 'white',
 		'fillOpacity': 0.75
 	};
-	
-	console.log('test');
+
 	// urban points style
 	var urbanPointsStyle = {
 		radius: 8,
@@ -170,7 +169,9 @@ function main() {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				},
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			}).addTo(map).bringToFront();
+			}).addTo(map);
+			
+			urbanPoints.bringToFront();
 		}
 	});
 	
