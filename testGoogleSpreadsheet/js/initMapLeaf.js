@@ -166,7 +166,7 @@ function main() {
 		success: function(data) {
 			urbanPoints = L.geoJson(data, {
 				// convert markers to points
-				pointerToLayer: function (feature, latlng) {
+				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, urbanPointsStyle);
 				},
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
