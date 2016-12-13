@@ -74,17 +74,17 @@ function main() {
 	
 	// county style
 	var myStyle = {
-		"fillColor": 'orange',
+		"fillColor": '#2471A3',
 		'weight': 1,
 		'opacity': 0.75,
-		'color': 'white',
+		'color': '#fff',
 		'fillOpacity': 0.75
 	};
 
 	// urban points style
 	var urbanPointsStyle = {
 		radius: 8,
-		fillColor: '#2471A3',
+		fillColor: '#E67E22',
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
