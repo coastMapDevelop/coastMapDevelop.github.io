@@ -2,35 +2,31 @@
 <html>
   <head>
 		<meta charset='utf-8' />
-		<title>Title</title>
+		<title>Development</title>
 		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 		
-		<!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />-->
+		<!-- leaflet CSS library -->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+		<!-- custom website & map CSS -->
 		<link href="css/style.css" rel="stylesheet" />
 		
     
   </head>
   <body>
 	
-	<!--
-    <div id="authorize-div">
-      <span>Authorize access to Google Sheets API</span>
-		<button id="authorize-button" onclick="loadSheetsApi()">Authorize</button>
-    </div>
-    <pre id="output"></pre>
-	-->
-	
+	<!-- map container -->
 	<div id="map"></div>
 	
-	
+	<!-- jquery library -->
 	<script src="lib/jquery-3.1.1.min.js"></script>
+	<!-- google spreadsheet API -->
 	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-	<!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>-->
+	<!-- leaflet API -->
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<!--<script src='lib/leaflet.ajax.min.js'></script> -->
+	<!-- javascript for google spreadsheet connection and general website functions -->
 	<script src="js/index.js"></script>
-	<!--<script src="js/initMapGL.js"></script>-->
+	<!-- javascript for leaflet map functions -->
 	<script src="js/initMapLeaf.js"></script>
   </body>
 </html>

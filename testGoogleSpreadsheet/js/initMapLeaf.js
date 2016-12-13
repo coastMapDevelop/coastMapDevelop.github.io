@@ -18,15 +18,15 @@ function main() {
 	
 	// initiate basemap
     var map = new L.Map('map', {
-		attributionControl: true,
-    	zoomControl: true,
-        center: [44, -88],
-		minZoom: 5,
+		attributionControl: true, // add attribution to the map
+    	zoomControl: true,		  // add zoom control to the map
+        center: [44, -88],		  // coordinates of map initation
+		minZoom: 5,				  // minimum zoom level of the map
 		maxBounds: [
-			[25.9, -126.38], //southwest
-			[53.4, -68.1]    //northeast
+			[25.9, -126.38], 	  //southwest bounds
+			[53.4, -68.1]    	  //northeast bounds
 		],
-        zoom: 6
+        zoom: 6					  // map initiation zoom level
     });
 	
 	// hydda.full tiles
@@ -71,7 +71,6 @@ function main() {
 	// add hover popup
 	var popup = L.popup();
 	
-	
 	// county variable
 	var geojson;
 	
@@ -86,16 +85,17 @@ function main() {
 	
 	// on mouseover
 	function highlightFeature(e) {
-		var layer = e.target;
-		//this.openPopup();
-		layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip();
+		var layer = e.target; // reference layer
+		layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
+		// set new style for hover county polygon
 		layer.setStyle({
 			weight: 5,
 			color: '#666',
 			fillOpacity: 1
 		});
 		
+		// check for browser support
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 			layer.bringToFront();
 		}
@@ -103,32 +103,25 @@ function main() {
 	
 	// on mouseout
 	function resetHighlight(e) {
-		geojson.resetStyle(e.target);
-		//this.closePopup();
-		this.closeTooltip();
+		geojson.resetStyle(e.target); // reset style of county polygons
+		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
 	// on click
 	function zoomToFeature(e) {
-		//map.fitBounds(e.target.getBounds());
-		
-		
-		var layer = e.target;
-		
-		crossReference(e, layer, layer.feature.properties);
-		
-		
+		//map.fitBounds(e.target.getBounds()); // zoom to feature
+		var layer = e.target; // reference layer
+		crossReference(e, layer, layer.feature.properties); // call function to cross reference clicked layer name with google spreadsheet data
 	};
 	
 	// adds eventlisteners
 	function onEachFeature(feature, layer) {
 		layer.on({
-			mouseover: highlightFeature,
-			mouseout: resetHighlight,
-			click: zoomToFeature
+			mouseover: highlightFeature, // call highlightFeature function on mouseover
+			mouseout: resetHighlight,	 // call resetHighlight function on mouseout
+			click: zoomToFeature		 // call zoomToFeature function on click
 		});
 	};
-	
 	
 	function crossReference(e, layer, props) {
 		var target = props.NAME10;
@@ -166,4 +159,4 @@ function main() {
 	
 };
 
-window.onload = main;
+window.onload = main; // start on window load

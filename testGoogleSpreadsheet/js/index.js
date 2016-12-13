@@ -9,7 +9,6 @@ function loadSheetsApi() {
     gapi.client.load(discoveryUrl).then(listMajors);
 };
 
-      
 //Print data from spreadsheet
 // https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0
 function listMajors() {
@@ -22,28 +21,13 @@ function listMajors() {
 		if (range.values.length > 0) {
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
-				//appendPre(row[0] + ', ' + row[2]);
 				var arr = [row[0], row[7], row[8], row[9]];
 				googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 			}
-			console.log(googleSpreadsheet);
 		} else {
-			//appendPre('No data found.');
 			console.log('No data found.');
 		}
 	}, function (response) {
-		//appendPre('Error: ' + response.result.error.message);
 		console.log('Error: ' + response.result.error.message);
 	});
 };
-
-      
-//Append a pre element to the body containing the given message
-//as its text node.
-/*
-function appendPre(message) {
-    var pre = document.getElementById('output');
-    var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
-};
-*/
