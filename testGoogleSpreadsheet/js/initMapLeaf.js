@@ -81,6 +81,16 @@ function main() {
 		'fillOpacity': 0.75
 	};
 	
+	// urban points style
+	var urbanPointsStyle = {
+		"radius": 8,
+		"fillColor": 'blue',
+		'color': 'black',
+		'weight': 1,
+		'opacity': 1,
+		'fillOpacity': 0.9
+	}
+	
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
@@ -154,6 +164,9 @@ function main() {
 		url: "data/geojson/urbanPoints.geojson",
 		success: function(data) {
 			urbanPoints = L.geoJson(data, {
+				pointerToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, urbanPointsStyle);
+				},
 				onEachFeature: onEachFeature
 			}).addTo(map);
 		}
