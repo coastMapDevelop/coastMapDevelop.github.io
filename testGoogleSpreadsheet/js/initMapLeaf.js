@@ -78,7 +78,8 @@ function main() {
 		'weight': 1,
 		'opacity': 0.75,
 		'color': '#fff',
-		'fillOpacity': 0.75
+		'fillOpacity': 0.75,
+		'zIndex': 9
 	};
 
 	// urban points style
