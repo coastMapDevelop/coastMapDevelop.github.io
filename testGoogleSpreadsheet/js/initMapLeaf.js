@@ -90,6 +90,7 @@ function main() {
 	// on click
 	function zoomToFeature(e) {
 		map.fitBounds(e.target.getBounds());
+		this.openPopup();
 		
 		var layer = e.target;
 		
