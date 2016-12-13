@@ -1,5 +1,15 @@
 
 function main() {
+	// hack leaflet to not close popup on new popup
+	L.Map = L.Map.extend({
+		openPopup: function(popup) {
+			// this.closePopup();
+			this._popup = popup;
+			
+			return this.addLayer(popup).fire('popupopen', {popup: this._popup});
+		}
+	});
+	
 	// initiate basemap
     var map = new L.Map('map', {
 		attributionControl: true,
@@ -72,8 +82,7 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target;
 		//this.openPopup();
-		//popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
-		marker.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip();
+		
 		
 		layer.setStyle({
 			weight: 5,
@@ -98,6 +107,8 @@ function main() {
 		
 		
 		var layer = e.target;
+		
+		popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
 		
 		crossReference(layer.feature.properties);
 		
