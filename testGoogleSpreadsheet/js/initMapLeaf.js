@@ -52,6 +52,9 @@ function main() {
 	// add tiles to map
 	CartoDB_DarkMatter.addTo(map);
 	
+	// add hover popup
+	var popupHover = L.popup();
+	
 	
 	// county variable
 	var geojson;
@@ -68,7 +71,8 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target;
-		this.openPopup();
+		//this.openPopup();
+		popupHover.setLatLng(e.latlng).setContent(layer.feature.properties.NAMELSAD10).openOn(map);
 		
 		layer.setStyle({
 			weight: 5,
@@ -84,13 +88,13 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target);
-		this.closePopup();
+		//this.closePopup();
 	};
 	
 	// on click
 	function zoomToFeature(e) {
 		map.fitBounds(e.target.getBounds());
-		this.openPopup();
+		
 		
 		var layer = e.target;
 		
@@ -107,7 +111,7 @@ function main() {
 			click: zoomToFeature
 		});
 		
-		layer.bindPopup(feature.properties.NAMELSAD10);
+		//layer.bindPopup(feature.properties.NAMELSAD10);
 	};
 	
 	
