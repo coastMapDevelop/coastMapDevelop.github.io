@@ -201,9 +201,9 @@ function main() {
 		console.log(zoom);
 		//var target = zoom + 10;
 		if (target == 10) {
-			console.log('change to polygons');
-		} else if (target == 9) {
 			console.log('change to points');
+		} else if (target == 9) {
+			console.log('change to polygons');
 		}
 	};
 	
