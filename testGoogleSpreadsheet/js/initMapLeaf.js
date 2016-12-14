@@ -114,7 +114,7 @@ function main() {
 			
 			// set new style for hover points 
 			layer.setStyle({
-				weight: 5,
+				weight: 3,
 				color: '#666',
 				zIndex: 11
 			});
@@ -168,6 +168,12 @@ function main() {
 			console.log('point');
 		}
 	};
+	
+	
+	map.on('zoom', function(e) {
+		console.log(e);
+		console.log(map.getZoom());
+	});
 	
 	
 	// loads in geojson data for counties
