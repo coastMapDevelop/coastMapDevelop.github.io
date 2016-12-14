@@ -182,9 +182,10 @@ function main() {
 	
 	function checkZoom() {
 		var zoom = map.getZoom();
-		if (zoom >= 10) {
+		var target = zoom + 10;
+		if (target == 20) {
 			console.log('change to polygons');
-		} else if (zoom < 10) {
+		} else if (target == 19) {
 			console.log('change to points');
 		}
 	};
