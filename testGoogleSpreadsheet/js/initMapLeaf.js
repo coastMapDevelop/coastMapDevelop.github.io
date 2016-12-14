@@ -194,6 +194,7 @@ function main() {
 	
 	function checkZoom() {
 		var zoom = map.getZoom();
+		console.log(zoom);
 		var target = zoom + 10;
 		if (target == 20) {
 			console.log('change to polygons');
