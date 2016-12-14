@@ -124,7 +124,7 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target); // reset style of county polygons
-		points.resetStyle(e.target);
+		urbanPoints.resetStyle(e.target);
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
@@ -170,10 +170,17 @@ function main() {
 	};
 	
 	
-	map.on('zoom', function(e) {
-		console.log(e);
-		console.log(map.getZoom());
-	});
+	map.on('zoom', checkZoom());
+	
+	
+	function checkZoom() {
+		var zoom = map.getZoom();
+		if (zoom >= 10) {
+			console.log('change to polygons');
+		} else if (zoom < 10) {
+			console.log('change to points');
+		}
+	};
 	
 	
 	// loads in geojson data for counties
@@ -197,7 +204,7 @@ function main() {
 			dataType: 'json',
 			url: "data/geojson/urbanPoints.geojson",
 			success: function(data) {
-				var points = L.geoJson(data, {
+				urbanPoints = L.geoJson(data, {
 					// convert markers to points
 					pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, urbanPointsStyle);
