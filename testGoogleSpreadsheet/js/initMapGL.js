@@ -84,23 +84,26 @@ map.dragRotate.disable();
 map.touchZoomRotate.disableRotation();
 
 
-// Create a popup, but don't add it to the map yet
+// Create a popup for a hover effect
 var popup = new mapboxgl.Popup({
 	closeButton: false,
 	closeOnClick: false
 });
 
-
-
-map.on('load', function() {
-	
-	addSources(); // Call to function to add data sources
-	
-	addLayers(); // Call to function to add layers to map
-	
+// Create a popup for a click effect
+var popup2 = new mapboxgl.Popup({
+	closeButton: true,
+	closeOnClick: true
 });
 
 
+// on map load, do something
+map.on('load', function() {
+	addSources(); // Call to function to add data sources
+	addLayers(); // Call to function to add layers to map
+});
+
+// on click, do something
 map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
 	
@@ -113,24 +116,20 @@ map.on('click', function(e) {
 		return;
 	}
 	
-	var feature = features[0];
+	var feature = features[0]; // reference variable
 	
-	popup.remove();
+	popup.remove(); // remove hover popup
 	
-	var popup2 = new mapboxgl.Popup()
-		.setLngLat(map.unproject(e.point))
-		.setHTML(feature.properties.NAME10 + " County" + "<br>" + "Population 2010: " + feature.properties.POP2010 + "<br>" + "Population 2000: " + feature.properties.POP2000 + "<br>"
-			+ "<a href='"+ feature.properties.Govt_Websi + "' target='_blank'>Government Website</a>")
+	popup2.setLngLat(map.unproject(e.point))
+		.setHTML('clicked')
 		.addTo(map);
-	
-	console.log(popup2.innerHTML);
 });
 
 
 map.on('mousemove', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
-	map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-	var feature = features[0];
+	map.getCanvas().style.cursor = features.length ? 'pointer' : ''; // change cursor to pointer on hover
+	var feature = features[0]; // reference variable
 	
 	var moveInfo;
 	
