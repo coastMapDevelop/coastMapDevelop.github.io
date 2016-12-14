@@ -19,7 +19,7 @@ body {
 	background: #fff;
 	height: 30vh;
 	width: 75px;
-	z-index: 20;
+	z-index: 1001;
 }
 
 #layer01 {
