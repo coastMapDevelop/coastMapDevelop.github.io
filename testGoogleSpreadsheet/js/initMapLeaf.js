@@ -124,6 +124,7 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target); // reset style of county polygons
+		points.resetStyle(e.target);
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
