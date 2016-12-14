@@ -138,7 +138,7 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon') {
-			geojson.resetStyle(e.target); // reset style of county polygons
+			geojson.resetStyle(geojson); // reset style of county polygons
 		} else {
 			console.log('not polygon');
 		}
