@@ -98,6 +98,7 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (layer.feature.geometry.type == "MultiPolygon") {
+			console.log('multipolygon');
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
@@ -108,6 +109,7 @@ function main() {
 				zIndex: 11
 			});
 		} else if (layer.feature.geometry.type == 'Point') {
+			console.log('point');
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
 			// set new style for hover points 
@@ -122,7 +124,6 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target); // reset style of county polygons
-		geojson.resetStyle(e.target); // reset style of points
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
@@ -150,6 +151,9 @@ function main() {
 	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props, type) {
 		if (type == 'MultiPolygon') {
+			console.log('multipolygon');
+			var target = props.NAME10; // reference
+		
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			for (i=0; i < googleSpreadsheet.length; i++) {
