@@ -185,19 +185,24 @@ function main() {
 		}
 	};
 	
-	
+	var checkZoom;
+	var currentZoom = 6;
 	map.on('zoom', function(e) {
-		checkZoom();
+		checkZoom = currentZoom;
+		currentZoom = map.getZoom();
+		
+		checkZoom(checkZoom);
 	});
 	
 	
-	function checkZoom() {
+	function checkZoom(target) {
+		// if checkZoom 
 		var zoom = map.getZoom();
 		console.log(zoom);
-		var target = zoom + 10;
-		if (target == 20) {
+		//var target = zoom + 10;
+		if (target == 10) {
 			console.log('change to polygons');
-		} else if (target == 19) {
+		} else if (target == 9) {
 			console.log('change to points');
 		}
 	};
