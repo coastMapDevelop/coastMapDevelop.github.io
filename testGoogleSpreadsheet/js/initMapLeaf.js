@@ -238,7 +238,7 @@ function main() {
 		});
 	};
 	
-	function addUrbanPolygonData();
+	function addUrbanPolygonData() {
 		$.ajax({
 			dataType: 'json',
 			url: "data/geojson/urbanPolygons.geojson",
