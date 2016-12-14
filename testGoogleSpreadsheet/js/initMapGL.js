@@ -108,11 +108,8 @@ map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, { layers: ['countyPolygon-fills', 'cityPoints', 'villagePoints', 'townPoints'] });
 	
 	if (features.length) {
-		map.setFilter('countyPolygon-click', ['==', 'FID_1', features[0].properties.NAME10]);
 		clickedCountyName = features[0].properties.NAME10;
 	} else {
-		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
-		popup2.remove();
 		return;
 	}
 	
