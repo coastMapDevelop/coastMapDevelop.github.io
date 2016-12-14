@@ -125,7 +125,11 @@ function main() {
 	
 	// on mouseout
 	function resetHighlight(e) {
-		geojson.resetStyle(e.target); // reset style of county polygons
+		if (e.target.feature.geometry.type == 'MultiPolygon') {
+			geojson.resetStyle(e.target); // reset style of county polygons
+		} else {
+			console.log('not polygon');
+		}
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
