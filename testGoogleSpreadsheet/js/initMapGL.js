@@ -133,18 +133,14 @@ map.on('mousemove', function(e) {
 	
 	var moveInfo;
 	
+	if (feature.layer.id == 'countyPolygon-fills') {
+		moveInfo = feature.properties.NAME10 = " County" + "<br>" + "Click for more info";
+	} else if (feature.layer.id == "cityPoints" || feature.layer.id == "villagePoints" || feature.layer.id == "townPoints") {
+		moveInfo = feature.properties.name + "<br>" + "Click for more info";
+	}
+	
 	if (features.length) {
-		if (feature.layer.id == "countyPolygon-fills") {
-			if (clickedCountyName == feature.properties.NAME10) {
-				moveInfo = feature.properties.NAME10 + " County" + "<br>" + "Click for more info";
-				return;
-			} else {
-				map.setFilter('countyPolygon-hover', ['==', 'FID_1', feature.properties.FID_1]);
-			}
-		} else if (feature.layer.id == "cityPoints" || feature.layer.id == "villagePoints" || feature.layer.id == "townPoints") {
-			moveInfo = feature.properties.name + "<br>" + "Click for more info";
-			return;
-		}
+		map.setFilter('countyPolygon-hover', ['==', 'FID_1', feature.properties.FID_1]);
 	} else {
 		map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
 		popup.remove();
@@ -153,7 +149,6 @@ map.on('mousemove', function(e) {
 	
 	// populate the popup and set its coordinates
 	// base on the feature found
-	
 	popup.setLngLat(map.unproject(e.point))
 		.setHTML(moveInfo)
 		.addTo(map);
