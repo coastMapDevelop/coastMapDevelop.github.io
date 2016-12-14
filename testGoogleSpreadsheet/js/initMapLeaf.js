@@ -187,6 +187,7 @@ function main() {
 	
 	
 	map.on('zoom', function(e) {
+		console.log(map.getLayers());
 		checkZoom();
 	});
 	
