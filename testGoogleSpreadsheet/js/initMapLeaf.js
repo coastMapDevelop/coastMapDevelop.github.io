@@ -71,6 +71,7 @@ function main() {
 	
 	var geojson; // county variable layer
 	var urbanPoints; // urban point variable layer
+	var urbanPolygons; // urban polygon variable layer
 	
 	// county style
 	var myStyle = {
@@ -90,6 +91,16 @@ function main() {
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.9,
+		zIndex: 10
+	};
+	
+	// urban polygon style
+	var urbanPolygonStyle = {
+		fillColor: 'red',
+		weight: 1,
+		opacity: 0.75,
+		color: '#fff',
+		fillOpacity: 0.75,
 		zIndex: 10
 	};
 	
@@ -221,7 +232,21 @@ function main() {
 				})
 				.addTo(map);
 				// .bringToFront();
-			
+				
+				addUrbanPolygonData();
+			}
+		});
+	};
+	
+	function addUrbanPolygonData();
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/urbanPolygons.geojson",
+			success: function(data) {
+				urbanPolygons = L.geoJson(data, {
+					style: urbanPolygonStyle,		// set style to urbanPolygonStyle variable
+					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+				});
 			}
 		});
 	};
