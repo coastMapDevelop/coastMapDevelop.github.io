@@ -171,7 +171,9 @@ function main() {
 	};
 	
 	
-	map.on('zoom', checkZoom());
+	map.on('zoom', function(e) {
+		checkZoom();
+	});
 	
 	
 	function checkZoom() {
