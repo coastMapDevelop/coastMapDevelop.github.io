@@ -191,18 +191,16 @@ function main() {
 		checkZoom = currentZoom;
 		currentZoom = map.getZoom();
 		
-		updateZoom(checkZoom);
+		updateZoom(checkZoom, currentZoom);
 	});
 	
 	
-	function updateZoom(target) {
-		// if checkZoom 
-		var zoom = map.getZoom();
-		console.log(zoom);
+	function updateZoom(target, range) {
+		console.log(range);
 		//var target = zoom + 10;
-		if (target == 10) {
+		if (target == 10 && range == 9) {
 			console.log('change to points');
-		} else if (target == 9) {
+		} else if (target == 9 && range == 10) {
 			console.log('change to polygons');
 		}
 	};
