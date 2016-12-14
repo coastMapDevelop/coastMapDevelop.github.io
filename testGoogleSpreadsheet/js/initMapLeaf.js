@@ -185,23 +185,25 @@ function main() {
 		}
 	};
 	
-	var checkZoom;
-	var currentZoom = 6;
+	var checkZoom; // keeps track of zoom direction
+	var currentZoom = 6; // keeps track of current zoom
 	map.on('zoom', function(e) {
-		checkZoom = currentZoom;
-		currentZoom = map.getZoom();
+		checkZoom = currentZoom; // lag behind current zoom
+		currentZoom = map.getZoom(); // update continuously with zoom
 		
-		updateZoom(checkZoom, currentZoom);
+		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
 	
-	
-	function updateZoom(target, range) {
-		console.log(range);
-		//var target = zoom + 10;
-		if (target == 10 && range == 9) {
+	// function to check whether to add points or polygons to the map based on zoom 
+	function updateZoom() {
+		if (checkZoom == 10 && currentZoom == 9) {
 			console.log('change to points');
-		} else if (target == 9 && range == 10) {
+			urbanPoints.addTo(map);
+			map.removeLayer(urbanPolygons);
+		} else if (checkZoom == 9 && currentZoom == 10) {
 			console.log('change to polygons');
+			map.removeLayer(urbanPoints);
+			urbanPolygons.addTo(map);
 		}
 	};
 	
