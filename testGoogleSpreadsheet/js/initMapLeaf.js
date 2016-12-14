@@ -107,6 +107,7 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
+		console.log(layer);
 		
 		if (layer.feature.geometry.type == "MultiPolygon") {
 			console.log('multipolygon');
@@ -197,11 +198,9 @@ function main() {
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
 		if (checkZoom == 10 && currentZoom == 9) {
-			console.log('change to points');
 			urbanPoints.addTo(map);
 			map.removeLayer(urbanPolygons);
 		} else if (checkZoom == 9 && currentZoom == 10) {
-			console.log('change to polygons');
 			map.removeLayer(urbanPoints);
 			urbanPolygons.addTo(map);
 		}
