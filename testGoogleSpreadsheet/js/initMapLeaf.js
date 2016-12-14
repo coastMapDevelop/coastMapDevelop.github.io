@@ -96,25 +96,33 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
-		console.log(layer);
-		layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
-		// set new style for hover county polygon
-		layer.setStyle({
-			weight: 5,
-			color: '#666',
-			fillOpacity: 1
-		});
+		if (layer.feature.geometry.type == "MultiPolygon") {
+			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
-		// check for browser support
-		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-			//layer.bringToFront();
+			// set new style for hover county polygon
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				fillOpacity: 1,
+				zIndex: 11
+			});
+		} else if (layer.feature.geometry.type == 'Point') {
+			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
+			
+			// set new style for hover points 
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				zIndex: 11
+			});
 		}
 	};
 	
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target); // reset style of county polygons
+		geojson.resetStyle(e.target); // reset style of points
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
@@ -122,7 +130,12 @@ function main() {
 	function zoomToFeature(e) {
 		//map.fitBounds(e.target.getBounds()); // zoom to feature
 		var layer = e.target; // reference layer
-		crossReference(e, layer, layer.feature.properties); // call function to cross reference clicked layer name with google spreadsheet data
+		
+		if (layer.feature.geometry.type == 'MultiPolygon') {
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+		} else if (layer.feature.geometry.type == 'Point') {
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+		}
 	};
 	
 	// adds eventlisteners
@@ -135,17 +148,19 @@ function main() {
 	};
 	
 	// function to cross reference name of county polygon with google spreadsheet
-	function crossReference(e, layer, props) {
-		var target = props.NAME10; // reference
-		
-		// loop to retrieve necessary data from spreadsheet 
-		var i;
-		for (i=0; i < googleSpreadsheet.length; i++) {
-			if (target == googleSpreadsheet[i][0]) {
-				// set clicked popup with data and add to map
-				popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
-					googleSpreadsheet[i][3]).openOn(map);
+	function crossReference(e, layer, props, type) {
+		if (type == 'MultiPolygon') {
+			// loop to retrieve necessary data from spreadsheet 
+			var i;
+			for (i=0; i < googleSpreadsheet.length; i++) {
+				if (target == googleSpreadsheet[i][0]) {
+					// set clicked popup with data and add to map
+					popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
+						googleSpreadsheet[i][3]).openOn(map);
+				}
 			}
+		} else if (type == 'Point') {
+			console.log('point');
 		}
 	};
 	
