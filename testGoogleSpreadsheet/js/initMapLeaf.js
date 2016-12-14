@@ -96,6 +96,7 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
+		console.log(layer);
 		
 		if (layer.feature.geometry.type == "MultiPolygon") {
 			console.log('multipolygon');
