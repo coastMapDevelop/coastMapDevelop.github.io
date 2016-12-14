@@ -16,8 +16,48 @@ body {
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	border-radius: 4px;
 	background: #fff;
-	height: 200px;
+	height: 30vh;
 	width: 75px;
+	z-index: 20;
+}
+
+#layer01 {
+	position: absolute;
+	top:0;
+	left:0;
+	background: red;
+	height: 25%;
+	width: 100%;
+	border: 1px solid #fff;
+}
+
+#layer02 {
+	position: absolute;
+	top: 25%;
+	left: 0;
+	background: orange;
+	height: 25%;
+	width: 100%;
+	border: 1px solid #fff;
+}
+
+#layer03 {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	background: blue;
+	height: 25%;
+	width: 100%;
+	border: 1px solid #fff;
+}
+
+#layer04 {
+	position: absolute;
+	top: 75%;
+	left: 0;
+	background: green;
+	height: 25%;
+	width: 100%;
+	border: 1px solid #fff;
 }
