@@ -191,11 +191,11 @@ function main() {
 		checkZoom = currentZoom;
 		currentZoom = map.getZoom();
 		
-		checkZoom(checkZoom);
+		updateZoom(checkZoom);
 	});
 	
 	
-	function checkZoom(target) {
+	function updateZoom(target) {
 		// if checkZoom 
 		var zoom = map.getZoom();
 		console.log(zoom);
