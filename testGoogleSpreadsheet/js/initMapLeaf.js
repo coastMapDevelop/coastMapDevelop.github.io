@@ -96,7 +96,6 @@ function main() {
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
-		console.log(layer);
 		
 		if (layer.feature.geometry.type == "MultiPolygon") {
 			console.log('multipolygon');
@@ -195,7 +194,8 @@ function main() {
 					// convert markers to points
 					pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, urbanPointsStyle);
-					}
+					},
+					onEachFeature: onEachFeature
 				})
 				.addTo(map);
 				// .bringToFront();
