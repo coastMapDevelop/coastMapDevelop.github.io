@@ -113,18 +113,19 @@ function main() {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
 			// set new style for hover points 
+			/*
 			layer.setStyle({
 				weight: 3,
 				color: '#666',
 				zIndex: 11
 			});
+			*/
 		}
 	};
 	
 	// on mouseout
 	function resetHighlight(e) {
 		geojson.resetStyle(e.target); // reset style of county polygons
-		urbanPoints.resetStyle(e.target);
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
