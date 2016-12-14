@@ -155,6 +155,7 @@ map.on('mousemove', function(e) {
 
 map.on('mouseout', function() {
 	map.setFilter('countyPolygon-hover', ['==', 'FID_1', '']);
+	popup.remove();
 });
 
 
