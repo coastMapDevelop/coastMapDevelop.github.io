@@ -108,7 +108,7 @@ function main() {
 		
 		// check for browser support
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-			layer.bringToFront();
+			//layer.bringToFront();
 		}
 	};
 	
@@ -178,12 +178,7 @@ function main() {
 					}
 				})
 				.addTo(map);
-			
-				/*
-				urbanPoints = L.featureGroup([points])
-					.addTo(map)
-					.bringToFront();
-				*/
+				// .bringToFront();
 			
 			}
 		});
