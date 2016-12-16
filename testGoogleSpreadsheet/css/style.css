@@ -17,7 +17,7 @@ body {
 	top: 10px;
 	right: 10px;
 	background: #fff;
-	height: 200px;
+	height: 175px;
 	width: 100px;
 	z-index: 1001;
 }
@@ -30,36 +30,48 @@ body {
 	height: 25%;
 	width: 100%;
 	border: 1px solid #fff;
+	cursor: pointer;
+	text-align: center;
+	color: white;
 }
 
 #layer02 {
 	position: absolute;
 	top: 25%;
 	left: 0;
-	background: #EC7063;
+	background: #B03A2E;
 	height: 25%;
 	width: 100%;
 	border: 1px solid #fff;
+	cursor: pointer;
+	text-align:center;
+	color: white;
 }
 
 #layer03 {
 	position: absolute;
 	top: 50%;
 	left: 0;
-	background: #F5B041;
+	background: #D68910;
 	height: 25%;
 	width: 100%;
 	border: 1px solid #fff;
+	cursor: pointer;
+	text-align: center;
+	color: white;
 }
 
 #layer04 {
 	position: absolute;
 	top: 75%;
 	left: 0;
-	background: #2ECC71;
+	background: #117A65;
 	height: 25%;
 	width: 100%;
 	border: 1px solid #fff;
+	cursor: pointer;
+	text-align: center;
+	color: white;
 }
 
 .active {
