@@ -255,6 +255,7 @@ function main() {
 		}
 	});
 	
+	// add separate layers on top of county polygons
 	function addLayers() {
 		// loads in geojson data for town points
 		$.ajax({

@@ -33,7 +33,7 @@ function listMajors() {
 };
 
 // function to toggle the visibility of layers in the map
-function toggleLayesr(source) {
+function toggleLayers(source) {
 	// get id, toggle layer based on id
 	// check for an active class to toggle on/off
 	var clicked = document.getElementById(source);
