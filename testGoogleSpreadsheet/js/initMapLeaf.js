@@ -245,7 +245,7 @@ function main() {
 	var newObj = new Object();
 		function inner_func(){
 			console.log('hello');
-		}
+		};
 		newObj.inner_func = inner_func;
 		return newObj;
 	};
