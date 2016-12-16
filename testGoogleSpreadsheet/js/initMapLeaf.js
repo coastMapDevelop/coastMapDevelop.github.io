@@ -256,95 +256,98 @@ function main() {
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			})
 			.addTo(map);
+			addLayers();
 		}
 	});
 	
-	// loads in geojson data for town points
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/Towns.geojson",
-		success: function(data) {
-			townsPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, townPointsStyle);
-				},
-				onEachFeature: onEachFeature
-			})
-			.addTo(map);
-			// .bringToFront();
-		}
-	});
+	function addLayers() {
+		// loads in geojson data for town points
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/Towns.geojson",
+			success: function(data) {
+				townsPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, townPointsStyle);
+					},
+					onEachFeature: onEachFeature
+				})
+				.addTo(map);
+				// .bringToFront();
+			}
+		});
 	
-	// loads in geojson data for city points
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/Cities.geojson",
-		success: function(data) {
-			citiesPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, cityPointsStyle);
-				},
-				onEachFeature: onEachFeature
-			})
-			.addTo(map);
-			// .bringToFront();
-		}
-	});
+		// loads in geojson data for city points
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/Cities.geojson",
+			success: function(data) {
+				citiesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, cityPointsStyle);
+					},
+					onEachFeature: onEachFeature
+				})
+				.addTo(map);
+				// .bringToFront();
+			}
+		});
 	
-	// loads in geojson data for village points
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/Villages.geojson",
-		success: function(data) {
-			villagesPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, villagePointsStyle);
-				},
-				onEachFeature: onEachFeature
-			})
-			.addTo(map);
-			// .bringToFront();
-		}
-	});
+		// loads in geojson data for village points
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/Villages.geojson",
+			success: function(data) {
+				villagesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, villagePointsStyle);
+					},
+					onEachFeature: onEachFeature
+				})
+				.addTo(map);
+				// .bringToFront();
+			}
+		});
 	
-	// loads in geojson data for city polygons
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/cityPolygons.geojson",
-		success: function(data) {
-			citiesPolygon = L.geoJson(data, {
-				style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			});
-		}
-	});
+		// loads in geojson data for city polygons
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/cityPolygons.geojson",
+			success: function(data) {
+				citiesPolygon = L.geoJson(data, {
+					style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
+					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+				});
+			}
+		});
 	
-	// loads in geojson data for town polygons
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/townPolygons.geojson",
-		success: function(data) {
-			townsPolygon = L.geoJson(data, {
-				style: townPolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			});
-		}
-	});
+		// loads in geojson data for town polygons
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/townPolygons.geojson",
+			success: function(data) {
+				townsPolygon = L.geoJson(data, {
+					style: townPolygonStyle,		// set style to urbanPolygonStyle variable
+					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+				});
+			}
+		});
 	
-	// loads in geojson data for village polygons
-	$.ajax({
-		dataType: 'json',
-		url: "data/geojson/villagePolygons.geojson",
-		success: function(data) {
-			villagesPolygon = L.geoJson(data, {
-				style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			});
-		}
-	});
+		// loads in geojson data for village polygons
+		$.ajax({
+			dataType: 'json',
+			url: "data/geojson/villagePolygons.geojson",
+			success: function(data) {
+				villagesPolygon = L.geoJson(data, {
+					style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
+					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
+				});
+			}
+		});
+	};
 	
 	
 	
