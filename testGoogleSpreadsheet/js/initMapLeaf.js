@@ -1,20 +1,7 @@
 
 function main() {
-	
-	// rune authorization for google spreadsheet API
+	// run authorization for google spreadsheet API
 	loadSheetsApi();
-	
-	// hack leaflet to not close popup on new popup
-	/*
-	L.Map = L.Map.extend({
-		openPopup: function(popup) {
-			// this.closePopup();
-			this._popup = popup;
-			
-			return this.addLayer(popup).fire('popupopen', {popup: this._popup});
-		}
-	});
-	*/
 	
 	// initiate basemap
     var map = new L.Map('map', {
@@ -65,17 +52,19 @@ function main() {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 	});
 	
-	CartoDB_DarkMatter.addTo(map); // add tiles to map
+	// add tiles to map
+	CartoDB_DarkMatter.addTo(map);
 	
-	var popup = L.popup(); 	// add hover popup
+	// add hover popup
+	var popup = L.popup();
 	
-	var geojson; 			// county variable layer
-	var townsPoints;	 	// variable to hold town points
-	var citiesPoints;		// variable to hold city points
-	var villagesPoints;		// variable to hold village points
-	var townsPolygon;		// variable to hold town polygons
-	var citiesPolygon;		// variable to hold city polygons
-	var villagesPolygon;	// variable to hold village polygons
+	var geojson; 			// variable to hold county polygons - layer
+	var townsPoints;	 	// variable to hold town points - layer
+	var citiesPoints;		// variable to hold city points - layer 
+	var villagesPoints;		// variable to hold village points - layer
+	var townsPolygon;		// variable to hold town polygons - layer
+	var citiesPolygon;		// variable to hold city polygons - layer
+	var villagesPolygon;	// variable to hold village polygons - layer
 	
 	// county style
 	var myStyle = {
@@ -367,4 +356,5 @@ function main() {
 	
 };
 
-window.onload = main; // start on window load
+// start on window load
+window.onload = main;
