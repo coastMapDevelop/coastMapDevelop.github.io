@@ -17,10 +17,12 @@ body {
 	top: 10px;
 	right: 10px;
 	background: #fff;
-	height: 175px;
+	height: 150px;
 	width: 100px;
 	z-index: 1001;
 }
+
+/* maybe have just dots, expand menu and get full version */
 
 #layer01 {
 	position: absolute;
@@ -76,4 +78,13 @@ body {
 
 .active {
 	
+}
+
+#homeButton {
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 10px;
+	height: 20px;
+	background: #fff;
 }
