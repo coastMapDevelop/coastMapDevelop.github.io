@@ -32,6 +32,7 @@ function listMajors() {
 	});
 };
 
+/*
 // function to toggle the visibility of layers in the map
 function toggleLayers(source) {
 	// get id, toggle layer based on id
@@ -51,3 +52,4 @@ function toggleLayers(source) {
 		// add layer
 	}
 };
+*/

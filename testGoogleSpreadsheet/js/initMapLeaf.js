@@ -241,6 +241,16 @@ function main() {
 		}
 	};
 	
+	// test
+	var newObj = new Object();
+		function inner_func(){
+			console.log('hello');
+		}
+		newObj.inner_func = inner_func;
+		return newObj;
+	};
+	
+	
 	// loads in geojson data for counties
 	$.ajax({
 		dataType: "json",
@@ -357,3 +367,5 @@ function main() {
 
 // start on window load
 window.onload = main;
+// test
+var func_Obj = new main();
