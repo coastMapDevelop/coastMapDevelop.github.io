@@ -17,3 +17,7 @@ urbanPoints attribute columns:
 	- LSAD
 	- maybe GEOID
 	- or add new column for id
+
+
+separate layers by villages, towns, and cities
+	- so we don't load in a large mb file and filter for each layer
