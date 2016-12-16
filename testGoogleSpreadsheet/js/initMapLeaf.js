@@ -250,6 +250,12 @@ function main() {
 		}
 	};
 	
+	// function to toggle the visibility of layers in the map
+	function toggleLayers(source) {
+		// get id, toggle layer based on id
+		// check for an active class to toggle on/off
+	};
+	
 	
 	// loads in geojson data for counties
 	$.ajax({
