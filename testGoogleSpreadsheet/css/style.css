@@ -87,4 +87,5 @@ body {
 	width: 10px;
 	height: 20px;
 	background: #fff;
+	z-index: 1001;
 }

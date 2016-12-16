@@ -261,7 +261,6 @@ function main() {
 		}
 	};
 	
-	
 	// loads in geojson data for counties
 	$.ajax({
 		dataType: "json",

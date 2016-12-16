@@ -31,3 +31,4 @@ function listMajors() {
 		console.log('Error: ' + response.result.error.message);
 	});
 };
+
