@@ -231,11 +231,13 @@ function main() {
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
 		if (checkZoom == 10 && currentZoom == 9) {
-			urbanPoints.addTo(map);
-			map.removeLayer(urbanPolygons);
+			// check which layers are currently active
+			//urbanPoints.addTo(map);
+			//map.removeLayer(urbanPolygons);
 		} else if (checkZoom == 9 && currentZoom == 10) {
-			map.removeLayer(urbanPoints);
-			urbanPolygons.addTo(map);
+			// check which layers are currently active
+			//map.removeLayer(urbanPoints);
+			//urbanPolygons.addTo(map);
 		}
 	};
 	
