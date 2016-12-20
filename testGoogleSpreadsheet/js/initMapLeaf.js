@@ -362,10 +362,13 @@ function main() {
 	};
 	*/
 	function toggle() {
-		alert('hello');
+		alert('test');
 	};
 	
-	myNameSpace = {toggle: toggle};
+	//myNameSpace = {toggle: toggle};
+	return {
+		toggle: toggle
+	};
 	
 	
 	
@@ -387,13 +390,13 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		myNameSpace.toggle();
+		main.toggle(source);
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		myNameSpace.toggle();
+		main.toggle(source);
 		// add layer
 	}
 };
