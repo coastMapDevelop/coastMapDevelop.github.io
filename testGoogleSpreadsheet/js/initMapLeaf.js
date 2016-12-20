@@ -392,7 +392,7 @@ function main() {
 // start on window load
 window.onload = main;
 
-
+var multi;
 // test
 multi = new main();
  // multi.toggleLayers();
