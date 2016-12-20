@@ -363,12 +363,15 @@ function main() {
 			if (source == "layer01") {
 				map.removeLayer(geojson);
 			} else if (source == "layer02") {
+				// check zoom level
 				map.removeLayer(citiesPoints);
 				map.removeLayer(citiesPolygon);
 			} else if (source == "layer03") {
+				// check zoom level
 				map.removeLayer(townsPoints);
 				map.removeLayer(townsPolygon);
 			} else if (source == "layer04") {
+				// check zoom level
 				map.removeLayer(villagesPoints);
 				map.removeLayer(villagesPolygon);
 			}
@@ -377,13 +380,17 @@ function main() {
 			// remove layer
 			if (source == "layer01") {
 				map.addLayer(geojson);
+				geojson.bringToBack();
 			} else if (source == "layer02") {
+				// check zoom level
 				map.addLayer(citiesPoints);
 				map.addLayer(citiesPolygon);
 			} else if (source == "layer03") {
+				// check zoom level
 				map.addLayer(townsPoints);
 				map.addLayer(townsPolygon);
 			} else if (source == "layer04") {
+				// check zoom level
 				map.addLayer(villagesPoints);
 				map.addLayer(villagesPolygon);
 			}
