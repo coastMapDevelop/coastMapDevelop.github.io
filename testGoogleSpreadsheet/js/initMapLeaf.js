@@ -354,10 +354,14 @@ function main() {
 	
 	
 	
-
+	var obj = new Object();
+	
 	function toggle() {
 		alert('hello');
 	};
+	
+	obj.toggle = toggle;
+	return obj;
 	
 	
 	
@@ -366,6 +370,8 @@ function main() {
 
 // start on window load
 window.onload = main;
+
+Multi = new main();
 
 
 // function to toggle the visibility of layers in the map
@@ -376,18 +382,17 @@ function toggleLayers(source) {
 	var clicked = document.getElementById(source);
 	var active = clicked.classList.contains('active');
 	
-		
 	if (active == true) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		toggle();
+		Multi.toggle();
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		toggle();
+		Multi.toggle();
 		// add layer
 	}
 };
