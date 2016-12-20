@@ -16,6 +16,17 @@ function main() {
         zoom: 6					  // map initiation zoom level
     });
 	
+	// test
+	var obj = new Object();
+	
+	function test1() {
+		alert('hello');
+	};
+	
+	obj.test1 = test1;
+	// test
+	
+	
 	// hydda.full tiles
 	var Hydda_Full = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -241,17 +252,6 @@ function main() {
 		}
 	};
 	
-	// test
-	/*
-	var newObj = new Object();
-		function inner_func(){
-			console.log('hello');
-		};
-		newObj.inner_func = inner_func;
-		return newObj;
-	};
-	*/
-	
 	
 	// loads in geojson data for counties
 	$.ajax({
@@ -369,5 +369,6 @@ function main() {
 
 // start on window load
 window.onload = main;
-// test
-//var func_Obj = new main();
+
+multi = new main();
+console.log(multi.test1());
