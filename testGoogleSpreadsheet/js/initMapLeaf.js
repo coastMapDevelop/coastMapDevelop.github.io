@@ -1,5 +1,8 @@
 
-function main() {
+var myNameSpace;
+
+//function main() {
+(function(){
 	// run authorization for google spreadsheet API
 	loadSheetsApi();
 	
@@ -354,17 +357,23 @@ function main() {
 	
 	
 	
-	
+	/*
 	var toggle = function() {
 		alert('hello');
 	};
+	*/
+	function toggle() {
+		alert('hello');
+	};
 	
-	return toggle;
+	myNameSpace = {toggle: toggle};
 	
-};
+	
+	
+})();
 
 // start on window load
-window.onload = main;
+//window.onload = main;
 
 
 // function to toggle the visibility of layers in the map
@@ -379,13 +388,13 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		toggle();
+		myNameSpace.toggle();
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		toggle();
+		myNameSpace.toggle();
 		// add layer
 	}
 };
