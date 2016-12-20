@@ -357,8 +357,38 @@ function main() {
 	
 	
 	
-	function toggle() {
-		alert('hello');
+	function toggle(source, x) {
+		if (x == 0) {
+			// remove layer
+			if (source == "layer01") {
+				map.removeLayer(geojson);
+			} else if (source == "layer02") {
+				map.removeLayer(citiesPoints);
+				map.removeLayer(citiesPolygon);
+			} else if (source == "layer03") {
+				map.removeLayer(townsPoints);
+				map.removeLayer(townsPolygon);
+			} else if (source == "layer04") {
+				map.removeLayer(villagesPoints);
+				map.removeLayer(villagesPolygon);
+			}
+		} else if (x == 1) {
+			// add layer
+			// remove layer
+			if (source == "layer01") {
+				map.addLayer(geojson);
+			} else if (source == "layer02") {
+				map.addLayer(citiesPoints);
+				map.addLayer(citiesPolygon);
+			} else if (source == "layer03") {
+				map.addLayer(townsPoints);
+				map.addLayer(townsPolygon);
+			} else if (source == "layer04") {
+				map.addLayer(villagesPoints);
+				map.addLayer(villagesPolygon);
+			}
+		}
+	
 	};
 	
 	myNameSpace = {toggle: toggle};
@@ -375,7 +405,6 @@ window.onload = main;
 // function to toggle the visibility of layers in the map
 function toggleLayers(source) {
 	console.log(source);
-	// get id, toggle layer based on id
 	// check for an active class to toggle on/off
 	var clicked = document.getElementById(source);
 	var active = clicked.classList.contains('active');
@@ -384,13 +413,13 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		myNameSpace.toggle(source);
+		myNameSpace.toggle(source, 0);
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		myNameSpace.toggle(source);
+		myNameSpace.toggle(source, 1);
 		// add layer
 	}
 };
