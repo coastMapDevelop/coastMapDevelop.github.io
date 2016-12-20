@@ -356,19 +356,13 @@ function main() {
 	
 	
 	
-	/*
-	var toggle = function() {
+	
+	function toggle() {
 		alert('hello');
 	};
-	*/
-	function toggle() {
-		alert('test');
-	};
 	
-	//myNameSpace = {toggle: toggle};
-	return {
-		toggle: toggle
-	};
+	myNameSpace = {toggle: toggle};
+	
 	
 	
 	
@@ -390,13 +384,13 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		main.toggle(source);
+		myNameSpace.toggle(source);
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		main.toggle(source);
+		myNameSpace.toggle(source);
 		// add layer
 	}
 };
