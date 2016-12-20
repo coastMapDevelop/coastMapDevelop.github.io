@@ -20,7 +20,7 @@ function main() {
 	var obj = new Object();
 	
 	function test1() {
-		alert('hello');
+		console.log('hello');
 	};
 	
 	obj.test1 = test1;
@@ -371,4 +371,7 @@ function main() {
 window.onload = main;
 
 multi = new main();
-console.log(multi.test1());
+
+document.getElementById('layer01').addEventListener('click', function() {
+	multi.test1();
+};
