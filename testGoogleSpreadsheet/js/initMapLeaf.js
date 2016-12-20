@@ -364,11 +364,10 @@ function main() {
 	
 	
 	
+	document.getElementById('layer01').addEvenListener("click", function() {
+		toggleLayers('layer01');
+	};
 	
-	document.getElementById('layer01').addEventListener('click', toggleLayers('layer01'));
-	document.getElementById('layer02').addEventListener('click', toggleLayers('layer02'));
-	document.getElementById('layer03').addEventListener('click', toggleLayers('layer03'));
-	document.getElementById('layer04').addEventListener('click', toggleLayers('layer04'));
 	
 	
 	// function to toggle the visibility of layers in the map
