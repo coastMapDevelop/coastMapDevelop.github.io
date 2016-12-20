@@ -31,26 +31,3 @@ function listMajors() {
 		console.log('Error: ' + response.result.error.message);
 	});
 };
-
-
-/*
-// function to toggle the visibility of layers in the map
-function toggleLayers(source) {
-	// get id, toggle layer based on id
-	// check for an active class to toggle on/off
-	var clicked = document.getElementById(source);
-	var active = clicked.classList.contains('active');
-		
-	if (active == true) {
-		clicked.classList.remove('active');
-		clicked.style.background = '#fff';
-		clicked.style.color = 'black';
-		// remove layer
-	} else if (active == false) {
-		clicked.classList.add('active');
-		clicked.style.background = '';
-		clicked.style.color = '';
-		// add layer
-	}
-};
-*/
