@@ -16,7 +16,7 @@ function main() {
         zoom: 6					  // map initiation zoom level
     });
 	
-	// test
+	/* test
 	var obj = new Object();
 	
 	function test1() {
@@ -24,7 +24,7 @@ function main() {
 	};
 	
 	obj.test1 = test1;
-	// test
+	*/
 	
 	
 	// hydda.full tiles
@@ -365,28 +365,32 @@ function main() {
 	
 	
 	
+	document.getElementById('layer01').addEventListener('click', toggleLayers);
+	document.getElementById('layer02').addEventListener('click', toggleLayers);
+	document.getElementById('layer03').addEventListener('click', toggleLayers);
+	document.getElementById('layer04').addEventListener('click', toggleLayers);
 	
-	/*
+	
 	// function to toggle the visibility of layers in the map
 	function toggleLayers(source) {
-	// get id, toggle layer based on id
-	// check for an active class to toggle on/off
-	var clicked = document.getElementById(source);
-	var active = clicked.classList.contains('active');
+		// get id, toggle layer based on id
+		// check for an active class to toggle on/off
+		var clicked = document.getElementById(source);
+		var active = clicked.classList.contains('active');
 		
-	if (active == true) {
-		clicked.classList.remove('active');
-		clicked.style.background = '#fff';
-		clicked.style.color = 'black';
-		// remove layer
-	} else if (active == false) {
-		clicked.classList.add('active');
-		clicked.style.background = '';
-		clicked.style.color = '';
-		// add layer
-	}
-};
-*/
+		if (active == true) {
+			clicked.classList.remove('active');
+			clicked.style.background = '#fff';
+			clicked.style.color = 'black';
+			// remove layer
+		} else if (active == false) {
+			clicked.classList.add('active');
+			clicked.style.background = '';
+			clicked.style.color = '';
+			// add layer
+		}
+	};
+
     
 	
 };
@@ -394,8 +398,11 @@ function main() {
 // start on window load
 window.onload = main;
 
+
+/* test
 multi = new main();
 
 document.getElementById('layer01').addEventListener('click', function() {
 	multi.test1();
 });
+*/
