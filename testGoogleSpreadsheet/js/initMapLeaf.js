@@ -366,7 +366,7 @@ function main() {
 	
 	document.getElementById('layer01').addEvenListener("click", function() {
 		toggleLayers('layer01');
-	};
+	});
 	
 	
 	
