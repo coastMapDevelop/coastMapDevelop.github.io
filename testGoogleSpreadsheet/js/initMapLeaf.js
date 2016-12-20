@@ -1,8 +1,7 @@
 
 var myNameSpace;
 
-//function main() {
-(function(){
+function main() {
 	// run authorization for google spreadsheet API
 	loadSheetsApi();
 	
@@ -370,10 +369,10 @@ var myNameSpace;
 	
 	
 	
-})();
+};
 
 // start on window load
-//window.onload = main;
+window.onload = main;
 
 
 // function to toggle the visibility of layers in the map
