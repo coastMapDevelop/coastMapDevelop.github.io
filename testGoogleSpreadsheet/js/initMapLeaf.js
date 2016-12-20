@@ -374,4 +374,4 @@ multi = new main();
 
 document.getElementById('layer01').addEventListener('click', function() {
 	multi.test1();
-};
+)};
