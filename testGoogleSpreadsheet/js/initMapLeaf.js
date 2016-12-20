@@ -62,6 +62,9 @@ function main() {
 	// add hover popup
 	var popup = L.popup();
 	
+	var pointArray = [];
+	var polygonArray= [];
+	
 	var geojson; 			// variable to hold county polygons - layer
 	var townsPoints;	 	// variable to hold town points - layer
 	var citiesPoints;		// variable to hold city points - layer 
@@ -239,10 +242,38 @@ function main() {
 			// check which layers are currently active
 			//urbanPoints.addTo(map);
 			//map.removeLayer(urbanPolygons);
+			
+			// push layer variables into an array
+			// when removing layer, remove from array
+			// when adding layer, add to array
+			// here we will loop through the array, and add / remove polygons based on array
+			// so we will have a polygon array and we will have a points array
+			// pointArray - polygonArray
+			
+			var i;
+			for(i=0; i < pointArray.length; i++) {
+				map.addLayer(pointArray[i]);
+			}
+			
+			var j;
+			for (j=0; j < polygonArray.length; j++) {
+				map.removeLayer(polygonArray[j]);
+			}
 		} else if (checkZoom == 9 && currentZoom == 10) {
 			// check which layers are currently active
 			//map.removeLayer(urbanPoints);
 			//urbanPolygons.addTo(map);
+			
+			var i;
+			for(i=0; i < pointArray.length; i++) {
+				map.removeLayer(pointArray[i]);
+			}
+			
+			var j;
+			for (j=0; j < polygonArray.length; j++) {
+				map.addLayer(polygonArray[j]);
+			}
+			
 		}
 	};
 	
@@ -276,6 +307,7 @@ function main() {
 					onEachFeature: onEachFeature
 				})
 				.addTo(map);
+				pointArray.push(townsPoints);
 				// .bringToFront();
 			}
 		});
@@ -293,6 +325,7 @@ function main() {
 					onEachFeature: onEachFeature
 				})
 				.addTo(map);
+				pointArray.push(citiesPoints);
 				// .bringToFront();
 			}
 		});
@@ -310,6 +343,7 @@ function main() {
 					onEachFeature: onEachFeature
 				})
 				.addTo(map);
+				pointArray.push(villagesPoints);
 				// .bringToFront();
 			}
 		});
@@ -323,6 +357,7 @@ function main() {
 					style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
 					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 				});
+				polygonArray.push(citiesPolygon);
 			}
 		});
 	
@@ -335,6 +370,7 @@ function main() {
 					style: townPolygonStyle,		// set style to urbanPolygonStyle variable
 					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 				});
+				polygonArray.push(townsPolygon);
 			}
 		});
 	
@@ -347,6 +383,7 @@ function main() {
 					style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
 					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 				});
+				polygonArray.push(villagesPolygon);
 			}
 		});
 	};
@@ -363,51 +400,35 @@ function main() {
 			if (source == "layer01") {
 				map.removeLayer(geojson);
 			} else if (source == "layer02") {
-				// try statement
-				try {
-					map.removeLayer(citiesPoints);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				map.removeLayer(citiesPoints);
+				map.removeLayer(citiesPolygon);
 				
-				try{
-					map.removeLayer(citiesPolygon);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				var pointSpot = pointArray.indexOf(citiesPoints);
+				var polygonSpot = polygonArray.indexOf(citiesPolygon);
+				
+				pointArray.splice(pointSpot, 1);
+				polygonArray.splice(polygonArray, 1);
+		
 			} else if (source == "layer03") {
-				// try statement
-				try {
-					map.removeLayer(townsPoints);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				map.removeLayer(townsPoints);
+				map.removeLayer(townsPolygon);
 				
-				try {
-					map.removeLayer(townsPolygon);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				var pointSpot = pointArray.indexOf(townsPoints);
+				var polygonSpot = polygonArray.indexOf(townsPolygon);
+				
+				pointArray.splice(pointSpot, 1);
+				polygonArray.splice(polygonArray, 1);
 				
 			} else if (source == "layer04") {
-				// try statement
-				try {
-					map.removeLayer(villagesPoints);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				map.removeLayer(villagesPoints);
+				map.removeLayer(villagesPolygon);
 				
-				try {
-					map.removeLayer(villagesPolygon);
-				}
-				catch(err) {
-					console.log(err.message);
-				}
+				var pointSpot = pointArray.indexOf(villagesPoints);
+				var polygonSpot = polygonArray.indexOf(villagesPolygon);
+				
+				pointArray.splice(pointSpot, 1);
+				polygonArray.splice(polygonArray, 1);
+				
 			}
 		} else if (x == 1) {
 			// add layer
@@ -418,6 +439,7 @@ function main() {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(citiesPolygon);
+					// add layer to arrays here
 				} else if (currentZoom <= 9) {
 					map.addLayer(citiesPoints);
 				}
