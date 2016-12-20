@@ -354,46 +354,42 @@ function main() {
 	
 	
 	
-	
-	
 
-	
-	 // test
-	var obj = new Object();
-	
-	
-	
-	// function to toggle the visibility of layers in the map
-	function toggleLayers(source) {
-		console.log(source);
-		// get id, toggle layer based on id
-		// check for an active class to toggle on/off
-		var clicked = document.getElementById(source);
-		var active = clicked.classList.contains('active');
-		
-		if (active == true) {
-			clicked.classList.remove('active');
-			clicked.style.background = '#fff';
-			clicked.style.color = 'black';
-			// remove layer
-		} else if (active == false) {
-			clicked.classList.add('active');
-			clicked.style.background = '';
-			clicked.style.color = '';
-			// add layer
-		}
+	function toggle() {
+		alert('hello');
 	};
 	
-	obj.toggleLayers = toggleLayers;
-    // test
+	
+	
 	
 };
 
 // start on window load
 window.onload = main;
 
-var multi;
-// test
-multi = new main();
- // multi.toggleLayers();
+
+// function to toggle the visibility of layers in the map
+function toggleLayers(source) {
+	console.log(source);
+	// get id, toggle layer based on id
+	// check for an active class to toggle on/off
+	var clicked = document.getElementById(source);
+	var active = clicked.classList.contains('active');
+	
+		
+	if (active == true) {
+		clicked.classList.remove('active');
+		clicked.style.background = '#fff';
+		clicked.style.color = 'black';
+		toggle();
+		// remove layer
+	} else if (active == false) {
+		clicked.classList.add('active');
+		clicked.style.background = '';
+		clicked.style.color = '';
+		toggle();
+		// add layer
+	}
+};
+
 
