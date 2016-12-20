@@ -359,7 +359,7 @@ function main() {
 		alert('hello');
 	};
 	
-	outerFunction( toggle );
+	return toggle;
 	
 };
 
@@ -379,19 +379,15 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		outerFunction();
+		toggle();
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		outerFunction();
+		toggle();
 		// add layer
 	}
-};
-
-function outerFunction( fn ) {
-	fn();
 };
 
 
