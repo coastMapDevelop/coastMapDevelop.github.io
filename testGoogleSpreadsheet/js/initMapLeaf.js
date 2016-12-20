@@ -363,36 +363,78 @@ function main() {
 			if (source == "layer01") {
 				map.removeLayer(geojson);
 			} else if (source == "layer02") {
-				// check zoom level
-				map.removeLayer(citiesPoints);
-				map.removeLayer(citiesPolygon);
+				// try statement
+				try {
+					map.removeLayer(citiesPoints);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
+				
+				try{
+					map.removeLayer(citiesPolygon);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
 			} else if (source == "layer03") {
-				// check zoom level
-				map.removeLayer(townsPoints);
-				map.removeLayer(townsPolygon);
+				// try statement
+				try {
+					map.removeLayer(townsPoints);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
+				
+				try {
+					map.removeLayer(townsPolygon);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
+				
 			} else if (source == "layer04") {
-				// check zoom level
-				map.removeLayer(villagesPoints);
-				map.removeLayer(villagesPolygon);
+				// try statement
+				try {
+					map.removeLayer(villagesPoints);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
+				
+				try {
+					map.removeLayer(villagesPolygon);
+				}
+				catch(err) {
+					console.log(err.message);
+				}
 			}
 		} else if (x == 1) {
 			// add layer
-			// remove layer
 			if (source == "layer01") {
 				map.addLayer(geojson);
 				geojson.bringToBack();
 			} else if (source == "layer02") {
 				// check zoom level
-				map.addLayer(citiesPoints);
-				map.addLayer(citiesPolygon);
+				if (currentZoom >= 10) {
+					map.addLayer(citiesPolygon);
+				} else if (currentZoom <= 9) {
+					map.addLayer(citiesPoints);
+				}
 			} else if (source == "layer03") {
 				// check zoom level
-				map.addLayer(townsPoints);
-				map.addLayer(townsPolygon);
+				if (currentZoom >= 10) {
+					map.addLayer(townsPolygon);
+				} else if (currentZoom <= 9 ) {
+					map.addLayer(townsPoints);
+				}
 			} else if (source == "layer04") {
 				// check zoom level
-				map.addLayer(villagesPoints);
-				map.addLayer(villagesPolygon);
+				if (currentZoom >= 10) {
+					map.addLayer(villagesPolygon);
+				} else if (currentZoom <= 9) {
+					map.addLayer(villagesPoints);
+				}
 			}
 		}
 	
