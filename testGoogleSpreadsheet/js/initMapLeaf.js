@@ -360,9 +360,7 @@ function main() {
 	};
 	
 	
-	return: {
-		toggle: toggle
-	};
+	return toggle;
 	
 	
 	
