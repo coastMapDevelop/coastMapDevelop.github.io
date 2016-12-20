@@ -354,14 +354,15 @@ function main() {
 	
 	
 	
-	var obj = new Object();
 	
 	function toggle() {
 		alert('hello');
 	};
 	
-	obj.toggle = toggle;
-	return obj;
+	
+	return: {
+		toggle: toggle
+	};
 	
 	
 	
@@ -370,8 +371,6 @@ function main() {
 
 // start on window load
 window.onload = main;
-
-Multi = new main();
 
 
 // function to toggle the visibility of layers in the map
@@ -386,13 +385,13 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		Multi.toggle();
+		toggle();
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		Multi.toggle();
+		toggle();
 		// add layer
 	}
 };
