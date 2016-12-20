@@ -355,15 +355,11 @@ function main() {
 	
 	
 	
-	function toggle() {
+	var toggle = function() {
 		alert('hello');
 	};
 	
-	
-	return toggle;
-	
-	
-	
+	outerFunction( toggle );
 	
 };
 
@@ -383,15 +379,19 @@ function toggleLayers(source) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
 		clicked.style.color = 'black';
-		toggle();
+		outerFunction();
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
 		clicked.style.color = '';
-		toggle();
+		outerFunction();
 		// add layer
 	}
+};
+
+function outerFunction( fn ) {
+	fn();
 };
 
 
