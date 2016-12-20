@@ -16,15 +16,6 @@ function main() {
         zoom: 6					  // map initiation zoom level
     });
 	
-	/* test
-	var obj = new Object();
-	
-	function test1() {
-		console.log('hello');
-	};
-	
-	obj.test1 = test1;
-	*/
 	
 	
 	// hydda.full tiles
@@ -221,6 +212,7 @@ function main() {
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
 						googleSpreadsheet[i][3]).openOn(map);
+					// add other positions in array
 				}
 			}
 		} else if (type == 'Point') {
@@ -364,9 +356,10 @@ function main() {
 	
 	
 	
-	document.getElementById('layer01').addEvenListener("click", function() {
-		toggleLayers('layer01');
-	});
+
+	
+	 // test
+	var obj = new Object();
 	
 	
 	
@@ -390,8 +383,9 @@ function main() {
 			// add layer
 		}
 	};
-
-    
+	
+	obj.toggleLayers = toggleLayers;
+    // test
 	
 };
 
@@ -399,10 +393,7 @@ function main() {
 window.onload = main;
 
 
-/* test
+// test
 multi = new main();
+ // multi.toggleLayers();
 
-document.getElementById('layer01').addEventListener('click', function() {
-	multi.test1();
-});
-*/
