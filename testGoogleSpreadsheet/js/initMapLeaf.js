@@ -174,7 +174,7 @@ function main() {
 			console.log('point');
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == 'red') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2471A3') {
 			console.log('urban polygon');
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
 		}
@@ -199,7 +199,7 @@ function main() {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == 'red') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2471A3') {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 	};
@@ -231,7 +231,7 @@ function main() {
 			}
 		} else if (type == 'Point') {
 			console.log('point');
-		} else if (type == 'MultiPolygon' && color == 'red') {
+		} else if (type == 'MultiPolygon' && color != '#2471A3') {
 			console.log('urban polygon');
 		}
 	};
