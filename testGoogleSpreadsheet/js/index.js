@@ -30,6 +30,25 @@ function listMajors() {
 	}, function (response) {
 		console.log('Error: ' + response.result.error.message);
 	});
+	
+	gapi.client.sheets.spreadsheets.values.get({
+		spreadsheetId: '1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw', 	// can be found from link inside (or above)
+		range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through D, starting at row 2
+		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
+	}).then(function(response) {
+		var range = response.result;
+		if (range.values.length > 0) {
+			for (i=0; i < range.values.length; i++) {
+				var row = range.values[i];
+				var arr = [row[0], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
+				googleSpreadsheet2.push(arr);							// send data to googleSpreadsheet array
+			}
+		} else {
+			console.log('No data found.');
+		}
+	}, function (response) {
+		console.log('Error: ' + response.result.error.message);
+	});
 };
 
 function expMenuButton() {

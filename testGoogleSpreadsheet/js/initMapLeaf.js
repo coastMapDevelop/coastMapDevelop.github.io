@@ -233,7 +233,6 @@ function main() {
 	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props, type, color) {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
-			console.log('multipolygon');
 			var target = props.NAME10; // reference
 		
 			// loop to retrieve necessary data from spreadsheet 
@@ -249,9 +248,35 @@ function main() {
 				}
 			}
 		} else if (type == 'Point') {
-			console.log('point');
+			var target = props.name;
+			
+			// loop to retrieve necessary data from spreadsheet 
+			var i;
+			for (i=0; i < googleSpreadsheet2.length; i++) {
+				if (target == googleSpreadsheet2[i][0]) {
+					// set clicked popup with data and add to map
+					popup.setLatLng(e.latlng).setContent(target + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
+					"Govt Web: " + googleSpreadsheet2[i][3] + "<br>" + "Map Web: " + googleSpreadsheet2[i][4] + "<br>" + "Comp Plan: " + googleSpreadsheet2[i][5] + "<br>" + 
+					"Zoning Web: " + googleSpreadsheet2[i][6] + "<br>" + "Haz Mit Web: " + googleSpreadsheet2[i][7] + "<br>" + "Sus Plan: " + googleSpreadsheet2[i][8] + "<br>" + 
+					"Cli Plan:" + googleSpreadsheet2[i][9] + "<br>" + "Res Plan: " + googleSpreadsheet2[i][10]).openOn(map);
+					// add other positions in array
+				}
+			}
 		} else if (type == 'MultiPolygon' && color != '#2471A3') {
-			console.log('urban polygon');
+			var target = props.Name;
+			
+			// loop to retrieve necessary data from spreadsheet 
+			var i;
+			for (i=0; i < googleSpreadsheet2.length; i++) {
+				if (target == googleSpreadsheet2[i][0]) {
+					// set clicked popup with data and add to map
+					popup.setLatLng(e.latlng).setContent(target + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
+					"Govt Web: " + googleSpreadsheet2[i][3] + "<br>" + "Map Web: " + googleSpreadsheet2[i][4] + "<br>" + "Comp Plan: " + googleSpreadsheet2[i][5] + "<br>" + 
+					"Zoning Web: " + googleSpreadsheet2[i][6] + "<br>" + "Haz Mit Web: " + googleSpreadsheet2[i][7] + "<br>" + "Sus Plan: " + googleSpreadsheet2[i][8] + "<br>" + 
+					"Cli Plan:" + googleSpreadsheet2[i][9] + "<br>" + "Res Plan: " + googleSpreadsheet2[i][10]).openOn(map);
+					// add other positions in array
+				}
+			}
 		}
 	};
 	
