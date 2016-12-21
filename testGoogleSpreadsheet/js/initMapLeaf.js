@@ -400,7 +400,7 @@ function main() {
 				var polygonSpot = polygonArray.indexOf(citiesPolygon);
 				
 				pointArray.splice(pointSpot, 1);
-				polygonArray.splice(polygonArray, 1);
+				polygonArray.splice(polygonSpot, 1);
 				
 				console.log(pointArray);
 				console.log(polygonArray);
@@ -413,7 +413,7 @@ function main() {
 				var polygonSpot = polygonArray.indexOf(townsPolygon);
 				
 				pointArray.splice(pointSpot, 1);
-				polygonArray.splice(polygonArray, 1);
+				polygonArray.splice(polygonSpot, 1);
 				
 				console.log(pointArray);
 				console.log(polygonArray);
@@ -426,7 +426,7 @@ function main() {
 				var polygonSpot = polygonArray.indexOf(villagesPolygon);
 				
 				pointArray.splice(pointSpot, 1);
-				polygonArray.splice(polygonArray, 1);
+				polygonArray.splice(polygonSpot, 1);
 				
 				console.log(pointArray);
 				console.log(polygonArray);
