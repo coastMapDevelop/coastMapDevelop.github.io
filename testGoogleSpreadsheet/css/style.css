@@ -115,3 +115,19 @@ body {
 	cursor: pointer;
 	z-index: 1001;
 }
+
+#expMenu {
+	position: absolute;
+	top: 110px;
+	right: 30px;
+	width: auto;
+	height: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 50px;
+	background: #fff;
+	cursor: pointer;
+	z-index: 1001;
+}
