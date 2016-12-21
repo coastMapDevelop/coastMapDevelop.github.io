@@ -64,8 +64,9 @@ function main() {
 		"Tile_Layer_5": Hydda_Full
 	};
 	
+	var currentLayer = "Tile_Layer_1";
 	// add tiles to map
-	baseLayers["Tile_Layer_1"].addTo(map);
+	baseLayers[currentLayer].addTo(map);
 	
 	// add hover popup
 	var popup = L.popup();
@@ -482,6 +483,8 @@ function main() {
 	};
 	
 	function changeBaseMap(source) {
+		map.removeLayer(baseLayers[currentLayer]);
+		currentLayer = source;
 		baseLayers[source].addTo(map);
 	};
 	
