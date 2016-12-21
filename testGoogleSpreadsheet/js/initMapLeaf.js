@@ -109,7 +109,7 @@ function main() {
 
 	// town points style
 	var townPointsStyle = {
-		radius: 8,
+		radius: 6,
 		fillColor: '#D68910',
 		color: '#fff',
 		weight: 1,
@@ -120,7 +120,7 @@ function main() {
 	
 	// city points style
 	var cityPointsStyle = {
-		radius: 8,
+		radius: 6,
 		fillColor: '#B03A2E',
 		color: '#fff',
 		weight: 1,
@@ -131,7 +131,7 @@ function main() {
 	
 	// village points style
 	var villagePointsStyle = {
-		radius: 8,
+		radius: 6,
 		fillColor: '#117A65',
 		color: '#fff',
 		weight: 1,
