@@ -116,18 +116,72 @@ body {
 	z-index: 1001;
 }
 
+
+
+
+
+/* experimental menu */
 #expMenu {
 	position: absolute;
-	top: 110px;
-	right: 30px;
-	width: auto;
-	height: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
+	top: 90px;
+	right: 60px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50px;
+	text-align: center;
 	background: #fff;
 	cursor: pointer;
 	z-index: 1001;
+}
+
+#expLayer01 {
+	position: absolute;
+	top: 90px;
+	right: 60px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#expLayer02 {
+	position: absolute;
+	top: 90px;
+	right: 60px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#expLayer03 {
+	position: absolute;
+	top: 90px;
+	right: 60px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#expLayer04 {
+	position: absolute;
+	top: 90px;
+	right: 60px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+	z-index: 1000;
 }
