@@ -243,13 +243,6 @@ function main() {
 			//urbanPoints.addTo(map);
 			//map.removeLayer(urbanPolygons);
 			
-			// push layer variables into an array
-			// when removing layer, remove from array
-			// when adding layer, add to array
-			// here we will loop through the array, and add / remove polygons based on array
-			// so we will have a polygon array and we will have a points array
-			// pointArray - polygonArray
-			
 			var i;
 			for(i=0; i < pointArray.length; i++) {
 				map.addLayer(pointArray[i]);
@@ -408,6 +401,9 @@ function main() {
 				
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonArray, 1);
+				
+				console.log(pointArray);
+				console.log(polygonArray);
 		
 			} else if (source == "layer03") {
 				map.removeLayer(townsPoints);
@@ -419,6 +415,9 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonArray, 1);
 				
+				console.log(pointArray);
+				console.log(polygonArray);
+				
 			} else if (source == "layer04") {
 				map.removeLayer(villagesPoints);
 				map.removeLayer(villagesPolygon);
@@ -428,6 +427,9 @@ function main() {
 				
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonArray, 1);
+				
+				console.log(pointArray);
+				console.log(polygonArray);
 				
 			}
 		} else if (x == 1) {
@@ -441,27 +443,33 @@ function main() {
 					map.addLayer(citiesPolygon);
 					// add layer to arrays here
 					polygonArray.push(citiesPolygon);
+					console.log(polygonArray);
 				} else if (currentZoom <= 9) {
 					map.addLayer(citiesPoints);
 					pointArray.push(citiesPoints);
+					console.log(pointArray);
 				}
 			} else if (source == "layer03") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(townsPolygon);
 					polygonArray.push(townsPolygon);
+					console.log(polygonArray);
 				} else if (currentZoom <= 9 ) {
 					map.addLayer(townsPoints);
 					pointArray.push(townsPoints);
+					console.log(pointArray);
 				}
 			} else if (source == "layer04") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(villagesPolygon);
 					polygonArray.push(villagesPolygon);
+					console.log(polygonArray);
 				} else if (currentZoom <= 9) {
 					map.addLayer(villagesPoints);
 					pointArray.push(villagesPoints);
+					console.log(pointArray);
 				}
 			}
 		}
