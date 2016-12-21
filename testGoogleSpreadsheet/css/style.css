@@ -86,7 +86,7 @@ body {
 
 #homeButton {
 	position: absolute;
-	top: 80px;
+	top: 85px;
 	left: 10px;
 	width: auto;
 	height: auto;
@@ -103,7 +103,7 @@ body {
 
 #baseMapButton {
 	position: absolute;
-	top: 110px;
+	top: 120px;
 	left: 10px;
 	width: auto;
 	height: auto;
@@ -118,9 +118,26 @@ body {
 	z-index: 1001;
 }
 
+#queryButton {
+	position: absolute;
+	top: 160px;
+	left: 10px;
+	width: auto;
+	height: auto;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-radius: 4px;
+	background: #fff;
+	border: 2px solid #B2BABB;
+	cursor: pointer;
+	z-index: 1001;
+}
+
 #baseMapContainer {
 	position: absolute;
-	top: 110px;
+	top: 120px;
 	left: 10px;
 	width: auto;
 	height: auto;
@@ -159,9 +176,9 @@ body {
 	cursor: pointer;
 	border: 1px solid #CCD1D1;
 	z-index: 1001;
-	-webkit-box-shadow: 2px 2px 10px 1px grey;
-	-moz-box-shadow: 2px 2px 10px 1px grey;
-	box-shadow: 2px 2px 10px 1px grey;
+	-webkit-box-shadow: 2px 2px 10px 0px black;
+	-moz-box-shadow: 2px 2px 10px 0px black;
+	box-shadow: 2px 2px 10px 0px black;
 }
 
 #expLayer01 {
@@ -182,9 +199,9 @@ body {
 	-moz-transition: .5s opacity, .5s top;
 	-o-transition: .5s opacity, .5s top;
 	transition: .5s opacity, .5s top;
-	-webkit-box-shadow: 2px 2px 10px 2px grey;
-	-moz-box-shadow: 2px 2px 10px 2px grey;
-	box-shadow: 2px 2px 10px 2px grey;
+	-webkit-box-shadow: 2px 2px 10px 0px black;
+	-moz-box-shadow: 2px 2px 10px 0px black;
+	box-shadow: 2px 2px 10px 0px black;
 }
 
 #expLayer02 {
@@ -205,9 +222,9 @@ body {
 	-moz-transition: .5s opacity, .5s right;
 	-o-transition: .5s opacity, .5s right;
 	transition: .5s opacity, .5s right;
-	-webkit-box-shadow: 2px 2px 10px 2px grey;
-	-moz-box-shadow: 2px 2px 10px 2px grey;
-	box-shadow: 2px 2px 10px 2px grey;
+	-webkit-box-shadow: 2px 2px 10px 0px black;
+	-moz-box-shadow: 2px 2px 10px 0px black;
+	box-shadow: 2px 2px 10px 0px black;
 }
 
 #expLayer03 {
@@ -228,9 +245,9 @@ body {
 	-moz-transition: .5s opacity, .5s top;
 	-o-transition: .5s opacity, .5s top;
 	transition: .5s opacity, .5s top;
-	-webkit-box-shadow: 2px 2px 10px 2px grey;
-	-moz-box-shadow: 2px 2px 10px 2px grey;
-	box-shadow: 2px 2px 10px 2px grey;
+	-webkit-box-shadow: 2px 2px 10px 0px black;
+	-moz-box-shadow: 2px 2px 10px 0px black;
+	box-shadow: 2px 2px 10px 0px black;
 }
 
 #expLayer04 {
@@ -251,7 +268,7 @@ body {
 	-moz-transition: .5s opacity, .5s right;
 	-o-transition: .5s opacity, .5s right;
 	transition: .5s opacity, .5s right;
-	-webkit-box-shadow: 2px 2px 10px 2px grey;
-	-moz-box-shadow: 2px 2px 10px 2px grey;
-	box-shadow: 2px 2px 10px 2px grey;
+	-webkit-box-shadow: 2px 2px 10px 0px black;
+	-moz-box-shadow: 2px 2px 10px 0px black;
+	box-shadow: 2px 2px 10px 0px black;
 }
