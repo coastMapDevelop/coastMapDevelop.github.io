@@ -489,7 +489,6 @@ window.onload = main;
 
 // function to toggle the visibility of layers in the map
 function toggleLayers(source) {
-	console.log(source);
 	// check for an active class to toggle on/off
 	var clicked = document.getElementById(source);
 	var active = clicked.classList.contains('active');
