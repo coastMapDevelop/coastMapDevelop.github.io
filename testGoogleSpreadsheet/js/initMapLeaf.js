@@ -488,7 +488,7 @@ function main() {
 	myNameSpace = {
 		toggle: toggle,
 		home: home,
-		changeBaseMap: changeBasemap
+		changeBaseMap: changeBaseMap
 	};
 	
 	
