@@ -440,22 +440,28 @@ function main() {
 				if (currentZoom >= 10) {
 					map.addLayer(citiesPolygon);
 					// add layer to arrays here
+					polygonArray.push(citiesPolygon);
 				} else if (currentZoom <= 9) {
 					map.addLayer(citiesPoints);
+					pointArray.push(citiesPoints);
 				}
 			} else if (source == "layer03") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(townsPolygon);
+					polygonArray.push(townsPolygon);
 				} else if (currentZoom <= 9 ) {
 					map.addLayer(townsPoints);
+					pointArray.push(townsPoints);
 				}
 			} else if (source == "layer04") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(villagesPolygon);
+					polygonArray.push(villagesPolygon);
 				} else if (currentZoom <= 9) {
 					map.addLayer(villagesPoints);
+					pointArray.push(villagesPoints);
 				}
 			}
 		}
