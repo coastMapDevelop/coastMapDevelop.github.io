@@ -31,3 +31,17 @@ function listMajors() {
 		console.log('Error: ' + response.result.error.message);
 	});
 };
+
+function baseHover(source) {
+	var box = document.getElementById(source);
+	
+	box.style.width = "200px";
+	box.style.height = "200px";
+};
+
+function baseOut(source) {
+	var box = document.getElementById(source);
+	
+	box.style.width = "";
+	box.style.height = "";
+};
