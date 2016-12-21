@@ -164,12 +164,14 @@ function main() {
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
+			/*
 			layer.setStyle({
 				weight: 5,
 				color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
 			});
+			*/
 		} else if (layer.feature.geometry.type == 'Point') {
 			console.log('point');
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
@@ -183,7 +185,7 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == '#2471A3') {
-			geojson.resetStyle(e.target); // reset style of county polygons
+			/*geojson.resetStyle(e.target); // reset style of county polygons*/
 		} else {
 			console.log('not county polygon');
 		}
