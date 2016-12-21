@@ -88,5 +88,19 @@ function expMenuButton() {
 			layer4.style.visibility = "";
 		}, 500);
 	}
+};
+
+
+function baseHover() {
+	var base = document.getElementById("baseMapButton");
 	
+	base.style.width = "200px";
+	base.style.height = "200px";
+};
+
+function baseOut() {
+	var base = document.getElementById("baseMapButton");
+	
+	base.style.width = "";
+	base.style.height = "";
 };
