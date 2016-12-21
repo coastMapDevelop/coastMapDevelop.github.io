@@ -241,8 +241,10 @@ function main() {
 			for (i=0; i < googleSpreadsheet.length; i++) {
 				if (target == googleSpreadsheet[i][0]) {
 					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent(target + "<br>" + googleSpreadsheet[i][1] + "<br>" + googleSpreadsheet[i][2] + "<br>" +
-						googleSpreadsheet[i][3]).openOn(map);
+					popup.setLatLng(e.latlng).setContent(target + " County" + "<br>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" +
+						"Gov Website: " + googleSpreadsheet[i][3] + "<br>" + "Web Map url: " + googleSpreadsheet[i][4] + "<br>" + "Web Map Other: " + googleSpreadsheet[i][5] + "<br>" + 
+						"Web Map State: " + googleSpreadsheet[i][6] + "<br>" + "Comp Plan: " + googleSpreadsheet[i][7] + "<br>" + "Haz Mit Plan: " + googleSpreadsheet[i][8] + "<br>" + 
+						"Climate Plan: " + googleSpreadsheet[i][9] + "<br>" + "Resilience Plan: " + googleSpreadsheet[i][10] + "<br>" + "Zoning url: " + googleSpreadsheet[i][11]).openOn(map);
 					// add other positions in array
 				}
 			}

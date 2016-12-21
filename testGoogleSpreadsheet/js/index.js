@@ -21,7 +21,7 @@ function listMajors() {
 		if (range.values.length > 0) {
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
-				var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[23], row[24]];
+				var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[22], row[23], row[24]];
 				googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 			}
 		} else {
