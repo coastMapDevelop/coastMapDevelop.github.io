@@ -136,52 +136,76 @@ body {
 
 #expLayer01 {
 	position: absolute;
-	top: 90px;
-	right: 60px;
+	top: 0px;
+	right: 0px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50px;
 	text-align: center;
-	background: #fff;
+	background: #2471A3;
 	cursor: pointer;
-	z-index: 1000;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: .5s opacity, .5s top;
+	-moz-transition: .5s opacity, .5s top;
+	-o-transition: .5s opacity, .5s top;
+	transition: .5s opacity, .5s top;
 }
 
 #expLayer02 {
 	position: absolute;
-	top: 90px;
-	right: 60px;
+	top: 0px;
+	right: 0px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50px;
 	text-align: center;
-	background: #fff;
+	background: #B03A2E;
 	cursor: pointer;
-	z-index: 1000;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: .5s opacity, .5s right;
+	-moz-transition: .5s opacity, .5s right;
+	-o-transition: .5s opacity, .5s right;
+	transition: .5s opacity, .5s right;
 }
 
 #expLayer03 {
 	position: absolute;
-	top: 90px;
-	right: 60px;
+	top: 0px;
+	right: 0px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50px;
 	text-align: center;
-	background: #fff;
+	background: #D68910;
 	cursor: pointer;
-	z-index: 1000;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: .5s opacity, .5s top;
+	-moz-transition: .5s opacity, .5s top;
+	-o-transition: .5s opacity, .5s top;
+	transition: .5s opacity, .5s top;
 }
 
 #expLayer04 {
 	position: absolute;
-	top: 90px;
-	right: 60px;
+	top: 0px;
+	right: 0px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50px;
 	text-align: center;
-	background: #fff;
+	background: #117A65;
 	cursor: pointer;
-	z-index: 1000;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: .5s opacity, .5s right;
+	-moz-transition: .5s opacity, .5s right;
+	-o-transition: .5s opacity, .5s right;
+	transition: .5s opacity, .5s right;
 }

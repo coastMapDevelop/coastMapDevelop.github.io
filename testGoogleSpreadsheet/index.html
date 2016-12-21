@@ -33,19 +33,19 @@
 	
 	<!-- experimental menu -->
 	<div id="expMenu">
-		<i class="fa fa-bars fa-2x" aria-hidden="true" onclick="alert('test')"></i>
+		<i id="menuIcon1" class="fa fa-bars fa-2x" aria-hidden="true" onclick="expMenuButton()" style="margin-top:3px;"></i>
 		
-		<div id="expLayer01"></div>
-		<div id="expLayer02"></div>
-		<div id="expLayer03"></div>
-		<div id="expLayer04"></div>
+		<div id="expLayer01" onclick="toggleLayers(this.id)"></div>
+		<div id="expLayer02" onclick="toggleLayers(this.id)"></div>
+		<div id="expLayer03" onclick="toggleLayers(this.id)"></div>
+		<div id="expLayer04" onclick="toggleLayers(this.id)"></div>
 	</div>
 	
 	<!-- home button -->
 	<div id="homeButton" onclick="myNameSpace.home()"><i class="fa fa-home fa-lg"></i></div>
 	
 	<!-- basemap button -->
-	<div id="baseMapButton" onmouseover="baseHover()" onmouseout="baseOut()"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButton"><i class="fa fa-database fa-lg"></i></div>
 	
 	<!-- jquery library -->
 	<script src="lib/jquery-3.1.1.min.js"></script>
