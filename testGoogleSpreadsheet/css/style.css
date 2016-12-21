@@ -130,8 +130,9 @@ body {
 	padding-right: 2px;
 	border-radius: 4px;
 	background: #fff;
+	color: grey;
 	border: 2px solid #B2BABB;
-	cursor: pointer;
+	cursor: not-allowed;
 	z-index: 1001;
 }
 
