@@ -25,11 +25,6 @@ function main() {
 		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	});
 	
-	// hydda.base tiles
-	var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
-		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	});
-	
 	// cartodb positron
 	var CartoDB_Positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -56,12 +51,32 @@ function main() {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 	});
 	
+	// world physical tiles
+	var Esri_WorldPhysical = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service',
+		maxZoom: 8
+	});
+	
+	// esri world imagery
+	var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+	});
+	
+	// esri ocean basemap
+	var Esri_OceanBasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+		maxZoom: 13
+	});
+	
 	var baseLayers = {
 		"Tile_Layer_1": CartoDB_Positron,
 		"Tile_Layer_2": CartoDB_DarkMatter,
 		"Tile_Layer_3": OpenStreetMap_Mapnik,
 		"Tile_Layer_4": Esri_WorldStreetMap,
-		"Tile_Layer_5": Hydda_Full
+		"Tile_Layer_5": Hydda_Full,
+		"Tile_Layer_6": Esri_WorldPhysical,
+		"Tile_Layer_7": Esri_WorldImagery,
+		"Tile_Layer_8": Esri_OceanBasemap
 	};
 	
 	var currentLayer = "Tile_Layer_1";
