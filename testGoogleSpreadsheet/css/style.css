@@ -116,6 +116,30 @@ body {
 	z-index: 1001;
 }
 
+#baseMapContainer {
+	position: absolute;
+	top: 110px;
+	left: 10px;
+	width: auto;
+	height: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 4px;
+	background: #fff;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
+}
+
+#baseToggle {
+	position: absolute;
+	top: 0px;
+	cursor:pointer;
+	right: 0px;
+}
+
 
 
 

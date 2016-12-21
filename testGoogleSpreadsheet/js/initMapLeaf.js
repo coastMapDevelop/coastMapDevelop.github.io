@@ -56,8 +56,16 @@ function main() {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
 	});
 	
+	var baseLayers = {
+		"Tile_Layer_1": CartoDB_Positron,
+		"Tile_Layer_2": CartoDB_DarkMatter,
+		"Tile_Layer_3": OpenStreetMap_Mapnik,
+		"Tile_Layer_4": Esri_WorldStreetMap,
+		"Tile_Layer_5": Hydda_Full
+	};
+	
 	// add tiles to map
-	CartoDB_DarkMatter.addTo(map);
+	baseLayers["Tile_Layer_1"].addTo(map);
 	
 	// add hover popup
 	var popup = L.popup();
@@ -473,9 +481,14 @@ function main() {
 		map.setView(new L.LatLng(44, -88), 6);
 	};
 	
+	function changeBaseMap(source) {
+		baseLayers[source].addTo(map);
+	};
+	
 	myNameSpace = {
 		toggle: toggle,
-		home: home
+		home: home,
+		changeBaseMap: changeBasemap
 	};
 	
 	

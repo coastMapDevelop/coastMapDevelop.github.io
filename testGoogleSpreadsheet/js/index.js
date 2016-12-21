@@ -91,16 +91,22 @@ function expMenuButton() {
 };
 
 
-function baseHover() {
-	var base = document.getElementById("baseMapButton");
-	
-	base.style.width = "200px";
-	base.style.height = "200px";
+function baseClick() {
+	var container = document.getElementById('baseMapContainer');
+	container.style.opacity = "1";
+	container.style.visibility = "visible";
 };
 
-function baseOut() {
-	var base = document.getElementById("baseMapButton");
-	
-	base.style.width = "";
-	base.style.height = "";
+function toggleClick() {
+	var container = document.getElementById('baseMapContainer');
+	container.style.opacity = "";
+	container.style.visibility = "";
 };
+
+var baseMapArray = [
+	"tile01",
+	"tile02",
+	"tile03",
+	"tile04",
+	"tile05"
+];

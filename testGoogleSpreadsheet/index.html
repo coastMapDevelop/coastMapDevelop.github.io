@@ -45,7 +45,43 @@
 	<div id="homeButton" onclick="myNameSpace.home()"><i class="fa fa-home fa-lg"></i></div>
 	
 	<!-- basemap button -->
-	<div id="baseMapButton" onmouseover="baseHover()" onmouseout="baseOut()"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButton" onclick="baseClick()"><i class="fa fa-database fa-lg"></i></div>
+	
+	<!-- basemap container -->
+	<div id="baseMapContainer">
+		<i id="baseToggle" class="fa fa-times fa-lg" onclick="toggleClick()"></i>
+		
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="tile01" value="Tile_Layer_1" onclick="myNameSpace.changeBaseMap(this.value)" checked>
+				Carto DB Positron
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="tile02" value="Tile_Layer_2" onclick="myNameSpace.changeBaseMap(this.value)">
+				Carto DB Dark Matter
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="tile03" value="Tile_Layer_3" onclick="myNameSpace.changeBaseMap(this.value)">
+				OpenStreetMap Mapnik
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="tile04" value="Tile_Layer_4" onclick="myNameSpace.changeBaseMap(this.value)">
+				Esri World Street Map
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="optionsRadios" id="tile05" value="Tile_Layer_5" onclick="myNameSpace.changeBaseMap(this.value)">
+				Hydda Full
+			</label>
+		</div>
+	</div>
 	
 	<!-- jquery library -->
 	<script src="lib/jquery-3.1.1.min.js"></script>
