@@ -442,35 +442,35 @@ function main() {
 				if (currentZoom >= 10) {
 					map.addLayer(citiesPolygon);
 					// add layer to arrays here
-					polygonArray.push(citiesPolygon);
 					console.log(polygonArray);
 				} else if (currentZoom <= 9) {
 					map.addLayer(citiesPoints);
-					pointArray.push(citiesPoints);
 					console.log(pointArray);
 				}
+				polygonArray.push(citiesPolygon);
+				pointArray.push(citiesPoints);
 			} else if (source == "layer03") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(townsPolygon);
-					polygonArray.push(townsPolygon);
 					console.log(polygonArray);
 				} else if (currentZoom <= 9 ) {
 					map.addLayer(townsPoints);
-					pointArray.push(townsPoints);
 					console.log(pointArray);
 				}
+				polygonArray.push(townsPolygon);
+				pointArray.push(townsPoints);
 			} else if (source == "layer04") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(villagesPolygon);
-					polygonArray.push(villagesPolygon);
 					console.log(polygonArray);
 				} else if (currentZoom <= 9) {
 					map.addLayer(villagesPoints);
-					pointArray.push(villagesPoints);
 					console.log(pointArray);
 				}
+				polygonArray.push(villagesPolygon);
+				pointArray.push(villagesPoints);
 			}
 		}
 	
