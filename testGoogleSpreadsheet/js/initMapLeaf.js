@@ -469,7 +469,14 @@ function main() {
 	
 	};
 	
-	myNameSpace = {toggle: toggle};
+	function home() {
+		map.setView(new L.LatLng(44, -88), 6);
+	};
+	
+	myNameSpace = {
+		toggle: toggle,
+		home: home
+	};
 	
 	
 	
