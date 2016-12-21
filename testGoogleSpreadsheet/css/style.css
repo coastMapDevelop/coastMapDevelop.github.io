@@ -143,6 +143,7 @@ body {
 	border-radius: 50px;
 	text-align: center;
 	background: #2471A3;
+	color: #fff;
 	cursor: pointer;
 	z-index: 1001;
 	opacity: 0;
@@ -162,6 +163,7 @@ body {
 	border-radius: 50px;
 	text-align: center;
 	background: #B03A2E;
+	color: #fff;
 	cursor: pointer;
 	z-index: 1001;
 	opacity: 0;
@@ -181,6 +183,7 @@ body {
 	border-radius: 50px;
 	text-align: center;
 	background: #D68910;
+	color: #fff;
 	cursor: pointer;
 	z-index: 1001;
 	opacity: 0;
@@ -200,6 +203,7 @@ body {
 	border-radius: 50px;
 	text-align: center;
 	background: #117A65;
+	color: #fff;
 	cursor: pointer;
 	z-index: 1001;
 	opacity: 0;
