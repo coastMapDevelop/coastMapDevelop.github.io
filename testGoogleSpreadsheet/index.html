@@ -35,17 +35,17 @@
 	<div id="expMenu">
 		<i id="menuIcon1" class="fa fa-bars fa-2x" aria-hidden="true" onclick="expMenuButton()" style="margin-top:3px;"></i>
 		
-		<div id="expLayer01" class="active" onclick="toggleLayers(this.id)"><p>Co</p></div>
-		<div id="expLayer02" class="active" onclick="toggleLayers(this.id)"><p>Ci</p></div>
-		<div id="expLayer03" class="active" onclick="toggleLayers(this.id)"><p>To</p></div>
-		<div id="expLayer04" class="active" onclick="toggleLayers(this.id)"><p>Vi</p></div>
+		<div id="expLayer01" class="active" onclick="toggleLayers(this.id)"><p style="margin-top:4px;">Co</p></div>
+		<div id="expLayer02" class="active" onclick="toggleLayers(this.id)"><p style="margin-top:4px;">Ci</p></div>
+		<div id="expLayer03" class="active" onclick="toggleLayers(this.id)"><p style="margin-top:4px;">To</p></div>
+		<div id="expLayer04" class="active" onclick="toggleLayers(this.id)"><p style="margin-top:4px;">Vi</p></div>
 	</div>
 	
 	<!-- home button -->
 	<div id="homeButton" onclick="myNameSpace.home()"><i class="fa fa-home fa-lg"></i></div>
 	
 	<!-- basemap button -->
-	<div id="baseMapButton"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButton" onmouseover="baseHover()" onmouseout="baseOut()"><i class="fa fa-database fa-lg"></i></div>
 	
 	<!-- jquery library -->
 	<script src="lib/jquery-3.1.1.min.js"></script>

@@ -123,7 +123,7 @@ body {
 /* experimental menu */
 #expMenu {
 	position: absolute;
-	top: 90px;
+	top: 60px;
 	right: 60px;
 	width: 40px;
 	height: 40px;
@@ -137,7 +137,7 @@ body {
 #expLayer01 {
 	position: absolute;
 	top: 0px;
-	right: 0px;
+	right: 5px;
 	width: 30px;
 	height: 30px;
 	border-radius: 50px;
@@ -156,7 +156,7 @@ body {
 
 #expLayer02 {
 	position: absolute;
-	top: 0px;
+	top: 5px;
 	right: 0px;
 	width: 30px;
 	height: 30px;
@@ -177,7 +177,7 @@ body {
 #expLayer03 {
 	position: absolute;
 	top: 0px;
-	right: 0px;
+	right: 5px;
 	width: 30px;
 	height: 30px;
 	border-radius: 50px;
@@ -196,7 +196,7 @@ body {
 
 #expLayer04 {
 	position: absolute;
-	top: 0px;
+	top: 5px;
 	right: 0px;
 	width: 30px;
 	height: 30px;

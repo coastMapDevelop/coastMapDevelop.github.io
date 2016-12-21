@@ -50,7 +50,7 @@ function expMenuButton() {
 		
 		layer1.style.opacity = "1";
 		layer1.style.visibility = "visible";
-		layer1.style.top = "-50px";
+		layer1.style.top = "-43px";
 	
 		layer2.style.opacity = "1";
 		layer2.style.visibility = "visible";
@@ -62,7 +62,7 @@ function expMenuButton() {
 	
 		layer4.style.opacity = "1";
 		layer4.style.visibility = "visible";
-		layer4.style.right = "-50px";
+		layer4.style.right = "-43px";
 	} else if (active == true) {
 		menu.classList.remove('active');
 		
