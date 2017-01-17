@@ -274,10 +274,11 @@ function main() {
 						"<a id='pointLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='pointLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
 					
+					// have to check if link is valid
 					var m;
 					for (m=0; m < popupPointArr.length; m++) {
 						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
-						if (link = 'null') {
+						if (link == 'null') {
 							// deactivate link
 						} else {
 							// activate link
@@ -300,10 +301,11 @@ function main() {
 						"<a id='polyLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='polyLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
 					
+					// have to check if link is valid
 					var m;
 					for (m=0; m < popupPolyArr.length; m++) {
 						var link = googleSpreadsheet2[i][popupPolyArr[m][2]];
-						if (link = 'null') {
+						if (link == 'null') {
 							// deactivate link
 						} else {
 							// activate link
