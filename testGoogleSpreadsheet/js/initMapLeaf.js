@@ -234,6 +234,12 @@ function main() {
 	function crossReference(e, layer, props, type, color) {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
+			recentClickArr.splice(0, 0, target);
+			if (recentClickArr.length > 4) {
+				recentClickArr.splice(4, 1);
+			}
+			console.log(recentClickArr);
+			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
@@ -262,6 +268,7 @@ function main() {
 			
 		} else if (type == 'Point') {
 			var target = props.name;
+		
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
@@ -289,6 +296,7 @@ function main() {
 			}
 		} else if (type == 'MultiPolygon' && color != '#2471A3') {
 			var target = props.Name;
+			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;

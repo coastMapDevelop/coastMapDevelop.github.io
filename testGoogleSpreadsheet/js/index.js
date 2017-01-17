@@ -172,6 +172,8 @@ var popupPolyArr = [
 	['polyLink8', 'Res Plan', 10]
 ];
 
+var recentClickArr = [];
+
 
 
 
