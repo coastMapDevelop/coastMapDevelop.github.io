@@ -237,6 +237,7 @@ function main() {
 			
 			// may need to create elements then append to popup
 			// loop to retrieve necessary data from spreadsheet 
+			
 			var i;
 			for (i=0; i < googleSpreadsheet.length; i++) {
 				if (target == googleSpreadsheet[i][0]) {
@@ -246,8 +247,8 @@ function main() {
 						"Web Map State: " + googleSpreadsheet[i][6] + "<br>" + "Comp Plan: " + googleSpreadsheet[i][7] + "<br>" + "Haz Mit Plan: " + googleSpreadsheet[i][8] + "<br>" + 
 						"Climate Plan: " + googleSpreadsheet[i][9] + "<br>" + "Resilience Plan: " + googleSpreadsheet[i][10] + "<br>" + "Zoning url: " + googleSpreadsheet[i][11]).openOn(map);
 					// add other positions in array
+					document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
 				}
-				document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
 			}
 			
 		} else if (type == 'Point') {
