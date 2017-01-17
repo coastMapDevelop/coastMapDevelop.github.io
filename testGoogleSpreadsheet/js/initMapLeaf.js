@@ -175,7 +175,6 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2471A3') {
-			console.log('county multipolygon');
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
@@ -188,11 +187,9 @@ function main() {
 			});
 			*/
 		} else if (layer.feature.geometry.type == 'Point') {
-			console.log('point');
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2471A3') {
-			console.log('urban polygon');
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
 		}
 	};
@@ -202,7 +199,7 @@ function main() {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == '#2471A3') {
 			/*geojson.resetStyle(e.target); // reset style of county polygons*/
 		} else {
-			console.log('not county polygon');
+			//'not county polygon');
 		}
 		this.closeTooltip(); // close tooltip on mouseout
 	};
@@ -234,11 +231,16 @@ function main() {
 	function crossReference(e, layer, props, type, color) {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
-			recentClickArr.splice(0, 0, target);
-			if (recentClickArr.length > 4) {
-				recentClickArr.splice(4, 1);
+			if (recentClickArr.indexOf(target) == -1) {
+				// do nothing
+			} else if (recentClickArr.indexOf(target) >= 0) {
+				recentClickArr.splice(0, 0, target);
+				if (recentClickArr.length > 5) {
+					recentClickArr.splice(4, 1);
+				}
+				console.log(recentClickArr);
 			}
-			console.log(recentClickArr);
+			
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -500,8 +502,8 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
 				
-				console.log(pointArray);
-				console.log(polygonArray);
+				//(pointArray);
+				//(polygonArray);
 		
 			} else if (source == "layer03") {
 				map.removeLayer(townsPoints);
@@ -513,8 +515,8 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
 				
-				console.log(pointArray);
-				console.log(polygonArray);
+				//(pointArray);
+				//(polygonArray);
 				
 			} else if (source == "layer04") {
 				map.removeLayer(villagesPoints);
@@ -526,8 +528,8 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
 				
-				console.log(pointArray);
-				console.log(polygonArray);
+				//(pointArray);
+				//(polygonArray);
 				
 			}
 		} else if (x == 1) {
