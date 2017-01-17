@@ -249,7 +249,7 @@ function main() {
 				}
 			}
 			
-			document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
+			document.getElementById('countyLink1').setAttribute("href", 'https://www.google.com');
 		} else if (type == 'Point') {
 			var target = props.name;
 			
