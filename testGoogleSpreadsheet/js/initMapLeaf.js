@@ -234,7 +234,8 @@ function main() {
 	function crossReference(e, layer, props, type, color) {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
-		
+			
+			// look at creating elements, then appending them instead of setting contents of popup
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			for (i=0; i < googleSpreadsheet.length; i++) {
