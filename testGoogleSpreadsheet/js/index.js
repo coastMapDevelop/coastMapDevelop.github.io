@@ -133,7 +133,7 @@ var baseMapArray = [
 
 
 /* test lists */
-var popupArrCounty = [
+var popupCountyArr = [
 	['countyLink1', 'Gov Website', 3],
 	['countyLink2', 'Web Map URL', 4],
 	['countyLink3', 'Web Map Other', 5],
