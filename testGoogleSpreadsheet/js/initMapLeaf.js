@@ -238,7 +238,7 @@ function main() {
 				}
 				console.log(recentClickArr);
 			} else if (recentClickArr.indexOf(target) >= 0) {
-				// do nothing
+				console.log(recentClickArr);
 			}
 			
 			
