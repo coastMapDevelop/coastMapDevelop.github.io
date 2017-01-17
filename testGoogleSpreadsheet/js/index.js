@@ -73,7 +73,7 @@ function expMenuButton() {
 	
 		layer2.style.opacity = "1";
 		layer2.style.visibility = "visible";
-		layer2.style.right = "75px";
+		layer2.style.right = "60px";
 	
 		layer3.style.opacity = "1";
 		layer3.style.visibility = "visible";
