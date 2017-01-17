@@ -457,9 +457,9 @@ function main() {
 	function toggle(source, x) {
 		if (x == 0) {
 			// remove layer
-			if (source == "expLayer01") {
+			if (source == "layer01") {
 				map.removeLayer(geojson);
-			} else if (source == "expLayer02") {
+			} else if (source == "layer02") {
 				map.removeLayer(citiesPoints);
 				map.removeLayer(citiesPolygon);
 				
@@ -472,7 +472,7 @@ function main() {
 				console.log(pointArray);
 				console.log(polygonArray);
 		
-			} else if (source == "expLayer03") {
+			} else if (source == "layer03") {
 				map.removeLayer(townsPoints);
 				map.removeLayer(townsPolygon);
 				
@@ -485,7 +485,7 @@ function main() {
 				console.log(pointArray);
 				console.log(polygonArray);
 				
-			} else if (source == "expLayer04") {
+			} else if (source == "layer04") {
 				map.removeLayer(villagesPoints);
 				map.removeLayer(villagesPolygon);
 				
@@ -501,10 +501,10 @@ function main() {
 			}
 		} else if (x == 1) {
 			// add layer
-			if (source == "expLayer01") {
+			if (source == "layer01") {
 				map.addLayer(geojson);
 				geojson.bringToBack();
-			} else if (source == "expLayer02") {
+			} else if (source == "layer02") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(citiesPolygon);
@@ -513,7 +513,7 @@ function main() {
 				}
 				polygonArray.push(citiesPolygon);
 				pointArray.push(citiesPoints);
-			} else if (source == "expLayer03") {
+			} else if (source == "layer03") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(townsPolygon);
@@ -522,7 +522,7 @@ function main() {
 				}
 				polygonArray.push(townsPolygon);
 				pointArray.push(townsPoints);
-			} else if (source == "expLayer04") {
+			} else if (source == "layer04") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(villagesPolygon);
