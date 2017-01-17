@@ -235,7 +235,7 @@ function main() {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
 			
-
+			// may need to create elements then append to popup
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			for (i=0; i < googleSpreadsheet.length; i++) {
@@ -249,7 +249,7 @@ function main() {
 				}
 			}
 			
-			document.getElementById('countyLink1').setAttribute("href", 'https://www.google.com');
+			document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
 		} else if (type == 'Point') {
 			var target = props.name;
 			
