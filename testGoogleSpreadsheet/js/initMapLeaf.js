@@ -247,9 +247,9 @@ function main() {
 						"Climate Plan: " + googleSpreadsheet[i][9] + "<br>" + "Resilience Plan: " + googleSpreadsheet[i][10] + "<br>" + "Zoning url: " + googleSpreadsheet[i][11]).openOn(map);
 					// add other positions in array
 				}
+				document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
 			}
 			
-			document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
 		} else if (type == 'Point') {
 			var target = props.name;
 			
