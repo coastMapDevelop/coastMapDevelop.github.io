@@ -145,6 +145,28 @@ var popupCountyArr = [
 	['countyLink9', 'Zoning URL', 11]
 ];
 
+var popupPointArr = [
+	['pointLink1', 'Govt Web', 3],
+	['pointLink2', 'Map Web', 4],
+	['pointLink3', 'Comp Plan', 5],
+	['pointLink4', 'Zoning Web', 6],
+	['pointLink5', 'Haz Mit Web', 7],
+	['pointLink6', 'Sus Plan', 8],
+	['pointLink7', 'Cli Plan', 9],
+	['pointLink8', 'Res Plan', 10]
+];
+
+var popupPolyArr = [
+	['polyLink1', 'Govt Web', 3],
+	['polyLink2', 'Map Web', 4],
+	['polyLink3', 'Comp Plan', 5],
+	['polyLink4', 'Zoning Web', 6],
+	['polyLink5', 'Haz Mit Web', 7],
+	['polyLink6', 'Sus Plan', 8],
+	['polyLink7', 'Cli Plan', 9],
+	['polyLink8', 'Res Plan', 10]
+];
+
 
 
 

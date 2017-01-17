@@ -250,7 +250,6 @@ function main() {
 					var m;
 					for (m=0; m < popupCountyArr.length; m++) {
 						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
-						console.log(link);
 						if (link == 'null') {
 							// deactivate link
 						} else {
@@ -269,11 +268,22 @@ function main() {
 			for (i=0; i < googleSpreadsheet2.length; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent(target + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
-					"Govt Web: " + googleSpreadsheet2[i][3] + "<br>" + "Map Web: " + googleSpreadsheet2[i][4] + "<br>" + "Comp Plan: " + googleSpreadsheet2[i][5] + "<br>" + 
-					"Zoning Web: " + googleSpreadsheet2[i][6] + "<br>" + "Haz Mit Web: " + googleSpreadsheet2[i][7] + "<br>" + "Sus Plan: " + googleSpreadsheet2[i][8] + "<br>" + 
-					"Cli Plan:" + googleSpreadsheet2[i][9] + "<br>" + "Res Plan: " + googleSpreadsheet2[i][10]).openOn(map);
+					popup.setLatLng(e.latlng).setContent("<b>" + target + "</b>" + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
+						"<a id='pointLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='pointLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='pointLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
+						"<a id='pointLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='pointLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='pointLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
+						"<a id='pointLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='pointLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
+					
+					var m;
+					for (m=0; m < popupPointArr.length; m++) {
+						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
+						if (link = 'null') {
+							// deactivate link
+						} else {
+							// activate link
+							document.getElementById(popupPointArr[m][0]).setAttribute("href", link);
+						}
+					}
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != '#2471A3') {
@@ -284,11 +294,22 @@ function main() {
 			for (i=0; i < googleSpreadsheet2.length; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent(target + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
-					"Govt Web: " + googleSpreadsheet2[i][3] + "<br>" + "Map Web: " + googleSpreadsheet2[i][4] + "<br>" + "Comp Plan: " + googleSpreadsheet2[i][5] + "<br>" + 
-					"Zoning Web: " + googleSpreadsheet2[i][6] + "<br>" + "Haz Mit Web: " + googleSpreadsheet2[i][7] + "<br>" + "Sus Plan: " + googleSpreadsheet2[i][8] + "<br>" + 
-					"Cli Plan:" + googleSpreadsheet2[i][9] + "<br>" + "Res Plan: " + googleSpreadsheet2[i][10]).openOn(map);
+					popup.setLatLng(e.latlng).setContent("<b>" + target + "</b>" + "<br>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + 
+						"<a id='polyLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='polyLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='polyLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
+						"<a id='polyLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='polyLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='polyLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
+						"<a id='polyLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='polyLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
+					
+					var m;
+					for (m=0; m < popupPolyArr.length; m++) {
+						var link = googleSpreadsheet2[i][popupPolyArr[m][2]];
+						if (link = 'null') {
+							// deactivate link
+						} else {
+							// activate link
+							document.getElementById(popupPolyArr[m][0]).setAttribute("href", link);
+						}
+					}
 				}
 			}
 		}
