@@ -251,9 +251,8 @@ function main() {
 					for (m=0; m < popupCountyArr.length; m++) {
 						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
 						console.log(link);
-						if (link == null) {
+						if (link == " ") {
 							// deactivate link
-							document.getElementById(popupCountyArr[m][0]).setAttribute("href", "");
 						} else {
 							// activate link
 							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
