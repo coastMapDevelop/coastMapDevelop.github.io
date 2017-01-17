@@ -241,7 +241,7 @@ function main() {
 				if (target == googleSpreadsheet[i][0]) {
 					
 					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent(target + " County" + "<br>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" +
+					popup.setLatLng(e.latlng).setContent("<b>" + target + " County</b>" + "<br>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" +
 						"<a id='countyLink1' target='_blank'>Gov Website</a>" + "<br>" + "<a id='countyLink2' target='_blank'>Web Map URL</a>" + "<br>" + "<a id='countyLink3' target='_blank'>Web Map Other</a>" + "<br>" + 
 						"<a id='countyLink4' target='_blank'>Web Map State</a>" + "<br>" + "<a id='countyLink5' target='_blank'>Comp Plan</a>" + "<br>" + "<a id='countyLink6' target='_blank'>Haz Mit Plan</a>" + "<br>" + 
 						"<a id='countyLink7' target='_blank'>Climate Plan</a>" + "<br>" + "<a id='countyLink8' target='_blank'>Resilience Plan</a>" + "<br>" + "<a id='countyLink9' target='_blank'>Zoning URL</a>").openOn(map);
