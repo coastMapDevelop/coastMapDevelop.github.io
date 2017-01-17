@@ -241,13 +241,23 @@ function main() {
 			var i;
 			for (i=0; i < googleSpreadsheet.length; i++) {
 				if (target == googleSpreadsheet[i][0]) {
+					
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent(target + " County" + "<br>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" +
-						"<a id='countyLink1' target='_blank'>Gov Website</a>" + "<br>" + "Gov Website: " + googleSpreadsheet[i][3] + "<br>" + "Web Map url: " + googleSpreadsheet[i][4] + "<br>" + "Web Map Other: " + googleSpreadsheet[i][5] + "<br>" + 
-						"Web Map State: " + googleSpreadsheet[i][6] + "<br>" + "Comp Plan: " + googleSpreadsheet[i][7] + "<br>" + "Haz Mit Plan: " + googleSpreadsheet[i][8] + "<br>" + 
-						"Climate Plan: " + googleSpreadsheet[i][9] + "<br>" + "Resilience Plan: " + googleSpreadsheet[i][10] + "<br>" + "Zoning url: " + googleSpreadsheet[i][11]).openOn(map);
+						"<a id='countyLink1' target='_blank'>Gov Website</a>" + "<br>" + "<a id='countyLink2' target='_blank'>Web Map URL</a>" + "<br>" + "<a id='countyLink3' target='_blank'>Web Map Other</a>" + "<br>" + 
+						"<a id='countyLink4' target='_blank'>Web Map State</a>" + "<br>" + "<a id='countyLink5' target='_blank'>Comp Plan</a>" + "<br>" + "<a id='countyLink6' target='_blank'>Haz Mit Plan</a>" + "<br>" + 
+						"<a id='countyLink7' target='_blank'>Climate Plan</a>" + "<br>" + "<a id='countyLink8' target='_blank'>Resilience Plan</a>" + "<br>" + "<a id='countyLink9' target='_blank'>Zoning URL</a>").openOn(map);
 					// add other positions in array
 					document.getElementById('countyLink1').setAttribute("href", googleSpreadsheet[i][3]);
+					document.getElementById('countyLink2').setAttribute("href", googleSpreadsheet[i][4]);
+					document.getElementById('countyLink3').setAttribute("href", googleSpreadsheet[i][5]);
+					document.getElementById('countyLink4').setAttribute("href", googleSpreadsheet[i][6]);
+					document.getElementById('countyLink5').setAttribute("href", googleSpreadsheet[i][7]);
+					document.getElementById('countyLink6').setAttribute("href", googleSpreadsheet[i][8]);
+					document.getElementById('countyLink7').setAttribute("href", googleSpreadsheet[i][9]);
+					document.getElementById('countyLink8').setAttribute("href", googleSpreadsheet[i][10]);
+					document.getElementById('countyLink9').setAttribute("href", googleSpreadsheet[i][11]);
+					
 				}
 			}
 			

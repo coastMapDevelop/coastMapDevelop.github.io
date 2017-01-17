@@ -129,3 +129,27 @@ var baseMapArray = [
 	"tile04",
 	"tile05"
 ];
+
+
+
+/* test lists */
+var popupArrCounty = [
+	['countyLink1', 'Gov Website', 3],
+	['countyLink2', 'Web Map URL', 4],
+	['countyLink3', 'Web Map Other', 5],
+	['countyLink4', 'Web Map State', 6],
+	['countyLink5', 'Comp Plan', 7],
+	['countyLink6', 'Haz Mit Plan', 8],
+	['countyLink7', 'Climate Plan', 9],
+	['countyLink8', 'Resilience Plan', 10],
+	['countyLink9', 'Zoning URL', 11]
+];
+
+
+
+
+
+
+
+
+
