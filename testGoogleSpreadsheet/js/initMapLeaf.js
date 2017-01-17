@@ -236,7 +236,7 @@ function main() {
 			if (recentClickArr.indexOf(target) < 0) {
 				recentClickArr.splice(0, 0, target);
 				if (recentClickArr.length > 5) {
-					recentClickArr.splice(4, 1);
+					recentClickArr.splice(5, 1);
 				}
 				console.log(recentClickArr);
 			} else if (recentClickArr.indexOf(target) >= 0) {
