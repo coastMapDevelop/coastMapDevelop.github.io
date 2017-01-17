@@ -12,6 +12,21 @@ body {
 	height: 100vh;
 }
 
+#toggleMenu {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 40px;
+	height: 35px;
+	background: #fff;
+	border-radius: 4px;
+	z-index: 1001;
+	color: black;
+	text-align: center;
+	cursor:pointer;
+	border: 2px solid #B2BABB;
+}
+
 #menu {
 	position: absolute;
 	top: 10px;
@@ -20,6 +35,15 @@ body {
 	height: 150px;
 	width: 100px;
 	z-index: 1001;
+	-webkit-transition: .5s right;
+	-moz-transition: .5s right;
+	-o-transition: .5s right;
+	transition: .5s right;
+}
+
+#menu p {
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
 /* maybe have just dots, expand menu and get full version */
@@ -35,7 +59,7 @@ body {
 	cursor: pointer;
 	text-align: center;
 	color: white;
-	font-size: 20px;
+	font-size: 25px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
@@ -51,7 +75,7 @@ body {
 	cursor: pointer;
 	text-align:center;
 	color: white;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 #layer03 {
@@ -65,7 +89,7 @@ body {
 	cursor: pointer;
 	text-align: center;
 	color: white;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 #layer04 {
@@ -79,7 +103,7 @@ body {
 	cursor: pointer;
 	text-align: center;
 	color: white;
-	font-size: 20px;
+	font-size: 25px;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 }

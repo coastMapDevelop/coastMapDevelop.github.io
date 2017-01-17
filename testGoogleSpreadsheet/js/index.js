@@ -122,6 +122,28 @@ function toggleClick() {
 	container.style.visibility = "";
 };
 
+function toggleMenu(source) {
+	var menuButton = document.getElementById(source);
+	var active = menuButton.classList.contains('active');
+	var innerMenuButton = document.getElementById('innerMenuButton');
+	if (active == false) {
+		menuButton.classList.add('active');
+		innerMenuButton.classList.remove('fa', 'fa-bars', 'fa-2x');
+		innerMenuButton.classList.add('fa', 'fa-window-minimize', 'fa-2x');
+		menuButton.style.right = "10px";
+	} else if (active == true) {
+		menuButton.classList.remove('active');
+		innerMenuButton.classList.remove('fa', 'fa-window-minimize', 'fa-2x');
+		innerMenuButton.classList.add('fa', 'fa-bars', 'fa-2x');
+		menuButton.style.right = "-100px;"
+	}
+}
+
+
+
+
+
+
 var baseMapArray = [
 	"tile01",
 	"tile02",
