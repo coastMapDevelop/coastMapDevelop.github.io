@@ -231,6 +231,8 @@ function main() {
 	function crossReference(e, layer, props, type, color) {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
+			
+			// needs work - list of recent clicks
 			if (recentClickArr.indexOf(target) < 0) {
 				recentClickArr.splice(0, 0, target);
 				if (recentClickArr.length > 5) {
