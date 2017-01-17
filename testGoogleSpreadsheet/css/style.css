@@ -280,3 +280,7 @@ body {
 .leaflet-popup-content-wrapper .leaflet-popup-content {
 	text-align: center;
 }
+
+b {
+	font-size: 25px;
+}
