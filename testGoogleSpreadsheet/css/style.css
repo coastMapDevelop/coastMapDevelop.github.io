@@ -185,7 +185,7 @@ body {
 #expLayer01 {
 	position: absolute;
 	top: 0px;
-	right: 5px;
+	right: 10px;
 	width: 65px;
 	height: 30px;
 	border-radius: 50px;
@@ -231,7 +231,7 @@ body {
 #expLayer03 {
 	position: absolute;
 	top: 0px;
-	right: 5px;
+	right: 10px;
 	width: 65px;
 	height: 30px;
 	border-radius: 50px;
