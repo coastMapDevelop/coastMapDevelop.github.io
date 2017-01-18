@@ -261,7 +261,7 @@ function main() {
 						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
-							document.getElementById(popupCountyArr[m][0]).disabled = true;
+							
 						} else {
 							// activate link
 							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
