@@ -655,7 +655,9 @@ function toggleLayers(source) {
 
 function clickedQueryItem(source) {
 	var position = recentClickArr.indexOf(source);
-	myNameSpace.zoomToFeature(storedEClicked[position]);
+	var item = storedEClicked[position];
+	map.fitBounds(item.target.getBounds()); // zoom to feature
+	//myNameSpace.zoomToFeature(storedEClicked[position]);
 };
 
 
