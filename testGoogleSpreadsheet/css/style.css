@@ -27,6 +27,9 @@ body {
 	-moz-transition: .5s right;
 	-o-transition: .5s right;
 	transition: .5s right;
+	-webkit-box-shadow: 2px 2px 10px -1px black;
+	-moz-box-shadow: 2px 2px 10px -1px black;
+	box-shadow: 2px 2px 10px -1px black;
 }
 
 #menu p {
