@@ -20,7 +20,7 @@ body {
 	right: 10px;
 	background: #fff;
 	height: 150px;
-	width: 130px;
+	width: 140px;
 	z-index: 1001;
 	border-radius: 4px;
 	-webkit-transition: .5s right;
@@ -104,7 +104,7 @@ body {
 	top: 5px;
 	width: 25px;
 	height: 25px;
-	border-radius: 25px;
+	border-radius: 4px;
 	background: black;
 	cursor: pointer;
 	border: 1px solid black;
@@ -367,18 +367,22 @@ body {
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:link{
 	text-decoration: none;
+	color: #2980B9;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:hover{
 	text-decoration: none;
+	color: #7FB3D5;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:visited{
 	text-decoration: none;
+	color: #2980B9;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:active{
 	text-decoration: none;
+	color: #2980B9;
 }
 
 
