@@ -22,7 +22,7 @@ body {
 	height: 150px;
 	width: 140px;
 	z-index: 1001;
-	border-radius: 4px;
+	border-radius: 5px;
 	-webkit-transition: .5s right;
 	-moz-transition: .5s right;
 	-o-transition: .5s right;
