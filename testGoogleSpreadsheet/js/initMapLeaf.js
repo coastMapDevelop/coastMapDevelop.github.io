@@ -262,7 +262,8 @@ function main() {
 						if (link == 'null') {
 							// deactivate link
 							//document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
-							$(popupCountyArr[m][0]).remove();
+							//$(popupCountyArr[m][0]).remove();
+							document.getElementById(popupCountyArr[m][0]).style.color = "grey";
 						} else {
 							// activate link
 							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
