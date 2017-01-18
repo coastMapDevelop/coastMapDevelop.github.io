@@ -232,17 +232,8 @@ function main() {
 		if (type == 'MultiPolygon' && color == '#2471A3') {
 			var target = props.NAME10; // reference
 			
-			// needs work - list of recent clicks
-			if (recentClickArr.indexOf(target) < 0) {
-				recentClickArr.splice(0, 0, target);
-				if (recentClickArr.length > 5) {
-					recentClickArr.splice(5, 1);
-				}
-				console.log(recentClickArr);
-			} else if (recentClickArr.indexOf(target) >= 0) {
-				console.log(recentClickArr);
-			}
-			
+			// call function to store clicked features
+			stacheClicked(target);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -272,7 +263,10 @@ function main() {
 			
 		} else if (type == 'Point') {
 			var target = props.name;
-		
+			
+			// call function to store clicked features
+			stacheClicked(target);
+			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
@@ -300,6 +294,9 @@ function main() {
 			}
 		} else if (type == 'MultiPolygon' && color != '#2471A3') {
 			var target = props.Name;
+			
+			// call function to store clicked features
+			stacheClicked(target);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -337,6 +334,40 @@ function main() {
 		
 		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
+	
+	// function to add list of names to recent clicks
+	function stacheClicked(target) {
+		var container = document.getElementById('queryContainer');
+		
+		if (recentClickArr.indexOf(target) < 0) {
+			recentClickArr.splice(0, 0, target);
+			if (recentClickArr.length > 5) {
+				recentClickArr.splice(5, 1);
+				container.removeChild(container.childNodes[3]);
+			}
+			console.log(recentClickArr);
+			
+			var queryButton = document.getElementById('queryButton');
+			queryButton.style.cursor = 'pointer';
+			queryButton.style.color = 'black';
+			queryButton.classList.add('active');
+			
+			
+			// add a queryRow to the queryContainer
+			var para = document.createElement("p");
+			var node = document.createTextNode(target);
+			para.appendChild(node);
+			
+			var element = document.createElement("div");
+			element.classList.add('queryRow');
+			element.appendChild(para);
+			
+			container.appendChild(element);
+			
+		} else if (recentClickArr.indexOf(target) >= 0) {
+			console.log(recentClickArr);
+		}
+	};
 	
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {

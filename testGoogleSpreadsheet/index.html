@@ -59,7 +59,12 @@
 	<div id="baseMapButton" onclick="baseClick()"><i class="fa fa-database fa-lg"></i></div>
 	
 	<!-- query button -->
-	<div id="queryButton"><i class="fa fa-archive fa-lg"></i></div>
+	<div id="queryButton" onclick="queryClicked(this.id)"><i class="fa fa-archive fa-lg"></i></div>
+	
+	<!-- query container -->
+	<div id="queryContainer">
+		<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>
+	</div>
 	
 	<!-- basemap container -->
 	<div id="baseMapContainer">

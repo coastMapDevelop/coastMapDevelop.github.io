@@ -122,7 +122,25 @@ function toggleClick() {
 	container.style.visibility = "";
 };
 
+function queryToggle() {
+	var container = document.getElementById('queryContainer');
+	container.style.opacity = "";
+	container.style.visibility = "";
+};
 
+function queryClicked(source) {
+	var theButton = document.getElementById(source);
+	var active = theButton.classList.contains('active');
+	
+	var queryBox = document.getElementById('queryContainer');
+	
+	if (active == false) {
+		console.log('do nothing');
+	} else if (active == true) {
+		queryBox.style.opacity = '1';
+		queryBox.style.visibility = 'visible';
+	}
+};
 
 
 

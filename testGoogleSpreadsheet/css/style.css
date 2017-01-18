@@ -151,6 +151,34 @@ body {
 	z-index: 1001;
 }
 
+#queryContainer {
+	position: absolute;
+	top: 160px;
+	left: 10px;
+	width: auto;
+	height: auto;
+	background: #fff;
+	z-index: 1001;
+	border-radius: 4px;
+	border: 2px solid #B2BABB;
+	opacity: 0;
+	visibility: hidden;
+}
+
+#queryToggle {
+	position: absolute;
+	top: 0px;
+	cursor: pointer;
+	right: 0px;
+}
+
+.queryRow {
+	background: white;
+	width: 175px;
+	height: 50px;
+	text-align: center;
+}
+
 #baseMapContainer {
 	position: absolute;
 	top: 120px;
@@ -163,6 +191,7 @@ body {
 	padding-right: 5px;
 	border-radius: 4px;
 	background: #fff;
+	border: 2px solid #B2BABB;
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
