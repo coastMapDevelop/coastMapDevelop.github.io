@@ -233,7 +233,7 @@ function main() {
 			var target = props.NAME10; // reference
 			
 			// call function to store clicked features
-			stacheClicked(target);
+			stacheClicked(target, e);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -265,7 +265,7 @@ function main() {
 			var target = props.name;
 			
 			// call function to store clicked features
-			stacheClicked(target);
+			stacheClicked(target, e);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -296,7 +296,7 @@ function main() {
 			var target = props.Name;
 			
 			// call function to store clicked features
-			stacheClicked(target);
+			stacheClicked(target, e);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -336,13 +336,15 @@ function main() {
 	});
 	
 	// function to add list of names to recent clicks
-	function stacheClicked(target) {
+	function stacheClicked(target, e) {
 		var container = document.getElementById('queryContainer');
 		
 		if (recentClickArr.indexOf(target) < 0) {
 			recentClickArr.splice(0, 0, target);
+			storedEClicked.splice(0, 0, e);
 			if (recentClickArr.length > 5) {
 				recentClickArr.splice(5, 1);
+				storedEClicked.splice(5, 1);
 				container.removeChild(container.childNodes[3]);
 			}
 			console.log(recentClickArr);
@@ -360,6 +362,8 @@ function main() {
 			
 			var element = document.createElement("div");
 			element.classList.add('queryRow');
+			element.setAttribute("id", target);
+			element.setAttribute("onclick", "clickedQueryItem(this.id)");
 			element.appendChild(para);
 			
 			container.appendChild(element);
@@ -615,7 +619,8 @@ function main() {
 	myNameSpace = {
 		toggle: toggle,
 		home: home,
-		changeBaseMap: changeBaseMap
+		changeBaseMap: changeBaseMap,
+		zoomToFeature: zoomToFeature
 	};
 	
 	
@@ -646,6 +651,11 @@ function toggleLayers(source) {
 		myNameSpace.toggle(source, 1);
 		// add layer
 	}
+};
+
+function clickedQueryItem(source) {
+	var position = recentClickArr.indexOf(source);
+	myNameSpace.zoomToFeature(storedEClicked[position]);
 };
 
 
