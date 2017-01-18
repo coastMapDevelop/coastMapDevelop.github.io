@@ -389,6 +389,28 @@ body {
 	color: #1F618D;
 }
 
+/* test */
+.leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:link{
+	text-decoration: none;
+	color: grey;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:hover{
+	text-decoration: none;
+	color: grey;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:visited{
+	text-decoration: none;
+	color: grey;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:active{
+	text-decoration: none;
+	color: grey;
+}
+/*test */
+
 
 b {
 	font-size: 25px;
