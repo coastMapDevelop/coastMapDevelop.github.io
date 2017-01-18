@@ -261,8 +261,8 @@ function main() {
 						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
-							// use buttons to deactivate, instead of anchor tags
-							document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
+							//document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
+							$(popupCountyArr[m][0]).remove();
 						} else {
 							// activate link
 							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
