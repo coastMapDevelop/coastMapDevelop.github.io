@@ -51,6 +51,7 @@ function listMajors() {
 	});
 };
 
+/*
 function expMenuButton() {
 	var menu = document.getElementById("expMenu");
 	var active = menu.classList.contains('active');
@@ -108,7 +109,7 @@ function expMenuButton() {
 		}, 500);
 	}
 };
-
+*/
 
 function baseClick() {
 	var container = document.getElementById('baseMapContainer');
@@ -155,7 +156,7 @@ var baseMapArray = [
 
 
 
-/* test lists */
+
 var popupCountyArr = [
 	['countyLink1', 'Gov Website', 3],
 	['countyLink2', 'Web Map URL', 4],
