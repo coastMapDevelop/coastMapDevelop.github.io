@@ -363,11 +363,12 @@ body {
 
 .leaflet-popup-content-wrapper .leaflet-popup-content {
 	text-align: center;
+	font-size: 18px;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:link{
 	text-decoration: none;
-	color: #2980B9;
+	color: #1F618D;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:hover{
@@ -377,12 +378,12 @@ body {
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:visited{
 	text-decoration: none;
-	color: #2980B9;
+	color: #1F618D;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:active{
 	text-decoration: none;
-	color: #2980B9;
+	color: #1F618D;
 }
 
 
