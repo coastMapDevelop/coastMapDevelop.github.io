@@ -531,9 +531,9 @@ function main() {
 	function toggle(source, x) {
 		if (x == 0) {
 			// remove layer
-			if (source == "layer01") {
+			if (source == "bubble01") {
 				map.removeLayer(geojson);
-			} else if (source == "layer02") {
+			} else if (source == "bubble02") {
 				map.removeLayer(citiesPoints);
 				map.removeLayer(citiesPolygon);
 				
@@ -546,7 +546,7 @@ function main() {
 				//(pointArray);
 				//(polygonArray);
 		
-			} else if (source == "layer03") {
+			} else if (source == "bubble03") {
 				map.removeLayer(townsPoints);
 				map.removeLayer(townsPolygon);
 				
@@ -559,7 +559,7 @@ function main() {
 				//(pointArray);
 				//(polygonArray);
 				
-			} else if (source == "layer04") {
+			} else if (source == "bubble04") {
 				map.removeLayer(villagesPoints);
 				map.removeLayer(villagesPolygon);
 				
@@ -575,10 +575,10 @@ function main() {
 			}
 		} else if (x == 1) {
 			// add layer
-			if (source == "layer01") {
+			if (source == "bubble01") {
 				map.addLayer(geojson);
 				geojson.bringToBack();
-			} else if (source == "layer02") {
+			} else if (source == "bubble02") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(citiesPolygon);
@@ -587,7 +587,7 @@ function main() {
 				}
 				polygonArray.push(citiesPolygon);
 				pointArray.push(citiesPoints);
-			} else if (source == "layer03") {
+			} else if (source == "bubble03") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(townsPolygon);
@@ -596,7 +596,7 @@ function main() {
 				}
 				polygonArray.push(townsPolygon);
 				pointArray.push(townsPoints);
-			} else if (source == "layer04") {
+			} else if (source == "bubble04") {
 				// check zoom level
 				if (currentZoom >= 10) {
 					map.addLayer(villagesPolygon);
@@ -645,13 +645,11 @@ function toggleLayers(source) {
 	if (active == true) {
 		clicked.classList.remove('active');
 		clicked.style.background = '#fff';
-		clicked.style.color = 'black';
 		myNameSpace.toggle(source, 0);
 		// remove layer
 	} else if (active == false) {
 		clicked.classList.add('active');
 		clicked.style.background = '';
-		clicked.style.color = '';
 		myNameSpace.toggle(source, 1);
 		// add layer
 	}
