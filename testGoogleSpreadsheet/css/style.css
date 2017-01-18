@@ -111,19 +111,19 @@ body {
 }
 
 #bubble01 {
-	background: black;
+	background: #2c7bb6;
 }
 
 #bubble02 {
-	background: grey;
+	background: #abd9e9;
 }
 
 #bubble03 {
-	background: blue;
+	background: #fdae61;
 }
 
 #bubble04 {
-	background: orange;
+	background: #d7191c;
 }
 
 .active {

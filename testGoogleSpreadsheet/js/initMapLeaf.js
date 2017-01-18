@@ -99,7 +99,7 @@ function main() {
 	
 	// county style
 	var myStyle = {
-		"fillColor": '#2471A3',
+		"fillColor": '#2c7bb6',
 		'weight': 1,
 		'opacity': 0.75,
 		'color': '#fff',
@@ -110,7 +110,7 @@ function main() {
 	// town points style
 	var townPointsStyle = {
 		radius: 6,
-		fillColor: '#D68910',
+		fillColor: '#fdae61',
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -121,7 +121,7 @@ function main() {
 	// city points style
 	var cityPointsStyle = {
 		radius: 6,
-		fillColor: '#B03A2E',
+		fillColor: '#abd9e9',
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -132,7 +132,7 @@ function main() {
 	// village points style
 	var villagePointsStyle = {
 		radius: 6,
-		fillColor: '#117A65',
+		fillColor: '#d7191c',
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -142,7 +142,7 @@ function main() {
 	
 	// town polygons style
 	var townPolygonStyle = {
-		fillColor: '#D68910',
+		fillColor: '#fdae61',
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
@@ -152,7 +152,7 @@ function main() {
 	
 	// city polygons style
 	var cityPolygonStyle = {
-		fillColor: '#B03A2E',
+		fillColor: '#abd9e9',
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
@@ -162,7 +162,7 @@ function main() {
 	
 	// village polygons style
 	var villagePolygonStyle = {
-		fillColor: '#117A65',
+		fillColor: '#d7191c',
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
