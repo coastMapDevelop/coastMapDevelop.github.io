@@ -297,7 +297,7 @@ function main() {
 						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
-							document.getElementById(popupCountyArr[m][0]).style.color = "#CCD1D1";
+							document.getElementById(popupPointArr[m][0]).style.color = "#CCD1D1";
 						} else {
 							// activate link
 							document.getElementById(popupPointArr[m][0]).setAttribute("href", link);
@@ -329,7 +329,7 @@ function main() {
 						var link = googleSpreadsheet2[i][popupPolyArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
-							document.getElementById(popupCountyArr[m][0]).style.color = "#CCD1D1";
+							document.getElementById(popupPolyArr[m][0]).style.color = "#CCD1D1";
 						} else {
 							// activate link
 							document.getElementById(popupPolyArr[m][0]).setAttribute("href", link);
