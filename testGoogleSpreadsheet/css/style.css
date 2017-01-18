@@ -334,6 +334,23 @@ body {
 	text-align: center;
 }
 
+.leaflet-popup-content-wrapper .leaflet-popup-content a:link{
+	text-decoration: none;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content a:hover{
+	text-decoration: none;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content a:visited{
+	text-decoration: none;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content a:active{
+	text-decoration: none;
+}
+
+
 b {
 	font-size: 25px;
 }
