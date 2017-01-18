@@ -174,7 +174,7 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2471A3') {
+		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2c7bb6') {
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
@@ -189,14 +189,14 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2471A3') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2c7bb6') {
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
 		}
 	};
 	
 	// on mouseout
 	function resetHighlight(e) {
-		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == '#2471A3') {
+		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == '#2c7bb6') {
 			/*geojson.resetStyle(e.target); // reset style of county polygons*/
 		} else {
 			//'not county polygon');
@@ -209,11 +209,11 @@ function main() {
 		//map.fitBounds(e.target.getBounds()); // zoom to feature
 		var layer = e.target; // reference layer
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2471A3') {
+		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2c7bb6') {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2471A3') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2c7bb6') {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 	};
@@ -233,7 +233,7 @@ function main() {
 	
 	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props, type, color) {
-		if (type == 'MultiPolygon' && color == '#2471A3') {
+		if (type == 'MultiPolygon' && color == '#2c7bb6') {
 			var target = props.NAME10; // reference
 			
 			// call function to store clicked features
@@ -296,7 +296,7 @@ function main() {
 					}
 				}
 			}
-		} else if (type == 'MultiPolygon' && color != '#2471A3') {
+		} else if (type == 'MultiPolygon' && color != '#2c7bb6') {
 			var target = props.Name;
 			
 			// call function to store clicked features
