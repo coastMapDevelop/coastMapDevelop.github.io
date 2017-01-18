@@ -193,6 +193,7 @@ var popupPolyArr = [
 
 var recentClickArr = [];
 var storedEClicked = [];
+var storedTypeClicked = [];
 
 
 

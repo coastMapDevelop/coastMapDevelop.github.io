@@ -218,8 +218,12 @@ function main() {
 		}
 	};
 	
-	function testZoom(e) {
-		map.fitBounds(e.target.getBounds());
+	function testZoom(e, position) {
+		if (storedTypeClicked[position] == 'MultiPolygon') {
+			map.fitBounds(e.target.getBounds());
+		} else if (storedTypeClicked[position] == 'Point') {
+			map.setView(e.latlng, 10);
+		}
 	};
 	
 	// adds eventlisteners
@@ -237,7 +241,7 @@ function main() {
 			var target = props.NAME10; // reference
 			
 			// call function to store clicked features
-			stacheClicked(target, e);
+			stacheClicked(target, e, type);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -269,7 +273,7 @@ function main() {
 			var target = props.name;
 			
 			// call function to store clicked features
-			stacheClicked(target, e);
+			stacheClicked(target, e, type);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -300,7 +304,7 @@ function main() {
 			var target = props.Name;
 			
 			// call function to store clicked features
-			stacheClicked(target, e);
+			stacheClicked(target, e, type);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -340,15 +344,17 @@ function main() {
 	});
 	
 	// function to add list of names to recent clicks
-	function stacheClicked(target, e) {
+	function stacheClicked(target, e, type) {
 		var container = document.getElementById('queryContainer');
 		
 		if (recentClickArr.indexOf(target) < 0) {
 			recentClickArr.splice(0, 0, target);
 			storedEClicked.splice(0, 0, e);
+			storedTypeClicked.splice(0, 0, type);
 			if (recentClickArr.length > 5) {
 				recentClickArr.splice(5, 1);
 				storedEClicked.splice(5, 1);
+				storedTypeClicked.splice(5, 1);
 				container.removeChild(container.childNodes[3]);
 			}
 			console.log(recentClickArr);
@@ -660,7 +666,7 @@ function clickedQueryItem(source) {
 	var item = storedEClicked[position];
 	//map.fitBounds(item.target.getBounds()); // zoom to feature
 	//myNameSpace.zoomToFeature(storedEClicked[position]);
-	myNameSpace.testZoom(item);
+	myNameSpace.testZoom(item, position);
 };
 
 
