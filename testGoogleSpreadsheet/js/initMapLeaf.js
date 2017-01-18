@@ -222,7 +222,7 @@ function main() {
 		if (storedTypeClicked[position] == 'MultiPolygon') {
 			map.fitBounds(e.target.getBounds());
 		} else if (storedTypeClicked[position] == 'Point') {
-			map.setView(e.latlng, 10);
+			map.setView(e.latlng, 9);
 		}
 	};
 	
