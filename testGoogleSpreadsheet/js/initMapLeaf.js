@@ -218,6 +218,10 @@ function main() {
 		}
 	};
 	
+	function testZoom(e) {
+		map.fitBounds(e.target.getBounds());
+	};
+	
 	// adds eventlisteners
 	function onEachFeature(feature, layer) {
 		layer.on({
@@ -620,7 +624,7 @@ function main() {
 		toggle: toggle,
 		home: home,
 		changeBaseMap: changeBaseMap,
-		zoomToFeature: zoomToFeature
+		testZoom: testZoom
 	};
 	
 	
@@ -656,8 +660,9 @@ function toggleLayers(source) {
 function clickedQueryItem(source) {
 	var position = recentClickArr.indexOf(source);
 	var item = storedEClicked[position];
-	map.fitBounds(item.target.getBounds()); // zoom to feature
+	//map.fitBounds(item.target.getBounds()); // zoom to feature
 	//myNameSpace.zoomToFeature(storedEClicked[position]);
+	myNameSpace.testZoom(item);
 };
 
 
