@@ -1,5 +1,5 @@
 
-var myNameSpace;
+var myNameSpace;	// allows for exposing functions in main()
 
 function main() {
 	// run authorization for google spreadsheet API

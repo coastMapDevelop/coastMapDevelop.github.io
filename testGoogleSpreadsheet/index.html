@@ -5,8 +5,6 @@
 		<title>Development</title>
 		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 		
-		<!-- mapbox gl js CSS library -->
-		<!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />-->
 		<!-- leaflet CSS library -->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 		<!-- font awesome -->
@@ -14,10 +12,16 @@
 		<!-- custom website & map CSS -->
 		<link href="css/style.css" rel="stylesheet" />
 		
-    
+		<!-- font libraries -->
+		<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+		<!--<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Cambay" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">-->
   </head>
   <body>
-	
 	<!-- map container -->
 	<div id="map"></div>
 	
@@ -41,9 +45,7 @@
 		</div>
 	</div>
 	
-	
-	
-	<!-- experimental menu -->
+	<!-- experimental menu: animation / bubbles -->
 	<!--
 	<div id="expMenu">
 		<i id="menuIcon1" class="fa fa-bars fa-2x" aria-hidden="true" onclick="expMenuButton()" style="margin-top:3px;"></i>
@@ -55,25 +57,25 @@
 	</div>
 	-->
 	
-	
-	<!-- home button -->
+	<!-- home button: resets leaflet view -->
 	<div id="homeButton" onclick="myNameSpace.home()"><i class="fa fa-home fa-lg"></i></div>
 	
-	<!-- basemap button -->
+	<!-- basemap button: displays base map container-->
 	<div id="baseMapButton" onclick="baseClick()"><i class="fa fa-database fa-lg"></i></div>
 	
-	<!-- query button -->
+	<!-- query button: displays query container -->
 	<div id="queryButton" onclick="queryClicked(this.id)"><i class="fa fa-archive fa-lg"></i></div>
 	
-	<!-- query container -->
+	<!-- query container: tracks last 5 clicked features -->
 	<div id="queryContainer">
 		<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>
 	</div>
 	
-	<!-- basemap container -->
+	<!-- basemap container: changes leaflet basemap -->
 	<div id="baseMapContainer">
+		<!-- toggle close the basemap container -->
 		<i id="baseToggle" class="fa fa-times fa-lg" onclick="toggleClick()"></i>
-		
+		<!-- each basemap option is separated into it's own div -->
 		<div class="radio">
 			<label>
 				<input type="radio" name="optionsRadios" id="tile01" value="Tile_Layer_1" onclick="myNameSpace.changeBaseMap(this.value)" checked>
@@ -128,17 +130,12 @@
 	<script src="lib/jquery-3.1.1.min.js"></script>
 	<!-- google spreadsheet API -->
 	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-	<!-- mapbox gl js API -->
-	<!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>-->
 	<!-- leaflet API -->
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-	<!--<script src='lib/leaflet.ajax.min.js'></script> -->
 	<!-- javascript for google spreadsheet connection and general website functions -->
 	<script src="js/index.js"></script>
 	<!-- javascript for leaflet map functions -->
 	<script src="js/initMapLeaf.js"></script>
-	<!-- javascript for mapbox gl map functions -->
-	<!--<script src="js/initMapGL.js"></script>-->
   </body>
 </html>
 		
