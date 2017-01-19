@@ -144,6 +144,33 @@ function queryClicked(source) {
 	}
 };
 
+function showTooltip(source) {
+	var position;
+	if (source == "homeButton") {
+		position = "homeButtonTooltip";
+	} else if (source == "baseMapButton") {
+		position = "baseMapButtonTooltip";
+	} else if (source == "queryButton") {
+		position = "queryButtonTooltip";
+	}
+	var tooltip = document.getElementById(position);
+	tooltip.style.opacity = "1";
+	tooltip.style.visibility = "visible";
+}
+
+function removeTooltip(source) {
+	var position;
+	if (source == "homeButton") {
+		position = "homeButtonTooltip";
+	} else if (source == "baseMapButton") {
+		position = "baseMapButtonTooltip";
+	} else if (source == "queryButton") {
+		position = "queryButtonTooltip";
+	}
+	var tooltip = document.getElementById(position);
+	tooltip.style.opacity = "0";
+	tooltip.style.visibility = "hidden";
+}
 
 
 

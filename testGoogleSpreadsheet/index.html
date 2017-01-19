@@ -58,13 +58,16 @@
 	-->
 	
 	<!-- home button: resets leaflet view -->
-	<div id="homeButton" onclick="myNameSpace.home()"><i class="fa fa-home fa-lg"></i></div>
+	<div id="homeButton" onclick="myNameSpace.home()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-home fa-lg"></i></div>
+	<div id="homeButtonTooltip">Home Extent</div>
 	
 	<!-- basemap button: displays base map container-->
-	<div id="baseMapButton" onclick="baseClick()"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButton" onclick="baseClick()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButtonTooltip">Base maps</div>
 	
 	<!-- query button: displays query container -->
-	<div id="queryButton" onclick="queryClicked(this.id)"><i class="fa fa-archive fa-lg"></i></div>
+	<div id="queryButton" onclick="queryClicked(this.id)" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-archive fa-lg"></i></div>
+	<div id="queryButtonTooltip">Query Clicks</div>
 	
 	<!-- query container: tracks last 5 clicked features -->
 	<div id="queryContainer">

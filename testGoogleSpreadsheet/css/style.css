@@ -152,9 +152,25 @@ body {
 	padding-right: 2px;
 	border-radius: 4px;
 	background: #fff;
-	border: 2px solid #B2BABB;
+	border: 1px solid #B2BABB;
 	cursor: pointer;
 	z-index: 1001;
+}
+
+#homeButtonTooltip {
+	position: absolute;
+	top: 85px;
+	left: 45px;
+	width: auto;
+	height: auto;
+	padding: 2px;
+	border-radius: 4px;
+	background: black;
+	color: #fff;
+	border: 1px solid #B2BABB;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
 }
 
 #baseMapButton {
@@ -169,9 +185,25 @@ body {
 	padding-right: 3px;
 	border-radius: 4px;
 	background: #fff;
-	border: 2px solid #B2BABB;
+	border: 1px solid #B2BABB;
 	cursor: pointer;
 	z-index: 1001;
+}
+
+#baseMapButtonTooltip {
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	width: auto;
+	height: auto;
+	padding: 2px;
+	border-radius: 4px;
+	background: black;
+	color: #fff;
+	border: 1px solid #B2BABB;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
 }
 
 #queryButton {
@@ -187,9 +219,25 @@ body {
 	border-radius: 4px;
 	background: #fff;
 	color: #CCD1D1;
-	border: 2px solid #B2BABB;
+	border: 1px solid #B2BABB;
 	cursor: not-allowed;
 	z-index: 1001;
+}
+
+#queryButtonTooltip {
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	width: auto;
+	height: auto;
+	padding: 2px;
+	border-radius: 4px;
+	background: black;
+	color: #fff;
+	border: 1px solid #B2BABB;
+	z-index: 1001;
+	opacity: 0;
+	visibility: hidden;
 }
 
 #queryContainer {
@@ -201,7 +249,7 @@ body {
 	background: #fff;
 	z-index: 1001;
 	border-radius: 4px;
-	border: 2px solid #B2BABB;
+	/*border: 1px solid #B2BABB;*/
 	opacity: 0;
 	visibility: hidden;
 }
@@ -241,7 +289,7 @@ body {
 	padding-right: 5px;
 	border-radius: 4px;
 	background: #fff;
-	border: 2px solid #B2BABB;
+	border: 1px solid #B2BABB;
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
