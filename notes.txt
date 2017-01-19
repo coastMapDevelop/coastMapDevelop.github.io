@@ -21,3 +21,22 @@ urbanPoints attribute columns:
 
 separate layers by villages, towns, and cities
 	- so we don't load in a large mb file and filter for each layer
+
+
+Things to work on:
+	- color pallete
+	- fonts
+	- box shadow on all UI
+	- tooltip on county
+	- bugs with zoomin in / out (point to polygon)
+	- horizontally centered text in layer legend
+	- query click container styling
+	- query click features
+	- base map container styling
+	- popup styling
+	- button tooltip animations
+	- maybe some animation on layer legend
+	- some kind of top menu with sea grant / NOAA plus extra links
+	- layer legend toggle (show + hide)
+
+	
