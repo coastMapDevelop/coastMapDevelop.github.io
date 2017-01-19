@@ -15,7 +15,7 @@ function loadSheetsApi() {
 function listMajors() {
 	gapi.client.sheets.spreadsheets.values.get({
 		spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
-		range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through D, starting at row 2
+		range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
 		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
 	}).then(function(response) {
 		var range = response.result;
@@ -34,7 +34,7 @@ function listMajors() {
 	
 	gapi.client.sheets.spreadsheets.values.get({
 		spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
-		range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through D, starting at row 2
+		range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through AD, starting at row 2
 		key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
 	}).then(function(response) {
 		var range = response.result;
@@ -42,7 +42,7 @@ function listMajors() {
 			for (i=0; i < range.values.length; i++) {
 				var row = range.values[i];
 				var arr = [row[0], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
-				googleSpreadsheet2.push(arr);							// send data to googleSpreadsheet array
+				googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
 			}
 		} else {
 			console.log('No data found.');
@@ -112,24 +112,28 @@ function expMenuButton() {
 };
 */
 
+// function to display base map container on click
 function baseClick() {
 	var container = document.getElementById('baseMapContainer');
 	container.style.opacity = "1";
 	container.style.visibility = "visible";
 };
 
+// function to remove base map container click
 function toggleClick() {
 	var container = document.getElementById('baseMapContainer');
 	container.style.opacity = "";
 	container.style.visibility = "";
 };
 
+// function to remove query container click
 function queryToggle() {
 	var container = document.getElementById('queryContainer');
 	container.style.opacity = "";
 	container.style.visibility = "";
 };
 
+// function to open the query menu containing recent feature clicks on click
 function queryClicked(source) {
 	var theButton = document.getElementById(source);
 	var active = theButton.classList.contains('active');
@@ -144,6 +148,7 @@ function queryClicked(source) {
 	}
 };
 
+// function to show tooltip on button hover
 function showTooltip(source) {
 	var position;
 	if (source == "homeButton") {
@@ -158,6 +163,7 @@ function showTooltip(source) {
 	tooltip.style.visibility = "visible";
 }
 
+// function to remove tooltip on button hover
 function removeTooltip(source) {
 	var position;
 	if (source == "homeButton") {
@@ -173,7 +179,7 @@ function removeTooltip(source) {
 }
 
 
-
+/*
 var baseMapArray = [
 	"tile01",
 	"tile02",
@@ -181,10 +187,11 @@ var baseMapArray = [
 	"tile04",
 	"tile05"
 ];
+*/
 
 
 
-
+// for naming and assigning popup content for counties
 var popupCountyArr = [
 	['countyLink1', 'Gov Website', 3],
 	['countyLink2', 'Web Map URL', 4],
@@ -197,6 +204,7 @@ var popupCountyArr = [
 	['countyLink9', 'Zoning URL', 11]
 ];
 
+// for naming and assigning popup content for points
 var popupPointArr = [
 	['pointLink1', 'Govt Web', 3],
 	['pointLink2', 'Map Web', 4],
@@ -208,6 +216,7 @@ var popupPointArr = [
 	['pointLink8', 'Res Plan', 10]
 ];
 
+// for naming and assigning popup content for urban polygons
 var popupPolyArr = [
 	['polyLink1', 'Govt Web', 3],
 	['polyLink2', 'Map Web', 4],
@@ -219,9 +228,9 @@ var popupPolyArr = [
 	['polyLink8', 'Res Plan', 10]
 ];
 
-var recentClickArr = [];
-var storedEClicked = [];
-var storedTypeClicked = [];
+var recentClickArr = [];		// stores recent clicks
+var storedEClicked = [];		// stores recent clicked data
+var storedTypeClicked = [];		// stores recent click type
 
 
 

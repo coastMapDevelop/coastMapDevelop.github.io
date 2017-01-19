@@ -68,6 +68,7 @@ function main() {
 		maxZoom: 13
 	});
 	
+	// library for holding base map layer information
 	var baseLayers = {
 		"Tile_Layer_1": CartoDB_Positron,
 		"Tile_Layer_2": CartoDB_DarkMatter,
@@ -79,12 +80,10 @@ function main() {
 		"Tile_Layer_8": Esri_OceanBasemap
 	};
 	
-	var currentLayer = "Tile_Layer_1";
-	// add tiles to map
-	baseLayers[currentLayer].addTo(map);
+	var currentLayer = "Tile_Layer_1";	// stores our currently visible base map layer
+	baseLayers[currentLayer].addTo(map);	// add tiles to map
 	
-	// add hover popup
-	var popup = L.popup();
+	var popup = L.popup();	// add hover popup
 	
 	var pointArray = [];
 	var polygonArray= [];
@@ -622,16 +621,19 @@ function main() {
 	
 	};
 	
+	// function that allows reseting of the maps extent to original
 	function home() {
 		map.setView(new L.LatLng(44, -88), 6);
 	};
 	
+	// function that handles changing of the base map
 	function changeBaseMap(source) {
 		map.removeLayer(baseLayers[currentLayer]);
 		currentLayer = source;
 		baseLayers[source].addTo(map);
 	};
 	
+	// fill name space with function variables so we can use them publicly
 	myNameSpace = {
 		toggle: toggle,
 		home: home,
@@ -644,7 +646,7 @@ function main() {
 	
 };
 
-// start on window load
+// start main function on window load
 window.onload = main;
 
 
@@ -667,6 +669,7 @@ function toggleLayers(source) {
 	}
 };
 
+// function that calls inner function from main() (to zoom to the clicked feature)
 function clickedQueryItem(source) {
 	var position = recentClickArr.indexOf(source);
 	var item = storedEClicked[position];
