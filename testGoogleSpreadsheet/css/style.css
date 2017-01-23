@@ -641,11 +641,11 @@ body {
 /*test */
 
 
-b .titlePopup {
+#titlePopup {
 	font-size: 25px;
 }
 
-b .govPopup {
+#govPopup {
 	font-size: 20px;
 }
 
