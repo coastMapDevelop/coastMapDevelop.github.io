@@ -233,6 +233,42 @@ var storedEClicked = [];		// stores recent clicked data
 var storedTypeClicked = [];		// stores recent click type
 
 
+/* original
+var colorPal = [
+	"#2c7bb6",
+	"#abd9e9",
+	"#fdae61",
+	"#d7191c"
+];
+*/
+
+/* second 
+var colorPal = [
+	"#003744",
+	"#1A554F",
+	"#FDA856",
+	"#F6FE91"
+];
+*/
+
+/* third 
+var colorPal = [
+	"#225ea8",
+	"#41b6c4",
+	"#a1dab4",
+	"#ffffcc"
+];
+*/
+
+var colorPal = [
+	"#003744",
+	"#41b6c4",
+	"#a1dab4",
+	"#ffffcc"
+];
+
+
+
 
 
 

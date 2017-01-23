@@ -98,7 +98,7 @@ function main() {
 	
 	// county style
 	var myStyle = {
-		"fillColor": '#2c7bb6',
+		"fillColor": colorPal[0],
 		'weight': 1,
 		'opacity': 0.75,
 		'color': '#fff',
@@ -109,7 +109,7 @@ function main() {
 	// town points style
 	var townPointsStyle = {
 		radius: 6,
-		fillColor: '#fdae61',
+		fillColor: colorPal[2],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -120,7 +120,7 @@ function main() {
 	// city points style
 	var cityPointsStyle = {
 		radius: 6,
-		fillColor: '#abd9e9',
+		fillColor: colorPal[1],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -131,7 +131,7 @@ function main() {
 	// village points style
 	var villagePointsStyle = {
 		radius: 6,
-		fillColor: '#d7191c',
+		fillColor: colorPal[3],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
@@ -141,7 +141,7 @@ function main() {
 	
 	// town polygons style
 	var townPolygonStyle = {
-		fillColor: '#fdae61',
+		fillColor: colorPal[2],
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
@@ -151,7 +151,7 @@ function main() {
 	
 	// city polygons style
 	var cityPolygonStyle = {
-		fillColor: '#abd9e9',
+		fillColor: colorPal[1],
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
@@ -161,7 +161,7 @@ function main() {
 	
 	// village polygons style
 	var villagePolygonStyle = {
-		fillColor: '#d7191c',
+		fillColor: colorPal[3],
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
@@ -173,7 +173,7 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2c7bb6') {
+		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0]) {
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
@@ -188,14 +188,14 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2c7bb6') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0]) {
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
 		}
 	};
 	
 	// on mouseout
 	function resetHighlight(e) {
-		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == '#2c7bb6') {
+		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0]) {
 			/*geojson.resetStyle(e.target); // reset style of county polygons*/
 		} else {
 			//'not county polygon');
@@ -208,11 +208,11 @@ function main() {
 		//map.fitBounds(e.target.getBounds()); // zoom to feature
 		var layer = e.target; // reference layer
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == '#2c7bb6') {
+		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0]) {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != '#2c7bb6') {
+		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0]) {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 	};
@@ -236,7 +236,7 @@ function main() {
 	
 	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props, type, color) {
-		if (type == 'MultiPolygon' && color == '#2c7bb6') {
+		if (type == 'MultiPolygon' && color == colorPal[0]) {
 			var target = props.NAME10; // reference
 			
 			// call function to store clicked features
@@ -304,7 +304,7 @@ function main() {
 					}
 				}
 			}
-		} else if (type == 'MultiPolygon' && color != '#2c7bb6') {
+		} else if (type == 'MultiPolygon' && color != colorPal[0]) {
 			var target = props.Name;
 			
 			// call function to store clicked features

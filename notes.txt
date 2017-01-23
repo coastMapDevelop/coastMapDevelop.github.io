@@ -24,9 +24,7 @@ separate layers by villages, towns, and cities
 
 
 Things to work on:
-	- color pallete
 	- fonts
-	- tooltip on county
 	- bugs with zoomin in / out (point to polygons
 	- query click container styling
 	- query click features

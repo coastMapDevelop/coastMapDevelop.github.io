@@ -221,9 +221,11 @@ body {
 	border: 1px solid black;
 }
 
+
+
 /* assigns appropriate color to first row layer legend */
 #bubble01 {
-	background: #2c7bb6;
+	background: #003744;
 	-webkit-transition: .35s background;
 	-moz-transition: .35s background;
 	-o-transition: .35s background;
@@ -232,7 +234,7 @@ body {
 
 /* assigns appropriate color to second row layer legend */
 #bubble02 {
-	background: #abd9e9;
+	background: #41b6c4;
 	-webkit-transition: .35s background;
 	-moz-transition: .35s background;
 	-o-transition: .35s background;
@@ -241,7 +243,7 @@ body {
 
 /* assigns appropriate color to third row layer legend */
 #bubble03 {
-	background: #fdae61;
+	background: #a1dab4;
 	-webkit-transition: .35s background;
 	-moz-transition: .35s background;
 	-o-transition: .35s background;
@@ -250,7 +252,7 @@ body {
 
 /* assigns appropriate color to fourth row layer legend */
 #bubble04 {
-	background: #d7191c;
+	background: #ffffcc;
 	-webkit-transition: .35s background;
 	-moz-transition: .35s background;
 	-o-transition: .35s background;
