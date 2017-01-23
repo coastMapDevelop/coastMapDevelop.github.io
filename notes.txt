@@ -1,24 +1,4 @@
 
-countyPolygons attribute columns:
-	- STATEFP10
-	- COUNTYFP10
-	- NAME10
-	- FID_1
-
-urbanPolygons attribute columns:
-	- Name
-	- FID_1
-	- STATEFP
-	- LSAD
-
-urbanPoints attribute columns:
-	- Name
-	- STATEFP
-	- LSAD
-	- maybe GEOID
-	- or add new column for id
-
-
 separate layers by villages, towns, and cities
 	- so we don't load in a large mb file and filter for each layer
 
@@ -30,5 +10,11 @@ Things to work on:
 	- popup styling
 	- some kind of top menu with sea grant / NOAA plus extra links
 	- layer legend toggle (show + hide)
-
-	
+	- advanced layer legend
+	- hover effect on menu icons
+	- something is missing - need menu bar on top or left side of screen
+	- comments
+	- documentation
+	- redo code
+	- scrollbar on side of screen?
+	- check mobile compatability
