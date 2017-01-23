@@ -641,8 +641,12 @@ body {
 /*test */
 
 
-b {
+.titlePopup {
 	font-size: 25px;
+}
+
+.govPopup {
+	font-size: 20px;
 }
 
 .popupLine {
