@@ -275,11 +275,16 @@ var colorPal = [
 */
 
 var colorPal = [
-	"#003744",
-	"#41b6c4",
-	"#a1dab4",
-	"#ffffcc"
+	["#003744", "bubble01"],
+	["#41b6c4", "bubble02"],
+	["#a1dab4", "bubble03"],
+	["#ffffcc", "bubble04"]
 ];
+
+document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
+document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
+document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
+document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
 
 
 
