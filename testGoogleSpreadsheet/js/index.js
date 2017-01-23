@@ -178,6 +178,7 @@ function removeTooltip(source) {
 	tooltip.style.visibility = "hidden";
 }
 
+// expands the advanced legend for displaying individual urban areas / counties
 function expandLegend() {
 	var legend = document.getElementById("menu");
 	var active = legend.classList.contains("active");
@@ -274,6 +275,7 @@ var colorPal = [
 ];
 */
 
+// array that stores colors for map and legend
 var colorPal = [
 	["#003744", "bubble01"],
 	["#41b6c4", "bubble02"],
@@ -281,6 +283,7 @@ var colorPal = [
 	["#ffffcc", "bubble04"]
 ];
 
+// initiate colors for legend
 document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
 document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
 document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];

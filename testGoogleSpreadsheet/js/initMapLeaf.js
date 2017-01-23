@@ -217,9 +217,18 @@ function main() {
 		}
 	};
 	
+	// function to zoom to clicked feature in query list
 	function testZoom(e, position) {
 		if (storedTypeClicked[position] == 'MultiPolygon') {
 			map.fitBounds(e.target.getBounds());
+			var zoom = map.getZoom();
+			if (zoom <= 10) {
+				currentZoom = zoom;
+				checkZoom = zoom - 1;
+				updateZoom();
+			} else {
+				// do nothing
+			}
 		} else if (storedTypeClicked[position] == 'Point') {
 			map.setView(e.latlng, 9);
 		}
