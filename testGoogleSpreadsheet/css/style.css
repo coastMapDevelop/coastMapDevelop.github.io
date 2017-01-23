@@ -66,13 +66,46 @@ body {
 	height: 100vh;
 }
 
+#topMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	width: 140px;
+	height: 100vh;
+	z-index: 1001;
+	color: white;
+	visibility: hidden;
+}
+
+#infoTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	width: 100%;
+	height: 40%;
+	border-right: 1px solid white;
+}
+
+#queryBottom {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	background: black;
+	width: 100%;
+	height: 60%;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+}
+
 /* styling for the main layer legend box */
 #menu {
 	position: absolute;
 	top: 10px;
 	right: 10px;
 	background: #fff;
-	height: 150px;
+	height: 175px;
 	width: 140px;
 	z-index: 1001;
 	border-radius: 5px;
@@ -83,7 +116,10 @@ body {
 	-webkit-box-shadow: 2px 2px 10px -1px black;
 	-moz-box-shadow: 2px 2px 10px -1px black;
 	box-shadow: 2px 2px 10px -1px black;
+	opacity: 1;
 }
+
+
 
 #menu p {
 	margin-top: 0px;
@@ -99,7 +135,7 @@ body {
 	left:0;
 	/*background: #2471A3;*/
 	background: #fff;
-	height: 25%;
+	height: 37.5px;
 	width: 100%;
 	border: 1px solid #fff;
 	text-align: center;
@@ -112,11 +148,11 @@ body {
 /* styling for the second row of layer legend */
 #layer02 {
 	position: absolute;
-	top: 25%;
+	top: 37.5px;
 	left: 0;
 	/*background: #B03A2E;*/
 	background: #fff;
-	height: 25%;
+	height: 37.5px;
 	width: 100%;
 	border: 1px solid #fff;
 	text-align:center;
@@ -127,11 +163,11 @@ body {
 /* styling for the third row of layer legend */
 #layer03 {
 	position: absolute;
-	top: 50%;
+	top: 75px;
 	left: 0;
 	/*background: #D68910;*/
 	background: #fff;
-	height: 25%;
+	height: 37.5px;
 	width: 100%;
 	border: 1px solid #fff;
 	text-align: center;
@@ -142,16 +178,32 @@ body {
 /* styling for the fourth row of layer legend */
 #layer04 {
 	position: absolute;
-	top: 75%;
+	top: 112.5px;
 	left: 0;
 	/*background: #117A65;*/
 	background: #fff;
-	height: 25%;
+	height: 37.5px;
 	width: 100%;
 	border: 1px solid #fff;
 	text-align: center;
 	color: black;
 	font-size: 25px;
+	/*border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;*/
+}
+
+#layer05 {
+	position: absolute;
+	top: 150px;
+	left: 0;
+	background: #fff;
+	height: 25px;
+	width: 100%;
+	border: 1px solid #fff;
+	text-align: center;
+	color: #1A5276;
+	font-size: 14px;
+	cursor:pointer;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
@@ -172,21 +224,37 @@ body {
 /* assigns appropriate color to first row layer legend */
 #bubble01 {
 	background: #2c7bb6;
+	-webkit-transition: .35s background;
+	-moz-transition: .35s background;
+	-o-transition: .35s background;
+	transition: .35s background;
 }
 
 /* assigns appropriate color to second row layer legend */
 #bubble02 {
 	background: #abd9e9;
+	-webkit-transition: .35s background;
+	-moz-transition: .35s background;
+	-o-transition: .35s background;
+	transition: .35s background;
 }
 
 /* assigns appropriate color to third row layer legend */
 #bubble03 {
 	background: #fdae61;
+	-webkit-transition: .35s background;
+	-moz-transition: .35s background;
+	-o-transition: .35s background;
+	transition: .35s background;
 }
 
 /* assigns appropriate color to fourth row layer legend */
 #bubble04 {
 	background: #d7191c;
+	-webkit-transition: .35s background;
+	-moz-transition: .35s background;
+	-o-transition: .35s background;
+	transition: .35s background;
 }
 
 .active {
@@ -209,6 +277,9 @@ body {
 	border: 1px solid #B2BABB;
 	cursor: pointer;
 	z-index: 1001;
+	-webkit-box-shadow: 1px 1px 3px -1px black;
+	-moz-box-shadow: 1px 1px 3px -1px black;
+	box-shadow: 1px 1px 3px -1px black;
 }
 
 /* tooltip for home button */
@@ -226,6 +297,10 @@ body {
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
+	-webkit-transition: .25s opacity .8s;
+	-moz-transition: .25s opacity .8s;
+	-o-transition: .25s opacity .8s;
+	transition: .25s opacity .8s;
 }
 
 /* stying for base map button: change base map */
@@ -244,6 +319,9 @@ body {
 	border: 1px solid #B2BABB;
 	cursor: pointer;
 	z-index: 1001;
+	-webkit-box-shadow: 1px 1px 3px -1px black;
+	-moz-box-shadow: 1px 1px 3px -1px black;
+	box-shadow: 1px 1px 3px -1px black;
 }
 
 /* tooltip for base map button */
@@ -261,6 +339,10 @@ body {
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
+	-webkit-transition: .25s opacity .8s;
+	-moz-transition: .25s opacity .8s;
+	-o-transition: .25s opacity .8s;
+	transition: .25s opacity .8s;
 }
 
 /* styling for query button: tracks recently clicked features */
@@ -280,6 +362,9 @@ body {
 	border: 1px solid #B2BABB;
 	cursor: not-allowed;
 	z-index: 1001;
+	-webkit-box-shadow: 1px 1px 3px -1px black;
+	-moz-box-shadow: 1px 1px 3px -1px black;
+	box-shadow: 1px 1px 3px -1px black;
 }
 
 /* tooltip for query button */
@@ -297,6 +382,10 @@ body {
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
+	-webkit-transition: .25s opacity .8s;
+	-moz-transition: .25s opacity .8s;
+	-o-transition: .25s opacity .8s;
+	transition: .25s opacity .8s;
 }
 
 /* holds list of recently clicked features */
@@ -312,6 +401,13 @@ body {
 	/*border: 1px solid #B2BABB;*/
 	opacity: 0;
 	visibility: hidden;
+	-webkit-box-shadow: 2px 2px 10px -1px black;
+	-moz-box-shadow: 2px 2px 10px -1px black;
+	box-shadow: 2px 2px 10px -1px black;
+	-webkit-transition: .35s opacity;
+	-moz-transition: .35s opacity;
+	-o-transition: .35s opacity;
+	transition: .35s opacity;
 }
 
 #queryContainer p {
@@ -354,6 +450,13 @@ body {
 	z-index: 1001;
 	opacity: 0;
 	visibility: hidden;
+	-webkit-box-shadow: 2px 2px 10px -1px black;
+	-moz-box-shadow: 2px 2px 10px -1px black;
+	box-shadow: 2px 2px 10px -1px black;
+	-webkit-transition: .35s opacity;
+	-moz-transition: .35s opacity;
+	-o-transition: .35s opacity;
+	transition: .35s opacity;
 }
 
 #baseToggle {
@@ -526,6 +629,10 @@ body {
 .leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:active{
 	text-decoration: none;
 	color: #CCD1D1;
+}
+
+.leaflet-left {
+
 }
 /*test */
 
