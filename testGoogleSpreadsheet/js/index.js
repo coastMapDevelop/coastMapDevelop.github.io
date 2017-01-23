@@ -178,6 +178,20 @@ function removeTooltip(source) {
 	tooltip.style.visibility = "hidden";
 }
 
+function expandLegend() {
+	var legend = document.getElementById("menu");
+	var active = legend.classList.contains("active");
+	
+	if (active == true) {
+		legend.classList.remove("active");
+		legend.style.height = "";
+	} else if (active == false) {
+		legend.classList.add("active");
+		legend.style.height = "250px";
+		// maybe instead, click advanced and new menu below legend appears
+	}
+};
+
 
 /*
 var baseMapArray = [
