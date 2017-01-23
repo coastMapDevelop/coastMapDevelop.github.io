@@ -219,6 +219,10 @@ function main() {
 	
 	// function to zoom to clicked feature in query list
 	function testZoom(e, position) {
+		// check if is county, urban point, or urban polygon
+		// check and set zoom levels
+		// set bounds or view
+		// initiate and fill popup (move filling of popups to new functions)
 		if (storedTypeClicked[position] == 'MultiPolygon') {
 			map.fitBounds(e.target.getBounds());
 			var zoom = map.getZoom();

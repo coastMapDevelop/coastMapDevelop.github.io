@@ -18,3 +18,5 @@ Things to work on:
 	- redo code
 	- scrollbar on side of screen?
 	- check mobile compatability
+	- fix testZoom function to differentiate between clicked urban points, urban polygon, and county features
+	- move filling of popups to new functions
