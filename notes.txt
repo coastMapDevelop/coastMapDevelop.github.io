@@ -25,7 +25,7 @@ separate layers by villages, towns, and cities
 
 Things to work on:
 	- fonts
-	- bugs with zoomin in / out (point to polygons
+	- bugs with zoomin in / out (point to polygons) - bug is when zooming to extent and skipping the zoom level checks
 	- query click container styling
 	- query click features
 	- popup styling
