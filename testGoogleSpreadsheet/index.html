@@ -45,10 +45,13 @@
 		<p>Legend</p>
 		</div>
 		<div id="fourthBox" class="menuBox">
+		<p>Basemaps</p>
+		</div>
+		<div id="fifthBox" class="menuBox">
 		<i class="fa fa-comment-o fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
 		<p>Comments</p>
 		</div>
-		<div id="fifthBox" class="menuBox">
+		<div id="sixthBox" class="menuBox">
 		<i class="fa fa-cog fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
 		<p>Settings</p>
 		</div>
@@ -60,18 +63,12 @@
 	</div>
 	<div id="supSideMenu02" class="supSideMenu">
 	Query the last 5 clicks to see information on them
+	<div id="queryContainer">
+		<!--<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>-->
+	</div>
 	</div>
 	<div id="supSideMenu03" class="supSideMenu">
 	Shows legend for counties, cities, towns, and villages and allows for toggling on/off
-	</div>
-	
-	<!--
-	<div id="menuToggle">
-		
-	</div>
-	-->
-	
-	<!-- layer toggle container -->
 	<div id="menu">
 		<div id="layer01">
 			<p>Counties</p>
@@ -93,6 +90,38 @@
 			Advanced
 		</div>
 	</div>
+	</div>
+	
+	<!--
+	<div id="menuToggle">
+		
+	</div>
+	-->
+	
+	<!-- layer toggle container -->
+	<!--
+	<div id="menu">
+		<div id="layer01">
+			<p>Counties</p>
+			<div id="bubble01" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
+		</div>
+		<div id="layer02">
+			<p>Cities</p>
+			<div id="bubble02" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
+		</div>
+		<div id="layer03">
+			<p>Towns</p>
+			<div id="bubble03" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
+		</div>
+		<div id="layer04">
+			<p>Villages</p>
+			<div id="bubble04" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
+		</div>
+		<div id="layer05">
+			Advanced
+		</div>
+	</div>
+	-->
 	
 	
 	<!-- experimental menu: animation / bubbles -->
@@ -116,13 +145,19 @@
 	<div id="baseMapButtonTooltip">Base maps</div>
 	
 	<!-- query button: displays query container -->
-	<div id="queryButton" onclick="queryClicked(this.id)" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-archive fa-lg"></i></div>
-	<div id="queryButtonTooltip">Query Clicks</div>
+	
+	<!--<div id="queryButton" onclick="queryClicked(this.id)" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-archive fa-lg"></i></div>-->
+	<!--<div id="queryButtonTooltip">Query Clicks</div>-->
+	
+	
 	
 	<!-- query container: tracks last 5 clicked features -->
+	<!--
 	<div id="queryContainer">
 		<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>
 	</div>
+	-->
+	
 	
 	<!-- basemap container: changes leaflet basemap -->
 	<div id="baseMapContainer">

@@ -377,10 +377,10 @@ function main() {
 			}
 			console.log(recentClickArr);
 			
-			var queryButton = document.getElementById('queryButton');
-			queryButton.style.cursor = 'pointer';
-			queryButton.style.color = 'black';
-			queryButton.classList.add('active');
+			//var queryButton = document.getElementById('queryButton');
+			//queryButton.style.cursor = 'pointer';
+			//queryButton.style.color = 'black';
+			//queryButton.classList.add('active');
 			
 			
 			// add a queryRow to the queryContainer
