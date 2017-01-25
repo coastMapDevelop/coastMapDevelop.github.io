@@ -49,6 +49,8 @@
 body {
 	margin:0;
 	padding:0;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	/*font-family: 'Cabin', sans-serif;*/
 	/*font-family: 'Muli', sans-serif;*/
 	/*font-family: 'Oxygen', sans-serif;*/
@@ -70,33 +72,87 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: black;
-	width: 140px;
-	height: 100vh;
-	z-index: 1001;
+	background: #283747;
 	color: white;
-	visibility: hidden;
+	width: 100%;
+	height: 50px;
+	z-index: 1002;
 }
 
-#infoTop {
+#sideMenu {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: black;
-	width: 100%;
-	height: 40%;
-	border-right: 1px solid white;
+	background: #283747;
+	color: white;
+	width: 75px;
+	height: 100%;
+	z-index: 1001;
 }
 
-#queryBottom {
+.supSideMenu {
 	position: absolute;
-	top: 40%;
+	top: 0;
+	left: -150px;
+	color: black;
+	width: 150px;
+	height: 100%;
+	z-index: 1001;
+	-webkit-transition: .3s left;
+	-moz-transition: .3s left;
+	-o-transition: .3s left;
+	transition: .3s left;
+}
+
+#supSideMenu01 {
+	background: #fff;
+	border: 1px solid black;
+}
+
+#supSideMenu02 {
+	background: #fff;
+	border: 1px solid black;
+}
+
+#supSideMenu03 {
+	background: #fff;
+	border: 1px solid black;
+}
+
+.menuBox {
+	position: absolute;
 	left: 0;
-	background: black;
+	height: 75px;
 	width: 100%;
-	height: 60%;
-	border-right: 1px solid white;
-	border-top: 1px solid white;
+	cursor:pointer;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+#firstBox {
+	top: 50px;
+	background: transparent;
+}
+
+#secondBox {
+	top: 125px;
+	background: transparent;
+}
+
+#thirdBox {
+	top: 200px;
+	background: transparent;
+}
+
+#fourthBox {
+	top: 275px;
+	background: transparent;
+}
+
+#fifthBox {
+	top: 350px;
+	background: transparent;
 }
 
 #menuToggle {
@@ -113,7 +169,7 @@ body {
 /* styling for the main layer legend box */
 #menu {
 	position: absolute;
-	top: 10px;
+	top: 60px;
 	right: 10px;
 	background: #fff;
 	height: 175px;
@@ -279,8 +335,8 @@ body {
 /* styling for the home button: reset extent */
 #homeButton {
 	position: absolute;
-	top: 85px;
-	left: 10px;
+	top: 125px;
+	left: 85px;
 	width: auto;
 	height: auto;
 	padding-top: 2px;
@@ -602,7 +658,7 @@ body {
 /* leaflet popup styling */
 .leaflet-popup-content-wrapper .leaflet-popup-content {
 	text-align: center;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content a:link{
@@ -646,14 +702,18 @@ body {
 	color: #CCD1D1;
 }
 
-.leaflet-left {
+.leaflet-top {
+	top: 50px;
+}
 
+.leaflet-left {
+	left: 75px;
 }
 /*test */
 
 
 #titlePopup {
-	font-size: 25px;
+	font-size: 20px;
 }
 
 #govPopup {
@@ -661,6 +721,6 @@ body {
 }
 
 .popupLine {
-	width: 80%;
+	width: 70%;
 }
  

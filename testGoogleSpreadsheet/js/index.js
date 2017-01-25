@@ -178,6 +178,58 @@ function removeTooltip(source) {
 	tooltip.style.visibility = "hidden";
 }
 
+function displaySupMenu(source) {
+	var button = document.getElementById(source);
+	var active = button.classList.contains("active");
+	var position;
+	var i;
+	for (i=0; i < supSideArr.length; i++) {
+		if (source == supSideArr[i][0]) {
+			position = supSideArr[i][1];
+		}
+	}
+	var move = document.getElementById(position);
+	if (active == true) {
+		move.style.left = "100%";
+		button.classList.remove("active");
+		setTimeout(function(){
+			move.style.top = "100%";
+			move.style.left = "-150px"
+		}, 310);
+		setTimeout(function(){
+			move.style.top = "0px";
+		}, 610);
+	} else if (active == false) {
+		move.style.left = "75px";
+		button.classList.add("active");
+		
+		// check if other buttons are active, then move if they are
+		// if aren't active, do nothing
+	
+		var n;
+		for (n=0; n < supSideArr.length; n++) {
+			var check = supSideArr[n][0];
+			var box = document.getElementById(check);
+			var active1 = box.classList.contains("active");
+			if (active1 == true && check != source) {
+				var position1 = supSideArr[n][1];
+				var remove = document.getElementById(position1);
+				remove.style.left = "100%";
+				box.classList.remove("active");
+				setTimeout(function(){
+					remove.style.top = "100%";
+					remove.style.left = "-150px"
+				}, 310);
+				setTimeout(function(){
+					remove.style.top = "0px";
+				}, 610);
+			} else if (active1 == false) {
+				
+			}
+		}
+	}
+}
+
 
 /*
 var baseMapArray = [
@@ -189,6 +241,12 @@ var baseMapArray = [
 ];
 */
 
+
+var supSideArr = [
+	['firstBox', 'supSideMenu01'],
+	['secondBox', 'supSideMenu02'],
+	['thirdBox', 'supSideMenu03']
+];
 
 
 // for naming and assigning popup content for counties

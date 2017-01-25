@@ -27,16 +27,42 @@
 	
 	<!-- top menu -->
 	<div id="topMenu">
-		<div id="infoTop">
-			<p>Title or Image</p>
-			<p>links</p>
-			<p>and info</p>
+	Sample Title
+	</div>
+	
+	<!-- side menu -->
+	<div id="sideMenu">
+		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<i class="fa fa-search fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
+		<p>Search</p>
 		</div>
-		<div id="queryBottom">
-			<p>Click on features</p>
-			<p>To query the last 5</p>
-			<p>In this panel</p>
+		<div id="secondBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<i class="fa fa-bookmark fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
+		<p>Query</p>
 		</div>
+		<div id="thirdBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<i class="fa fa-map-o fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
+		<p>Legend</p>
+		</div>
+		<div id="fourthBox" class="menuBox">
+		<i class="fa fa-comment-o fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
+		<p>Comments</p>
+		</div>
+		<div id="fifthBox" class="menuBox">
+		<i class="fa fa-cog fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
+		<p>Settings</p>
+		</div>
+	</div>
+	
+	<!-- supplemental side menu -->
+	<div id="supSideMenu01" class="supSideMenu">
+	Search for a particular city or county, also dropdowns showing all counties and cities available
+	</div>
+	<div id="supSideMenu02" class="supSideMenu">
+	Query the last 5 clicks to see information on them
+	</div>
+	<div id="supSideMenu03" class="supSideMenu">
+	Shows legend for counties, cities, towns, and villages and allows for toggling on/off
 	</div>
 	
 	<!--
