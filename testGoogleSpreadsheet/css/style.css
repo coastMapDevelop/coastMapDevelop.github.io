@@ -68,22 +68,20 @@ body {
 	height: 100vh;
 }
 
-#topMenu {
+#title {
 	position: absolute;
-	top: 0;
-	left: 0;
-	background: #283747;
-	color: white;
-	width: 100%;
-	height: 50px;
-	z-index: 1002;
+	left: 20px;
+	top: 20px;
+	color: black;
+	font-size: 20px;
+	z-index: 1001;
 }
 
 #sideMenu {
 	position: absolute;
 	top: 0;
-	left: 0;
-	background: #283747;
+	right: 0;
+	background: #1C2833;
 	color: white;
 	width: 75px;
 	height: 100%;
@@ -121,43 +119,121 @@ body {
 
 .menuBox {
 	position: absolute;
-	left: 0;
 	height: 75px;
-	width: 100%;
-	cursor:pointer;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	width: 225px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-transition: .2s right;
+	-moz-transition: .2s right;
+	-o-transition: .2s right;
+	transition: .2s right;
+}
+
+.subMenuBox {
+	position: absolute;
+	height: 100%;
+	width: 150px;
+	background: #FBFCFC;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	
+}
+
+.subMenuBox p {
 	text-align: center;
+	color: black;
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+
+
+.menuCircle {
+	position: absolute;
+	left: 12px;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	border-radius: 25px;
+	color: black;
+	-webkit-transition: .2s opacity;
+	-moz-transition: .2s opacity;
+	-o-transition: .2s opacity;
+	transition: .2s opacity;
 }
 
 #firstBox {
 	top: 50px;
-	background: transparent;
+	background: black;
+	right: -255px;
 }
 
 #secondBox {
 	top: 125px;
-	background: transparent;
+	background: black;
+	right: -255px;
 }
 
 #thirdBox {
 	top: 200px;
-	background: transparent;
+	background: black;
+	right: -255px;
 }
 
 #fourthBox {
 	top: 275px;
-	background: transparent;
+	background: black;
+	right: -255px;
 }
 
 #fifthBox {
 	top: 350px;
-	background: transparent;
+	background: black;
+	right: -255px;
 }
 
 #sixthBox {
 	top: 425px;
-	background: transparent;
+	background: black;
+	right: -255px;
+}
+
+#firstCircle {
+	top: 60px;
+	background: #fff;
+	opacity: .7;
+}
+
+#secondCircle {
+	top: 135px;
+	background: #fff;
+	opacity: .7;
+}
+#thirdCircle {
+	top: 210px;
+	background: #fff;
+	opacity: .7;
+}
+#fourthCircle {
+	top: 285px;
+	background: #fff;
+	opacity: .7;
+}
+#fifthCircle {
+	top: 360px;
+	background: #fff;
+	opacity: .7;
+}
+#sixthCircle {
+	top: 435px;
+	background: #fff;
+	opacity: .7;
+}
+
+.myIcon {
+	position: absolute;
+	top: 14px;
+	left: 14px;
 }
 
 #menuToggle {
@@ -341,7 +417,7 @@ body {
 #homeButton {
 	position: absolute;
 	top: 125px;
-	right: 10px;
+	left: 10px;
 	width: auto;
 	height: auto;
 	padding-top: 2px;
@@ -714,8 +790,9 @@ body {
 }
 
 .leaflet-left {
-	left: 95%;
+	
 }
+
 /*test */
 
 

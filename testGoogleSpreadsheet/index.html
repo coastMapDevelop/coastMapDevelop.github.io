@@ -25,35 +25,64 @@
 	<!-- map container -->
 	<div id="map"></div>
 	
-	<!-- top menu -->
-	<div id="topMenu">
+	<div id="title">
 	Sample Title
 	</div>
-	
 	<!-- side menu -->
 	<div id="sideMenu">
 		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
-		<i class="fa fa-search fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
-		<p>Search</p>
+			<div id="firstSubMenu" class="subMenuBox">
+				<p>Search</p>
+			</div>
 		</div>
 		<div id="secondBox" class="menuBox" onclick="displaySupMenu(this.id)">
-		<i class="fa fa-bookmark fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
-		<p>Query</p>
+			<div id="secondSubMenu" class="subMenuBox">
+				<p>Legend</p>
+			</div>
 		</div>
 		<div id="thirdBox" class="menuBox" onclick="displaySupMenu(this.id)">
-		<i class="fa fa-map-o fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
-		<p>Legend</p>
+			<div id="thirdSubMenu" class="subMenuBox">
+				<p>Comments</p>
+			</div>
 		</div>
 		<div id="fourthBox" class="menuBox">
-		<p>Basemaps</p>
+			<div id="fourthSubMenu" class="subMenuBox">
+				<p>Filter</p>
+			</div>
 		</div>
 		<div id="fifthBox" class="menuBox">
-		<i class="fa fa-comment-o fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
-		<p>Comments</p>
+			<div id="fifthSubMenu" class="subMenuBox">
+				<p>Information</p>
+			</div>
 		</div>
 		<div id="sixthBox" class="menuBox">
-		<i class="fa fa-cog fa-lg" aria-hidden="true" style="margin-top: 10px;"></i>
-		<p>Settings</p>
+			<div id="sixthSubMenu" class="subMenuBox">
+				<p>Basemaps</p>
+			</div>
+		</div>
+		
+		
+		
+		<div id="firstCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-search fa-lg myIcon" aria-hidden="true"></i>
+		</div>
+		<div id="secondCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-map-o fa-lg myIcon" aria-hidden="true"></i>
+		</div>
+		<div id="thirdCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-comment-o fa-lg myIcon" aria-hidden="true"></i>
+		</div>
+		<div id="fourthCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-sliders fa-lg myIcon" aria-hidden="true"></i>
+		</div>
+		<div id="fifthCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-info fa-lg myIcon" aria-hidden="true"></i>
+		</div>
+		<div id="sixthCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)">
+			<i class="fa fa-square-o" aria-hidden="true"></i>
+			<i class="fa fa-square-o" aria-hidden="true"></i>
+			<i class="fa fa-square-o" aria-hidden="true"></i>
+			<i class="fa fa-square-o" aria-hidden="true"></i>
 		</div>
 	</div>
 	
@@ -141,8 +170,8 @@
 	<div id="homeButtonTooltip">Home Extent</div>
 	
 	<!-- basemap button: displays base map container-->
-	<div id="baseMapButton" onclick="baseClick()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-database fa-lg"></i></div>
-	<div id="baseMapButtonTooltip">Base maps</div>
+	<!--<div id="baseMapButton" onclick="baseClick()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-database fa-lg"></i></div>
+	<div id="baseMapButtonTooltip">Base maps</div>-->
 	
 	<!-- query button: displays query container -->
 	

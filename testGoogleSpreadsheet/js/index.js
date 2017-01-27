@@ -230,6 +230,29 @@ function displaySupMenu(source) {
 	}
 }
 
+function uiHover(source, num) {
+	var circle = document.getElementById(source);
+	var box;
+	
+	// loop to find corresponding box
+	var i;
+	for (i=0; i < uiMenuArr.length; i++) {
+		if (uiMenuArr[i][1] == source) {
+			box = document.getElementById(uiMenuArr[i][0])
+		}
+	}
+	
+	if (num == 1) {
+		// hovered, display box
+		circle.style.opacity = "1";
+		box.style.right = "0";
+	} else if (num == 0) {
+		// out, remove box
+		circle.style.opacity = "";
+		box.style.right = "";
+	}
+};
+
 
 /*
 var baseMapArray = [
@@ -289,6 +312,15 @@ var popupPolyArr = [
 var recentClickArr = [];		// stores recent clicks
 var storedEClicked = [];		// stores recent clicked data
 var storedTypeClicked = [];		// stores recent click type
+
+var uiMenuArr = [
+	['firstBox', 'firstCircle'],
+	['secondBox', 'secondCircle'],
+	['thirdBox', 'thirdCircle'],
+	['fourthBox', 'fourthCircle'],
+	['fifthBox', 'fifthCircle'],
+	['sixthBox', 'sixthCircle']
+];
 
 
 /* original
