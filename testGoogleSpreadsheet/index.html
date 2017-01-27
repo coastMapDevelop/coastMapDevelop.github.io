@@ -28,8 +28,18 @@
 	<div id="title">
 	Sample Title
 	</div>
+	
+	
 	<!-- side menu -->
 	<div id="sideMenu">
+		<div id="myZoomControls">
+			<div id="myZoomIn">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</div>
+			<div id="myZoomOut">
+				<i class="fa fa-minus" aria-hidden="true"></i>
+			</div>
+		</div>
 		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
 			<div id="firstSubMenu" class="subMenuBox">
 				<p>Search</p>
@@ -86,40 +96,29 @@
 		</div>
 	</div>
 	
-	<!-- supplemental side menu -->
-	<div id="supSideMenu01" class="supSideMenu">
-	Search for a particular city or county, also dropdowns showing all counties and cities available
-	</div>
-	<div id="supSideMenu02" class="supSideMenu">
-	Query the last 5 clicks to see information on them
-	<div id="queryContainer">
-		<!--<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>-->
-	</div>
-	</div>
-	<div id="supSideMenu03" class="supSideMenu">
-	Shows legend for counties, cities, towns, and villages and allows for toggling on/off
-	<div id="menu">
-		<div id="layer01">
+	<div id="bottomMenu"></div>
+	<div id="bottomLegend">
+		<div id="layer01t" class="legendBox">
+			<div id="bubble01t" class="legendBubble"></div>
 			<p>Counties</p>
-			<div id="bubble01" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
 		</div>
-		<div id="layer02">
+		
+		<div id="layer02t" class="legendBox">
+			<div id="bubble02t" class="legendBubble"></div>
 			<p>Cities</p>
-			<div id="bubble02" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
 		</div>
-		<div id="layer03">
+		
+		<div id="layer03t" class="legendBox">
+			<div id="bubble03t" class="legendBubble"></div>
 			<p>Towns</p>
-			<div id="bubble03" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
 		</div>
-		<div id="layer04">
+		
+		<div id="layer04t" class="legendBox">
+			<div id="bubble04t" class="legendBubble"></div>
 			<p>Villages</p>
-			<div id="bubble04" class="layerListBubble active" onclick="toggleLayers(this.id)"></div>
-		</div>
-		<div id="layer05">
-			Advanced
 		</div>
 	</div>
-	</div>
+	
 	
 	<!--
 	<div id="menuToggle">

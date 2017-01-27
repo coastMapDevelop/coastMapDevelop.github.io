@@ -77,6 +77,82 @@ body {
 	z-index: 1001;
 }
 
+#bottomMenu {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: #FBFCFC;
+	z-index: 1001;
+	height: 50px;
+	width: 100%;
+}
+
+#bottomLegend {
+	position: absolute;
+	left: 10px;
+	bottom: 55px;
+	background: transparent;
+	z-index: 1001;
+	height: 30px;
+	width: 400px;
+}
+
+.legendBox {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 25%;
+	background: transparent;
+}
+
+.legendBox p {
+	margin-top: 0px;
+	margin-left: 20px;
+}
+
+#layer01t {
+	left: 0;
+}
+
+#layer02t {
+	left: 25%;
+}
+
+#layer03t {
+	left: 50%;
+}
+
+#layer04t {
+	left: 75%;
+}
+
+.legendBubble {
+	position: absolute;
+	left: 0;
+	top: 2px;
+	height: 15px;
+	width: 15px;
+	border-radius: 25px;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+#bubble01t {
+	background: black;
+}
+
+#bubble02t {
+	background: black;
+}
+
+#bubble03t {
+	background: black;
+}
+
+#bubble04t {
+	background: black;
+}
+
+
 #sideMenu {
 	position: absolute;
 	top: 0;
@@ -85,7 +161,7 @@ body {
 	color: white;
 	width: 75px;
 	height: 100%;
-	z-index: 1001;
+	z-index: 1002;
 }
 
 .supSideMenu {
@@ -141,7 +217,7 @@ body {
 
 .subMenuBox p {
 	text-align: center;
-	color: black;
+	color: #7B7D7D;
 	font-size: 25px;
 	margin-top: 20px;
 }
@@ -234,6 +310,34 @@ body {
 	position: absolute;
 	top: 14px;
 	left: 14px;
+}
+
+#myZoomControls {
+	position:absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	height: 35px;
+	width: 75px;
+	cursor: pointer;
+}
+
+#myZoomIn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: orange;
+	height: 100%;
+	width: 50%;
+}
+
+#myZoomOut {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: grey;
+	height: 100%;
+	width: 50%;
 }
 
 #menuToggle {
