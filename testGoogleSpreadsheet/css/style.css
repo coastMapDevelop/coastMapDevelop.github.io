@@ -110,19 +110,19 @@ body {
 	margin-left: 20px;
 }
 
-#layer01t {
+#layer01 {
 	left: 0;
 }
 
-#layer02t {
+#layer02 {
 	left: 25%;
 }
 
-#layer03t {
+#layer03 {
 	left: 50%;
 }
 
-#layer04t {
+#layer04 {
 	left: 75%;
 }
 
@@ -136,19 +136,19 @@ body {
 	border: 1px solid #fff;
 	cursor: pointer;
 }
-#bubble01t {
+#bubble01 {
 	background: black;
 }
 
-#bubble02t {
+#bubble02 {
 	background: black;
 }
 
-#bubble03t {
+#bubble03 {
 	background: black;
 }
 
-#bubble04t {
+#bubble04 {
 	background: black;
 }
 
@@ -239,69 +239,37 @@ body {
 }
 
 #firstBox {
-	top: 50px;
-	background: black;
-	right: -255px;
-}
-
-#secondBox {
-	top: 125px;
-	background: black;
-	right: -255px;
-}
-
-#thirdBox {
 	top: 200px;
 	background: black;
 	right: -255px;
 }
 
-#fourthBox {
+#secondBox {
 	top: 275px;
 	background: black;
 	right: -255px;
 }
 
-#fifthBox {
+#thirdBox {
 	top: 350px;
 	background: black;
 	right: -255px;
 }
 
-#sixthBox {
-	top: 425px;
-	background: black;
-	right: -255px;
-}
-
 #firstCircle {
-	top: 60px;
+	top: 210px;
 	background: #fff;
 	opacity: .7;
 }
 
 #secondCircle {
-	top: 135px;
-	background: #fff;
-	opacity: .7;
-}
-#thirdCircle {
-	top: 210px;
-	background: #fff;
-	opacity: .7;
-}
-#fourthCircle {
 	top: 285px;
 	background: #fff;
 	opacity: .7;
 }
-#fifthCircle {
+
+#thirdCircle {
 	top: 360px;
-	background: #fff;
-	opacity: .7;
-}
-#sixthCircle {
-	top: 435px;
 	background: #fff;
 	opacity: .7;
 }
@@ -380,85 +348,6 @@ body {
 	left: 5px;
 }
 
-/* styling for the first row of layer legend */
-#layer01 {
-	position: absolute;
-	top:0;
-	left:0;
-	/*background: #2471A3;*/
-	background: #fff;
-	height: 37.5px;
-	width: 100%;
-	border: 1px solid #fff;
-	text-align: center;
-	color: black;
-	font-size: 20px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/* styling for the second row of layer legend */
-#layer02 {
-	position: absolute;
-	top: 37.5px;
-	left: 0;
-	/*background: #B03A2E;*/
-	background: #fff;
-	height: 37.5px;
-	width: 100%;
-	border: 1px solid #fff;
-	text-align:center;
-	color: black;
-	font-size: 20px;
-}
-
-/* styling for the third row of layer legend */
-#layer03 {
-	position: absolute;
-	top: 75px;
-	left: 0;
-	/*background: #D68910;*/
-	background: #fff;
-	height: 37.5px;
-	width: 100%;
-	border: 1px solid #fff;
-	text-align: center;
-	color: black;
-	font-size: 20px;
-}
-
-/* styling for the fourth row of layer legend */
-#layer04 {
-	position: absolute;
-	top: 112.5px;
-	left: 0;
-	/*background: #117A65;*/
-	background: #fff;
-	height: 37.5px;
-	width: 100%;
-	border: 1px solid #fff;
-	text-align: center;
-	color: black;
-	font-size: 20px;
-	/*border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;*/
-}
-
-#layer05 {
-	position: absolute;
-	top: 150px;
-	left: 0;
-	background: #fff;
-	height: 25px;
-	width: 100%;
-	border: 1px solid #fff;
-	text-align: center;
-	color: #1A5276;
-	font-size: 12px;
-	cursor:pointer;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
 
 
 
@@ -477,41 +366,9 @@ body {
 
 
 
-/* assigns appropriate color to first row layer legend */
-#bubble01 {
-	/*background: #003744;*/
-	-webkit-transition: .35s background;
-	-moz-transition: .35s background;
-	-o-transition: .35s background;
-	transition: .35s background;
-}
 
-/* assigns appropriate color to second row layer legend */
-#bubble02 {
-	/*background: #41b6c4;*/
-	-webkit-transition: .35s background;
-	-moz-transition: .35s background;
-	-o-transition: .35s background;
-	transition: .35s background;
-}
 
-/* assigns appropriate color to third row layer legend */
-#bubble03 {
-	/*background: #a1dab4;*/
-	-webkit-transition: .35s background;
-	-moz-transition: .35s background;
-	-o-transition: .35s background;
-	transition: .35s background;
-}
 
-/* assigns appropriate color to fourth row layer legend */
-#bubble04 {
-	/*background: #ffffcc;*/
-	-webkit-transition: .35s background;
-	-moz-transition: .35s background;
-	-o-transition: .35s background;
-	transition: .35s background;
-}
 
 .active {
 	

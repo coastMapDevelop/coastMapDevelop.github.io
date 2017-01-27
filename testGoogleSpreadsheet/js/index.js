@@ -316,10 +316,7 @@ var storedTypeClicked = [];		// stores recent click type
 var uiMenuArr = [
 	['firstBox', 'firstCircle'],
 	['secondBox', 'secondCircle'],
-	['thirdBox', 'thirdCircle'],
-	['fourthBox', 'fourthCircle'],
-	['fifthBox', 'fifthCircle'],
-	['sixthBox', 'sixthCircle']
+	['thirdBox', 'thirdCircle']
 ];
 
 
