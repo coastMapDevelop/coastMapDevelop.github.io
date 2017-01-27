@@ -270,32 +270,6 @@ function uiHover(source, num) {
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		// check if other circles are active
-		var j;
-		for (j=0; j < uiMenuArr.length; j++) {
-			var checkQuick = document.getElementById(uiMenuArr[j][1]);
-			var checkActive = checkQuick.classList.contains("active");
-				
-			if (checkActive == true) {
-				var tempMove = document.getElementById(uiMenuArr[j][2]);
-				tempMove.style.right = "";
-				tempMove.classList.remove("active");
-			} else {
-				// do nothing
-			}
-				
-		}
-		// add page
-		circleCross.style.right = "75px";
-		circle.classList.add("active");
 	}
 };
 
