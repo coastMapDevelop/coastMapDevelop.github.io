@@ -233,12 +233,14 @@ function displaySupMenu(source) {
 function uiHover(source, num) {
 	var circle = document.getElementById(source);
 	var box;
+	var circleCross;
 	
 	// loop to find corresponding box
 	var i;
 	for (i=0; i < uiMenuArr.length; i++) {
 		if (uiMenuArr[i][1] == source) {
-			box = document.getElementById(uiMenuArr[i][0])
+			box = document.getElementById(uiMenuArr[i][0]);
+			circleCross = document.getElementById(uiMenuArr[i][2]);
 		}
 	}
 	
@@ -250,6 +252,50 @@ function uiHover(source, num) {
 		// out, remove box
 		circle.style.opacity = "";
 		box.style.right = "";
+	} else if (num == 2) {
+		var active = circleCross.classList.contains("active");
+		if (active == true) {
+			circleCross.style.right = "";
+			circleCross.classList.remove("active");
+		} else if (active == false) {
+			circleCross.style.right = "75px";
+			circleCross.classList.add("active");
+			
+			var j;
+			for (j=0; j < uiMenuArr.length; j++) {
+				if (uiMenuArr[j][1] != source) {
+					var checkQuick = document.getElementById(uiMenuArr[j][2]);
+					checkQuick.style.right = "";
+					checkQuick.classList.remove("active");
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		// check if other circles are active
+		var j;
+		for (j=0; j < uiMenuArr.length; j++) {
+			var checkQuick = document.getElementById(uiMenuArr[j][1]);
+			var checkActive = checkQuick.classList.contains("active");
+				
+			if (checkActive == true) {
+				var tempMove = document.getElementById(uiMenuArr[j][2]);
+				tempMove.style.right = "";
+				tempMove.classList.remove("active");
+			} else {
+				// do nothing
+			}
+				
+		}
+		// add page
+		circleCross.style.right = "75px";
+		circle.classList.add("active");
 	}
 };
 
@@ -314,9 +360,9 @@ var storedEClicked = [];		// stores recent clicked data
 var storedTypeClicked = [];		// stores recent click type
 
 var uiMenuArr = [
-	['firstBox', 'firstCircle'],
-	['secondBox', 'secondCircle'],
-	['thirdBox', 'thirdCircle']
+	['firstBox', 'firstCircle', 'searchPage'],
+	['secondBox', 'secondCircle', 'basemapPage'],
+	['thirdBox', 'thirdCircle', 'filterPage']
 ];
 
 

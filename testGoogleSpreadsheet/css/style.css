@@ -319,6 +319,33 @@ body {
 	z-index: 1001;
 }
 
+.pullOutPage {
+	position: absolute;
+	top: 0;
+	background: #fff;
+	height: 100%;
+	z-index: 1001;
+	-webkit-transition: .2s right;
+	-moz-transition: .2s right;
+	-o-transition: .2s right;
+	transition: .2s right;
+}
+
+#searchPage {
+	width: 200px;
+	right: -300px;
+}
+
+#basemapPage {
+	width: 200px;
+	right: -300px;
+}
+
+#filterPage {
+	width: 200px;
+	right: -300px;
+}
+
 /* styling for the main layer legend box */
 #menu {
 	position: absolute;
