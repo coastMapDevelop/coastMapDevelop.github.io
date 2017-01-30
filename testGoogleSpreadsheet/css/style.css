@@ -73,9 +73,30 @@ body {
 	left: 20px;
 	top: 20px;
 	color: black;
-	font-size: 20px;
+	width: auto;
 	z-index: 1001;
+	width: 250px;
+	/*display: inline;*/
 }
+
+#title p {
+	/*display: inline;*/
+	font-size: 25px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 0;
+}
+
+#title img {
+	width: 60px;
+	height: 30px;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	/*display: inline;*/
+}
+
 
 #bottomMenu {
 	position: absolute;
@@ -224,6 +245,8 @@ body {
 
 
 
+
+
 .menuCircle {
 	position: absolute;
 	left: 12px;
@@ -232,6 +255,7 @@ body {
 	cursor: pointer;
 	border-radius: 25px;
 	color: black;
+	margin-bottom: 20px;
 	-webkit-transition: .2s opacity;
 	-moz-transition: .2s opacity;
 	-o-transition: .2s opacity;
