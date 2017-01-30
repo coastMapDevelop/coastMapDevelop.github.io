@@ -227,9 +227,10 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			
+			map.fitBounds(e.target.getBounds());
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
+			map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
