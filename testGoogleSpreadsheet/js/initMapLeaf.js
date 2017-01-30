@@ -108,34 +108,34 @@ function main() {
 
 	// town points style
 	var townPointsStyle = {
-		radius: 6,
+		radius: 7,
 		fillColor: colorPal[2][0],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
-		fillOpacity: 0.9,
+		fillOpacity: 0.75,
 		zIndex: 10
 	};
 	
 	// city points style
 	var cityPointsStyle = {
-		radius: 6,
+		radius: 7,
 		fillColor: colorPal[1][0],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
-		fillOpacity: 0.9,
+		fillOpacity: 0.75,
 		zIndex: 10
 	};
 	
 	// village points style
 	var villagePointsStyle = {
-		radius: 6,
+		radius: 7,
 		fillColor: colorPal[3][0],
 		color: '#fff',
 		weight: 1,
 		opacity: 1,
-		fillOpacity: 0.9,
+		fillOpacity: 0.75,
 		zIndex: 10
 	};
 	
@@ -177,9 +177,8 @@ function main() {
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
-			
 			layer.setStyle({
-				weight: 5,
+				weight: 3,
 				color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
@@ -187,8 +186,10 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
+			
+			
 			layer.setStyle({
-				weight: 5,
+				weight: 3,
 				fillOpacity: 1,
 				color: '#666'
 			})
@@ -196,7 +197,7 @@ function main() {
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
 			layer.setStyle({
-				weight: 5,
+				weight: 3,
 				fillOpacity: 1,
 				color: '#666'
 			})
@@ -208,6 +209,7 @@ function main() {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 			geojson.resetStyle(e.target); // reset style of county polygons
 		} else if (e.target.feature.geometry.type == 'Point') {
+		
 			townsPoints.resetStyle(e.target);
 			citiesPoints.resetStyle(e.target);
 			villagesPoints.resetStyle(e.target);
@@ -227,10 +229,10 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			map.fitBounds(e.target.getBounds());
+			//map.fitBounds(e.target.getBounds());
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
-			map.setView(e.latlng, 9);
+			//map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
