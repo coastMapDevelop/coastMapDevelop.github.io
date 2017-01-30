@@ -270,8 +270,19 @@ function uiHover(source, num) {
 				}
 			}
 		}
+	} else if (num == 3) {
+		var q;
+		for (q=0; q < uiMenuArr.length; q++) {
+			if (uiMenuArr[q][3] == source) {
+				var position = uiMenuArr[q][2];
+				var toggle = document.getElementById(position);
+				toggle.style.right = "";
+				toggle.classList.remove('active');
+			}
+		}
 	}
 };
+
 
 
 /*
@@ -334,9 +345,9 @@ var storedEClicked = [];		// stores recent clicked data
 var storedTypeClicked = [];		// stores recent click type
 
 var uiMenuArr = [
-	['firstBox', 'firstCircle', 'searchPage'],
-	['secondBox', 'secondCircle', 'basemapPage'],
-	['thirdBox', 'thirdCircle', 'filterPage']
+	['firstBox', 'firstCircle', 'searchPage', 'searchPageToggle'],
+	['secondBox', 'secondCircle', 'basemapPage', 'basemapPageToggle'],
+	['thirdBox', 'thirdCircle', 'filterPage', 'filterPageToggle']
 ];
 
 

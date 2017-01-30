@@ -73,8 +73,8 @@ function main() {
 		"Tile_Layer_1": CartoDB_Positron,
 		"Tile_Layer_2": CartoDB_DarkMatter,
 		"Tile_Layer_3": OpenStreetMap_Mapnik,
-		"Tile_Layer_4": Esri_WorldStreetMap,
-		"Tile_Layer_5": Hydda_Full,
+		"Tile_Layer_4": Hydda_Full,
+		"Tile_Layer_5": Esri_WorldStreetMap,
 		"Tile_Layer_6": Esri_WorldPhysical,
 		"Tile_Layer_7": Esri_WorldImagery,
 		"Tile_Layer_8": Esri_OceanBasemap
@@ -663,6 +663,10 @@ function main() {
 		map.removeLayer(baseLayers[currentLayer]);
 		currentLayer = source;
 		baseLayers[source].addTo(map);
+		
+		var image = document.getElementById(source);
+		var active = image.classList.contains('active');
+		
 	};
 	
 	// fill name space with function variables so we can use them publicly

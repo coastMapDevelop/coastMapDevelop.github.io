@@ -87,109 +87,249 @@
 	</div>
 	
 	<div id="searchPage" class="pullOutPage">
-		<i id="searchPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
+		<i id="searchPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
+		<h3>Search</h3>
+		<p>Search for a specific feature</p>
+		<form>
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
 		
-		<div class="panel-group" id="accordion">
+		<hr>
+		<div class="panel-group" id="accordion" style="margin-top: 70px;">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-						Collapsible Group 1</a>
+						Counties</a>
 					</h4>
 				</div>
 				<div id="collapse1" class="panel-collapse collapse in">
-					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat.</div>
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
 					</div>
 				</div>
+			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-						Collapsible Group 2</a>
+						Cities</a>
 					</h4>
 				</div>
 				<div id="collapse2" class="panel-collapse collapse">
-					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat.</div>
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-						Collapsible Group 3</a>
+						Towns</a>
 					</h4>
 				</div>
 				<div id="collapse3" class="panel-collapse collapse">
-					<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-					commodo consequat.</div>
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+						Villages</a>
+					</h4>
+				</div>
+				<div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	<div id="basemapPage" class="pullOutPage">
-		<i id="basemapPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
-		<p>Basemaps</p>
-		<div class="row" style="margin-top: 50px;">
-			<div class="col-md-12">
-				<img class="img-responsive" src="img/carto_DB_Positron.JPG" alt="Carto DB Positron">
+		<i id="basemapPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
+		<h3>Basemaps</h3>
+		<p>Choose a Basemap</p>
+		<hr>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_1" class="img-responsive" src="img/carto_DB_Positron.JPG" alt="Carto DB Positron" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Positron</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_2" class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Dark Matter</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
-			<div class="col-md-12">
-				<img class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter">
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_3" class="img-responsive" src="img/openStreetMap_Mapnik.JPG" alt="OpenStreetMap Mapnik" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>OpenStreetMap Mapnik</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_4" class="img-responsive" src="img/hydda_Full.JPG" alt="Hydda Full" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Hydda Full</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
-			<div class="col-md-12">
-				<img class="img-responsive" src="img/openStreetMap_Mapnik.JPG" alt="OpenStreetMap Mapnik">
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_5" class="img-responsive" src="img/esri_World_Street_Map.JPG" alt="Esri World Street Map" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Street Map</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_6" class="img-responsive" src="img/esri_World_Physical.JPG" alt="Esri World Physical" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Physical</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
+		<div class="row" style="margin-top: 70px; margin-bottom: 50px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_7" class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Imagery</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri Ocean Basemap</p>
+			</div>
+		</div>
+		<!--
+		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-12">
-				<img class="img-responsive" src="img/hydda_Full.JPG" alt="Hydda Full">
+				<img id="Tile_Layer_1" class="img-responsive" src="img/carto_DB_Positron.JPG" alt="Carto DB Positron" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Positron</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
+		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-12">
-				<img class="img-responsive" src="img/esri_World_Street_Map.JPG" alt="Esri World Street Map">
+				<img id="Tile_Layer_2" class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Dark Matter</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
+		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-12">
-				<img class="img-responsive" src="img/esri_World_Physical.JPG" alt="Esri World Physical">
+				<img id="Tile_Layer_3" class="img-responsive" src="img/openStreetMap_Mapnik.JPG" alt="OpenStreetMap Mapnik" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>OpenStreetMap Mapnik</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
+		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-12">
-				<img class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery">
+				<img id="Tile_Layer_4" class="img-responsive" src="img/hydda_Full.JPG" alt="Hydda Full" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Hydda Full</p>
 			</div>
 		</div>
 		
-		<div class="row" style="margin-top: 50px;">
+		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-12">
-				<img class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap">
+				<img id="Tile_Layer_5" class="img-responsive" src="img/esri_World_Street_Map.JPG" alt="Esri World Street Map" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Street Map</p>
 			</div>
 		</div>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-12">
+				<img id="Tile_Layer_6" class="img-responsive" src="img/esri_World_Physical.JPG" alt="Esri World Physical" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Physical</p>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-12">
+				<img id="Tile_Layer_7" class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Imagery</p>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 70px; margin-bottom: 50px;">
+			<div class="col-md-12">
+				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri Ocean Basemap</p>
+			</div>
+		</div>
+		-->
 	</div>
 	
 	<div id="filterPage" class="pullOutPage">
-		<i id="filterPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
-	filter page
+		<i id="filterPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
+		
+		<h3>Filter</h3>
+		
+		<p>Choose features to filter by</p>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 1</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 2</label>
+				</div>
+				<div class="checkbox disabled">
+					<label><input type="checkbox" value="">Option 3</label>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 4</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="">Option 5</label>
+				</div>
+				<div class="checkbox disabled">
+					<label><input type="checkbox" value="" disabled>Option 6</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="sel1">Select list:</label>
+			<select class="form-control" id="sel1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+		</div>
+			
+		
 	</div>
 	
 	

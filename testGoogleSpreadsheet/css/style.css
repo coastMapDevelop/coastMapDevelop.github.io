@@ -372,6 +372,7 @@ body {
 	background: #FBFCFC;
 	height: 100%;
 	z-index: 1001;
+	text-align:center;
 	-webkit-transition: .2s right;
 	-moz-transition: .2s right;
 	-o-transition: .2s right;
@@ -379,8 +380,9 @@ body {
 }
 
 #searchPage {
-	width: 200px;
-	right: -300px;
+	width: 350px;
+	right: -350px;
+	overflow-y: scroll;
 }
 
 .pageToggle {
@@ -392,13 +394,17 @@ body {
 }
 
 #basemapPage {
-	width: 200px;
-	right: -300px;
+	width: 400px;
+	right: -400px;
 	overflow-y: scroll;
 }
 
+#basemapPage img {
+	cursor: pointer;
+}
+
 #filterPage {
-	width: 200px;
+	width: 300px;
 	right: -300px;
 }
 
