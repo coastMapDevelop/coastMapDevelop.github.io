@@ -394,7 +394,7 @@ function main() {
 			element.setAttribute("onclick", "clickedQueryItem(this.id)");
 			element.appendChild(para);
 			
-			container.appendChild(element);
+			//container.appendChild(element);
 			
 		} else if (recentClickArr.indexOf(target) >= 0) {
 			console.log(recentClickArr);
