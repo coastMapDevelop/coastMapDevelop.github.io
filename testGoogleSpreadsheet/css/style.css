@@ -284,28 +284,51 @@ body {
 	position:absolute;
 	top: 0;
 	left: 0;
-	background: black;
+	background: transparent;
 	height: 35px;
 	width: 75px;
 	cursor: pointer;
+	text-align: center;
 }
 
 #myZoomIn {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: orange;
+	background: #fff;
 	height: 100%;
 	width: 50%;
+	opacity: .7;
+	border-right: 1px solid black;
 }
 
 #myZoomOut {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background: grey;
+	background: #fff;
 	height: 100%;
 	width: 50%;
+	opacity: .7;
+	border-left: 1px solid black;
+}
+
+.custZoom {
+	margin-top: 8px;
+	color: black;
+}
+
+#myHomeButton {
+	position: absolute;
+	top: 36px;
+	height: 35px;
+	width: 75px;
+	cursor: pointer;
+	background: #fff;
+	text-align: center;
+	color: black;
+	opacity: .7;
+	
 }
 
 #menuToggle {
@@ -334,6 +357,14 @@ body {
 #searchPage {
 	width: 200px;
 	right: -300px;
+}
+
+.pageToggle {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #797D7F;
+	cursor: pointer;
 }
 
 #basemapPage {

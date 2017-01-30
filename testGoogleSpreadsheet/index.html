@@ -34,12 +34,17 @@
 	<div id="sideMenu">
 		<div id="myZoomControls">
 			<div id="myZoomIn">
-				<i class="fa fa-plus" aria-hidden="true"></i>
+				<i class="fa fa-plus custZoom" aria-hidden="true"></i>
 			</div>
 			<div id="myZoomOut">
-				<i class="fa fa-minus" aria-hidden="true"></i>
+				<i class="fa fa-minus custZoom" aria-hidden="true"></i>
 			</div>
 		</div>
+		
+		<div id="myHomeButton" onclick="myNameSpace.home()">
+			<i class="fa fa-home fa-lg" style="margin-top: 8px;"></i>
+		</div>
+		
 		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
 			<div id="firstSubMenu" class="subMenuBox">
 				<p>Search</p>
@@ -77,14 +82,17 @@
 	</div>
 	
 	<div id="searchPage" class="pullOutPage">
+		<i id="searchPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
 	search Page
 	</div>
 	
 	<div id="basemapPage" class="pullOutPage">
+		<i id="basemapPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
 	basemap Page
 	</div>
 	
 	<div id="filterPage" class="pullOutPage">
+		<i id="filterPageToggle" class="fa fa-times fa-lg pageToggle" aria-hidden="true"></i>
 	filter page
 	</div>
 	
@@ -180,8 +188,10 @@
 	-->
 	
 	<!-- home button: resets leaflet view -->
+	<!--
 	<div id="homeButton" onclick="myNameSpace.home()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-home fa-lg"></i></div>
 	<div id="homeButtonTooltip">Home Extent</div>
+	-->
 	
 	<!-- basemap button: displays base map container-->
 	<!--<div id="baseMapButton" onclick="baseClick()" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-database fa-lg"></i></div>
