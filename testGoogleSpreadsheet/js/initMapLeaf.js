@@ -177,28 +177,42 @@ function main() {
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
-			/*
+			
 			layer.setStyle({
 				weight: 5,
 				color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
 			});
-			*/
+			
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
+			layer.setStyle({
+				weight: 5,
+				fillOpacity: 1
+			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
+			layer.setStyle({
+				weight: 5,
+				fillOpacity: 1
+			})
 		}
 	};
 	
 	// on mouseout
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
-			/*geojson.resetStyle(e.target); // reset style of county polygons*/
-		} else {
-			//'not county polygon');
+			geojson.resetStyle(e.target); // reset style of county polygons
+		} else if (e.target.feature.geometry.type == 'Point') {
+			townsPoints.resetStyle(e.target);
+			citiesPoints.resetStyle(e.target);
+			villagesPoints.resetStyle(e.target);
+		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0]) {
+			townsPolygon.resetStyle(e.target);
+			citiesPolygon.resetStyle(e.target);
+			villagesPolygon.resetStyle(e.target);
 		}
 		this.closeTooltip(); // close tooltip on mouseout
 	};
