@@ -98,6 +98,8 @@ function main() {
 	var townsPolygon;		// variable to hold town polygons - layer
 	var citiesPolygon;		// variable to hold city polygons - layer
 	var villagesPolygon;	// variable to hold village polygons - layer
+
+	var myMarkers = L.layerGroup().addTo(map);
 	
 	// county style
 	var myStyle = {
@@ -120,7 +122,7 @@ function main() {
 
 	// town points style
 	var townPointsStyle = {
-		radius: 7,
+		radius: 8,
 		fillColor: colorPal[2][0],
 		color: '#fff',
 		weight: 1,
@@ -131,7 +133,7 @@ function main() {
 	
 	// city points style
 	var cityPointsStyle = {
-		radius: 7,
+		radius: 8,
 		fillColor: colorPal[1][0],
 		color: '#fff',
 		weight: 1,
@@ -142,7 +144,7 @@ function main() {
 	
 	// village points style
 	var villagePointsStyle = {
-		radius: 7,
+		radius: 8,
 		fillColor: colorPal[3][0],
 		color: '#fff',
 		weight: 1,
@@ -200,7 +202,14 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
+			myMarkers.clearLayers();
+			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'grey'});
+				
 			
+			
+			myMarkers.addLayer(marker);
+			
+				
 			layer.setStyle({
 				weight: 3,
 				fillOpacity: 1,
@@ -222,7 +231,6 @@ function main() {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 			geojson.resetStyle(e.target); // reset style of county polygons
 		} else if (e.target.feature.geometry.type == 'Point') {
-		
 			townsPoints.resetStyle(e.target);
 			citiesPoints.resetStyle(e.target);
 			villagesPoints.resetStyle(e.target);
@@ -234,6 +242,8 @@ function main() {
 			villagesPolygon.resetStyle(e.target);
 		}
 		this.closeTooltip(); // close tooltip on mouseout
+		myMarkers.clearLayers();
+		
 	};
 	
 	// on click
@@ -708,7 +718,7 @@ function main() {
 		maxResultLength: 15,
 		showInvisibleFeatures: true,
 		caseSensitive: false,
-		threshold: 0.5,
+		threshold: 0,
 		showResultFct: function (feature, container) {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
