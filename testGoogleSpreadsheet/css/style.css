@@ -54,10 +54,9 @@ body {
 	/*font-family: 'Cabin', sans-serif;*/
 	/*font-family: 'Muli', sans-serif;*/
 	/*font-family: 'Oxygen', sans-serif;*/
-	/*font-family: 'Cardo', serif;*/
-	/*font-family: 'Gentium Basic', serif;*/
-	/*font-family: 'Cambay', sans-serif;*/
 	/*font-family: 'Assistant', sans-serif;*/
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: 'Catamaran', sans-serif;
 }
 
 #map {
@@ -114,10 +113,35 @@ body {
 	width: 100%;
 }
 
+#supBottomMenu {
+	position: absolute;
+	right: 85px;
+	bottom: 0px;
+	height: 50px;
+	width: auto;
+	text-align: center;
+	background: transparent;
+	z-index: 1001;
+	color: #7B7D7D;
+	cursor: pointer;
+	-webkit-transition: .25s color;
+	-moz-transition: .25s color;
+	-o-transition: .25s color;
+	transition: .25s color;
+}
+
+#supBottomMenu:hover {
+	color: black;
+}
+
+#supBottomMenu p {
+	margin-top: 15px;
+}
+
 #bottomLegend {
 	position: absolute;
 	left: 10px;
-	bottom: 55px;
+	bottom: 5px;
 	background: transparent;
 	z-index: 1001;
 	height: 30px;
@@ -162,7 +186,18 @@ body {
 	border-radius: 25px;
 	border: 1px solid #fff;
 	cursor: pointer;
+	opacity:.8;
+	-webkit-transition: .25s opacity, .25s border;
+	-moz-transition: .25s opacity, .25s border;
+	-o-transition: .25s opacity, .25s border;
+	transition: .25s opacity, .25s border;
 }
+
+.legendBubble:hover {
+	opacity: 1;
+	border: 1px solid #666;
+}
+
 #bubble01 {
 	background: black;
 }
@@ -380,7 +415,8 @@ body {
 	background: #FBFCFC;
 	height: 100%;
 	z-index: 1001;
-	text-align:center;
+	padding-left: 25px;
+	padding-right: 25px;
 	-webkit-transition: .2s right;
 	-moz-transition: .2s right;
 	-o-transition: .2s right;
@@ -389,7 +425,8 @@ body {
 
 #searchPage {
 	width: 350px;
-	right: -350px;
+	right: -500px;
+	overflow-y: scroll;
 	overflow-y: scroll;
 }
 
@@ -399,21 +436,45 @@ body {
 	right: 10px;
 	color: #797D7F;
 	cursor: pointer;
+	font-size: 35px;
+	-webkit-transition: .25s color;
+	-moz-transition: .25s color;
+	-o-transition: .25s color;
+	transition: .25s color;
+}
+
+.pageToggle:hover {
+	color: black;
 }
 
 #basemapPage {
 	width: 400px;
-	right: -400px;
+	right: -500px;
 	overflow-y: scroll;
+}
+
+#basemapPage .row p {
+	text-align: center;
 }
 
 #basemapPage img {
 	cursor: pointer;
+	-webkit-transition: .25s opacity;
+	-moz-transition: .25s opacity;
+	-o-transition: .25s opacity;
+	transition: .25s opacity;
 }
+
+#basemapPage img:hover {
+	/*border: 5px solid #154360;*/
+	opacity: .7;
+}
+
+
 
 #filterPage {
 	width: 300px;
-	right: -300px;
+	right: -500px;
 }
 
 /* styling for the main layer legend box */
@@ -865,4 +926,7 @@ body {
 .popupLine {
 	width: 70%;
 }
+
+
+
  

@@ -10,8 +10,12 @@
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 		<!-- font awesome -->
 		<link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<!-- google material icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<!-- link bootstrap css -->
 		<link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap.min.css" />
+		<!-- fuse search css -->
+		<link rel="stylesheet" href="lib/fuse/leaflet-fusesearch-master/src/leaflet.fusesearch.css" />
 		<!-- custom website & map CSS -->
 		<link href="css/style.css" rel="stylesheet" />
 		
@@ -19,17 +23,17 @@
 		<!--<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">-->
 		<!--<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">-->
 		<!--<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">-->
-		<!--<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">-->
-		<!--<link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">-->
-		<!--<link href="https://fonts.googleapis.com/css?family=Cambay" rel="stylesheet">-->
 		<!--<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+		<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+		
   </head>
   <body>
 	<!-- map container -->
 	<div id="map"></div>
 	
 	<div id="title">
-		<img src="img/seaGrant.jpg" alt="Sea Grant Logo">
+		<a href="#"><img src="img/seaGrant.jpg" alt="Sea Grant Logo"></a>
 		<h3>Coastal Overview</h3>
 		<p>Great Lakes Coastal Information</p>
 		
@@ -75,13 +79,18 @@
 		
 		
 		<div id="firstCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
-			<i class="fa fa-search fa-lg myIcon" aria-hidden="true"></i>
+			<!--<i class="fa fa-search fa-lg myIcon" aria-hidden="true"></i> -->
+			<i class="material-icons myIcon">search</i>
 		</div>
 		<div id="secondCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
-			<i class="fa fa-map-o fa-lg myIcon" aria-hidden="true"></i>
+			<!--<i class="fa fa-map-o fa-lg myIcon" aria-hidden="true"></i>-->
+			<!--<i class="material-icons myIcon">view_module</i>-->
+			<!-- <i class="material-icons myIcon">apps</i> -->
+			<i class="material-icons myIcon">layers</i>
 		</div>
 		<div id="thirdCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
 			<i class="fa fa-sliders fa-lg myIcon" aria-hidden="true"></i>
+			<!--<i class="material-icons myIcon">filter_list</i>-->
 		</div>
 		
 		
@@ -89,8 +98,9 @@
 	</div>
 	
 	<div id="searchPage" class="pullOutPage">
-		<i id="searchPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
-		<h3>Search</h3>
+		<!--<i id="searchPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="searchPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<h3 style="margin-top: 50px; font-size: 35px;">Search</h3>
 		<p>Search for a specific feature</p>
 		<form>
 			<div class="input-group">
@@ -177,8 +187,9 @@
 	</div>
 	
 	<div id="basemapPage" class="pullOutPage">
-		<i id="basemapPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
-		<h3>Basemaps</h3>
+		<!--<i id="basemapPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="basemapPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<h3 style="margin-top: 50px; font-size: 35px;">Basemaps</h3>
 		<p>Choose a Basemap</p>
 		<hr>
 		
@@ -289,9 +300,10 @@
 	</div>
 	
 	<div id="filterPage" class="pullOutPage">
-		<i id="filterPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>
+		<!--<i id="filterPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="filterPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
 		
-		<h3>Filter</h3>
+		<h3 style="margin-top: 50px; font-size: 35px;">Filter</h3>
 		
 		<p>Choose features to filter by</p>
 		<hr>
@@ -358,6 +370,10 @@
 	
 	<div id="bottomMenu"></div>
 	
+	<div id="supBottomMenu">
+		<p>&bull; Information</p>
+	</div>
+		
 	<div id="bottomLegend">
 		<div id="layer01" class="legendBox">
 			<div id="bubble01" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
@@ -412,10 +428,11 @@
 	<script src="lib/jquery-3.1.1.min.js"></script>
 	<!-- google spreadsheet API -->
 	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-	<!-- experimental, turf js -->
-	<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 	<!-- leaflet API -->
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<!-- fuse, for search features -->
+	<script src="lib/fuse/fuse.min.js"></script>
+	<script src="lib/fuse/leaflet-fusesearch-master/src/leaflet.fusesearch.js"></script>
 	<!-- link bootstrap js -->
 	<script src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<!-- javascript for google spreadsheet connection and general website functions -->

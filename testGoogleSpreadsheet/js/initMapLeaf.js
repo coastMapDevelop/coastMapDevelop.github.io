@@ -20,6 +20,9 @@ function main() {
 	
 	
 	
+	
+	
+	
 	// hydda.full tiles
 	var Hydda_Full = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -105,6 +108,15 @@ function main() {
 		'fillOpacity': 0.75,
 		'zIndex': 9
 	};
+	
+	function testColor(d) {
+		return d > 80 ? 'blue' :
+			   d > 60 ? 'orange' :
+			   d > 40 ? 'red' :
+			   d > 20 ? 'grey' :
+			   d > 10 ? 'black' :
+						'white';
+	};
 
 	// town points style
 	var townPointsStyle = {
@@ -182,6 +194,7 @@ function main() {
 				color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
+				//fillColor: testColor(layer.feature.properties.FID_1)
 			});
 			
 		} else if (layer.feature.geometry.type == 'Point') {
@@ -267,6 +280,9 @@ function main() {
 			mouseout: resetHighlight,	 // call resetHighlight function on mouseout
 			click: zoomToFeature		 // call zoomToFeature function on click
 		});
+		
+		// experimental
+		feature.layer = layer;
 	};
 	
 	// function to cross reference name of county polygon with google spreadsheet
@@ -463,6 +479,8 @@ function main() {
 		dataType: "json",
 		url: "data/geojson/countyPolygons.geojson",
 		success: function(data) {
+			// experimental
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10']);
 			geojson = L.geoJson(data, {
 				style: myStyle,					// set style to myStyle variable
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
@@ -681,9 +699,35 @@ function main() {
 	};
 	
 	
+	// experimental
+	var options = {
+		position: 'topleft',
+		title: 'Search',
+		placeholder: 'Lets search!',
+		panelTitle: 'Lets Search!',
+		maxResultLength: 15,
+		showInvisibleFeatures: true,
+		caseSensitive: false,
+		threshold: 0.5,
+		showResultFct: function (feature, container) {
+			props = feature.properties;
+			var name = L.DomUtil.create('b', null, container);
+			name.innerHTML = props.NAME10;
+			container.appendChild(L.DomUtil.create('br', null, container));
+			container.appendChild(document.createTextNode(props.NAMELSAD10));
+		}
+	};
+	var searchCtrl = L.control.fuseSearch(options);
+	searchCtrl.addTo(map);
 	
-	
+	// experimental
+
 };
+
+
+
+
+
 
 // start main function on window load
 window.onload = main;
