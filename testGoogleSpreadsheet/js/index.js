@@ -324,6 +324,12 @@ document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
 document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
 document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
 
+var circleInterval;		// stores interval variable
+var maxRadius = 30;
+var minRadius = 15;
+var radiusControl = false;
+var newRadius;
+
 
 
 

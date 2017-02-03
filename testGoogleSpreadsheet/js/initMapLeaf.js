@@ -193,7 +193,7 @@ function main() {
 			// set new style for hover county polygon
 			layer.setStyle({
 				weight: 3,
-				color: '#666',
+				//color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
 				//fillColor: testColor(layer.feature.properties.FID_1)
@@ -201,16 +201,10 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
-			/*
-			myMarkers.clearLayers();
-			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'grey'});
-			myMarkers.addLayer(marker);
-			*/
 				
 			layer.setStyle({
 				weight: 3,
 				fillOpacity: 1,
-				color: '#666'
 			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
@@ -218,7 +212,7 @@ function main() {
 			layer.setStyle({
 				weight: 3,
 				fillOpacity: 1,
-				color: '#666'
+				//color: '#666'
 			})
 		}
 	};
@@ -239,7 +233,7 @@ function main() {
 			villagesPolygon.resetStyle(e.target);
 		}
 		this.closeTooltip(); // close tooltip on mouseout
-		myMarkers.clearLayers();
+		
 		
 	};
 	
@@ -250,11 +244,48 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//map.fitBounds(e.target.getBounds());
+			myMarkers.clearLayers();
+			window.clearInterval(circleInterval);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
+			myMarkers.clearLayers();
+			window.clearInterval(circleInterval);
+			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+			myMarkers.addLayer(marker);
+			
+	
+			
+			circleInterval = setInterval(function() {
+				myMarkers.eachLayer(function (layer) {
+    				var radius = layer.getRadius();
+    				
+    				if (radius == maxRadius) {
+    					radiusControl = false;
+    				} else if (radius == minRadius) {
+    					radiusControl = true;
+    				} else if (radius < maxRadius && radius > minRadius) {
+    					console.log(radiusControl);
+    				}
+    				
+    				if (radiusControl == true) {
+    					var newRadius = radius + .5;
+    				} else if (radiusControl == false) {
+    					var newRadius = radius - .5;
+    				}
+    				
+    				layer.setRadius(newRadius);
+    				
+    				
+    				
+				});
+			}, 50);
+			
+			
 			//map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			myMarkers.clearLayers();
+			window.clearInterval(circleInterval);
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 	};
@@ -335,8 +366,7 @@ function main() {
 			
 			// call function to store clicked features
 			stacheClicked(target, e, type);
-			
-			console.log(layer.latlng);
+
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
