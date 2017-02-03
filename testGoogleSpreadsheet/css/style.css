@@ -1,41 +1,6 @@
 
 
-/* new color palletes */
 
-/* 1 */
-/* 	#FF7676
-	#F6F49D
-	#5DAE8B
-	#466C95
-*/
-
-/* 2 */
-/*	#F38181
-	#FCE38A
-	#D6F7AD
-	#95E1D3
-*/
-
-/* 3 */
-/*	#003744
-	#1A554F
-	#FDA856
-	#F6FE91
-*/
-
-/* 4 */
-/*	#F9FCFD
-	#C9EFF9
-	#07A4B5
-	#FED8A7
-*/
-
-/* 5 *from colorbrewer */
-/*	#225ea8
-	#41b6c4
-	#a1dab4
-	#ffffcc
-*/
 
 
 
@@ -478,6 +443,7 @@ body {
 }
 
 /* styling for the main layer legend box */
+/*
 #menu {
 	position: absolute;
 	top: 60px;
@@ -496,20 +462,23 @@ body {
 	box-shadow: 2px 2px 10px -1px black;
 	opacity: 1;
 }
+*/
 
 
-
+/*
 #menu p {
 	margin-top: 0px;
 	position: absolute;
 	top: 1px;
 	left: 5px;
 }
+*/
 
 
 
 
 /* class for styling the bubble toggles for layer legend */
+/*
 .layerListBubble {
 	position: absolute;
 	right: 5px;
@@ -521,6 +490,7 @@ body {
 	cursor: pointer;
 	border: 1px solid black;
 }
+*/
 
 
 
@@ -533,6 +503,7 @@ body {
 }
 
 /* styling for the home button: reset extent */
+/*
 #homeButton {
 	position: absolute;
 	top: 125px;
@@ -552,8 +523,10 @@ body {
 	-moz-box-shadow: 1px 1px 3px -1px black;
 	box-shadow: 1px 1px 3px -1px black;
 }
+*/
 
 /* tooltip for home button */
+/*
 #homeButtonTooltip {
 	position: absolute;
 	top: 85px;
@@ -573,8 +546,10 @@ body {
 	-o-transition: .25s opacity .8s;
 	transition: .25s opacity .8s;
 }
+*/
 
 /* stying for base map button: change base map */
+/*
 #baseMapButton {
 	position: absolute;
 	top: 120px;
@@ -594,8 +569,10 @@ body {
 	-moz-box-shadow: 1px 1px 3px -1px black;
 	box-shadow: 1px 1px 3px -1px black;
 }
+*/
 
 /* tooltip for base map button */
+/*
 #baseMapButtonTooltip {
 	position: absolute;
 	top: 120px;
@@ -615,6 +592,7 @@ body {
 	-o-transition: .25s opacity .8s;
 	transition: .25s opacity .8s;
 }
+*/
 
 /* styling for query button: tracks recently clicked features */
 #queryButton {
@@ -707,6 +685,7 @@ body {
 }
 
 /* holds base map options and toggles */
+/*
 #baseMapContainer {
 	position: absolute;
 	top: 120px;
@@ -731,129 +710,19 @@ body {
 	-o-transition: .35s opacity;
 	transition: .35s opacity;
 }
-
+*/
+/*
 #baseToggle {
 	position: absolute;
 	top: 0px;
 	cursor:pointer;
 	right: 0px;
 }
-
-
-
-
-
-/* experimental menu */
-/*
-#expMenu {
-	position: absolute;
-	top: 60px;
-	right: 60px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50px;
-	text-align: center;
-	background: #fff;
-	cursor: pointer;
-	border: 1px solid #CCD1D1;
-	z-index: 1001;
-	-webkit-box-shadow: 2px 2px 10px 0px black;
-	-moz-box-shadow: 2px 2px 10px 0px black;
-	box-shadow: 2px 2px 10px 0px black;
-}
-
-#expLayer01 {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	width: 65px;
-	height: 30px;
-	border-radius: 50px;
-	text-align: center;
-	background: #2471A3;
-	color: #fff;
-	cursor: pointer;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .5s opacity, .5s top;
-	-moz-transition: .5s opacity, .5s top;
-	-o-transition: .5s opacity, .5s top;
-	transition: .5s opacity, .5s top;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-}
-
-#expLayer02 {
-	position: absolute;
-	top: 5px;
-	right: 0px;
-	width: 65px;
-	height: 30px;
-	border-radius: 50px;
-	text-align: center;
-	background: #B03A2E;
-	color: #fff;
-	cursor: pointer;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .5s opacity, .5s right;
-	-moz-transition: .5s opacity, .5s right;
-	-o-transition: .5s opacity, .5s right;
-	transition: .5s opacity, .5s right;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-}
-
-#expLayer03 {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	width: 65px;
-	height: 30px;
-	border-radius: 50px;
-	text-align: center;
-	background: #D68910;
-	color: #fff;
-	cursor: pointer;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .5s opacity, .5s top;
-	-moz-transition: .5s opacity, .5s top;
-	-o-transition: .5s opacity, .5s top;
-	transition: .5s opacity, .5s top;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-}
-
-#expLayer04 {
-	position: absolute;
-	top: 5px;
-	right: 0px;
-	width: 65px;
-	height: 30px;
-	border-radius: 50px;
-	text-align: center;
-	background: #117A65;
-	color: #fff;
-	cursor: pointer;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .5s opacity, .5s right;
-	-moz-transition: .5s opacity, .5s right;
-	-o-transition: .5s opacity, .5s right;
-	transition: .5s opacity, .5s right;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-}
 */
+
+
+
+
 
 
 
