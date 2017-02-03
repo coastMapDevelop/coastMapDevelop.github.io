@@ -729,6 +729,23 @@ function main() {
 		
 	};
 	
+	
+	function testFilter() {
+		function testColor(d) {
+			return d > 80 ? 'blue' :
+			   d > 60 ? 'orange' :
+			   d > 40 ? 'red' :
+			   d > 20 ? 'grey' :
+			   d > 10 ? 'black' :
+						'white';
+		};
+		
+		// set new style for hover county polygon
+		layer.setStyle({
+			fillColor: testColor(layer.feature.properties.FID_1)
+		});
+	};
+	
 	// fill name space with function variables so we can use them publicly
 	myNameSpace = {
 		toggle: toggle,
