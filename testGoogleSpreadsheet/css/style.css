@@ -151,16 +151,15 @@ body {
 	border-radius: 25px;
 	border: 1px solid black;
 	cursor: pointer;
-	opacity:.8;
-	-webkit-transition: .1s opacity, .1s border;
-	-moz-transition: .1s opacity, .1s border;
-	-o-transition: .1s opacity, .1s border;
-	transition: .1s opacity, .1s border;
+	opacity:.5;
+	-webkit-transition: .1s opacity;
+	-moz-transition: .1s opacity;
+	-o-transition: .1s opacity;
+	transition: .1s opacity;
 }
 
 .legendBubble:hover {
 	opacity: 1;
-	border: 1px solid #666;
 }
 
 #bubble01 {
