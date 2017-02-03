@@ -184,13 +184,13 @@ body {
 	height: 15px;
 	width: 15px;
 	border-radius: 25px;
-	border: 1px solid #fff;
+	border: 1px solid black;
 	cursor: pointer;
 	opacity:.8;
-	-webkit-transition: .25s opacity, .25s border;
-	-moz-transition: .25s opacity, .25s border;
-	-o-transition: .25s opacity, .25s border;
-	transition: .25s opacity, .25s border;
+	-webkit-transition: .1s opacity, .1s border;
+	-moz-transition: .1s opacity, .1s border;
+	-o-transition: .1s opacity, .1s border;
+	transition: .1s opacity, .1s border;
 }
 
 .legendBubble:hover {

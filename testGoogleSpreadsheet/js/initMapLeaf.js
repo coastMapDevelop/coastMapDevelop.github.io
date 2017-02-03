@@ -202,13 +202,6 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point') {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			
-			myMarkers.clearLayers();
-			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'grey'});
-				
-			
-			
-			myMarkers.addLayer(marker);
-			
 				
 			layer.setStyle({
 				weight: 3,
@@ -253,11 +246,16 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//map.fitBounds(e.target.getBounds());
+			myMarkers.clearLayers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
+			myMarkers.clearLayers();
+			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'grey'});
+			myMarkers.addLayer(marker);
 			//map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			myMarkers.clearLayers();
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 	};
