@@ -264,7 +264,7 @@ function main() {
     				} else if (radius == minRadius) {
     					radiusControl = true;
     				} else if (radius < maxRadius && radius > minRadius) {
-    					console.log(radiusControl);
+    					
     				}
     				
     				if (radiusControl == true) {
