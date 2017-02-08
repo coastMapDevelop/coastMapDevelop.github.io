@@ -406,6 +406,12 @@ function main() {
 					*/
 					
 					// have to check if link is valid
+					var o;
+					for (o=0; o < popupPointArr.length; o++) {
+						document.getElementById(popupPointArr[0][0]).style.color = "#CCD1D1";
+						document.getElementById(popupPointArr[0][0]).setAttribute("href", null);
+					}
+					
 					var m;
 					for (m=0; m < popupPointArr.length; m++) {
 						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
