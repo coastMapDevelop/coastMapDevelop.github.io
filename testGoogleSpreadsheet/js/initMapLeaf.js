@@ -389,13 +389,21 @@ function main() {
 			for (i=0; i < googleSpreadsheet2.length; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
+					var title = document.getElementById("featurePageName");
+					title.innerHTML = target;
+					var pop2000 = document.getElementById("featurePop2000");
+					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
+					var pop2010 = document.getElementById("featurePop2010");
+					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
 					
+					/*
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + "</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + "<br>" + 
 						"<b id='govPopup'>Resources</b>" + "<hr class='popupLine'>" + "<a id='pointLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='pointLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='pointLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
 						"<a id='pointLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='pointLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='pointLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
 						"<a id='pointLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='pointLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
+					*/
 					
 					// have to check if link is valid
 					var m;
