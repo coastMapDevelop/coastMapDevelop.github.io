@@ -335,7 +335,7 @@ function main() {
 			
 			
 			// call function to store clicked features
-			stacheClicked(target, e, type);
+			//stacheClicked(target, e, type);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -380,7 +380,7 @@ function main() {
 			var target = props.name;
 			
 			// call function to store clicked features
-			stacheClicked(target, e, type);
+			//stacheClicked(target, e, type);
 
 			
 			
@@ -423,7 +423,7 @@ function main() {
 			var target = props.Name;
 			
 			// call function to store clicked features
-			stacheClicked(target, e, type);
+			//stacheClicked(target, e, type);
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -463,6 +463,7 @@ function main() {
 		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
 	
+	/*
 	// function to add list of names to recent clicks
 	function stacheClicked(target, e, type) {
 		var container = document.getElementById('queryContainer');
@@ -502,6 +503,7 @@ function main() {
 			console.log(recentClickArr);
 		}
 	};
+	*/
 	
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
