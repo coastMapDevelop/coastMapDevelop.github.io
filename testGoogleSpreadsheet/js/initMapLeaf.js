@@ -99,8 +99,8 @@ function main() {
 	var townsPolygon;		// variable to hold town polygons - layer
 	var citiesPolygon;		// variable to hold city polygons - layer
 	var villagesPolygon;	// variable to hold village polygons - layer
-
-	var myMarkers = L.layerGroup().addTo(map);
+	
+	var myMarkers;
 	
 	// county style
 	var myStyle = {
@@ -130,7 +130,7 @@ function main() {
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// city points style
@@ -141,7 +141,7 @@ function main() {
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// village points style
@@ -152,7 +152,7 @@ function main() {
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// town polygons style
@@ -162,7 +162,7 @@ function main() {
 		opacity: 0.75,
 		color: '#fff',
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// city polygons style
@@ -172,7 +172,7 @@ function main() {
 		opacity: 0.75,
 		color: '#fff',
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// village polygons style
@@ -182,7 +182,7 @@ function main() {
 		opacity: 0.75,
 		color: '#fff',
 		fillOpacity: 0.75,
-		zIndex: 10
+		zIndex: 20
 	};
 	
 	// on mouseover
@@ -253,6 +253,8 @@ function main() {
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
+			myMarkers.bringToBack();
+			geojson.bringToBack();
 			
 	
 			
@@ -977,12 +979,14 @@ function main() {
 				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
 			})
 			.addTo(map);
+			myMarkers = L.featureGroup().addTo(map);
 			addLayers(); // calls function to add urban layers
 		}
 	});
 	
 	// add separate layers on top of county polygons
 	function addLayers() {
+		
 		// loads in geojson data for town points
 		$.ajax({
 			dataType: 'json',
