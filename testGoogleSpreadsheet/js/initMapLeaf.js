@@ -392,9 +392,9 @@ function main() {
 					var title = document.getElementById("featurePageName");
 					title.innerHTML = target;
 					var pop2000 = document.getElementById("featurePop2000");
-					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
+					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
 					var pop2010 = document.getElementById("featurePop2010");
-					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
+					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
 					
 					/*
 					// set clicked popup with data and add to map
