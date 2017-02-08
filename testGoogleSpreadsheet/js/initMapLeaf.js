@@ -487,8 +487,7 @@ function main() {
 					page.appendChild(break6);
 					page.appendChild(link7);
 					page.appendChild(break7);
-					page.appendChild(link7);
-					page.appendChild(break8);
+					page.appendChild(link8);
 					page.appendChild(break8);
 					
 					
