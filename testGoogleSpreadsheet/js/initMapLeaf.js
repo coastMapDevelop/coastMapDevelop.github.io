@@ -396,6 +396,82 @@ function main() {
 					var pop2010 = document.getElementById("featurePop2010");
 					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
 					
+					var link1 = document.createElement("a");
+					var link2 = document.createElement("a");
+					var link3 = document.createElement("a");
+					var link4 = document.createElement("a");
+					var link5 = document.createElement("a");
+					var link6 = document.createElement("a");
+					var link7 = document.createElement("a");
+					var link8 = document.createElement("a");
+					
+					var text1 = document.createTextNode("Gov Website");
+					var text2 = document.createTextNode("Web Map URL");
+					var text3 = document.createTextNode("Comp Plan");
+					var text4 = document.createTextNode("Zoning Web");
+					var text5 = document.createTextNode("Haz Mit Web");
+					var text6 = document.createTextNode("Sus Plan");
+					var text7 = document.createTextNode("Cli Plan");
+					var text8 = document.createTextNode("Res Plan");
+					
+					link1.appendChild(text1);
+					link2.appendChild(text2);
+					link3.appendChild(text3);
+					link4.appendChild(text4);
+					link5.appendChild(text5);
+					link6.appendChild(text6);
+					link7.appendChild(text7);
+					link8.appendChild(text8);
+					
+					link1.setAttribute("id", "pointLink1");
+					link2.setAttribute("id", "pointLink2");
+					link3.setAttribute("id", "pointLink3");
+					link4.setAttribute("id", "pointLink4");
+					link5.setAttribute("id", "pointLink5");
+					link6.setAttribute("id", "pointLink6");
+					link7.setAttribute("id", "pointLink7");
+					link8.setAttribute("id", "pointLink8");
+					
+					link1.setAttribute("target", "_blank");
+					link2.setAttribute("target", "_blank");
+					link3.setAttribute("target", "_blank");
+					link4.setAttribute("target", "_blank");
+					link5.setAttribute("target", "_blank");
+					link6.setAttribute("target", "_blank");
+					link7.setAttribute("target", "_blank");
+					link8.setAttribute("target", "_blank");
+					
+					var break1 = document.createElement("br");
+					var break2 = document.createElement("br");
+					var break3= document.createElement("br");
+					var break4 = document.createElement("br");
+					var break5 = document.createElement("br");
+					var break6 = document.createElement("br");
+					var break7 = document.createElement("br");
+					var break8 = document.createElement("br");
+					
+					var page = document.getElementById('featurePage');
+					page.appendChild(link1);
+					page.appendChild(break1);
+					page.appendChild(link2);
+					page.appendChild(break2);
+					page.appendChild(link3);
+					page.appendChild(break3);
+					page.appendChild(link4);
+					page.appendChild(break4);
+					page.appendChild(link5);
+					page.appendChild(break5);
+					page.appendChild(link6);
+					page.appendChild(break6);
+					page.appendChild(link7);
+					page.appendChild(break7);
+					page.appendChild(link7);
+					page.appendChild(break8);
+					page.appendChild(break8);
+					
+					
+					
+					
 					/*
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + "</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + "<br>" + 
@@ -406,12 +482,6 @@ function main() {
 					*/
 					
 					// have to check if link is valid
-					var o;
-					for (o=0; o < popupPointArr.length; o++) {
-						document.getElementById(popupPointArr[0][0]).style.color = "#CCD1D1";
-						document.getElementById(popupPointArr[0][0]).setAttribute("href", null);
-					}
-					
 					var m;
 					for (m=0; m < popupPointArr.length; m++) {
 						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
