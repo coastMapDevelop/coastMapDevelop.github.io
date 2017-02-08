@@ -362,16 +362,6 @@ body {
 	
 }
 
-#menuToggle {
-	position: absolute;
-	top: 250px;
-	right: 10px;
-	background: black;
-	color: white;
-	width: 25px;
-	height: 25px;
-	z-index: 1001;
-}
 
 .pullOutPage {
 	position: absolute;
@@ -390,7 +380,6 @@ body {
 #searchPage {
 	width: 350px;
 	right: -500px;
-	overflow-y: scroll;
 	overflow-y: scroll;
 }
 
@@ -441,55 +430,14 @@ body {
 	right: -500px;
 }
 
-/* styling for the main layer legend box */
-/*
-#menu {
-	position: absolute;
-	top: 60px;
-	right: 10px;
-	background: #fff;
-	height: 175px;
-	width: 110px;
-	z-index: 1001;
-	border-radius: 5px;
-	-webkit-transition: .5s right, .5s height;
-	-moz-transition: .5s right, .5s height;
-	-o-transition: .5s right, .5s height;
-	transition: .5s right, .5s height;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-	opacity: 1;
+#featurePage{
+	width: 300px;
+	right: -500px;
+	overflow-y:scroll;
 }
-*/
-
-
-/*
-#menu p {
-	margin-top: 0px;
-	position: absolute;
-	top: 1px;
-	left: 5px;
-}
-*/
 
 
 
-
-/* class for styling the bubble toggles for layer legend */
-/*
-.layerListBubble {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	width: 20px;
-	height: 20px;
-	border-radius: 4px;
-	background: black;
-	cursor: pointer;
-	border: 1px solid black;
-}
-*/
 
 
 
@@ -501,97 +449,7 @@ body {
 	
 }
 
-/* styling for the home button: reset extent */
-/*
-#homeButton {
-	position: absolute;
-	top: 125px;
-	left: 10px;
-	width: auto;
-	height: auto;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 2px;
-	padding-right: 2px;
-	border-radius: 4px;
-	background: #fff;
-	border: 1px solid #B2BABB;
-	cursor: pointer;
-	z-index: 1001;
-	-webkit-box-shadow: 1px 1px 3px -1px black;
-	-moz-box-shadow: 1px 1px 3px -1px black;
-	box-shadow: 1px 1px 3px -1px black;
-}
-*/
 
-/* tooltip for home button */
-/*
-#homeButtonTooltip {
-	position: absolute;
-	top: 85px;
-	left: 45px;
-	width: auto;
-	height: auto;
-	padding: 2px;
-	border-radius: 4px;
-	background: black;
-	color: #fff;
-	border: 1px solid #B2BABB;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .25s opacity .8s;
-	-moz-transition: .25s opacity .8s;
-	-o-transition: .25s opacity .8s;
-	transition: .25s opacity .8s;
-}
-*/
-
-/* stying for base map button: change base map */
-/*
-#baseMapButton {
-	position: absolute;
-	top: 120px;
-	left: 10px;
-	width: auto;
-	height: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 3px;
-	padding-right: 3px;
-	border-radius: 4px;
-	background: #fff;
-	border: 1px solid #B2BABB;
-	cursor: pointer;
-	z-index: 1001;
-	-webkit-box-shadow: 1px 1px 3px -1px black;
-	-moz-box-shadow: 1px 1px 3px -1px black;
-	box-shadow: 1px 1px 3px -1px black;
-}
-*/
-
-/* tooltip for base map button */
-/*
-#baseMapButtonTooltip {
-	position: absolute;
-	top: 120px;
-	left: 45px;
-	width: auto;
-	height: auto;
-	padding: 2px;
-	border-radius: 4px;
-	background: black;
-	color: #fff;
-	border: 1px solid #B2BABB;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .25s opacity .8s;
-	-moz-transition: .25s opacity .8s;
-	-o-transition: .25s opacity .8s;
-	transition: .25s opacity .8s;
-}
-*/
 
 /* styling for query button: tracks recently clicked features */
 #queryButton {
@@ -683,41 +541,6 @@ body {
 	border: 1px solid #B2BABB;
 }
 
-/* holds base map options and toggles */
-/*
-#baseMapContainer {
-	position: absolute;
-	top: 120px;
-	left: 10px;
-	width: auto;
-	height: auto;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
-	border-radius: 4px;
-	background: #fff;
-	border: 1px solid #B2BABB;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-	-webkit-transition: .35s opacity;
-	-moz-transition: .35s opacity;
-	-o-transition: .35s opacity;
-	transition: .35s opacity;
-}
-*/
-/*
-#baseToggle {
-	position: absolute;
-	top: 0px;
-	cursor:pointer;
-	right: 0px;
-}
-*/
 
 
 

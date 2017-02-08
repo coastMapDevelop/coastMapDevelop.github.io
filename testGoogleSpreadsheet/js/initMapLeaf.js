@@ -241,15 +241,14 @@ function main() {
 	function zoomToFeature(e) {
 		//map.fitBounds(e.target.getBounds()); // zoom to feature
 		var layer = e.target; // reference layer
+		checkFeaturePage("featurePage");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//map.fitBounds(e.target.getBounds());
-			myMarkers.clearLayers();
-			window.clearInterval(circleInterval);
+			removeMarkers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point') {
-			myMarkers.clearLayers();
-			window.clearInterval(circleInterval);
+			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			
@@ -284,10 +283,14 @@ function main() {
 			//map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
-			myMarkers.clearLayers();
-			window.clearInterval(circleInterval);
+			removeMarkers();
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
+	};
+	
+	function removeMarkers() {
+		myMarkers.clearLayers();
+		window.clearInterval(circleInterval);
 	};
 	
 	// function to zoom to clicked feature in query list
@@ -751,7 +754,8 @@ function main() {
 		toggle: toggle,
 		home: home,
 		changeBaseMap: changeBaseMap,
-		testZoom: testZoom
+		testZoom: testZoom,
+		removeMarkers: removeMarkers
 	};
 	
 	

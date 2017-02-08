@@ -210,6 +210,7 @@ function uiHover(source, num) {
 					checkQuick.classList.remove("active");
 				}
 			}
+			myNameSpace.removeMarkers();
 		}
 	} else if (num == 3) {
 		var q;
@@ -221,6 +222,23 @@ function uiHover(source, num) {
 				toggle.classList.remove('active');
 			}
 		}
+		if (source == "featurePageToggle") {
+			myNameSpace.removeMarkers();
+		} else {
+			// do nothing
+		}
+	}
+};
+
+function checkFeaturePage(source) {
+	var page = document.getElementById("featurePage");
+	var active = page.classList.contains('active');
+	
+	if (active == false) {
+		page.style.right = "75px";
+		page.classList.add("active");
+	} else if (active == true) {
+		// do nothing
 	}
 };
 
@@ -279,7 +297,8 @@ var storedTypeClicked = [];		// stores recent click type
 var uiMenuArr = [
 	['firstBox', 'firstCircle', 'searchPage', 'searchPageToggle'],
 	['secondBox', 'secondCircle', 'basemapPage', 'basemapPageToggle'],
-	['thirdBox', 'thirdCircle', 'filterPage', 'filterPageToggle']
+	['thirdBox', 'thirdCircle', 'filterPage', 'filterPageToggle'],
+	['null', 'null', 'featurePage', 'featurePageToggle']
 ];
 
 
