@@ -261,31 +261,31 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Gov Web</label>
+					<label><input type="checkbox" value="Govt Web" onclick="storeChecks(this.value)">Gov Web</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Map Web</label>
+					<label><input type="checkbox" value="Map Web" onclick="storeChecks(this.value)">Map Web</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Comp Plan</label>
+					<label><input type="checkbox" value="Comp Plan" onclick="storeChecks(this.value)">Comp Plan</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Zoning Plan</label>
+					<label><input type="checkbox" value="Zoning Web" onclick="storeChecks(this.value)">Zoning Plan</label>
 				</div>
 			</div>
 			
 			<div class="col-md-6">
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Haz Mit Plan</label>
+					<label><input type="checkbox" value="Haz Mit Web" onclick="storeChecks(this.value)">Haz Mit Plan</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Sus Plan</label>
+					<label><input type="checkbox" value="Sus Plan" onclick="storeChecks(this.value)">Sus Plan</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Climate Plan</label>
+					<label><input type="checkbox" value="Cli Plan" onclick="storeChecks(this.value)">Climate Plan</label>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" value="">Res Plan</label>
+					<label><input type="checkbox" value="Res Plan" onclick="storeChecks(this.value)">Res Plan</label>
 				</div>
 			</div>
 		</div>
@@ -293,11 +293,18 @@
 		<div class="form-group">
 			<label for="sel1">Select list:</label>
 			<select class="form-control" id="sel1">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
+				<option>Counties</option>
+				<option>Cities</option>
+				<option>Towns</option>
+				<option>Villages</option>
+				<option>All</option>
 			</select>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 col-md-offset-5">
+				<p onclick="myNameSpace.testFilter()">test</p>
+			</div>
 		</div>
 	</div>
 	

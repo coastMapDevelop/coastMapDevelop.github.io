@@ -274,9 +274,19 @@ function showMobileMenu(source) {
 	}
 };
 
+function storeChecks(source) {
+	var isThere = currentCheckArr.indexOf(source);
+	
+	if (isThere == -1) {
+		currentCheckArr.push(source);
+	} else if (isThere >= 0) {
+		currentCheckArr.splice(isThere, 1);
+	}
+};
 
 
-
+var currentCheckArr = [];
+var testCheckArr = [];
 
 var supSideArr = [
 	['firstBox', 'supSideMenu01'],

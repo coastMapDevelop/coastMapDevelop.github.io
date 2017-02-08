@@ -112,14 +112,15 @@ function main() {
 		'zIndex': 9
 	};
 	
+	
 	function testColor(d) {
-		return d > 80 ? 'blue' :
-			   d > 60 ? 'orange' :
-			   d > 40 ? 'red' :
-			   d > 20 ? 'grey' :
-			   d > 10 ? 'black' :
+		return d == true ? 'blue' :
+			   d == false ? 'orange' :
 						'white';
 	};
+	
+	
+
 
 	// town points style
 	var townPointsStyle = {
@@ -197,7 +198,7 @@ function main() {
 				//color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
-				//fillColor: testColor(layer.feature.properties.FID_1)
+				//fillColor: testColor(false)
 			});
 			
 		} else if (layer.feature.geometry.type == 'Point') {
@@ -747,20 +748,46 @@ function main() {
 	
 	
 	function testFilter() {
-		function testColor(d) {
-			return d > 80 ? 'blue' :
-			   d > 60 ? 'orange' :
-			   d > 40 ? 'red' :
-			   d > 20 ? 'grey' :
-			   d > 10 ? 'black' :
-						'white';
-		};
-		
+		testCheckArr.length = 0;
+		var index;
+		var index2;
+		var i;
+		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
+			geojson.eachLayer(function (layer) {			// go through each layer in geojson layer
+				var name = layer.feature.properties.NAME10;	// get the name of the layer
+				var m;
+				for (m=0; m < googleSpreadsheet.length; m++) {
+					if (name == googleSpreadsheet[m][0]) {		// check the name with our googleSpreadsheet database
+						index2 = m;
+						var j;
+						for (j=0; j < popupPointArr.length; j++) {				// go through the popupPointArr array
+							if (currentCheckArr[i] == popupPointArr[j][1]) {	// when we find the position that the currentCheckArr corresponds to...
+								index = j										// store it in the index variable
+							} else {
+								// do nothing
+							}
+						}
+						// check if that layer has the attribute
+						var target = popupPointArr[j][2];
+						if (googleSpreadsheet[m][target] == 'null') {
+							testCheckArr.push(false);
+							// populate that layer's "BLANK" attribute field as false
+						} else if (googleSpreadsheet[m][target] != 'null') {
+							// populate that layer's "BLANK" attribute field as true
+							testCheckArr.push(true);
+						}
+					} else {
+						// do nothing
+					}
+				}
+			});
+		}
 		// set new style for hover county polygon
-		layer.setStyle({
-			fillColor: testColor(layer.feature.properties.FID_1)
+		geojson.setStyle({
+			fillColor: testColor(testCheckArr)
 		});
 	};
+	
 	
 	// fill name space with function variables so we can use them publicly
 	myNameSpace = {
@@ -768,7 +795,8 @@ function main() {
 		home: home,
 		changeBaseMap: changeBaseMap,
 		testZoom: testZoom,
-		removeMarkers: removeMarkers
+		removeMarkers: removeMarkers,
+		testFilter: testFilter
 	};
 	
 	
