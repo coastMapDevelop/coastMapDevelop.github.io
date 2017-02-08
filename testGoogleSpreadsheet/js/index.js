@@ -394,6 +394,8 @@ var newRadius;
 var remove;		// search panel
 var remove2;	// search control
 
+var firstClick = false;
+
 
 
 

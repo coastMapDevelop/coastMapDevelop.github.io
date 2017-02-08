@@ -288,6 +288,7 @@ function main() {
 			removeMarkers();
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
+		firstClick = true;
 	};
 	
 	function removeMarkers() {
@@ -381,7 +382,28 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-
+			
+			if (firstClick == false) {
+				//do nothing
+			} else if (firstClick == true) {
+				remove1 = document.getElementById('pointLink1');
+				remove2 = document.getElementById('pointLink2');
+				remove3 = document.getElementById('pointLink3');
+				remove4 = document.getElementById('pointLink4');
+				remove5 = document.getElementById('pointLink5');
+				remove6 = document.getElementById('pointLink6');
+				remove7 = document.getElementById('pointLink7');
+				remove8 = document.getElementById('pointLink8');
+				
+				remove1.parentNode.removeChild(remove);
+				remove2.parentNode.removeChild(remove);
+				remove3.parentNode.removeChild(remove);
+				remove4.parentNode.removeChild(remove);
+				remove5.parentNode.removeChild(remove);
+				remove6.parentNode.removeChild(remove);
+				remove7.parentNode.removeChild(remove);
+				remove8.parentNode.removeChild(remove);
+			}
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
