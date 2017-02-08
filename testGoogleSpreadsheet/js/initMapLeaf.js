@@ -395,6 +395,15 @@ function main() {
 				remove7 = document.getElementById('pointLink7');
 				remove8 = document.getElementById('pointLink8');
 				
+				removeBreak1 = document.getElementById('break1');
+				removeBreak2 = document.getElementById('break2');
+				removeBreak3 = document.getElementById('break3');
+				removeBreak4 = document.getElementById('break4');
+				removeBreak5 = document.getElementById('break5');
+				removeBreak6 = document.getElementById('break6');
+				removeBreak7 = document.getElementById('break7');
+				removeBreak8 = document.getElementById('break8');
+				
 				remove1.parentNode.removeChild(remove1);
 				remove2.parentNode.removeChild(remove2);
 				remove3.parentNode.removeChild(remove3);
@@ -403,6 +412,15 @@ function main() {
 				remove6.parentNode.removeChild(remove6);
 				remove7.parentNode.removeChild(remove7);
 				remove8.parentNode.removeChild(remove8);
+				
+				removeBreak1.parentNode.removeChild(removeBreak1);
+				removeBreak2.parentNode.removeChild(removeBreak2);
+				removeBreak3.parentNode.removeChild(removeBreak3);
+				removeBreak4.parentNode.removeChild(removeBreak4);
+				removeBreak5.parentNode.removeChild(removeBreak5);
+				removeBreak6.parentNode.removeChild(removeBreak6);
+				removeBreak7.parentNode.removeChild(removeBreak7);
+				removeBreak8.parentNode.removeChild(removeBreak8);
 			}
 			
 			
@@ -465,12 +483,21 @@ function main() {
 					
 					var break1 = document.createElement("br");
 					var break2 = document.createElement("br");
-					var break3= document.createElement("br");
+					var break3 = document.createElement("br");
 					var break4 = document.createElement("br");
 					var break5 = document.createElement("br");
 					var break6 = document.createElement("br");
 					var break7 = document.createElement("br");
 					var break8 = document.createElement("br");
+					
+					break1.setAttribute('id', 'break1');
+					break2.setAttribute('id', 'break2');
+					break3.setAttribute('id', 'break3');
+					break4.setAttribute('id', 'break4');
+					break5.setAttribute('id', 'break5');
+					break6.setAttribute('id', 'break6');
+					break7.setAttribute('id', 'break7');
+					break8.setAttribute('id', 'break8');
 					
 					var page = document.getElementById('featurePage');
 					page.appendChild(link1);
