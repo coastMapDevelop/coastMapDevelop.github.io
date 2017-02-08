@@ -199,9 +199,13 @@ function uiHover(source, num) {
 			circleCross.style.right = "";
 			circleCross.classList.remove("active");
 		} else if (active == false) {
-			circleCross.style.right = "75px";
+			var x = window.innerWidth;
+			if (x <= 600) {
+				circleCross.style.right = "0";
+			} else if (x > 600) {
+				circleCross.style.right = "75px";
+			}
 			circleCross.classList.add("active");
-			
 			var j;
 			for (j=0; j < uiMenuArr.length; j++) {
 				if (uiMenuArr[j][1] != source) {
@@ -235,10 +239,38 @@ function checkFeaturePage(source) {
 	var active = page.classList.contains('active');
 	
 	if (active == false) {
-		page.style.right = "75px";
+		var x = window.innerWidth;
+		console.log(x);
+		if (x <= 600) {
+			page.style.right = "0px";
+		} else if (x > 600) {
+			page.style.right = "75px";
+		}
 		page.classList.add("active");
 	} else if (active == true) {
 		// do nothing
+	}
+};
+
+function showMobileMenu(source) {
+	var button = document.getElementById(source);
+	var page = document.getElementById("supMobileMenu");
+	var active = button.classList.contains('active');
+	
+	if (active == false) {
+		page.style.visibility = "visible";
+		page.style.right = "0px";
+		button.classList.add("active");
+		var toggle = document.getElementById('mobileMenuToggle');
+		toggle.innerHTML = "close";
+	} else if (active == true) {
+		page.style.right = "";
+		window.setTimeout(function(){ page.style.visibility = "hidden";}, 250);
+		button.classList.remove('active');
+		var toggle = document.getElementById('mobileMenuToggle');
+		toggle.innerHTML = "menu";
+		
+		
 	}
 };
 
@@ -348,6 +380,10 @@ var maxRadius = 30;
 var minRadius = 15;
 var radiusControl = false;
 var newRadius;
+
+var remove;		// search panel
+var remove2;	// search control
+
 
 
 

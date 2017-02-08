@@ -23,6 +23,7 @@ function main() {
 	
 	
 	
+	
 	// hydda.full tiles
 	var Hydda_Full = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -791,6 +792,16 @@ function main() {
 	};
 	var searchCtrl = L.control.fuseSearch(options);
 	searchCtrl.addTo(map);
+	
+	remove = document.getElementById('mySearchPanel'); 
+	remove.parentNode.removeChild(remove);
+	remove2 = document.getElementById('mySearchContainer');
+	remove2.parentNode.removeChild(remove2);
+	
+	var add = document.getElementById("searchPage");
+	add.appendChild(remove);
+	add.appendChild(remove2);
+	
 	
 	// experimental
 

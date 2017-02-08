@@ -65,6 +65,7 @@ L.Control.FuseSearch = L.Control.extend({
 
         var className = 'leaflet-fusesearch-control',
             container = L.DomUtil.create('div', className);
+			container.setAttribute('id', 'mySearchContainer');
 
         // Control to open the search panel
         var butt = this._openButton = L.DomUtil.create('a', 'button', container);
@@ -102,7 +103,8 @@ L.Control.FuseSearch = L.Control.extend({
         var mapContainer = map.getContainer();
         var className = 'leaflet-fusesearch-panel',
             pane = this._panel = L.DomUtil.create('div', className, mapContainer);
-        
+			pane.setAttribute('id', 'mySearchPanel');
+			
         // Make sure we don't drag the map when we interact with the content
         var stop = L.DomEvent.stopPropagation;
         L.DomEvent.on(pane, 'click', stop)
