@@ -386,6 +386,8 @@ function main() {
 			var i;
 			for (i=0; i < googleSpreadsheet2.length; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
+					
+					
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + "</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + "<br>" + 
 						"<b id='govPopup'>Resources</b>" + "<hr class='popupLine'>" + "<a id='pointLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='pointLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='pointLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
