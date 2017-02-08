@@ -395,14 +395,14 @@ function main() {
 				remove7 = document.getElementById('pointLink7');
 				remove8 = document.getElementById('pointLink8');
 				
-				remove1.parentNode.removeChild(remove);
-				remove2.parentNode.removeChild(remove);
-				remove3.parentNode.removeChild(remove);
-				remove4.parentNode.removeChild(remove);
-				remove5.parentNode.removeChild(remove);
-				remove6.parentNode.removeChild(remove);
-				remove7.parentNode.removeChild(remove);
-				remove8.parentNode.removeChild(remove);
+				remove1.parentNode.removeChild(remove1);
+				remove2.parentNode.removeChild(remove2);
+				remove3.parentNode.removeChild(remove3);
+				remove4.parentNode.removeChild(remove4);
+				remove5.parentNode.removeChild(remove5);
+				remove6.parentNode.removeChild(remove6);
+				remove7.parentNode.removeChild(remove7);
+				remove8.parentNode.removeChild(remove8);
 			}
 			
 			
