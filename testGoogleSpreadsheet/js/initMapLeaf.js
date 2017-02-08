@@ -346,6 +346,7 @@ function main() {
 						"<a id='countyLink4' target='_blank'>Web Map State</a>" + "<br>" + "<a id='countyLink5' target='_blank'>Comp Plan</a>" + "<br>" + "<a id='countyLink6' target='_blank'>Haz Mit Plan</a>" + "<br>" + 
 						"<a id='countyLink7' target='_blank'>Climate Plan</a>" + "<br>" + "<a id='countyLink8' target='_blank'>Resilience Plan</a>" + "<br>" + "<a id='countyLink9' target='_blank'>Zoning URL</a>").openOn(map);
 					
+					document.getElementById("featurePageName").innerHTML = target;
 					// have to check if link is valid
 					var m;
 					for (m=0; m < popupCountyArr.length; m++) {
