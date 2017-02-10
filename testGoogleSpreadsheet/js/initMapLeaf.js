@@ -1217,6 +1217,7 @@ function main() {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
 					layer.feature.properties.filter = "false";
+					layer.setStyle({zIndex: '-10000'});
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
@@ -1229,7 +1230,7 @@ function main() {
 		console.log(layers);
 		/*
 		townsPoints.setStyle({
-			fillColor: testColor(townsPoints.feature.properties.filter)
+			fillColor: testColor(layers.feature.properties.filter)
 		});
 		*/
 		
