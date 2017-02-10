@@ -1237,6 +1237,13 @@ function main() {
 		
 	};
 	
+	function resetFilter() {
+		townsPoints.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+	};
+	
 	
 	function zoomSearchedFeature(source) {
 		geojson.eachLayer(function (layer) {		// go through each layer in county geojson
