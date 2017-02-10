@@ -1201,10 +1201,10 @@ function main() {
 						
 						var j;
 						for (j=0; j < popupCountyArr.length; j++) {	// now loop through the county arr array which contains the positions of each website attribute
-							if (googleSpreadsheet[m][popupCountyArr[j][2] == 'null') {	// and check if the google spreadsheet location is null
-								console.log(googleSpreadsheet[m][popupCountyArr[j][2]);
-							} else if (googleSpreadsheet[m][popupCountyArr[j][2] != 'null') {
-								console.log(googleSpreadsheet[m][popupCountyArr[j][2]);
+							if (googleSpreadsheet[m][popupCountyArr[j][2]] == 'null') {	// and check if the google spreadsheet location is null
+								console.log(googleSpreadsheet[m][popupCountyArr[j][2]]);
+							} else if (googleSpreadsheet[m][popupCountyArr[j][2]] != 'null') {
+								console.log(googleSpreadsheet[m][popupCountyArr[j][2]]);
 							}
 						}
 					} else {
