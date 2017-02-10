@@ -223,7 +223,7 @@ function main() {
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 			geojson.resetStyle(e.target); // reset style of county polygons
-		} else if (e.target.feature.geometry.type == 'Point') {
+		} else if (e.target.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			townsPoints.resetStyle(e.target);
 			citiesPoints.resetStyle(e.target);
 			villagesPoints.resetStyle(e.target);
@@ -249,7 +249,7 @@ function main() {
 			//map.fitBounds(e.target.getBounds());
 			removeMarkers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
-		} else if (layer.feature.geometry.type == 'Point') {
+		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
