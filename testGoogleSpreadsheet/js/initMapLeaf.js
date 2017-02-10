@@ -4,6 +4,7 @@ var myNameSpace;	// allows for exposing functions in main()
 function main() {
 	// run authorization for google spreadsheet API
 	loadSheetsApi();
+	listenToMyForm();
 	
 	// initiate basemap
     var map = new L.Map('map', {
@@ -1188,9 +1189,9 @@ function main() {
 	
 	
 	function testFilter() {
-		testCheckArr.length = 0;
 		var index;
 		var row;
+		var theLayer;
 		var i;
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
 			var attribute = currentCheckArr[i];
@@ -1201,7 +1202,16 @@ function main() {
 					index = z;
 				}
 			}
-			townsPoints.eachLayer(function (layer) {			// go through each layer in geojson layer
+			
+			if (currentSelectArr[0] == "Towns") {
+				theLayer = townsPoints;
+			} else if (currentSelectArr[0] == "Cities") {
+				theLayer = citiesPoints;
+			} else if (currentSelectArr[0] == "Villages") {
+				theLayer = villagesPoints;
+			}
+			
+			theLayer.eachLayer(function (layer) {			// go through each layer in geojson layer
 				var name = layer.feature.properties.name;	// get the name of the layer
 				// for this layer only, find the match row on the google spreadsheet
 				var m;
@@ -1230,19 +1240,20 @@ function main() {
 				}
 			});
 		}
-		
-		var layers = townsPoints.getLayers();
-		console.log(layers);
-		/*
-		townsPoints.setStyle({
-			fillColor: testColor(layers.feature.properties.filter)
-		});
-		*/
-		
 	};
 	
 	function resetFilter() {
-		townsPoints.eachLayer(function (layer) {
+		var theLayer;
+		
+		if (currentSelectArr[0] == "Towns") {
+			theLayer = townsPoints;
+		} else if (currentSelectArr[0] == "Cities") {
+			theLayer = citiesPoints;
+		} else if (currentSelectArr[0] == "Villages") {
+			theLayer = villagesPoints;
+		}
+			
+		theLayer.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
 		});

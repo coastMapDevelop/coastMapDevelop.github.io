@@ -1,5 +1,12 @@
 
 
+
+
+
+
+
+
+
 var googleSpreadsheet = []; // Array for storing google spreadsheets data: county
 var googleSpreadsheet2 = []; // Array for storing google spreadsheets data: urban
 
@@ -49,6 +56,15 @@ function listMajors() {
 		}
 	}, function (response) {
 		console.log('Error: ' + response.result.error.message);
+	});
+};
+
+
+function listenToMyForm() {
+	$('.mySelections').on('change', function(){
+		currentSelectArr.length = 0;
+		var selected = $(this).find("option:selected").val();
+		currentSelectArr.push(selected);
 	});
 };
 
@@ -287,7 +303,7 @@ function storeChecks(source) {
 
 
 var currentCheckArr = [];
-var testCheckArr = [];
+var currentSelectArr = [];
 
 var supSideArr = [
 	['firstBox', 'supSideMenu01'],
