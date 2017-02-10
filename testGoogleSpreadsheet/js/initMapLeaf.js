@@ -1189,8 +1189,6 @@ function main() {
 	
 	function testFilter() {
 		testCheckArr.length = 0;
-		var index;
-		var index2;
 		var i;
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
 			geojson.eachLayer(function (layer) {			// go through each layer in geojson layer
@@ -1199,12 +1197,19 @@ function main() {
 				var m;
 				for(m=0; m < googleSpreadsheet.length; m++) {
 					if (name == googleSpreadsheet[m][0]) {
-						var row = m;
-						console.log('test');
+						var row = m; 			// match row is found
+						
+						var j;
+						for (j=0; j < popupCountyArr.length; j++) {	// now loop through the county arr array which contains the positions of each website attribute
+							if (googleSpreadsheet[m][popupCountyArr[j][2] == 'null') {	// and check if the google spreadsheet location is null
+								console.log(googleSpreadsheet[m][popupCountyArr[j][2]);
+							} else if (googleSpreadsheet[m][popupCountyArr[j][2] != 'null') {
+								console.log(googleSpreadsheet[m][popupCountyArr[j][2]);
+							}
+						}
 					} else {
 						// do nothing
 					}
-					
 				}
 				/*
 				var m;
