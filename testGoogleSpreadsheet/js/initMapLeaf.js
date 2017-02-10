@@ -1194,9 +1194,10 @@ function main() {
 		var i;
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
 			var attribute = currentCheckArr[i];
+			
 			var z;
 			for (z=0; z < popupPointArr.length; z++) {
-				if (attribute == popupPointArr[z][i]) {
+				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
 			}
