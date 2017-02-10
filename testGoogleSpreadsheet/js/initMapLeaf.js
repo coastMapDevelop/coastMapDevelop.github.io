@@ -1274,7 +1274,8 @@ function main() {
 		testZoom: testZoom,
 		removeMarkers: removeMarkers,
 		testFilter: testFilter,
-		zoomSearchedFeature: zoomSearchedFeature
+		zoomSearchedFeature: zoomSearchedFeature,
+		resetFilter: resetFilter
 	};
 	
 	
