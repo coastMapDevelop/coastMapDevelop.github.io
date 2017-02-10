@@ -1207,7 +1207,7 @@ function main() {
 				for(m=0; m < googleSpreadsheet2.length; m++) {
 					if (name == googleSpreadsheet2[m][0]) {
 						var row = m; 			// match row is found
-					else {
+					} else {
 						// do nothing
 					}
 				}
