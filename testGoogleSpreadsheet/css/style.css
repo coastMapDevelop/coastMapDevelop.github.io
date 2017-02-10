@@ -448,7 +448,7 @@ body {
 }
 
 #basemapPage {
-	width: 400px;
+	width: 350px;
 	right: -610px;
 	overflow-y: scroll;
 }
@@ -473,12 +473,12 @@ body {
 
 
 #filterPage {
-	width: 300px;
+	width: 350px;
 	right: -610px;
 }
 
 #featurePage{
-	width: 300px;
+	width: 350px;
 	right: -610px;
 	overflow-y:scroll;
 }
