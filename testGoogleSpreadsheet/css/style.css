@@ -690,18 +690,22 @@ body {
 	
 	#searchPage {
 		width: 100%;
+		z-index: 1003;
 	}
 	
 	#baseMapPage {
 		width: 100%;
+		z-index: 1003;
 	}
 	
 	#filterPage {
 		width: 100%;
+		z-index: 1003;
 	}
 	
 	#featurePage {
 		width: 100%;
+		z-index: 1003;
 	}
 }
 
