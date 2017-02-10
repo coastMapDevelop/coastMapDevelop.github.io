@@ -992,6 +992,7 @@ function main() {
 			dataType: 'json',
 			url: "data/geojson/Towns.geojson",
 			success: function(data) {
+				// experimental
 				townsPoints = L.geoJson(data, {
 					// convert markers to points
 					pointToLayer: function (feature, latlng) {
@@ -1194,9 +1195,24 @@ function main() {
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
 			geojson.eachLayer(function (layer) {			// go through each layer in geojson layer
 				var name = layer.feature.properties.NAME10;	// get the name of the layer
+				// for this layer only, find the match row on the google spreadsheet
 				var m;
-				for (m=0; m < googleSpreadsheet.length; m++) {
+				for(m=0; m < googleSpreadsheet.length; m++) {
+					if (name == googleSpreadsheet[m][0]) {
+						var row = m;
+						console.log('test');
+					} else {
+						// do nothing
+					}
+					
+				}
+				/*
+				var m;
+				for (m=0; m < googleSpreadsheet.length; m++) { // loop through the spreadsheet
 					if (name == googleSpreadsheet[m][0]) {		// check the name with our googleSpreadsheet database
+						console.log(name);
+						*/
+						/*
 						index2 = m;
 						var j;
 						for (j=0; j < popupPointArr.length; j++) {				// go through the popupPointArr array
@@ -1218,12 +1234,27 @@ function main() {
 					} else {
 						// do nothing
 					}
-				}
+					*/
 			});
 		}
 		// set new style for hover county polygon
+		/*
 		geojson.setStyle({
 			fillColor: testColor(testCheckArr)
+		});
+		*/
+	};
+	
+	
+	function zoomSearchedFeature(source) {
+		geojson.eachLayer(function (layer) {		// go through each layer in county geojson
+			var name = layer.feature.properties.NAME10;	// store the name of the layer
+			
+			if (name == source) {		// of the layer's name equals the clicked sources name
+				console.log(name);
+				// zoom to that feature
+				// populate the menu
+			}
 		});
 	};
 	
@@ -1235,7 +1266,8 @@ function main() {
 		changeBaseMap: changeBaseMap,
 		testZoom: testZoom,
 		removeMarkers: removeMarkers,
-		testFilter: testFilter
+		testFilter: testFilter,
+		zoomSearchedFeature: zoomSearchedFeature
 	};
 	
 	
@@ -1243,9 +1275,9 @@ function main() {
 	var options = {
 		position: 'topleft',
 		title: 'Search',
-		placeholder: 'Lets search!',
-		panelTitle: 'Lets Search!',
-		maxResultLength: 15,
+		placeholder: 'Racine',
+		panelTitle: '',
+		maxResultLength: 10,
 		showInvisibleFeatures: true,
 		caseSensitive: false,
 		threshold: 0,
@@ -1253,6 +1285,8 @@ function main() {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
 			name.innerHTML = props.NAME10;
+			name.setAttribute("id", props.NAME10);
+			name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
 			container.appendChild(L.DomUtil.create('br', null, container));
 			container.appendChild(document.createTextNode(props.NAMELSAD10));
 		}
@@ -1267,7 +1301,8 @@ function main() {
 	
 	var add = document.getElementById("searchPage");
 	add.appendChild(remove);
-	add.appendChild(remove2);
+	//add.appendChild(remove2);
+	
 	
 	
 	// experimental

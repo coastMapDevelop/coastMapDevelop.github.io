@@ -282,6 +282,7 @@ function storeChecks(source) {
 	} else if (isThere >= 0) {
 		currentCheckArr.splice(isThere, 1);
 	}
+	console.log(currentCheckArr);
 };
 
 

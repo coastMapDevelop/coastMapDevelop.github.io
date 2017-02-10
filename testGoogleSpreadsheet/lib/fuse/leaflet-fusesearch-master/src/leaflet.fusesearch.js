@@ -141,9 +141,11 @@ L.Control.FuseSearch = L.Control.extend({
         };
 
         // Close button
+		/*
         var close = this._closeButton = L.DomUtil.create('a', 'close', header);
         close.innerHTML = '&times;';
         L.DomEvent.on(close, 'click', this.hidePanel, this);
+		*/
         
         // Where the result will be listed
         this._resultList = L.DomUtil.create('div', 'result-list', container); 
@@ -162,7 +164,7 @@ L.Control.FuseSearch = L.Control.extend({
                   .off(this._panel, 'mousewheel', stop)
                   .off(this._panel, 'MozMousePixelScroll', stop);
 
-        L.DomEvent.off(this._closeButton, 'click', this.hidePanel);
+       /* L.DomEvent.off(this._closeButton, 'click', this.hidePanel);*/
         
         var mapContainer = map.getContainer();
         mapContainer.removeChild(this._panel);
