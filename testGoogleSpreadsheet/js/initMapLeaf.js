@@ -1218,6 +1218,7 @@ function main() {
 					layer.feature.properties.filter = "false";
 					// need some kind of array to keep track of false and trues
 					layer.setStyle({opacity: '0', fillOpacity: '0'});
+					layer.unbindTooltip();
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
