@@ -194,7 +194,7 @@ function main() {
 		
 			// set new style for hover county polygon
 			layer.setStyle({
-				weight: 3,
+				//weight: 3,
 				//color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
@@ -1188,6 +1188,7 @@ function main() {
 	
 	
 	function testFilter() {
+		testCheckArr.length = 0;
 		var index;
 		var row;
 		var i;
@@ -1213,16 +1214,19 @@ function main() {
 				}
 				
 				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
-					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
+					//console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
 					layer.feature.properties.filter = "false";
-					// need some kind of array to keep track of false and trues
 					layer.setStyle({opacity: '0', fillOpacity: '0'});
 					layer.unbindTooltip();
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
-					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
+					//console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
-					layer.feature.properties.filter = "true";
+					if (layer.feature.properties.filter = "false") {
+						layer.feature.properties.filter = "false";
+					} else {
+						layer.feature.properties.filter = "true";
+					}
 				}
 			});
 		}
@@ -1254,7 +1258,10 @@ function main() {
 				geojson.eachLayer(function (layer) {
 					if (name == layer.feature.properties.NAME10) {
 						// zoom to that feature
-						map.fitBounds(layer.getBounds()); 
+						//map.fitBounds(layer.getBounds());
+						layer.setStyle({fillOpacity: '1'});
+						var center = layer.getBounds().getCenter();
+						map.setView(center, 9);
 					} else {
 						// do nothing
 					}
