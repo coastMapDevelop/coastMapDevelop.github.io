@@ -1217,7 +1217,8 @@ function main() {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
 					layer.feature.properties.filter = "false";
-					layer.setStyle({zIndex: '-10000'});
+					//layer.setStyle({zIndex: '-10000'});
+					layer.setStyle({opacity: '0', fillOpacity: '0'});
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
