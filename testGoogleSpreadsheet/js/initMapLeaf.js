@@ -1216,61 +1216,20 @@ function main() {
 				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
+					layer.feature.properties.filter = "false";
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
+					layer.feature.properties.filter = "true";
 				}
 			});
-				
-				
-						
-						/*
-						var j;
-						for (j=0; j < popupPointArr.length; j++) {	// now loop through the county arr array which contains the positions of each website attribute
-							if (googleSpreadsheet2[m][popupPointArr[j][2]] == 'null') {	// and check if the google spreadsheet location is null
-								console.log(googleSpreadsheet2[m][popupPointArr[j][2]]);
-							} else if (googleSpreadsheet2[m][popupPointArr[j][2]] != 'null') {
-								console.log(googleSpreadsheet2[m][popupPointArr[j][2]]);
-							}
-							// its working properly, however we need fix to narrow down to only filter attribute we care about (from currentCheckArr)
-						}
-						*/
-				/*
-				var m;
-				for (m=0; m < googleSpreadsheet.length; m++) { // loop through the spreadsheet
-					if (name == googleSpreadsheet[m][0]) {		// check the name with our googleSpreadsheet database
-						console.log(name);
-						*/
-						/*
-						index2 = m;
-						var j;
-						for (j=0; j < popupPointArr.length; j++) {				// go through the popupPointArr array
-							if (currentCheckArr[i] == popupPointArr[j][1]) {	// when we find the position that the currentCheckArr corresponds to...
-								index = j										// store it in the index variable
-							} else {
-								// do nothing
-							}
-						}
-						// check if that layer has the attribute
-						var target = popupPointArr[j][2];
-						if (googleSpreadsheet[m][target] == 'null') {
-							testCheckArr.push(false);
-							// populate that layer's "BLANK" attribute field as false
-						} else if (googleSpreadsheet[m][target] != 'null') {
-							// populate that layer's "BLANK" attribute field as true
-							testCheckArr.push(true);
-						}
-					} else {
-						// do nothing
-					}
-					*/
 		}
-		// set new style for hover county polygon
-		/*
-		geojson.setStyle({
-			fillColor: testColor(testCheckArr)
+		
+		
+		townsPoints.setStyle({
+			fillColor: testColor(townsPoints.feature.properties.filter)
 		});
-		*/
+		
 	};
 	
 	
