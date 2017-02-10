@@ -1225,10 +1225,12 @@ function main() {
 			});
 		}
 		
-		
+		console.log(townsPoints);
+		/*
 		townsPoints.setStyle({
 			fillColor: testColor(townsPoints.feature.properties.filter)
 		});
+		*/
 		
 	};
 	
