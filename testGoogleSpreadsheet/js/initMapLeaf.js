@@ -13,8 +13,8 @@ function main() {
         center: [44, -88],		  // coordinates of map initation
 		minZoom: 5,				  // minimum zoom level of the map
 		maxBounds: [
-			[25, -125], 	  //southwest bounds
-			[60, -50]    	  //northeast bounds
+			[13, -125], 	  //southwest bounds
+			[65, -40]    	  //northeast bounds
 		],
         zoom: 6					  // map initiation zoom level
     });
@@ -248,9 +248,14 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//map.fitBounds(e.target.getBounds());
+			var center = layer.getBounds().getCenter();
+			map.setView(center, 8);
 			removeMarkers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
+			var center = layer._latlng;
+			map.setView(center, 8);
+			
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
@@ -1288,7 +1293,7 @@ function main() {
 						//map.fitBounds(layer.getBounds());
 						layer.setStyle({fillOpacity: '1'});
 						var center = layer.getBounds().getCenter();
-						map.setView(center, 9);
+						map.setView(center, 8);
 					} else {
 						// do nothing
 					}

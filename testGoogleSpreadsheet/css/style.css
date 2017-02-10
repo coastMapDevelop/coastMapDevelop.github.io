@@ -477,6 +477,25 @@ body {
 	right: -610px;
 }
 
+.myFilterButtons {
+	text-align: center;
+	margin-top: 50px;
+	cursor:pointer;
+}
+
+.myFilterButtons h3 {
+	border-bottom: 2px solid transparent;
+	-webkit-transition: .15s border-bottom;
+	-moz-transition: .15s border-bottom;
+	-o-transition: .15s border-bottom;
+	transition: .15s border-bottom;
+}
+
+.myFilterButtons h3:hover {
+	border-bottom: 2px solid black;
+}
+
+
 #featurePage{
 	width: 350px;
 	right: -610px;
