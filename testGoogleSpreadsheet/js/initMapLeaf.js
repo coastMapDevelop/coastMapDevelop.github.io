@@ -1216,7 +1216,7 @@ function main() {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
 					layer.feature.properties.filter = "false";
-					//layer.setStyle({zIndex: '-10000'});
+					// need some kind of array to keep track of false and trues
 					layer.setStyle({opacity: '0', fillOpacity: '0'});
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
@@ -1243,7 +1243,15 @@ function main() {
 			
 			if (name == source) {		// of the layer's name equals the clicked sources name
 				console.log(name);
-				// zoom to that feature
+				geojson.eachLayer(function (layer) {
+					if (name == layer.feature.properties.NAME10) {
+						// zoom to that feature
+						map.fitBounds(layer.getBounds()); 
+					} else {
+						// do nothing
+					}
+				});
+				
 				// populate the menu
 			}
 		});
