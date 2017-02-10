@@ -1225,7 +1225,8 @@ function main() {
 			});
 		}
 		
-		console.log(townsPoints);
+		var layers = townsPoints.getLayers();
+		console.log(layers);
 		/*
 		townsPoints.setStyle({
 			fillColor: testColor(townsPoints.feature.properties.filter)
