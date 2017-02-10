@@ -223,7 +223,7 @@ function main() {
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 			geojson.resetStyle(e.target); // reset style of county polygons
-		} else if (e.target.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
+		} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 			townsPoints.resetStyle(e.target);
 			citiesPoints.resetStyle(e.target);
 			villagesPoints.resetStyle(e.target);
