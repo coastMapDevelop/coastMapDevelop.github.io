@@ -888,6 +888,22 @@ function main() {
 		checkZoom = currentZoom; // lag behind current zoom
 		currentZoom = map.getZoom(); // update continuously with zoom
 		
+		/*
+		if ((currentZoom - checkZoom) > 1) {
+			checkZoom = currentZoom - 1; // from changing from point to polygon, check zoom lower
+		} else if ((currentZoom - checkZoom) < 1) {
+			checkzoom = currentZoom + 1; // from changing from polygon to point, check zoom higher
+		}
+		*/
+		if ((checkZoom - currentZoom) < 0) {
+			checkZoom = currentZoom - 1;
+		} else if ((checkZoom - currentZoom) > 0) {
+			checkZoom = currentZoom + 1;
+		}
+		
+		console.log(checkZoom);
+		console.log(currentZoom);
+		
 		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
 	
@@ -935,7 +951,7 @@ function main() {
 	
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
-		if (checkZoom == 10 && currentZoom == 9) {
+		if (checkZoom <= 10 && currentZoom <= 9) {
 			// check which layers are currently active
 			//urbanPoints.addTo(map);
 			//map.removeLayer(urbanPolygons);
@@ -949,7 +965,7 @@ function main() {
 			for (j=0; j < polygonArray.length; j++) {
 				map.removeLayer(polygonArray[j]);
 			}
-		} else if (checkZoom == 9 && currentZoom == 10) {
+		} else if (checkZoom >= 9 && currentZoom >= 10) {
 			// check which layers are currently active
 			//map.removeLayer(urbanPoints);
 			//urbanPolygons.addTo(map);
