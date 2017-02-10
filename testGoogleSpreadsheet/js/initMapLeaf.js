@@ -1189,28 +1189,51 @@ function main() {
 	
 	function testFilter() {
 		testCheckArr.length = 0;
+		var index;
+		var row;
 		var i;
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
-			geojson.eachLayer(function (layer) {			// go through each layer in geojson layer
-				var name = layer.feature.properties.NAME10;	// get the name of the layer
+			var attribute = currentCheckArr[i];
+			var z;
+			for (z=0; z < popupPointArr.length; z++) {
+				if (attribute == popupPointArr[z][i]) {
+					index = z;
+				}
+			}
+			townsPoints.eachLayer(function (layer) {			// go through each layer in geojson layer
+				var name = layer.feature.properties.name;	// get the name of the layer
 				// for this layer only, find the match row on the google spreadsheet
 				var m;
-				for(m=0; m < googleSpreadsheet.length; m++) {
-					if (name == googleSpreadsheet[m][0]) {
+				for(m=0; m < googleSpreadsheet2.length; m++) {
+					if (name == googleSpreadsheet2[m][0]) {
 						var row = m; 			// match row is found
-						
-						var j;
-						for (j=0; j < popupCountyArr.length; j++) {	// now loop through the county arr array which contains the positions of each website attribute
-							if (googleSpreadsheet[m][popupCountyArr[j][2]] == 'null') {	// and check if the google spreadsheet location is null
-								console.log(googleSpreadsheet[m][popupCountyArr[j][2]]);
-							} else if (googleSpreadsheet[m][popupCountyArr[j][2]] != 'null') {
-								console.log(googleSpreadsheet[m][popupCountyArr[j][2]]);
-							}
-						}
-					} else {
+					else {
 						// do nothing
 					}
 				}
+				
+				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
+					// add to array false
+				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
+					console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
+					// add to array true
+				}
+			});
+				
+				
+						
+						/*
+						var j;
+						for (j=0; j < popupPointArr.length; j++) {	// now loop through the county arr array which contains the positions of each website attribute
+							if (googleSpreadsheet2[m][popupPointArr[j][2]] == 'null') {	// and check if the google spreadsheet location is null
+								console.log(googleSpreadsheet2[m][popupPointArr[j][2]]);
+							} else if (googleSpreadsheet2[m][popupPointArr[j][2]] != 'null') {
+								console.log(googleSpreadsheet2[m][popupPointArr[j][2]]);
+							}
+							// its working properly, however we need fix to narrow down to only filter attribute we care about (from currentCheckArr)
+						}
+						*/
 				/*
 				var m;
 				for (m=0; m < googleSpreadsheet.length; m++) { // loop through the spreadsheet
@@ -1240,7 +1263,6 @@ function main() {
 						// do nothing
 					}
 					*/
-			});
 		}
 		// set new style for hover county polygon
 		/*
