@@ -1188,7 +1188,6 @@ function main() {
 	
 	
 	function testFilter() {
-		testCheckArr.length = 0;
 		var index;
 		var row;
 		var i;
