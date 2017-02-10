@@ -287,7 +287,6 @@ function storeChecks(source) {
 
 
 var currentCheckArr = [];
-var testCheckArr = [];
 
 var supSideArr = [
 	['firstBox', 'supSideMenu01'],

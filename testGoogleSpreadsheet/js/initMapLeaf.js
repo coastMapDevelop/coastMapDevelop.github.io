@@ -201,7 +201,7 @@ function main() {
 				//fillColor: testColor(false)
 			});
 			
-		} else if (layer.feature.geometry.type == 'Point') {
+		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 				
 			layer.setStyle({
