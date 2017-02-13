@@ -1123,8 +1123,9 @@ function main() {
 	
 	function testFilter() {
 		var index;
-		var row;
-		var theLayer;
+			row;
+			theLayer;
+			
 		var i;
 		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
 			var attribute = currentCheckArr[i];
