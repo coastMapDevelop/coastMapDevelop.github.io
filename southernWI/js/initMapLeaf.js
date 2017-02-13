@@ -898,7 +898,7 @@ function main() {
 		dataType: "json",
 		url: "data/southernWIGeojson/southernWIPolygons.geojson",
 		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'name', 'Name_1']);
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
 			geojson = L.geoJson(data, {
 				style: myStyle,
 				onEachFeature: onEachFeature,
@@ -941,60 +941,66 @@ function main() {
 				}
 			});
 			polygonArray.push(villagesPolygon);
+			
+			addPointLayers();
 		}
 	});
 	
-	$.ajax({
-		dataType: "json",
-		url: "data/southernWIGeojson/urbanPoints.geojson",
-		success: function(data) {
-			townsPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, townPointsStyle);
-				},
-				onEachFeature: onEachFeature,
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 43) {
-						return feature;
+	
+	function addPointLayers() {
+		$.ajax({
+			dataType: "json",
+			url: "data/southernWIGeojson/urbanPoints.geojson",
+			success: function(data) {
+				townsPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, townPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 43) {
+							return feature;
+						}
 					}
-				}
-			})
-			.addTo(map);
-			pointArray.push(townsPoints);
+				})
+				.addTo(map);
+				pointArray.push(townsPoints);
+				
+				citiesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, cityPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 25) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				pointArray.push(citiesPoints);
 			
-			citiesPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, cityPointsStyle);
-				},
-				onEachFeature: onEachFeature,
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 25) {
-						return feature;
+				villagesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, villagePointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 47) {
+							return feature;
+						}
 					}
-				}
-			})
-			.addTo(map);
-			pointArray.push(citiesPoints);
-			
-			villagesPoints = L.geoJson(data, {
-				// convert markers to points
-				pointToLayer: function (feature, latlng) {
-					return L.circleMarker(latlng, villagePointsStyle);
-				},
-				onEachFeature: onEachFeature,
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 47) {
-						return feature;
-					}
-				}
-			})
-			.addTo(map);
-			pointArray.push(villagesPoints);
-			// .bringToFront();
-		}
-	});
+				})
+				.addTo(map);
+				pointArray.push(villagesPoints);
+				// .bringToFront();
+			}
+		});
+	}
+	
 	
 	
 	
