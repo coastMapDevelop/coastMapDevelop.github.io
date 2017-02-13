@@ -644,7 +644,7 @@ function main() {
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
-			var target = props.Name;
+			var target = props.Name_1;
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
