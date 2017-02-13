@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset='utf-8' />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<title>Development</title>
+		
+		<!-- leaflet CSS library -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+		<!-- font awesome -->
+		<link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<!-- google material icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<!-- link bootstrap css -->
+		<link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap.min.css" />
+		<!-- fuse search css -->
+		<link rel="stylesheet" href="lib/fuse/leaflet-fusesearch-master/src/leaflet.fusesearch.css" />
+		<!-- custom website & map CSS -->
+		<link href="css/style.css" rel="stylesheet" />
+		
+		<!-- font libraries -->
+		<!--<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">-->
+		<!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+		<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+		
+  </head>
+  <body>
+	<!-- map container -->
+	<div id="map"></div>
+	
+	
+	<div id="title">
+		<a href="#"><img src="img/seaGrant.jpg" alt="Sea Grant Logo"></a>
+		<h3>Coastal Overview</h3>
+		<p>Great Lakes Coastal Information</p>
+	</div>
+	
+	<div id="mobileMenu" onclick="showMobileMenu(this.id)">
+		<i id="mobileMenuToggle" class="material-icons">menu</i>
+	</div>
+	
+	<div id="supMobileMenu">
+		<h3>Coastal Overview</h3>
+		<p>UW Sea Grant Great Lakes Coastal Information</p>
+		<hr>
+		
+		<h3 style="text-align: center;">Search</h3>
+		<hr>
+		
+		<h3 style="text-align: center;">Basemaps</h3>
+		<hr>
+		
+		<h3 style="text-align: center;">Filter</h3>
+		<hr>
+		
+		<h3 style="text-align: center;">Information</h3>
+		<hr>
+	</div>
+	
+	
+	<!-- side menu -->
+	<div id="sideMenu">
+		<div id="myZoomControls">
+			<div id="myZoomIn">
+				<i class="fa fa-plus custZoom" aria-hidden="true"></i>
+			</div>
+			<div id="myZoomOut">
+				<i class="fa fa-minus custZoom" aria-hidden="true"></i>
+			</div>
+		</div>
+		
+		<div id="myHomeButton" onclick="myNameSpace.home()">
+			<i class="fa fa-home fa-lg" style="margin-top: 8px;"></i>
+		</div>
+		
+		
+		
+		
+		
+		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
+			<div id="firstSubMenu" class="subMenuBox">
+				<p>Search</p>
+			</div>
+		</div>
+		<div id="secondBox" class="menuBox" onclick="displaySupMenu(this.id)">
+			<div id="secondSubMenu" class="subMenuBox">
+				<p>Basemaps</p>
+			</div>
+		</div>
+		<div id="thirdBox" class="menuBox" onclick="displaySupMenu(this.id)">
+			<div id="thirdSubMenu" class="subMenuBox">
+				<p>Filter</p>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div id="firstCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+			<!--<i class="fa fa-search fa-lg myIcon" aria-hidden="true"></i> -->
+			<i class="material-icons myIcon">search</i>
+		</div>
+		<div id="secondCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+			<!--<i class="fa fa-map-o fa-lg myIcon" aria-hidden="true"></i>-->
+			<!--<i class="material-icons myIcon">view_module</i>-->
+			<!-- <i class="material-icons myIcon">apps</i> -->
+			<i class="material-icons myIcon">layers</i>
+		</div>
+		<div id="thirdCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+			<i class="fa fa-sliders fa-lg myIcon" aria-hidden="true"></i>
+			<!--<i class="material-icons myIcon">filter_list</i>-->
+		</div>
+		
+		
+
+	</div>
+	
+	<div id="searchPage" class="pullOutPage">
+		<!--<i id="searchPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="searchPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<h3 style="margin-top: 50px; font-size: 35px;">Search</h3>
+		<p>Search for a specific feature</p>
+		<!--
+		<form>
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+		-->
+		
+		
+		<hr>
+		
+		<!--
+		<div class="panel-group" id="accordion" style="margin-top: 70px;">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+						Counties</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+						Cities</a>
+					</h4>
+				</div>
+				<div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+						Towns</a>
+					</h4>
+				</div>
+				<div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+						Villages</a>
+					</h4>
+				</div>
+				<div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">First item</a>
+							<a href="#" class="list-group-item">Second item</a>
+							<a href="#" class="list-group-item">Third item</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		-->
+	</div>
+	
+	<div id="basemapPage" class="pullOutPage">
+		<!--<i id="basemapPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="basemapPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<h3 style="margin-top: 50px; font-size: 35px;">Basemaps</h3>
+		<p>Choose a Basemap</p>
+		<hr>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_1" class="img-responsive" src="img/carto_DB_Positron.JPG" alt="Carto DB Positron" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Positron</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_2" class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Carto DB Dark Matter</p>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_3" class="img-responsive" src="img/openStreetMap_Mapnik.JPG" alt="OpenStreetMap Mapnik" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>OpenStreetMap Mapnik</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_4" class="img-responsive" src="img/hydda_Full.JPG" alt="Hydda Full" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Hydda Full</p>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 70px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_5" class="img-responsive" src="img/esri_World_Street_Map.JPG" alt="Esri World Street Map" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Street Map</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_6" class="img-responsive" src="img/esri_World_Physical.JPG" alt="Esri World Physical" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Physical</p>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 70px; margin-bottom: 50px;">
+			<div class="col-md-6">
+				<img id="Tile_Layer_7" class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri World Imagery</p>
+			</div>
+			
+			<div class="col-md-6">
+				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri Ocean Basemap</p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="filterPage" class="pullOutPage">
+		<!--<i id="filterPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<i id="filterPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		
+		<h3 style="margin-top: 50px; font-size: 35px;">Filter</h3>
+		
+		<p>Choose features to filter by</p>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="checkbox">
+					<label><input type="checkbox" value="Govt Web" onclick="storeChecks(this.value)">Gov Web</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Map Web" onclick="storeChecks(this.value)">Map Web</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Comp Plan" onclick="storeChecks(this.value)">Comp Plan</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Zoning Web" onclick="storeChecks(this.value)">Zoning Plan</label>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="checkbox">
+					<label><input type="checkbox" value="Haz Mit Web" onclick="storeChecks(this.value)">Haz Mit Plan</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Sus Plan" onclick="storeChecks(this.value)">Sus Plan</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Cli Plan" onclick="storeChecks(this.value)">Climate Plan</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Res Plan" onclick="storeChecks(this.value)">Res Plan</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="sel1">Select list:</label>
+			<select class="form-control mySelections" id="sel1">
+				<!--<option>Counties</option>-->
+				<option>Cities</option>
+				<option>Towns</option>
+				<option>Villages</option>
+				<!--<option>All</option>-->
+			</select>
+		</div>
+		
+		<div class="row myFilterButtons">
+			<div class="col-md-4 col-md-offset-2">
+				<h3 onclick="myNameSpace.testFilter()">Filter</h3>
+			</div>
+			
+			<div class="col-md-4">
+				<h3 onclick="myNameSpace.resetFilter()">Reset</h3>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="featurePage" class="pullOutPage">
+		<i id="featurePageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<h3 id="featurePageName" style="margin-top: 50px; font-size: 35px;"></h3>
+		<hr>
+		
+		<p id="featurePop2000"></p>
+		<p id="featurePop2010"></p>
+		
+		<br>
+		
+		<h4 id="featureSecondTitle">Resources</h4>
+		<hr>
+		
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id="bottomMenu"></div>
+	
+	<div id="supBottomMenu">
+		<p>&bull; Information</p>
+	</div>
+		
+	<div id="bottomLegend">
+		<div id="layer01" class="legendBox">
+			<div id="bubble01" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
+			<p>Counties</p>
+		</div>
+		
+		<div id="layer02" class="legendBox">
+			<div id="bubble02" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
+			<p>Cities</p>
+		</div>
+		
+		<div id="layer03" class="legendBox">
+			<div id="bubble03" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
+			<p>Towns</p>
+		</div>
+		
+		<div id="layer04" class="legendBox">
+			<div id="bubble04" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
+			<p>Villages</p>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- query button: displays query container -->
+	
+	<!--<div id="queryButton" onclick="queryClicked(this.id)" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-archive fa-lg"></i></div>-->
+	<!--<div id="queryButtonTooltip">Query Clicks</div>-->
+	
+	
+	
+	<!-- query container: tracks last 5 clicked features -->
+	<!--
+	<div id="queryContainer">
+		<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>
+	</div>
+	-->
+	
+	
+	
+	
+	<!-- jquery library -->
+	<script src="lib/jquery-3.1.1.min.js"></script>
+	<!-- google spreadsheet API -->
+	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+	<!-- turf API -->
+	<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+	<!-- leaflet API -->
+	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<!-- fuse, for search features -->
+	<script src="lib/fuse/fuse.min.js"></script>
+	<script src="lib/fuse/leaflet-fusesearch-master/src/leaflet.fusesearch.js"></script>
+	<!-- link bootstrap js -->
+	<script src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<!-- javascript for google spreadsheet connection and general website functions -->
+	<script src="js/index.js"></script>
+	<!-- javascript for leaflet map functions -->
+	<script src="js/initMapLeaf.js"></script>
+  </body>
+</html>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
