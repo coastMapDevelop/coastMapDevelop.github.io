@@ -1244,11 +1244,19 @@ function main() {
 		showResultFct: function (feature, container) {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
-			name.innerHTML = props.NAME10;
-			name.setAttribute("id", props.NAME10);
-			name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
-			container.appendChild(L.DomUtil.create('br', null, container));
-			container.appendChild(document.createTextNode(props.NAMELSAD10));
+			if (props.NAME10 != null) {
+				name.innerHTML = props.NAME10;
+				name.setAttribute("id", props.NAME10);
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
+				container.appendChild(L.DomUtil.create('br', null, container));
+				container.appendChild(document.createTextNode(props.NAMELSAD10));
+			} else if (props.NAME10 == null) {
+				name.innerHTML = props.Name_1;
+				name.setAttribute("id", props.Name_1);
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
+				container.appendChild(L.DomUtil.create('br', null, container));
+				container.appendChild(document.createTextNode(props.NAMELSAD));
+			}
 		}
 	};
 	var searchCtrl = L.control.fuseSearch(options);
