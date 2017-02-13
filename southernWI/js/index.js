@@ -414,6 +414,8 @@ var remove2;	// search control
 
 var firstClick = false;
 
+var clickedCountyName = [];
+
 
 
 

@@ -215,7 +215,12 @@ function main() {
 	// on mouseout
 	function resetHighlight(e) {
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
-			geojson.resetStyle(e.target); // reset style of county polygons
+			geojson.eachLayer(function(layer) {
+				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			//geojson.resetStyle(e.target); // reset style of county polygons
 		} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 			townsPoints.resetStyle(e.target);
 			citiesPoints.resetStyle(e.target);
@@ -237,9 +242,17 @@ function main() {
 		checkFeaturePage("featurePage");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+			geojson.eachLayer(function(layer) {
+				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			clickedCountyName.length = 0;
 			var center = layer.getBounds().getCenter();
 			map.setView(center, 10);
 			removeMarkers();
+			clickedCountyName.push(layer.feature.properties.NAME10); //test
+			console.log(clickedCountyName);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
@@ -290,6 +303,12 @@ function main() {
 	function removeMarkers() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
+		geojson.eachLayer(function (layer) {
+			if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
+				layer.setStyle({fillOpacity:0.75, weight: 1});
+			}
+		});
+		clickedCountyName.length = 0;
 	};
 	
 	// function to zoom to clicked feature in query list
@@ -870,6 +889,7 @@ function main() {
 			var i;
 			for(i=0; i < pointArray.length; i++) {
 				map.addLayer(pointArray[i]);
+				myMarkers.setStyle({opacity: 1});
 			}
 			
 			var j;
@@ -884,6 +904,7 @@ function main() {
 			var i;
 			for(i=0; i < pointArray.length; i++) {
 				map.removeLayer(pointArray[i]);
+				myMarkers.setStyle({opacity: 0});
 			}
 			
 			var j;
