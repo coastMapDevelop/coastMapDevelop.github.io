@@ -230,6 +230,7 @@ function main() {
 		this.closeTooltip(); // close tooltip on mouseout
 	};
 	
+	
 	// on click
 	function zoomToFeature(e) {
 		var layer = e.target; // reference layer
@@ -237,12 +238,12 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			var center = layer.getBounds().getCenter();
-			map.setView(center, 9);
+			map.setView(center, 10);
 			removeMarkers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
-			map.setView(center, 9);
+			map.setView(center, 10);
 			
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
@@ -308,7 +309,7 @@ function main() {
 				// do nothing
 			}
 		} else if (storedTypeClicked[position] == 'Point') {
-			map.setView(e.latlng, 9);
+			map.setView(e.latlng, 10);
 		}
 	};
 	
@@ -861,7 +862,7 @@ function main() {
 	
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
-		if (checkZoom <= 10 && currentZoom <= 9) {
+		if (checkZoom <= 11 && currentZoom <= 10) {
 			// check which layers are currently active
 			//urbanPoints.addTo(map);
 			//map.removeLayer(urbanPolygons);
@@ -875,7 +876,7 @@ function main() {
 			for (j=0; j < polygonArray.length; j++) {
 				map.removeLayer(polygonArray[j]);
 			}
-		} else if (checkZoom >= 9 && currentZoom >= 10) {
+		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
 			//map.removeLayer(urbanPoints);
 			//urbanPolygons.addTo(map);
@@ -1203,7 +1204,7 @@ function main() {
 						//map.fitBounds(layer.getBounds());
 						layer.setStyle({fillOpacity: '1'});
 						var center = layer.getBounds().getCenter();
-						map.setView(center, 9);
+						map.setView(center, 10);
 						checkFeaturePage("featurePage");
 						removeMarkers();
 						crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
