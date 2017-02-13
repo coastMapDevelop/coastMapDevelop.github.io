@@ -114,13 +114,6 @@ function main() {
 	};
 	
 	
-	function testColor(d) {
-		return d == true ? 'blue' :
-			   d == false ? 'orange' :
-						'white';
-	};
-	
-	
 
 
 	// town points style
@@ -208,7 +201,7 @@ function main() {
 			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
-			layer.bindTooltip(layer.feature.properties.Name).openTooltip(); // open tooltip on hover with name of urban polygon
+			layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
 			layer.setStyle({
 				weight: 3,
 				fillOpacity: 1,
@@ -216,6 +209,8 @@ function main() {
 			})
 		}
 	};
+	
+	
 	
 	// on mouseout
 	function resetHighlight(e) {
@@ -233,8 +228,6 @@ function main() {
 			villagesPolygon.resetStyle(e.target);
 		}
 		this.closeTooltip(); // close tooltip on mouseout
-		
-		
 	};
 	
 	// on click
