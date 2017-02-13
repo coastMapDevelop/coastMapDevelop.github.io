@@ -1,6 +1,4 @@
 
-separate layers by villages, towns, and cities
-	- so we don't load in a large mb file and filter for each layer
 
 
 Things to work on:
