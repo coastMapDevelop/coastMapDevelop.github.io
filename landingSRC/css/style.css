@@ -14,8 +14,6 @@
 body {
 	margin:0;
 	padding:0;
-	overflow-x: hidden;
-	overflow-y: hidden;
 	/*font-family: 'Cabin', sans-serif;*/
 	/*font-family: 'Muli', sans-serif;*/
 	/*font-family: 'Oxygen', sans-serif;*/
@@ -24,7 +22,25 @@ body {
 	font-family: 'Catamaran', sans-serif;
 }
 
+.padRow {
+	margin-bottom: 100px;
+}
 
+.myCol {
+	text-align: center;
+}
 
+.myImage {
+	cursor: pointer;
+	opacity: 1;
+	-webkit-transition: .25s opacity;
+	-moz-transition: .25s opacity;
+	-o-transition: .25s opacity;
+	transition: .25s opacity;
+}
+
+.myImage:hover {
+	opacity: .6;
+}
 
  
