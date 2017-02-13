@@ -231,9 +231,34 @@ body {
 	bottom: 100px;
 	left: 0;
 	width: 600px;
-	height: 100px;
+	height: 75px;
 	background: black;
 	z-index: 1001;
+	visibility: hidden;
+}
+
+.supCountyBox {
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	top: 0;
+}
+
+#county01 {
+	left: 0;
+	background: orange;
+}
+#county02 {
+	left: 150px;
+	background: red;
+}
+#county03 {
+	left: 300px;
+	background: grey;
+}
+#county04 {
+	left: 450px;
+	background: blue;
 }
 
 
