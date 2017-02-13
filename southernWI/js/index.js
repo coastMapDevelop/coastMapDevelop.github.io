@@ -357,7 +357,8 @@ var uiMenuArr = [
 	['firstBox', 'firstCircle', 'searchPage', 'searchPageToggle'],
 	['secondBox', 'secondCircle', 'basemapPage', 'basemapPageToggle'],
 	['thirdBox', 'thirdCircle', 'filterPage', 'filterPageToggle'],
-	['null', 'null', 'featurePage', 'featurePageToggle']
+	['null', 'null', 'featurePage', 'featurePageToggle'],
+	['null', 'supBottomMenu', 'infoPage', 'infoPageToggle']
 ];
 
 

@@ -462,7 +462,6 @@ body {
 	top: 0;
 	background: #FBFCFC;
 	height: 100%;
-	z-index: 1001;
 	padding-left: 25px;
 	padding-right: 25px;
 	-webkit-transition: .2s right;
@@ -474,7 +473,9 @@ body {
 #searchPage {
 	width: 350px;
 	right: -610px;
+	z-index: 1001;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .pageToggle {
@@ -497,7 +498,9 @@ body {
 #basemapPage {
 	width: 350px;
 	right: -610px;
+	z-index: 1001;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #basemapPage .row p {
@@ -522,6 +525,8 @@ body {
 #filterPage {
 	width: 350px;
 	right: -610px;
+	z-index: 1001;
+	overflow-x:hidden;
 }
 
 .myFilterButtons {
@@ -546,7 +551,15 @@ body {
 #featurePage{
 	width: 350px;
 	right: -610px;
+	z-index: 1002;
 	overflow-y:scroll;
+	overflow-x: hidden;
+}
+
+#infoPage {
+	width: 350px;
+	right: -610px;
+	z-index: 1001;
 }
 
 
