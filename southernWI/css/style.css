@@ -108,6 +108,7 @@ body {
 	width: 100%;
 	visibility: hidden;
 	z-index: 1001;
+	overflow-x: hidden;
 	-webkit-transition: .25s right;
 	-moz-transition: .25s right;
 	-o-transition: .25s right;
@@ -224,6 +225,27 @@ body {
 #bubble04 {
 	background: black;
 }
+
+#supCountyMenu {
+	position: absolute;
+	bottom: 100px;
+	left: 0;
+	width: 600px;
+	height: 100px;
+	background: black;
+	z-index: 1001;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 #sideMenu {
