@@ -258,6 +258,9 @@ function main() {
 			var center = layer._latlng;
 			map.setView(center, 10);
 			
+			clickedUrbanName.length = 0;
+			clickedUrbanName.push(layer.feature.properties.name);
+			console.log(clickedUrbanName);
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
@@ -294,6 +297,9 @@ function main() {
 			
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			clickedUrbanName.length = 0;
+			clickedUrbanName.push(layer.feature.properties.Name_1);
+			console.log(clickedUrbanName);
 			removeMarkers();
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
