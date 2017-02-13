@@ -98,7 +98,7 @@ function queryClicked(source) {
 	var queryBox = document.getElementById('queryContainer');
 	
 	if (active == false) {
-		console.log('do nothing');
+		
 	} else if (active == true) {
 		queryBox.style.opacity = '1';
 		queryBox.style.visibility = 'visible';
@@ -256,7 +256,7 @@ function checkFeaturePage(source) {
 	
 	if (active == false) {
 		var x = window.innerWidth;
-		console.log(x);
+		
 		if (x <= 600) {
 			page.style.right = "0px";
 		} else if (x > 600) {
@@ -298,7 +298,7 @@ function storeChecks(source) {
 	} else if (isThere >= 0) {
 		currentCheckArr.splice(isThere, 1);
 	}
-	console.log(currentCheckArr);
+	
 };
 
 

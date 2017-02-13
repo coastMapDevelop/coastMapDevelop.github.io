@@ -10,13 +10,13 @@ function main() {
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
     	zoomControl: false,		  // add zoom control to the map
-        center: [44, -88],		  // coordinates of map initation
-		minZoom: 5,				  // minimum zoom level of the map
+        center: [43, -88],		  // coordinates of map initation
+		minZoom: 7,				  // minimum zoom level of the map
 		maxBounds: [
 			[13, -125], 	  //southwest bounds
 			[65, -40]    	  //northeast bounds
 		],
-        zoom: 6					  // map initiation zoom level
+        zoom: 8					  // map initiation zoom level
     });
 	
 	
@@ -195,11 +195,8 @@ function main() {
 		
 			// set new style for hover county polygon
 			layer.setStyle({
-				//weight: 3,
-				//color: '#666',
 				fillOpacity: 1,
 				zIndex: 11
-				//fillColor: testColor(false)
 			});
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
@@ -242,19 +239,17 @@ function main() {
 	
 	// on click
 	function zoomToFeature(e) {
-		//map.fitBounds(e.target.getBounds()); // zoom to feature
 		var layer = e.target; // reference layer
 		checkFeaturePage("featurePage");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			//map.fitBounds(e.target.getBounds());
 			var center = layer.getBounds().getCenter();
-			map.setView(center, 8);
+			map.setView(center, 9);
 			removeMarkers();
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
-			map.setView(center, 8);
+			map.setView(center, 9);
 			
 			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
@@ -290,7 +285,6 @@ function main() {
 			}, 50);
 			
 			
-			//map.setView(e.latlng, 9);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			removeMarkers();
@@ -353,47 +347,6 @@ function main() {
 				while (para[0]) {
 					para[0].parentNode.removeChild(para[0]);
 				}
-				/*
-				remove1 = document.getElementById('countyLink1');
-				remove2 = document.getElementById('countyLink2');
-				remove3 = document.getElementById('countyLink3');
-				remove4 = document.getElementById('countyLink4');
-				remove5 = document.getElementById('countyLink5');
-				remove6 = document.getElementById('countyLink6');
-				remove7 = document.getElementById('countyLink7');
-				remove8 = document.getElementById('countyLink8');
-				remove9 = document.getElementById('countyLink9');
-				
-				removeBreak1 = document.getElementById('break1');
-				removeBreak2 = document.getElementById('break2');
-				removeBreak3 = document.getElementById('break3');
-				removeBreak4 = document.getElementById('break4');
-				removeBreak5 = document.getElementById('break5');
-				removeBreak6 = document.getElementById('break6');
-				removeBreak7 = document.getElementById('break7');
-				removeBreak8 = document.getElementById('break8');
-				removeBreak9 = document.getElementById('break9');
-				
-				remove1.parentNode.removeChild(remove1);
-				remove2.parentNode.removeChild(remove2);
-				remove3.parentNode.removeChild(remove3);
-				remove4.parentNode.removeChild(remove4);
-				remove5.parentNode.removeChild(remove5);
-				remove6.parentNode.removeChild(remove6);
-				remove7.parentNode.removeChild(remove7);
-				remove8.parentNode.removeChild(remove8);
-				remove9.parentNode.removeChild(remove9);
-				
-				removeBreak1.parentNode.removeChild(removeBreak1);
-				removeBreak2.parentNode.removeChild(removeBreak2);
-				removeBreak3.parentNode.removeChild(removeBreak3);
-				removeBreak4.parentNode.removeChild(removeBreak4);
-				removeBreak5.parentNode.removeChild(removeBreak5);
-				removeBreak6.parentNode.removeChild(removeBreak6);
-				removeBreak7.parentNode.removeChild(removeBreak7);
-				removeBreak8.parentNode.removeChild(removeBreak8);
-				removeBreak9.parentNode.removeChild(removeBreak9);
-				*/
 			}
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -557,44 +510,6 @@ function main() {
 				while (para[0]) {
 					para[0].parentNode.removeChild(para[0]);
 				}
-				
-				/*
-				remove1 = document.getElementById('pointLink1');
-				remove2 = document.getElementById('pointLink2');
-				remove3 = document.getElementById('pointLink3');
-				remove4 = document.getElementById('pointLink4');
-				remove5 = document.getElementById('pointLink5');
-				remove6 = document.getElementById('pointLink6');
-				remove7 = document.getElementById('pointLink7');
-				remove8 = document.getElementById('pointLink8');
-				
-				removeBreak1 = document.getElementById('break1');
-				removeBreak2 = document.getElementById('break2');
-				removeBreak3 = document.getElementById('break3');
-				removeBreak4 = document.getElementById('break4');
-				removeBreak5 = document.getElementById('break5');
-				removeBreak6 = document.getElementById('break6');
-				removeBreak7 = document.getElementById('break7');
-				removeBreak8 = document.getElementById('break8');
-				
-				remove1.parentNode.removeChild(remove1);
-				remove2.parentNode.removeChild(remove2);
-				remove3.parentNode.removeChild(remove3);
-				remove4.parentNode.removeChild(remove4);
-				remove5.parentNode.removeChild(remove5);
-				remove6.parentNode.removeChild(remove6);
-				remove7.parentNode.removeChild(remove7);
-				remove8.parentNode.removeChild(remove8);
-				
-				removeBreak1.parentNode.removeChild(removeBreak1);
-				removeBreak2.parentNode.removeChild(removeBreak2);
-				removeBreak3.parentNode.removeChild(removeBreak3);
-				removeBreak4.parentNode.removeChild(removeBreak4);
-				removeBreak5.parentNode.removeChild(removeBreak5);
-				removeBreak6.parentNode.removeChild(removeBreak6);
-				removeBreak7.parentNode.removeChild(removeBreak7);
-				removeBreak8.parentNode.removeChild(removeBreak8);
-				*/
 			}
 			
 			
@@ -906,9 +821,6 @@ function main() {
 			checkZoom = currentZoom + 1;
 		}
 		
-		console.log(checkZoom);
-		console.log(currentZoom);
-		
 		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
 	
@@ -989,120 +901,121 @@ function main() {
 	};
 	
 	
-	// loads in geojson data for counties
 	$.ajax({
 		dataType: "json",
-		url: "data/geojson/countyPolygons.geojson",
+		url: "data/southernWIGeojson/southernWIPolygons.geojson",
 		success: function(data) {
-			// experimental
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10']);
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'name', 'Name_1']);
 			geojson = L.geoJson(data, {
-				style: myStyle,					// set style to myStyle variable
-				onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-			})
-			.addTo(map);
+				style: myStyle,
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					return feature.properties.COUNTYFP10;
+				}
+			}).addTo(map);
+			
 			myMarkers = L.featureGroup().addTo(map);
-			addLayers(); // calls function to add urban layers
+			
+			citiesPolygon = L.geoJson(data, {
+				style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 25) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(citiesPolygon);
+			
+			townsPolygon = L.geoJson(data, {
+				style: townPolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 43) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(townsPolygon);
+			
+			villagesPolygon = L.geoJson(data, {
+				style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 47) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(villagesPolygon);
 		}
 	});
 	
-	// add separate layers on top of county polygons
-	function addLayers() {
-		
-		// loads in geojson data for town points
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/Towns.geojson",
-			success: function(data) {
-				// experimental
-				townsPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, townPointsStyle);
-					},
-					onEachFeature: onEachFeature
-				})
-				.addTo(map);
-				pointArray.push(townsPoints);
-				// .bringToFront();
-			}
-		});
+	$.ajax({
+		dataType: "json",
+		url: "data/southernWIGeojson/urbanPoints.geojson",
+		success: function(data) {
+			townsPoints = L.geoJson(data, {
+				// convert markers to points
+				pointToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, townPointsStyle);
+				},
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 43) {
+						return feature;
+					}
+				}
+			})
+			.addTo(map);
+			pointArray.push(townsPoints);
+			
+			citiesPoints = L.geoJson(data, {
+				// convert markers to points
+				pointToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, cityPointsStyle);
+				},
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 25) {
+						return feature;
+					}
+				}
+			})
+			.addTo(map);
+			pointArray.push(citiesPoints);
+			
+			villagesPoints = L.geoJson(data, {
+				// convert markers to points
+				pointToLayer: function (feature, latlng) {
+					return L.circleMarker(latlng, villagePointsStyle);
+				},
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 47) {
+						return feature;
+					}
+				}
+			})
+			.addTo(map);
+			pointArray.push(villagesPoints);
+			// .bringToFront();
+		}
+	});
 	
-		// loads in geojson data for city points
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/Cities.geojson",
-			success: function(data) {
-				citiesPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, cityPointsStyle);
-					},
-					onEachFeature: onEachFeature
-				})
-				.addTo(map);
-				pointArray.push(citiesPoints);
-				// .bringToFront();
-			}
-		});
 	
-		// loads in geojson data for village points
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/Villages.geojson",
-			success: function(data) {
-				villagesPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, villagePointsStyle);
-					},
-					onEachFeature: onEachFeature
-				})
-				.addTo(map);
-				pointArray.push(villagesPoints);
-				// .bringToFront();
-			}
-		});
 	
-		// loads in geojson data for city polygons
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/cityPolygons.geojson",
-			success: function(data) {
-				citiesPolygon = L.geoJson(data, {
-					style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
-					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-				});
-				polygonArray.push(citiesPolygon);
-			}
-		});
 	
-		// loads in geojson data for town polygons
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/townPolygons.geojson",
-			success: function(data) {
-				townsPolygon = L.geoJson(data, {
-					style: townPolygonStyle,		// set style to urbanPolygonStyle variable
-					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-				});
-				polygonArray.push(townsPolygon);
-			}
-		});
 	
-		// loads in geojson data for village polygons
-		$.ajax({
-			dataType: 'json',
-			url: "data/geojson/villagePolygons.geojson",
-			success: function(data) {
-				villagesPolygon = L.geoJson(data, {
-					style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
-					onEachFeature: onEachFeature	// set onEachFeature to onEachFeature function
-				});
-				polygonArray.push(villagesPolygon);
-			}
-		});
-	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	// testing ajax plugin to streamline process
 	//var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
@@ -1245,13 +1158,11 @@ function main() {
 				}
 				
 				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
-					//console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array false
 					layer.feature.properties.filter = "false";
 					layer.setStyle({opacity: '0', fillOpacity: '0'});
 					layer.unbindTooltip();
 				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
-					//console.log(googleSpreadsheet2[row][popupPointArr[index][2]]);
 					// add to array true
 					if (layer.feature.properties.filter = "false") {
 						layer.feature.properties.filter = "false";
@@ -1292,7 +1203,7 @@ function main() {
 						//map.fitBounds(layer.getBounds());
 						layer.setStyle({fillOpacity: '1'});
 						var center = layer.getBounds().getCenter();
-						map.setView(center, 8);
+						map.setView(center, 9);
 						checkFeaturePage("featurePage");
 						removeMarkers();
 						crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
