@@ -241,7 +241,7 @@ function main() {
 	// on click
 	function zoomToFeature(e) {
 		var layer = e.target; // reference layer
-		checkFeaturePage("featurePage");
+		//checkFeaturePage("featurePage");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			
@@ -254,16 +254,19 @@ function main() {
 	
 			
 			var center = layer.getBounds().getCenter();
-			map.setView(center, 10);
 			removeMarkers();
 			
 			clickedCountyName.push(layer.feature.properties.NAME10);
 			console.log(clickedCountyName);
 			
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+			map.setView(center, 10);
+			window.setTimeout(function() {
+				checkFeaturePage("featurePage");
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+			}, 250);
+			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
-			map.setView(center, 10);
 			
 			
 			clickedUrbanName.length = 0;
@@ -301,9 +304,14 @@ function main() {
 				});
 			}, 50);
 			
-			
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+			map.setView(center, 10);
+			window.setTimeout(function() {
+				checkFeaturePage("featurePage");
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+			}, 500);
+			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			checkFeaturePage("featurePage");
 			clickedUrbanPolyName.length = 0;
 			removeMarkers();
 			clickedUrbanPolyName.push(layer.feature.properties.Name_1);

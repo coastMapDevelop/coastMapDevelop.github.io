@@ -47,22 +47,22 @@ body {
 	/*display: inline;*/
 	position: absolute;
 	top: 0px;
-	right:0;
+	right:-20px;
 	margin-top: 0;
 }
 
 #title p {
 	position: absolute;
 	top: 25px;
-	right: 12px;
+	right: -10px;
 	margin-top: 0;
 }
 
 #title img {
-	width: 75px;
-	height: 40px;
+	width: 100px;
+	height: 65px;
 	position: absolute;
-	top: 0px;
+	top: -10px;
 	left: 0;
 	/*display: inline;*/
 }
@@ -510,6 +510,7 @@ body {
 
 #basemapPage img {
 	cursor: pointer;
+	padding-bottom: 10px;
 	-webkit-transition: .25s opacity;
 	-moz-transition: .25s opacity;
 	-o-transition: .25s opacity;
@@ -537,14 +538,16 @@ body {
 }
 
 .myFilterButtons h3 {
+	color: #7B7D7D;
 	border-bottom: 2px solid transparent;
-	-webkit-transition: .15s border-bottom;
-	-moz-transition: .15s border-bottom;
-	-o-transition: .15s border-bottom;
-	transition: .15s border-bottom;
+	-webkit-transition: .15s border-bottom, .15s color;
+	-moz-transition: .15s border-bottom, .15s color;
+	-o-transition: .15s border-bottom, .15s color;
+	transition: .15s border-bottom, .15s color;
 }
 
 .myFilterButtons h3:hover {
+	color: black;
 	border-bottom: 2px solid black;
 }
 
