@@ -6,6 +6,8 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1' />
 		<title>Southern WI Development</title>
 		
+		<!-- CSS Links -->
+
 		<!-- leaflet CSS library -->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 		<!-- font awesome -->
@@ -27,22 +29,40 @@
 		<!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
 		<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 		
+		<!-- // CSS Links -->
   </head>
   <body>
 	<!-- map container -->
 	<div id="map"></div>
+	<!-- // Map Container -->
 	
 	
+	
+	
+	
+	<!-- title in top left -->
 	<div id="title">
 		<a href="#"><img src="img/seaGrant.jpg" alt="Sea Grant Logo"></a>
 		<h3>Southern Wisconsin</h3>
 		<p>Coastal Communities Overview</p>
 	</div>
+	<!-- // title in top left -->
 	
+	
+	
+	
+	
+	<!-- mobile menu toggle -->
 	<div id="mobileMenu" onclick="showMobileMenu(this.id)">
 		<i id="mobileMenuToggle" class="material-icons">menu</i>
 	</div>
+	<!-- // mobile menu toggle -->
 	
+	
+	
+	
+	
+	<!-- mobile menu main panel -->
 	<div id="supMobileMenu">
 		<h3>Southern Wisconsin</h3>
 		<p>Coastal Communities Overview</p>
@@ -60,18 +80,15 @@
 		<h3 style="text-align: center;">Information</h3>
 		<hr>
 	</div>
+	<!-- // mobile menu main panel -->
 	
 	
-	<div id="supCountyMenu">
-		<div id="county01" class="supCountyBox"></div>
-		<div id="county02" class="supCountyBox"></div>
-		<div id="county03" class="supCountyBox"></div>
-		<div id="county04" class="supCountyBox"></div>
-	</div>
 	
 	
-	<!-- side menu -->
+	
+	<!-- Desktop Side Menu - Bar -->
 	<div id="sideMenu">
+		<!-- Custom Zoom controls -->
 		<div id="myZoomControls">
 			<div id="myZoomIn">
 				<i class="fa fa-plus custZoom" aria-hidden="true"></i>
@@ -80,15 +97,15 @@
 				<i class="fa fa-minus custZoom" aria-hidden="true"></i>
 			</div>
 		</div>
+		<!-- // Custom Zoom Controls -->
 		
+		<!-- Custom Home Button Control -->
 		<div id="myHomeButton" onclick="myNameSpace.home()">
 			<i class="fa fa-home fa-lg" style="margin-top: 8px;"></i>
 		</div>
+		<!-- // Custom Home Button Control -->
 		
-		
-		
-		
-		
+		<!-- Side Menu Hover Boxes -->
 		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
 			<div id="firstSubMenu" class="subMenuBox">
 				<p>Search</p>
@@ -104,10 +121,9 @@
 				<p>Filter</p>
 			</div>
 		</div>
+		<!-- // Side Menu Hover Boxes -->
 		
-		
-		
-		
+		<!-- Side Menu Hover Circles -->
 		<div id="firstCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
 			<i class="material-icons myIcon" style="top:13px; left:13px;">search</i>
 		</div>
@@ -117,27 +133,39 @@
 		<div id="thirdCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
 			<i class="fa fa-sliders fa-lg myIcon" aria-hidden="true" style="top:16px; left:16px;"></i>
 		</div>
-		
-		
-
+		<!-- // Side Menu Hover Circles -->
 	</div>
+	<!-- // Desktop Side Menu - Bar -->
 	
+	
+	
+	
+	
+	<!-- Search Page Menu Panel -->
 	<div id="searchPage" class="pullOutPage">
+		<!-- Header for search page -->
 		<i id="searchPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Search</h3>
 		<p>Search for a specific feature</p>
-		
-		
 		<hr>
-		
+		<!-- // Header for search page -->
 	</div>
+	<!-- // Search Page Menu Panel -->
 	
+	
+	
+	
+	
+	<!-- Base Map Page Menu Panel -->
 	<div id="basemapPage" class="pullOutPage">
+		<!-- Header for base map page -->
 		<i id="basemapPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Basemaps</h3>
 		<p>Choose any basemap from the selections below</p>
 		<hr>
+		<!-- // Header for base map page -->
 		
+		<!-- Body for base map page -->
 		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-6">
 				<img id="Tile_Layer_1" class="img-responsive" src="img/carto_DB_Positron.JPG" alt="Carto DB Positron" onclick="myNameSpace.changeBaseMap(this.id)">
@@ -185,16 +213,24 @@
 				<p>Esri Ocean Basemap</p>
 			</div>
 		</div>
+		<!-- // Body for base map page -->
 	</div>
+	<!-- // Base Map Page Menu Panel -->
 	
+	
+	
+	
+	
+	<!-- Filter Page Menu Panel -->
 	<div id="filterPage" class="pullOutPage">
-		<!--<i id="filterPageToggle" class="fa fa-times fa-2x pageToggle" aria-hidden="true" onclick="uiHover(this.id, 3)"></i>-->
+		<!-- Header for filter page -->
 		<i id="filterPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
-		
 		<h3 style="margin-top: 50px; font-size: 35px;">Filter</h3>
-		
 		<p>Choose features to filter by</p>
 		<hr>
+		<!-- // Header for filter page -->
+		
+		<!-- Body for filter page -->
 		<div class="row">
 			<div class="col-md-6">
 				<div class="checkbox">
@@ -247,14 +283,23 @@
 				<h3 onclick="myNameSpace.resetFilter()">Reset</h3>
 			</div>
 		</div>
+		<!-- // Body for filter page -->
 	</div>
+	<!-- // Filter Page Menu Panel -->
 	
 	
+	
+	
+	
+	<!-- Feature Page Menu Panel -->
 	<div id="featurePage" class="pullOutPage">
+		<!-- Header for feature page -->
 		<i id="featurePageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
 		<h3 id="featurePageName" style="margin-top: 50px; font-size: 35px;"></h3>
 		<hr>
+		<!-- // Header for feature page -->
 		
+		<!-- Body for feature page -->
 		<p id="featurePop2000"></p>
 		<p id="featurePop2010"></p>
 		
@@ -262,23 +307,40 @@
 		
 		<h4 id="featureSecondTitle">Resources</h4>
 		<hr>
-		
+		<!-- // Body for feature page -->
 	</div>
+	<!-- // Feature Page Menu Panel -->
 	
+	
+	
+	
+	
+	<!-- Information Page Menu Panel -->
 	<div id="infoPage" class="pullOutPage">
+		<!-- Header for information page -->
 		<i id="infoPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Information</h3>
 		<p>Description of application, link to data, various other links, possible forum or comment to allow people to update.</p>
 		<hr>
+		<!-- // Header for information page -->
 	</div>
+	<!-- // Information Page Menu Panel -->
 	
-	
+	<!-- Bottom Menu - White Bar -->
 	<div id="bottomMenu"></div>
+	<!-- // Bottom Menu - White Bar -->
 	
+	<!-- Bottom Menu - Information Button -->
 	<div id="supBottomMenu" onclick="uiHover(this.id, 2)">
 		<p>&bull; Information</p>
 	</div>
-		
+	<!-- // Bottom Menu - Information Button -->
+	
+	
+	
+	
+	
+	<!-- Bottom Menu - Legend -->
 	<div id="bottomLegend">
 		<div id="layer01" class="legendBox">
 			<div id="bubble01" class="legendBubble active" onclick="toggleLayers(this.id)"></div>
@@ -300,31 +362,8 @@
 			<p>Villages</p>
 		</div>
 	</div>
+	<!-- // Bottom Menu - Legend -->
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- query button: displays query container -->
-	
-	<!--<div id="queryButton" onclick="queryClicked(this.id)" onmouseover="showTooltip(this.id)" onmouseout="removeTooltip(this.id)"><i class="fa fa-archive fa-lg"></i></div>-->
-	<!--<div id="queryButtonTooltip">Query Clicks</div>-->
-	
-	
-	
-	<!-- query container: tracks last 5 clicked features -->
-	<!--
-	<div id="queryContainer">
-		<i id="queryToggle" class="fa fa-times fa-lg" onclick="queryToggle()"></i>
-	</div>
-	-->
 	
 	
 	
@@ -333,8 +372,6 @@
 	<script src="lib/jquery-3.1.1.min.js"></script>
 	<!-- google spreadsheet API -->
 	<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-	<!-- turf API -->
-	<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
 	<!-- leaflet API -->
 	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 	<!-- fuse, for search features -->

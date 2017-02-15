@@ -69,71 +69,9 @@ function listenToMyForm() {
 };
 
 
-// function to display base map container on click
-function baseClick() {
-	var container = document.getElementById('baseMapContainer');
-	container.style.opacity = "1";
-	container.style.visibility = "visible";
-};
 
-// function to remove base map container click
-function toggleClick() {
-	var container = document.getElementById('baseMapContainer');
-	container.style.opacity = "";
-	container.style.visibility = "";
-};
 
-// function to remove query container click
-function queryToggle() {
-	var container = document.getElementById('queryContainer');
-	container.style.opacity = "";
-	container.style.visibility = "";
-};
 
-// function to open the query menu containing recent feature clicks on click
-function queryClicked(source) {
-	var theButton = document.getElementById(source);
-	var active = theButton.classList.contains('active');
-	
-	var queryBox = document.getElementById('queryContainer');
-	
-	if (active == false) {
-		
-	} else if (active == true) {
-		queryBox.style.opacity = '1';
-		queryBox.style.visibility = 'visible';
-	}
-};
-
-// function to show tooltip on button hover
-function showTooltip(source) {
-	var position;
-	if (source == "homeButton") {
-		position = "homeButtonTooltip";
-	} else if (source == "baseMapButton") {
-		position = "baseMapButtonTooltip";
-	} else if (source == "queryButton") {
-		position = "queryButtonTooltip";
-	}
-	var tooltip = document.getElementById(position);
-	tooltip.style.opacity = "1";
-	tooltip.style.visibility = "visible";
-}
-
-// function to remove tooltip on button hover
-function removeTooltip(source) {
-	var position;
-	if (source == "homeButton") {
-		position = "homeButtonTooltip";
-	} else if (source == "baseMapButton") {
-		position = "baseMapButtonTooltip";
-	} else if (source == "queryButton") {
-		position = "queryButtonTooltip";
-	}
-	var tooltip = document.getElementById(position);
-	tooltip.style.opacity = "0";
-	tooltip.style.visibility = "hidden";
-}
 
 function displaySupMenu(source) {
 	var button = document.getElementById(source);
@@ -185,7 +123,7 @@ function displaySupMenu(source) {
 			}
 		}
 	}
-}
+};
 
 function uiHover(source, num) {
 	var circle = document.getElementById(source);
@@ -349,9 +287,9 @@ var popupPolyArr = [
 	['polyLink8', 'Res Plan', 10]
 ];
 
-var recentClickArr = [];		// stores recent clicks
-var storedEClicked = [];		// stores recent clicked data
-var storedTypeClicked = [];		// stores recent click type
+/*var recentClickArr = [];*/	// stores recent clicks - (not in use)
+/*var storedEClicked = [];*/	// stores recent clicked data - (not in use)
+/*var storedTypeClicked = [];*/	// stores recent click type - (not in use)
 
 var uiMenuArr = [
 	['firstBox', 'firstCircle', 'searchPage', 'searchPageToggle'],

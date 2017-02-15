@@ -3,14 +3,6 @@
 
 
 
-
-
-
-
-
-
-
-
 body {
 	margin:0;
 	padding:0;
@@ -227,53 +219,6 @@ body {
 	background: black;
 }
 
-#supCountyMenu {
-	position: absolute;
-	bottom: 100px;
-	left: 0;
-	width: 600px;
-	height: 75px;
-	background: black;
-	z-index: 1001;
-	visibility: hidden;
-}
-
-.supCountyBox {
-	position: absolute;
-	width: 150px;
-	height: 100%;
-	top: 0;
-}
-
-#county01 {
-	left: 0;
-	background: orange;
-}
-#county02 {
-	left: 150px;
-	background: red;
-}
-#county03 {
-	left: 300px;
-	background: grey;
-}
-#county04 {
-	left: 450px;
-	background: blue;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 #sideMenu {
 	position: absolute;
 	top: 0;
@@ -285,6 +230,7 @@ body {
 	z-index: 1002;
 }
 
+/* possibly delete */
 .supSideMenu {
 	position: absolute;
 	top: 0;
@@ -313,6 +259,8 @@ body {
 	background: #fff;
 	border: 1px solid black;
 }
+/* // possibly delete */
+
 
 .menuBox {
 	position: absolute;
@@ -400,8 +348,6 @@ body {
 
 .myIcon {
 	position: absolute;
-	/*top: 14px;*/
-	/*left: 14px;*/
 }
 
 #myZoomControls {
@@ -566,117 +512,9 @@ body {
 	z-index: 1001;
 }
 
-
-
-
-
-
-
-
-
-
 .active {
 	
 }
-
-
-
-/* styling for query button: tracks recently clicked features */
-#queryButton {
-	position: absolute;
-	top: 160px;
-	left: 10px;
-	width: auto;
-	height: auto;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 2px;
-	padding-right: 2px;
-	border-radius: 4px;
-	background: #fff;
-	color: #CCD1D1;
-	border: 1px solid #B2BABB;
-	cursor: not-allowed;
-	z-index: 1001;
-	-webkit-box-shadow: 1px 1px 3px -1px black;
-	-moz-box-shadow: 1px 1px 3px -1px black;
-	box-shadow: 1px 1px 3px -1px black;
-	opacity: 0;
-	visibility: hidden;
-}
-
-/* tooltip for query button */
-#queryButtonTooltip {
-	position: absolute;
-	top: 160px;
-	left: 45px;
-	width: auto;
-	height: auto;
-	padding: 2px;
-	border-radius: 4px;
-	background: black;
-	color: #fff;
-	border: 1px solid #B2BABB;
-	z-index: 1001;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: .25s opacity .8s;
-	-moz-transition: .25s opacity .8s;
-	-o-transition: .25s opacity .8s;
-	transition: .25s opacity .8s;
-}
-
-/* holds list of recently clicked features */
-#queryContainer {
-	position: absolute;
-	top: 160px;
-	left: 10px;
-	width: auto;
-	height: auto;
-	background: #fff;
-	z-index: 1001;
-	border-radius: 4px;
-	/*border: 1px solid #B2BABB;*/
-	opacity: 1;
-	visibility: visible;
-	-webkit-box-shadow: 2px 2px 10px -1px black;
-	-moz-box-shadow: 2px 2px 10px -1px black;
-	box-shadow: 2px 2px 10px -1px black;
-	-webkit-transition: .35s opacity;
-	-moz-transition: .35s opacity;
-	-o-transition: .35s opacity;
-	transition: .35s opacity;
-}
-
-#queryContainer p {
-	
-}
-
-#queryToggle {
-	position: absolute;
-	top: 0px;
-	cursor: pointer;
-	right: 0px;
-}
-
-.queryRow {
-	background: white;
-	width: auto;
-	height: auto;
-	text-align: center;
-	font-size: 18px;
-	cursor: pointer;
-	padding-left: 4px;
-	padding-right: 4px;
-	border: 1px solid #B2BABB;
-}
-
-
-
-
-
-
-
 
 /* leaflet popup styling */
 .leaflet-popup-content-wrapper .leaflet-popup-content {
@@ -703,6 +541,7 @@ body {
 	text-decoration: none;
 	color: #1A5276;
 }
+/* // leaflet popup styling */
 
 /* test */
 .leaflet-popup-content-wrapper .leaflet-popup-content .deactivated a:link{
@@ -724,7 +563,9 @@ body {
 	text-decoration: none;
 	color: #CCD1D1;
 }
+/* // test */
 
+/* test 2 */
 .leaflet-top {
 	top: 50px;
 }
@@ -732,10 +573,9 @@ body {
 .leaflet-left {
 	
 }
+/* //test 2 */
 
-/*test */
-
-
+/* for popup */
 #titlePopup {
 	font-size: 20px;
 }
@@ -747,7 +587,7 @@ body {
 .popupLine {
 	width: 70%;
 }
-
+/* // for popup */
 
 
 @media only screen and (max-width: 600px) {

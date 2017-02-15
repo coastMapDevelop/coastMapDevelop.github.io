@@ -343,6 +343,7 @@ function main() {
 		clickedUrbanPolyName.length = 0;
 	};
 	
+	/* not in use 
 	// function to zoom to clicked feature in query list
 	function testZoom(e, position) {
 		// check if is county, urban point, or urban polygon
@@ -363,6 +364,8 @@ function main() {
 			map.setView(e.latlng, 10);
 		}
 	};
+	  not in use */
+	
 	
 	// adds eventlisteners
 	function onEachFeature(feature, layer) {
@@ -853,13 +856,6 @@ function main() {
 		checkZoom = currentZoom; // lag behind current zoom
 		currentZoom = map.getZoom(); // update continuously with zoom
 		
-		/*
-		if ((currentZoom - checkZoom) > 1) {
-			checkZoom = currentZoom - 1; // from changing from point to polygon, check zoom lower
-		} else if ((currentZoom - checkZoom) < 1) {
-			checkzoom = currentZoom + 1; // from changing from polygon to point, check zoom higher
-		}
-		*/
 		if ((checkZoom - currentZoom) < 0) {
 			checkZoom = currentZoom - 1;
 		} else if ((checkZoom - currentZoom) > 0) {
@@ -915,8 +911,6 @@ function main() {
 	function updateZoom() {
 		if (checkZoom <= 11 && currentZoom <= 10) {
 			// check which layers are currently active
-			//urbanPoints.addTo(map);
-			//map.removeLayer(urbanPolygons);
 			
 			var i;
 			for(i=0; i < pointArray.length; i++) {
@@ -930,8 +924,6 @@ function main() {
 			}
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
-			//map.removeLayer(urbanPoints);
-			//urbanPolygons.addTo(map);
 			
 			var i;
 			for(i=0; i < pointArray.length; i++) {
@@ -1135,9 +1127,11 @@ function main() {
 	};
 	
 	// function that allows reseting of the maps extent to original
+	/* not in use
 	function home() {
 		map.setView(new L.LatLng(44, -88), 6);
 	};
+		not in use */
 	
 	// function that handles changing of the base map
 	function changeBaseMap(source) {
@@ -1251,9 +1245,7 @@ function main() {
 	// fill name space with function variables so we can use them publicly
 	myNameSpace = {
 		toggle: toggle,
-		home: home,
 		changeBaseMap: changeBaseMap,
-		testZoom: testZoom,
 		removeMarkers: removeMarkers,
 		testFilter: testFilter,
 		zoomSearchedFeature: zoomSearchedFeature,
@@ -1342,6 +1334,7 @@ function toggleLayers(source) {
 };
 
 // function that calls inner function from main() (to zoom to the clicked feature)
+/* not in use
 function clickedQueryItem(source) {
 	var position = recentClickArr.indexOf(source);
 	var item = storedEClicked[position];
@@ -1349,5 +1342,6 @@ function clickedQueryItem(source) {
 	//myNameSpace.zoomToFeature(storedEClicked[position]);
 	myNameSpace.testZoom(item, position);
 };
+	not in use */
 
 

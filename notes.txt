@@ -13,6 +13,7 @@ Things to work on:
 	- decide upon fonts
 	- distinguish hover, click, and mouseout by LSAD for points and polygons
 	- tooltip in center of polygon
+	- move map attribution in view
 	- comment code
 	- code into one JS file
 	- documentation for JS file and code
