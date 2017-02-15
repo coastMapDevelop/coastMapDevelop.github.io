@@ -60,13 +60,7 @@ function listMajors() {
 };
 
 
-function listenToMyForm() {
-	$('.mySelections').on('change', function(){
-		currentSelectArr.length = 0;
-		var selected = $(this).find("option:selected").val();
-		currentSelectArr.push(selected);
-	});
-};
+
 
 
 
@@ -228,20 +222,6 @@ function showMobileMenu(source) {
 	}
 };
 
-function storeChecks(source) {
-	var isThere = currentCheckArr.indexOf(source);
-	
-	if (isThere == -1) {
-		currentCheckArr.push(source);
-	} else if (isThere >= 0) {
-		currentCheckArr.splice(isThere, 1);
-	}
-	
-};
-
-
-var currentCheckArr = [];
-var currentSelectArr = ['Cities'];
 
 var supSideArr = [
 	['firstBox', 'supSideMenu01'],
@@ -249,43 +229,6 @@ var supSideArr = [
 	['thirdBox', 'supSideMenu03']
 ];
 
-
-// for naming and assigning popup content for counties
-var popupCountyArr = [
-	['countyLink1', 'Gov Website', 3],
-	['countyLink2', 'Web Map URL', 4],
-	['countyLink3', 'Web Map Other', 5],
-	['countyLink4', 'Web Map State', 6],
-	['countyLink5', 'Comp Plan', 7],
-	['countyLink6', 'Haz Mit Plan', 8],
-	['countyLink7', 'Climate Plan', 9],
-	['countyLink8', 'Resilience Plan', 10],
-	['countyLink9', 'Zoning URL', 11]
-];
-
-// for naming and assigning popup content for points
-var popupPointArr = [
-	['pointLink1', 'Govt Web', 3],
-	['pointLink2', 'Map Web', 4],
-	['pointLink3', 'Comp Plan', 5],
-	['pointLink4', 'Zoning Web', 6],
-	['pointLink5', 'Haz Mit Web', 7],
-	['pointLink6', 'Sus Plan', 8],
-	['pointLink7', 'Cli Plan', 9],
-	['pointLink8', 'Res Plan', 10]
-];
-
-// for naming and assigning popup content for urban polygons
-var popupPolyArr = [
-	['polyLink1', 'Govt Web', 3],
-	['polyLink2', 'Map Web', 4],
-	['polyLink3', 'Comp Plan', 5],
-	['polyLink4', 'Zoning Web', 6],
-	['polyLink5', 'Haz Mit Web', 7],
-	['polyLink6', 'Sus Plan', 8],
-	['polyLink7', 'Cli Plan', 9],
-	['polyLink8', 'Res Plan', 10]
-];
 
 /*var recentClickArr = [];*/	// stores recent clicks - (not in use)
 /*var storedEClicked = [];*/	// stores recent clicked data - (not in use)
@@ -327,34 +270,16 @@ var colorPal = [
 ];
 */
 
-// array that stores colors for map and legend
-var colorPal = [
-	["#003744", "bubble01"],
-	["#41b6c4", "bubble02"],
-	["#a1dab4", "bubble03"],
-	["#ffffcc", "bubble04"]
-];
 
-// initiate colors for legend
-document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
-document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
-document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
-document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
 
-var circleInterval;		// stores interval variable
-var maxRadius = 30;
-var minRadius = 15;
-var radiusControl = false;
-var newRadius;
+
+
 
 var remove;		// search panel
 var remove2;	// search control
 
-var firstClick = false;
 
-var clickedCountyName = [];
-var clickedUrbanName = [];
-var clickedUrbanPolyName = [];
+
 
 
 

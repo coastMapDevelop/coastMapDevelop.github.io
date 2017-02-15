@@ -2,6 +2,75 @@
 var myNameSpace;	// allows for exposing functions in main()
 
 function main() {
+	/* main variable declarations */
+	var geojson; 			// variable to hold county polygons - layer
+	var townsPoints;	 	// variable to hold town points - layer
+	var citiesPoints;		// variable to hold city points - layer 
+	var villagesPoints;		// variable to hold village points - layer
+	var townsPolygon;		// variable to hold town polygons - layer
+	var citiesPolygon;		// variable to hold city polygons - layer
+	var villagesPolygon;	// variable to hold village polygons - layer
+	var myMarkers;			// variable to hold markers - animation
+	var checkZoom; 			// keeps track of zoom direction
+	var currentZoom = 8; 	// keeps track of current zoom
+	var circleInterval;		// stores interval variable
+	var maxRadius = 30;
+	var minRadius = 15;
+	var radiusControl = false;
+	var firstClick = false;
+	/* // main variable declarations */
+	
+	/* main array declarations */
+	// for naming and assigning popup content for counties
+	var pointArray = [];	// holds point features in map
+	var polygonArray= [];	// holds polygon features in map
+	var currentCheckArr = [];
+	var currentSelectArr = ['Cities'];
+	var popupCountyArr = [
+		['countyLink1', 'Gov Website', 3],
+		['countyLink2', 'Web Map URL', 4],
+		['countyLink3', 'Web Map Other', 5],
+		['countyLink4', 'Web Map State', 6],
+		['countyLink5', 'Comp Plan', 7],
+		['countyLink6', 'Haz Mit Plan', 8],
+		['countyLink7', 'Climate Plan', 9],
+		['countyLink8', 'Resilience Plan', 10],
+		['countyLink9', 'Zoning URL', 11]
+	];
+	// for naming and assigning popup content for points
+	var popupPointArr = [
+		['pointLink1', 'Govt Web', 3],
+		['pointLink2', 'Map Web', 4],
+		['pointLink3', 'Comp Plan', 5],
+		['pointLink4', 'Zoning Web', 6],
+		['pointLink5', 'Haz Mit Web', 7],
+		['pointLink6', 'Sus Plan', 8],
+		['pointLink7', 'Cli Plan', 9],
+		['pointLink8', 'Res Plan', 10]
+	];
+	// for naming and assigning popup content for urban polygons
+	var popupPolyArr = [
+		['polyLink1', 'Govt Web', 3],
+		['polyLink2', 'Map Web', 4],
+		['polyLink3', 'Comp Plan', 5],
+		['polyLink4', 'Zoning Web', 6],
+		['polyLink5', 'Haz Mit Web', 7],
+		['polyLink6', 'Sus Plan', 8],
+		['polyLink7', 'Cli Plan', 9],
+		['polyLink8', 'Res Plan', 10]
+	];
+	// array that stores colors for map and legend
+	var colorPal = [
+		["#003744", "bubble01"],
+		["#41b6c4", "bubble02"],
+		["#a1dab4", "bubble03"],
+		["#ffffcc", "bubble04"]
+	];
+	var clickedCountyName = [];
+	var clickedUrbanName = [];
+	var clickedUrbanPolyName = [];
+	/* // main array declarations */
+	
 	// run authorization for google spreadsheet API
 	loadSheetsApi();
 	listenToMyForm();
@@ -18,10 +87,6 @@ function main() {
 		],
         zoom: 8					  // map initiation zoom level
     });
-	
-	
-	
-	
 	
 	
 	
@@ -90,18 +155,6 @@ function main() {
 	
 	var popup = L.popup();	// add hover popup
 	
-	var pointArray = [];
-	var polygonArray= [];
-	
-	var geojson; 			// variable to hold county polygons - layer
-	var townsPoints;	 	// variable to hold town points - layer
-	var citiesPoints;		// variable to hold city points - layer 
-	var villagesPoints;		// variable to hold village points - layer
-	var townsPolygon;		// variable to hold town polygons - layer
-	var citiesPolygon;		// variable to hold city polygons - layer
-	var villagesPolygon;	// variable to hold village polygons - layer
-	
-	var myMarkers;
 	
 	// county style
 	var myStyle = {
@@ -850,8 +903,7 @@ function main() {
 		}
 	};
 	
-	var checkZoom; // keeps track of zoom direction
-	var currentZoom = 6; // keeps track of current zoom
+	
 	map.on('zoom', function(e) {
 		checkZoom = currentZoom; // lag behind current zoom
 		currentZoom = map.getZoom(); // update continuously with zoom
@@ -1044,7 +1096,8 @@ function main() {
 				pointArray.push(villagesPoints);
 			}
 		});
-	}
+		initiateMapColors();
+	};
 	
 	
 	
@@ -1241,17 +1294,31 @@ function main() {
 		});
 	};
 	
+	function storeChecks(source) {
+		var isThere = currentCheckArr.indexOf(source);
 	
-	// fill name space with function variables so we can use them publicly
-	myNameSpace = {
-		toggle: toggle,
-		changeBaseMap: changeBaseMap,
-		removeMarkers: removeMarkers,
-		testFilter: testFilter,
-		zoomSearchedFeature: zoomSearchedFeature,
-		resetFilter: resetFilter
+		if (isThere == -1) {
+			currentCheckArr.push(source);
+		} else if (isThere >= 0) {
+			currentCheckArr.splice(isThere, 1);
+		}
 	};
 	
+	function listenToMyForm() {
+		$('.mySelections').on('change', function(){
+			currentSelectArr.length = 0;
+			var selected = $(this).find("option:selected").val();
+			currentSelectArr.push(selected);
+		});
+	};
+	
+	function initiateMapColors() {
+		// initiate colors for legend
+		document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
+		document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
+		document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
+		document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
+	};
 	
 	// experimental
 	var options = {
@@ -1296,6 +1363,19 @@ function main() {
 	
 	
 	// experimental
+	
+	
+	// fill name space with function variables so we can use them publicly
+	myNameSpace = {
+		toggle: toggle,
+		changeBaseMap: changeBaseMap,
+		removeMarkers: removeMarkers,
+		testFilter: testFilter,
+		zoomSearchedFeature: zoomSearchedFeature,
+		resetFilter: resetFilter,
+		storeChecks: storeChecks,
+		listenToMyForm: listenToMyForm
+	};
 
 };
 
