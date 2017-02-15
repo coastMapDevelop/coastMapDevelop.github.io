@@ -303,7 +303,7 @@ function storeChecks(source) {
 
 
 var currentCheckArr = [];
-var currentSelectArr = [];
+var currentSelectArr = ['Cities'];
 
 var supSideArr = [
 	['firstBox', 'supSideMenu01'],
@@ -416,6 +416,7 @@ var firstClick = false;
 
 var clickedCountyName = [];
 var clickedUrbanName = [];
+var clickedUrbanPolyName = [];
 
 
 

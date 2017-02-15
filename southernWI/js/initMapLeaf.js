@@ -196,14 +196,14 @@ function main() {
 			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 				
 			layer.setStyle({
-				weight: 3,
+				weight: 2,
 				fillOpacity: 1,
 			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
 			layer.setStyle({
-				weight: 3,
+				weight: 2,
 				fillOpacity: 1,
 				//color: '#666'
 			})
@@ -223,7 +223,9 @@ function main() {
 			//geojson.resetStyle(e.target); // reset style of county polygons
 		} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 			townsPoints.resetStyle(e.target);
+			
 			citiesPoints.resetStyle(e.target);
+			
 			villagesPoints.resetStyle(e.target);
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
 			citiesPolygon.resetStyle(e.target);
@@ -242,32 +244,37 @@ function main() {
 		checkFeaturePage("featurePage");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+			
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
 			clickedCountyName.length = 0;
+	
+			
 			var center = layer.getBounds().getCenter();
 			map.setView(center, 10);
 			removeMarkers();
-			clickedCountyName.push(layer.feature.properties.NAME10); //test
+			
+			clickedCountyName.push(layer.feature.properties.NAME10);
 			console.log(clickedCountyName);
+			
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
 			map.setView(center, 10);
 			
+			
 			clickedUrbanName.length = 0;
+			
+			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.name);
 			console.log(clickedUrbanName);
-			removeMarkers();
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
 			geojson.bringToBack();
-			
-	
 			
 			circleInterval = setInterval(function() {
 				myMarkers.eachLayer(function (layer) {
@@ -297,10 +304,10 @@ function main() {
 			
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
-			clickedUrbanName.length = 0;
-			clickedUrbanName.push(layer.feature.properties.Name_1);
-			console.log(clickedUrbanName);
+			clickedUrbanPolyName.length = 0;
 			removeMarkers();
+			clickedUrbanPolyName.push(layer.feature.properties.Name_1);
+			console.log(clickedUrbanPolyName);
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 		firstClick = true;
@@ -309,12 +316,21 @@ function main() {
 	function removeMarkers() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
-		geojson.eachLayer(function (layer) {
-			if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
-				layer.setStyle({fillOpacity:0.75, weight: 1});
-			}
-		});
+		
+		if (clickedCountyName.length != 0) {
+			geojson.eachLayer(function (layer) {
+				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
+					layer.setStyle({fillOpacity:0.75, weight: 1});
+				}
+			});
+		}
 		clickedCountyName.length = 0;
+		
+	
+		clickedUrbanName.length = 0;
+		
+	
+		clickedUrbanPolyName.length = 0;
 	};
 	
 	// function to zoom to clicked feature in query list

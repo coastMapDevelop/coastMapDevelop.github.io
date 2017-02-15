@@ -2,19 +2,23 @@
 
 
 Things to work on:
-	- fonts
-	- query click container styling
-	- query click features
-	- popup styling
-	- some kind of top menu with sea grant / NOAA plus extra links
-	- layer legend toggle (show + hide)
-	- advanced layer legend
-	- hover effect on menu icons
-	- something is missing - need menu bar on top or left side of screen
-	- comments
-	- documentation
-	- redo code
-	- scrollbar on side of screen?
+	- style updates on basemap page
+	- style updates on search page
+	- style updates on filter page
+	- change buttons on filter page to custom
+	- update style of title + title image
+	- create functioning mobile menu
+	- when clicking a feature in the mobile menu, zoom first, then add info panel
+	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
+	- decide upon fonts
+	- distinguish hover, click, and mouseout by LSAD for points and polygons
+	- tooltip in center of polygon
+	- comment code
+	- code into one JS file
+	- documentation for JS file and code
 	- check mobile compatability
-	- fix testZoom function to differentiate between clicked urban points, urban polygon, and county features
-	- move filling of popups to new functions
+	- JS code performance updates
+		- fix global variable problem
+		- fix for loop efficiency problem
+		- fix hard coding problem
+		- allow for most adaptability possible

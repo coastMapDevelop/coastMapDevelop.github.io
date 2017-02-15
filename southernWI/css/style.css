@@ -109,6 +109,7 @@ body {
 	visibility: hidden;
 	z-index: 1001;
 	overflow-x: hidden;
+	text-align: center;
 	-webkit-transition: .25s right;
 	-moz-transition: .25s right;
 	-o-transition: .25s right;
