@@ -260,9 +260,10 @@ function main() {
 			console.log(clickedCountyName);
 			
 			map.setView(center, 10);
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 			}, 250);
 			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
@@ -305,9 +306,10 @@ function main() {
 			}, 50);
 			
 			map.setView(center, 10);
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 			}, 500);
 			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
