@@ -21,7 +21,8 @@ function main() {
 	/* // main variable declarations */
 	
 	/* main array declarations */
-	// for naming and assigning popup content for counties
+	var googleSpreadsheet = []; // Array for storing google spreadsheets data: county
+	var googleSpreadsheet2 = []; // Array for storing google spreadsheets data: urban
 	var pointArray = [];	// holds point features in map
 	var polygonArray= [];	// holds polygon features in map
 	var currentCheckArr = [];
@@ -1320,6 +1321,80 @@ function main() {
 		document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
 	};
 	
+	// Load Sheets API client library.
+	function loadSheetsApi() {
+		var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+		gapi.client.load(discoveryUrl).then(listMajors);
+	};
+
+	//Print data from spreadsheet
+	// https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0  = old spreadsheet
+	// https://docs.google.com/spreadsheets/d/1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA/edit#gid=0  = new spreadsheet
+	function listMajors() {
+		gapi.client.sheets.spreadsheets.values.get({
+			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
+			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
+			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
+		}).then(function(response) {
+			var range = response.result;
+			if (range.values.length > 0) {
+				for (i=0; i < range.values.length; i++) {
+					var row = range.values[i];
+					var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[22], row[23], row[24]];
+					googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
+				}
+			} else {
+				console.log('No data found.');
+			}
+		}, function (response) {
+			console.log('Error: ' + response.result.error.message);
+		});
+	
+		gapi.client.sheets.spreadsheets.values.get({
+			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
+			range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through AD, starting at row 2
+			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
+		}).then(function(response) {
+			var range = response.result;
+			if (range.values.length > 0) {
+				for (i=0; i < range.values.length; i++) {
+					var row = range.values[i];
+					var arr = [row[0], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
+					googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
+				}
+			} else {
+				console.log('No data found.');
+			}
+		}, function (response) {
+			console.log('Error: ' + response.result.error.message);
+		});
+	};
+	
+	// function to toggle the visibility of layers in the map
+	function toggleLayers(source) {
+		// check for an active class to toggle on/off
+		var clicked = document.getElementById(source);
+		var active = clicked.classList.contains('active');
+	
+		if (active == true) {
+			clicked.classList.remove('active');
+			clicked.style.background = '#fff';
+			toggle(source, 0);
+			// remove layer
+		} else if (active == false) {
+			clicked.classList.add('active');
+			var i;
+			for (i=0; i<colorPal.length; i++) {
+				if (source == colorPal[i][1]) {
+					clicked.style.background = colorPal[i][0];
+				}
+			}
+		
+			toggle(source, 1);
+			// add layer
+		}
+	};
+	
 	// experimental
 	var options = {
 		position: 'topleft',
@@ -1374,7 +1449,8 @@ function main() {
 		zoomSearchedFeature: zoomSearchedFeature,
 		resetFilter: resetFilter,
 		storeChecks: storeChecks,
-		listenToMyForm: listenToMyForm
+		listenToMyForm: listenToMyForm,
+		toggleLayers: toggleLayers
 	};
 
 };
@@ -1387,41 +1463,5 @@ function main() {
 // start main function on window load
 window.onload = main;
 
-
-// function to toggle the visibility of layers in the map
-function toggleLayers(source) {
-	// check for an active class to toggle on/off
-	var clicked = document.getElementById(source);
-	var active = clicked.classList.contains('active');
-	
-	if (active == true) {
-		clicked.classList.remove('active');
-		clicked.style.background = '#fff';
-		myNameSpace.toggle(source, 0);
-		// remove layer
-	} else if (active == false) {
-		clicked.classList.add('active');
-		var i;
-		for (i=0; i<colorPal.length; i++) {
-			if (source == colorPal[i][1]) {
-				clicked.style.background = colorPal[i][0];
-			}
-		}
-		
-		myNameSpace.toggle(source, 1);
-		// add layer
-	}
-};
-
-// function that calls inner function from main() (to zoom to the clicked feature)
-/* not in use
-function clickedQueryItem(source) {
-	var position = recentClickArr.indexOf(source);
-	var item = storedEClicked[position];
-	//map.fitBounds(item.target.getBounds()); // zoom to feature
-	//myNameSpace.zoomToFeature(storedEClicked[position]);
-	myNameSpace.testZoom(item, position);
-};
-	not in use */
 
 
