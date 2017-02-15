@@ -32,11 +32,9 @@ body {
 	width: auto;
 	z-index: 1001;
 	width: 285px;
-	/*display: inline;*/
 }
 
 #title h3 {
-	/*display: inline;*/
 	position: absolute;
 	top: 0px;
 	right:-20px;
@@ -56,7 +54,6 @@ body {
 	position: absolute;
 	top: -10px;
 	left: 0;
-	/*display: inline;*/
 }
 
 #mobileMenu {
@@ -464,7 +461,6 @@ body {
 }
 
 #basemapPage img:hover {
-	/*border: 5px solid #154360;*/
 	opacity: .7;
 }
 
