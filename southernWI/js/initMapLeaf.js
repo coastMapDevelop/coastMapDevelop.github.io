@@ -13,8 +13,8 @@ function main() {
         center: [43, -88],		  // coordinates of map initation
 		minZoom: 7,				  // minimum zoom level of the map
 		maxBounds: [
-			[13, -125], 	  //southwest bounds
-			[65, -40]    	  //northeast bounds
+			[30, -105], 	  //southwest bounds
+			[55, -70]    	  //northeast bounds
 		],
         zoom: 8					  // map initiation zoom level
     });
