@@ -11,6 +11,8 @@ Things to work on:
 	- when clicking a feature in the mobile menu, zoom first, then add info panel
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- decide upon fonts
+	- clicking on a feature in the search pane only zooms to county level, change to be able to zoom to county, town, city, or village
+	- no indicator that the currently selected urban polygon is the chosen one
 	- distinguish hover, click, and mouseout by LSAD for points and polygons
 	- tooltip in center of polygon
 	- move map attribution in view
