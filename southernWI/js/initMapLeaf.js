@@ -1048,28 +1048,10 @@ function main() {
 				})
 				.addTo(map);
 				pointArray.push(villagesPoints);
-				// .bringToFront();
 			}
 		});
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// testing ajax plugin to streamline process
-	//var myLayer2 = new L.GeoJson.AJAX("data/geojson/countyPolygons.geojson");
 	
 	
 	
@@ -1089,8 +1071,6 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
 				
-				//(pointArray);
-				//(polygonArray);
 		
 			} else if (source == "bubble03") {
 				map.removeLayer(townsPoints);
@@ -1101,9 +1081,7 @@ function main() {
 				
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
-				
-				//(pointArray);
-				//(polygonArray);
+		
 				
 			} else if (source == "bubble04") {
 				map.removeLayer(villagesPoints);
@@ -1115,8 +1093,6 @@ function main() {
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
 				
-				//(pointArray);
-				//(polygonArray);
 				
 			}
 		} else if (x == 1) {
