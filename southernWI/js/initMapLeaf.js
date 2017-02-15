@@ -1465,7 +1465,8 @@ function main() {
 			}
 		}
 	};
-
+	
+	
 	function uiHover(source, num) {
 		var circle = document.getElementById(source);
 		var box;
@@ -1630,7 +1631,10 @@ function main() {
 		resetFilter: resetFilter,
 		storeChecks: storeChecks,
 		listenToMyForm: listenToMyForm,
-		toggleLayers: toggleLayers
+		toggleLayers: toggleLayers,
+		displaySupMenu: displaySupMenu,
+		uiHover: uiHover,
+		showMobileMenu: showMobileMenu
 	};
 
 };

@@ -53,7 +53,7 @@
 	
 	
 	<!-- mobile menu toggle -->
-	<div id="mobileMenu" onclick="showMobileMenu(this.id)">
+	<div id="mobileMenu" onclick="myNameSpace.showMobileMenu(this.id)">
 		<i id="mobileMenuToggle" class="material-icons">menu</i>
 	</div>
 	<!-- // mobile menu toggle -->
@@ -106,17 +106,17 @@
 		<!-- // Custom Home Button Control -->
 		
 		<!-- Side Menu Hover Boxes -->
-		<div id="firstBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<div id="firstBox" class="menuBox" onclick="myNameSpace.displaySupMenu(this.id)">
 			<div id="firstSubMenu" class="subMenuBox">
 				<p>Search</p>
 			</div>
 		</div>
-		<div id="secondBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<div id="secondBox" class="menuBox" onclick="myNameSpace.displaySupMenu(this.id)">
 			<div id="secondSubMenu" class="subMenuBox">
 				<p>Basemaps</p>
 			</div>
 		</div>
-		<div id="thirdBox" class="menuBox" onclick="displaySupMenu(this.id)">
+		<div id="thirdBox" class="menuBox" onclick="myNameSpace.displaySupMenu(this.id)">
 			<div id="thirdSubMenu" class="subMenuBox">
 				<p>Filter</p>
 			</div>
@@ -124,13 +124,13 @@
 		<!-- // Side Menu Hover Boxes -->
 		
 		<!-- Side Menu Hover Circles -->
-		<div id="firstCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+		<div id="firstCircle" class="menuCircle" onmouseover="myNameSpace.uiHover(this.id, 1)" onmouseout="myNameSpace.uiHover(this.id, 0)" onclick="myNameSpace.uiHover(this.id, 2)">
 			<i class="material-icons myIcon" style="top:13px; left:13px;">search</i>
 		</div>
-		<div id="secondCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+		<div id="secondCircle" class="menuCircle" onmouseover="myNameSpace.uiHover(this.id, 1)" onmouseout="myNameSpace.uiHover(this.id, 0)" onclick="myNameSpace.uiHover(this.id, 2)">
 			<i class="material-icons myIcon" style="top:13px; left:13px;">layers</i>
 		</div>
-		<div id="thirdCircle" class="menuCircle" onmouseover="uiHover(this.id, 1)" onmouseout="uiHover(this.id, 0)" onclick="uiHover(this.id, 2)">
+		<div id="thirdCircle" class="menuCircle" onmouseover="myNameSpace.uiHover(this.id, 1)" onmouseout="myNameSpace.uiHover(this.id, 0)" onclick="myNameSpace.uiHover(this.id, 2)">
 			<i class="fa fa-sliders fa-lg myIcon" aria-hidden="true" style="top:16px; left:16px;"></i>
 		</div>
 		<!-- // Side Menu Hover Circles -->
@@ -144,7 +144,7 @@
 	<!-- Search Page Menu Panel -->
 	<div id="searchPage" class="pullOutPage">
 		<!-- Header for search page -->
-		<i id="searchPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<i id="searchPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Search</h3>
 		<p>Search for a specific feature</p>
 		<hr>
@@ -159,7 +159,7 @@
 	<!-- Base Map Page Menu Panel -->
 	<div id="basemapPage" class="pullOutPage">
 		<!-- Header for base map page -->
-		<i id="basemapPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<i id="basemapPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Basemaps</h3>
 		<p>Choose any basemap from the selections below</p>
 		<hr>
@@ -224,7 +224,7 @@
 	<!-- Filter Page Menu Panel -->
 	<div id="filterPage" class="pullOutPage">
 		<!-- Header for filter page -->
-		<i id="filterPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<i id="filterPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Filter</h3>
 		<p>Choose features to filter by</p>
 		<hr>
@@ -294,7 +294,7 @@
 	<!-- Feature Page Menu Panel -->
 	<div id="featurePage" class="pullOutPage">
 		<!-- Header for feature page -->
-		<i id="featurePageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<i id="featurePageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 id="featurePageName" style="margin-top: 50px; font-size: 35px;"></h3>
 		<hr>
 		<!-- // Header for feature page -->
@@ -318,7 +318,7 @@
 	<!-- Information Page Menu Panel -->
 	<div id="infoPage" class="pullOutPage">
 		<!-- Header for information page -->
-		<i id="infoPageToggle" class="material-icons pageToggle" onclick="uiHover(this.id, 3)">close</i>
+		<i id="infoPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Information</h3>
 		<p>Description of application, link to data, various other links, possible forum or comment to allow people to update.</p>
 		<hr>
@@ -331,7 +331,7 @@
 	<!-- // Bottom Menu - White Bar -->
 	
 	<!-- Bottom Menu - Information Button -->
-	<div id="supBottomMenu" onclick="uiHover(this.id, 2)">
+	<div id="supBottomMenu" onclick="myNameSpace.uiHover(this.id, 2)">
 		<p>&bull; Information</p>
 	</div>
 	<!-- // Bottom Menu - Information Button -->
