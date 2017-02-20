@@ -322,7 +322,7 @@ function main() {
 			removeMarkers();
 			
 			clickedCountyName.push(layer.feature.properties.NAME10);
-			console.log(clickedCountyName);
+			//console.log(clickedCountyName);
 			
 			map.setView(center, 10);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
@@ -339,7 +339,7 @@ function main() {
 			
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.name);
-			console.log(clickedUrbanName);
+			//console.log(clickedUrbanName);
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
@@ -382,7 +382,7 @@ function main() {
 			clickedUrbanPolyName.length = 0;
 			removeMarkers();
 			clickedUrbanPolyName.push(layer.feature.properties.Name_1);
-			console.log(clickedUrbanPolyName);
+			//console.log(clickedUrbanPolyName);
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 		firstClick = true;
