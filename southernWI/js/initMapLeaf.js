@@ -467,7 +467,8 @@ function main() {
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
-			for (i=0; i < googleSpreadsheet.length; i++) {
+			var ggleSprd = googleSpreadsheet.length;
+			for (i=0; i < ggleSprd; i++) {
 				if (target == googleSpreadsheet[i][0]) {
 					
 					var title = document.getElementById("featurePageName");
@@ -597,7 +598,8 @@ function main() {
 					
 					// have to check if link is valid
 					var m;
-					for (m=0; m < popupCountyArr.length; m++) {
+					var ppupCnty = popupCountyArr.length;
+					for (m=0; m < ppupCnty; m++) {
 						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
@@ -631,7 +633,8 @@ function main() {
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
-			for (i=0; i < googleSpreadsheet2.length; i++) {
+			var gglSprd2 = googleSpreadsheet2.length;
+			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
 					var title = document.getElementById("featurePageName");
@@ -754,7 +757,8 @@ function main() {
 					
 					// have to check if link is valid
 					var m;
-					for (m=0; m < popupPointArr.length; m++) {
+					var ppupPnt = popupPointArr.length;
+					for (m=0; m < ppupPnt; m++) {
 						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
@@ -783,7 +787,8 @@ function main() {
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
-			for (i=0; i < googleSpreadsheet2.length; i++) {
+			var gglSprd2 = googleSpreadsheet2.length;
+			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
 					var title = document.getElementById("featurePageName");
@@ -903,7 +908,8 @@ function main() {
 					
 					// have to check if link is valid
 					var m;
-					for (m=0; m < popupPolyArr.length; m++) {
+					var ppupPly = popupPolyArr.length;
+					for (m=0; m < ppupPly; m++) {
 						var link = googleSpreadsheet2[i][popupPolyArr[m][2]];
 						if (link == 'null') {
 							// deactivate link
@@ -976,30 +982,32 @@ function main() {
 	
 	// function to check whether to add points or polygons to the map based on zoom 
 	function updateZoom() {
+		var pntA = pointArray.length;
+		var plyA = polygonArray.length;
 		if (checkZoom <= 11 && currentZoom <= 10) {
 			// check which layers are currently active
 			
 			var i;
-			for(i=0; i < pointArray.length; i++) {
+			for(i=0; i < pntA; i++) {
 				map.addLayer(pointArray[i]);
 				myMarkers.setStyle({opacity: 1});
 			}
 			
 			var j;
-			for (j=0; j < polygonArray.length; j++) {
+			for (j=0; j < plyA j++) {
 				map.removeLayer(polygonArray[j]);
 			}
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
 			
 			var i;
-			for(i=0; i < pointArray.length; i++) {
+			for(i=0; i < pntA; i++) {
 				map.removeLayer(pointArray[i]);
 				myMarkers.setStyle({opacity: 0});
 			}
 			
 			var j;
-			for (j=0; j < polygonArray.length; j++) {
+			for (j=0; j < plyA; j++) {
 				map.addLayer(polygonArray[j]);
 			}
 			
@@ -1217,13 +1225,17 @@ function main() {
 		var index;
 		var row;
 		var theLayer;
+		var ppupPnt = popupPointArr.length;
+		var gglSprd2 = googleSpreadsheet2.length;
 			
 		var i;
-		for (i=0; i < currentCheckArr.length; i++) {		// go throuch each attribute in currentCheckArr
+		var ccChk = currentCheckArr.length;
+		for (i=0; i < ccChk; i++) {		// go throuch each attribute in currentCheckArr
 			var attribute = currentCheckArr[i];
 			
 			var z;
-			for (z=0; z < popupPointArr.length; z++) {
+			
+			for (z=0; z < ppupPnt; z++) {
 				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
@@ -1241,7 +1253,7 @@ function main() {
 				var name = layer.feature.properties.name;	// get the name of the layer
 				// for this layer only, find the match row on the google spreadsheet
 				var m;
-				for(m=0; m < googleSpreadsheet2.length; m++) {
+				for(m=0; m < gglSprd2; m++) {
 					if (name == googleSpreadsheet2[m][0]) {
 						var row = m; 			// match row is found
 					} else {
@@ -1284,29 +1296,56 @@ function main() {
 	};
 	
 	
-	function zoomSearchedFeature(source) {
-		geojson.eachLayer(function (layer) {		// go through each layer in county geojson
-			var name = layer.feature.properties.NAME10;	// store the name of the layer
+	function zoomSearchedFeature(source, num) {
+		if (num == 0) {
+			geojson.eachLayer(function (layer) {		// go through each layer in county geojson
+				var name = layer.feature.properties.NAME10;	// store the name of the layer
 			
-			if (name == source) {		// of the layer's name equals the clicked sources name
-				geojson.eachLayer(function (layer) {
-					if (name == layer.feature.properties.NAME10) {
-						// zoom to that feature
-						//map.fitBounds(layer.getBounds());
-						layer.setStyle({fillOpacity: '1'});
-						var center = layer.getBounds().getCenter();
-						map.setView(center, 10);
-						checkFeaturePage("featurePage");
-						removeMarkers();
-						crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
-					} else {
-						// do nothing
-					}
-				});
+				if (name == source) {		// of the layer's name equals the clicked sources name
+					geojson.eachLayer(function (layer) {
+						if (name == layer.feature.properties.NAME10) {
+							// zoom to that feature
+							//map.fitBounds(layer.getBounds());
+							layer.setStyle({fillOpacity: '1'});
+							var center = layer.getBounds().getCenter();
+							map.setView(center, 10);
+							checkFeaturePage("featurePage");
+							removeMarkers();
+							crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
+						}
+					});
+				}
+			});
+		} else if (num == 1) {
+			townsPoints.eachLayer(function (layer) {
+				var name = layer.feature.properties.name;
 				
-				// populate the menu
-			}
-		});
+				if (name == source) {
+					urbanSearch(layer);
+				}
+			});
+			
+			citiesPoints.eachLayer(function (layer) {
+				if (name == source) {
+					urbanSearch(layer);
+				}
+			});
+			
+			villagesPoints.eachLayer(function (layer) {
+				if (name == source) {
+					urbanSearch(layer);
+				}
+			});
+		}
+		
+		function urbanSearch(layer) {
+			removeMarkers();
+			
+			// add animated point
+			// center on point
+			// checkfeaturepage
+			// crossreference
+		};
 	};
 	
 	function storeChecks(source) {
@@ -1471,10 +1510,11 @@ function main() {
 		var circle = document.getElementById(source);
 		var box;
 		var circleCross;
+		var uiMnA = uiMenuArr.length;
 	
 		// loop to find corresponding box
 		var i;
-		for (i=0; i < uiMenuArr.length; i++) {
+		for (i=0; i < uiMnA; i++) {
 			if (uiMenuArr[i][1] == source) {
 				box = document.getElementById(uiMenuArr[i][0]);
 				circleCross = document.getElementById(uiMenuArr[i][2]);
@@ -1503,7 +1543,7 @@ function main() {
 				}
 				circleCross.classList.add("active");
 				var j;
-				for (j=0; j < uiMenuArr.length; j++) {
+				for (j=0; j < uiMnA; j++) {
 					if (uiMenuArr[j][1] != source) {
 						var checkQuick = document.getElementById(uiMenuArr[j][2]);
 						checkQuick.style.right = "";
@@ -1514,7 +1554,7 @@ function main() {
 			}
 		} else if (num == 3) {
 			var q;
-			for (q=0; q < uiMenuArr.length; q++) {
+			for (q=0; q < uiMnA; q++) {
 				if (uiMenuArr[q][3] == source) {
 					var position = uiMenuArr[q][2];
 					var toggle = document.getElementById(position);
@@ -1571,6 +1611,22 @@ function main() {
 	};
 	
 	
+	function mobileMenuClicked(val) {
+		var name;
+		if (val == 0) {
+			name = document.getElementById("searchPage");
+		} else if (val == 1) {
+			name = document.getElementById("basemapPage");
+		} else if (val == 2) {
+			name = document.getElementById("filterPage");
+		} else if (val == 3) {
+			name = document.getElementById("infoPage");
+		}
+		
+		name.style.right = "0";
+	};
+	
+	
 	
 	
 	
@@ -1592,13 +1648,13 @@ function main() {
 			if (props.NAME10 != null) {
 				name.innerHTML = props.NAME10;
 				name.setAttribute("id", props.NAME10);
-				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
 				container.appendChild(document.createTextNode(props.NAMELSAD10));
 			} else if (props.NAME10 == null) {
 				name.innerHTML = props.Name_1;
 				name.setAttribute("id", props.Name_1);
-				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id)");
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
 				container.appendChild(document.createTextNode(props.NAMELSAD));
 			}
@@ -1634,7 +1690,8 @@ function main() {
 		toggleLayers: toggleLayers,
 		displaySupMenu: displaySupMenu,
 		uiHover: uiHover,
-		showMobileMenu: showMobileMenu
+		showMobileMenu: showMobileMenu,
+		mobileMenuClicked: mobileMenuClicked
 	};
 
 };
