@@ -613,7 +613,7 @@ body {
 		z-index: 1003;
 	}
 	
-	#baseMapPage {
+	#basemapPage {
 		width: 100%;
 		z-index: 1003;
 	}
@@ -624,6 +624,11 @@ body {
 	}
 	
 	#featurePage {
+		width: 100%;
+		z-index: 1003;
+	}
+	
+	#infoPage {
 		width: 100%;
 		z-index: 1003;
 	}
