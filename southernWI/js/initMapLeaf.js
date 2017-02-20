@@ -1674,9 +1674,6 @@ function main() {
 	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
 	
 	
-	
-	
-	
 	// experimental
 	
 	
