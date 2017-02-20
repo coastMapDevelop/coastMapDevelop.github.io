@@ -181,9 +181,6 @@ function main() {
 		'zIndex': 9
 	};
 	
-	
-
-
 	// town points style
 	var townPointsStyle = {
 		radius: 8,
