@@ -1671,6 +1671,11 @@ function main() {
 	//add.appendChild(remove2);
 	
 	
+	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
+	
+	
+	
+	
 	
 	// experimental
 	
