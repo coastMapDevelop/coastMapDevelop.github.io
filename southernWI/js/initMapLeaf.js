@@ -994,7 +994,7 @@ function main() {
 			}
 			
 			var j;
-			for (j=0; j < plyA j++) {
+			for (j=0; j < plyA; j++) {
 				map.removeLayer(polygonArray[j]);
 			}
 		} else if (checkZoom >= 10 && currentZoom >= 11) {

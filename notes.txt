@@ -20,7 +20,6 @@ Things to work on:
 	- documentation for JS file and code
 	- check mobile compatability
 	- JS code performance updates
-		- fix global variable problem
 		- move functions out of main function that don't need to be there, instead
 			if those functions must reference variables inside main function, then
 			move those variables to the namespace. (optional)
