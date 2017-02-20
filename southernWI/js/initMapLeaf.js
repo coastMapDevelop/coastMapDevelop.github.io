@@ -1169,27 +1169,27 @@ function main() {
 				geojson.bringToBack();
 			} else if (source == "bubble02") {
 				// check zoom level
-				if (currentZoom >= 10) {
+				if (currentZoom >= 11) {
 					map.addLayer(citiesPolygon);
-				} else if (currentZoom <= 9) {
+				} else if (currentZoom <= 10) {
 					map.addLayer(citiesPoints);
 				}
 				polygonArray.push(citiesPolygon);
 				pointArray.push(citiesPoints);
 			} else if (source == "bubble03") {
 				// check zoom level
-				if (currentZoom >= 10) {
+				if (currentZoom >= 11) {
 					map.addLayer(townsPolygon);
-				} else if (currentZoom <= 9 ) {
+				} else if (currentZoom <= 10 ) {
 					map.addLayer(townsPoints);
 				}
 				polygonArray.push(townsPolygon);
 				pointArray.push(townsPoints);
 			} else if (source == "bubble04") {
 				// check zoom level
-				if (currentZoom >= 10) {
+				if (currentZoom >= 11) {
 					map.addLayer(villagesPolygon);
-				} else if (currentZoom <= 9) {
+				} else if (currentZoom <= 10) {
 					map.addLayer(villagesPoints);
 				}
 				polygonArray.push(villagesPolygon);
