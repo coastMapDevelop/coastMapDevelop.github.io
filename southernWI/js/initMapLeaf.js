@@ -1317,6 +1317,7 @@ function main() {
 				}
 			});
 		} else if (num == 1) {
+			alert('urban point searched');
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
 				
@@ -1340,7 +1341,7 @@ function main() {
 		
 		function urbanSearch(layer) {
 			removeMarkers();
-			
+
 			// add animated point
 			// center on point
 			// checkfeaturepage

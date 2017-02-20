@@ -2,12 +2,7 @@
 
 
 Things to work on:
-	- style updates on basemap page
-	- style updates on search page
-	- style updates on filter page
 	- change buttons on filter page to custom
-	- update style of title + title image
-	- create functioning mobile menu
 	- when clicking a feature in the mobile menu, zoom first, then add info panel
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- decide upon fonts
@@ -20,9 +15,6 @@ Things to work on:
 	- documentation for JS file and code
 	- check mobile compatability
 	- JS code performance updates
-		- move functions out of main function that don't need to be there, instead
-			if those functions must reference variables inside main function, then
-			move those variables to the namespace. (optional)
 		- fix for loop efficiency problem
 		- fix hard coding problem
 		- allow for most adaptability possible
