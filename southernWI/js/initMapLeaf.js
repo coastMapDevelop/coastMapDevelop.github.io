@@ -1367,6 +1367,8 @@ function main() {
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
+			var pop2000 = document.getElementById("featurePop2000");
+			var pop2010 = document.getElementById("featurePop2010");
 			var removeClass = "gonnaRemoveClick";
 			var link1Attr = popupCountyArr[0][0];
 			var link2Attr = popupCountyArr[1][0];
@@ -1380,6 +1382,8 @@ function main() {
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
+			var pop2000 = document.getElementById("hoverFeaturePop2000");
+			var pop2010 = document.getElementById("hoverFeaturePop2010");
 			var removeClass = "gonnaRemoveHover";
 			var link1Attr = popupCountyArr[0][3];
 			var link2Attr = popupCountyArr[1][3];
@@ -1393,9 +1397,9 @@ function main() {
 		}
 		
 		title.innerHTML = target + " County";
-		var pop2000 = document.getElementById("featurePop2000");
+		
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
-		var pop2010 = document.getElementById("featurePop2010");
+		
 		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
 					
 		var link1 = document.createElement("a");
@@ -1559,6 +1563,8 @@ function main() {
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
+			var pop2000 = document.getElementById("featurePop2000");
+			var pop2010 = document.getElementById("featurePop2010");
 			var removeClass = "gonnaRemoveClick";
 			var link1Attr = popupPointArr[0][0];
 			var link2Attr = popupPointArr[1][0];
@@ -1571,6 +1577,8 @@ function main() {
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
+			var pop2000 = document.getElementById("hoverFeaturePop2000");
+			var pop2010 = document.getElementById("hoverFeaturePop2010");
 			var removeClass = "gonnaRemoveHover";
 			var link1Attr = popupPointArr[0][3];
 			var link2Attr = popupPointArr[1][3];
@@ -1584,9 +1592,7 @@ function main() {
 		
 		
 		title.innerHTML = target;
-		var pop2000 = document.getElementById("featurePop2000");
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
-		var pop2010 = document.getElementById("featurePop2010");
 		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
 					
 		var link1 = document.createElement("a");
