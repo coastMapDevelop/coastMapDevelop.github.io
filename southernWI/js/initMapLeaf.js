@@ -1390,7 +1390,7 @@ function main() {
 			var link9Attr = popupCountyArr[8][3];
 		}
 		
-		title.innerHTML = target;
+		title.innerHTML = target + " County";
 		var pop2000 = document.getElementById("featurePop2000");
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
 		var pop2010 = document.getElementById("featurePop2010");
