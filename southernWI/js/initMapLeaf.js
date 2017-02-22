@@ -266,7 +266,7 @@ function main() {
 			
 			
 			//layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
-			
+			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
 		
 			// set new style for hover county polygon
 			layer.setStyle({
@@ -290,6 +290,7 @@ function main() {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			
 			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
+			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
 			layer.setStyle({
 				weight: 2,
 				fillOpacity: 1,
@@ -325,7 +326,8 @@ function main() {
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[3][0]) {
 			villagesPolygon.resetStyle(e.target);
 		}
-		this.closeTooltip(); // close tooltip on mouseout
+		//this.closeTooltip(); // close tooltip on mouseout
+		//map.closePopup();
 	
 	};
 	
