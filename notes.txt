@@ -22,11 +22,13 @@ Things to work on:
 	- JS code performance updates
 		- fix for loop efficiency proble
 		- allow for most adaptability possible
+	- when going into mobile mode, remove all pullOutPages that are active
 
 	- data sources - will be more
 	- maybe have polygon inside the information panel?
 	- need milwaukee city polygon (not in sources?)
 	- need new urban polygon data (clipped to shoreline)
 	- AJ suggested mapshaper urban polygon simplification
+	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
 	
 	- help with julianne cooper on a project (future)
