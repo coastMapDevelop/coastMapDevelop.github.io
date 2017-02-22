@@ -252,6 +252,7 @@ function main() {
 		
 		var hoverPanel = document.getElementById("hoverFeaturePage");
 		hoverPanel.style.right = "75px";
+		removePanelInfo("hover");
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			// experimental
@@ -479,13 +480,15 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
+			removePanelInfo("click");
 			/*
 			if (firstClick == false) {
 				
 			} else if (firstClick == true) {
-				removePanelInfo();
+				removePanelInfo("click");
 			}
 			*/
+			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
@@ -527,13 +530,15 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
+			removePanelInfo("click");
 			/*
 			if (firstClick == false) {
 				
 			} else if (firstClick == true) {
-				removePanelInfo();
+				removePanelInfo("click");
 			}
 			*/
+			
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -578,14 +583,16 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
+			removePanelInfo("click");
 			/*
 			if (firstClick == false) {
 				
 			} else if (firstClick == true) {
 				
-				removePanelInfo();
+				removePanelInfo("click");
 			}
 			*/
+			
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
