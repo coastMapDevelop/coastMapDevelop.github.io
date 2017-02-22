@@ -1350,7 +1350,7 @@ function main() {
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
-			var removeClass = "gonneRemoveClick";
+			var removeClass = "gonnaRemoveClick";
 			var link1Attr = popupCountyArr[0][0];
 			var link2Attr = popupCountyArr[1][0];
 			var link3Attr = popupCountyArr[2][0];
