@@ -18,6 +18,7 @@ function main() {
 	var minRadius = 15;
 	var radiusControl = false;
 	var firstClick = false;
+	var hoverControl = false;
 	var remove;		// search panel
 	var remove2;	// search control
 	/* // main variable declarations */
@@ -250,6 +251,14 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+			// experimental
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
+			if (hoverControl == false) {
+				checkFeaturePage("featurePage");
+			}
+			
+			
+			
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 		
 			// set new style for hover county polygon
@@ -307,7 +316,8 @@ function main() {
 	// on click
 	function zoomToFeature(e) {
 		var layer = e.target; // reference layer
-		//checkFeaturePage("featurePage");
+		hoverControl = true;
+		
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			
@@ -331,7 +341,7 @@ function main() {
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
 			}, 250);
-			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			var center = layer._latlng;
 			
@@ -340,7 +350,7 @@ function main() {
 			
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.name);
-			//console.log(clickedUrbanName);
+			
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
@@ -377,13 +387,13 @@ function main() {
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
 			}, 500);
-			//crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			checkFeaturePage("featurePage");
 			clickedUrbanPolyName.length = 0;
 			removeMarkers();
 			clickedUrbanPolyName.push(layer.feature.properties.Name_1);
-			//console.log(clickedUrbanPolyName);
+			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 		firstClick = true;
@@ -1223,6 +1233,7 @@ function main() {
 				removeMarkers();
 			}
 		} else if (num == 3) {
+			hoverControl = false;
 			var q;
 			for (q=0; q < uiMnA; q++) {
 				if (uiMenuArr[q][3] == source) {
