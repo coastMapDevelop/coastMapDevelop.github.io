@@ -31,37 +31,37 @@ function main() {
 	var currentCheckArr = [];
 	var currentSelectArr = ['Cities'];
 	var popupCountyArr = [
-		['countyLink1', 'Gov Website', 3],
-		['countyLink2', 'Web Map URL', 4],
-		['countyLink3', 'Web Map Other', 5],
-		['countyLink4', 'Web Map State', 6],
-		['countyLink5', 'Comp Plan', 7],
-		['countyLink6', 'Haz Mit Plan', 8],
-		['countyLink7', 'Climate Plan', 9],
-		['countyLink8', 'Resilience Plan', 10],
-		['countyLink9', 'Zoning URL', 11]
+		['countyLink1', 'Gov Website', 3, 'countyLink1b'],
+		['countyLink2', 'Web Map URL', 4, 'countyLink2b'],
+		['countyLink3', 'Web Map Other', 5, 'countyLink3b'],
+		['countyLink4', 'Web Map State', 6, 'countyLink4b'],
+		['countyLink5', 'Comp Plan', 7, 'countyLink5b'],
+		['countyLink6', 'Haz Mit Plan', 8, 'countyLink6b'],
+		['countyLink7', 'Climate Plan', 9, 'countyLink7b'],
+		['countyLink8', 'Resilience Plan', 10, 'countyLink8b'],
+		['countyLink9', 'Zoning URL', 11, 'countyLink9b']
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
-		['pointLink1', 'Govt Web', 3],
-		['pointLink2', 'Map Web', 4],
-		['pointLink3', 'Comp Plan', 5],
-		['pointLink4', 'Zoning Web', 6],
-		['pointLink5', 'Haz Mit Web', 7],
-		['pointLink6', 'Sus Plan', 8],
-		['pointLink7', 'Cli Plan', 9],
-		['pointLink8', 'Res Plan', 10]
+		['pointLink1', 'Govt Web', 3, 'pointLink1b'],
+		['pointLink2', 'Map Web', 4, 'pointLink2b'],
+		['pointLink3', 'Comp Plan', 5, 'pointLink3b'],
+		['pointLink4', 'Zoning Web', 6, 'pointLink4b'],
+		['pointLink5', 'Haz Mit Web', 7, 'pointLink5b'],
+		['pointLink6', 'Sus Plan', 8, 'pointLink6b'],
+		['pointLink7', 'Cli Plan', 9, 'pointLink7b'],
+		['pointLink8', 'Res Plan', 10, 'pointLink8b']
 	];
 	// for naming and assigning popup content for urban polygons
 	var popupPolyArr = [
-		['polyLink1', 'Govt Web', 3],
-		['polyLink2', 'Map Web', 4],
-		['polyLink3', 'Comp Plan', 5],
-		['polyLink4', 'Zoning Web', 6],
-		['polyLink5', 'Haz Mit Web', 7],
-		['polyLink6', 'Sus Plan', 8],
-		['polyLink7', 'Cli Plan', 9],
-		['polyLink8', 'Res Plan', 10]
+		['polyLink1', 'Govt Web', 3, 'polyLink1b'],
+		['polyLink2', 'Map Web', 4, 'polyLink2b'],
+		['polyLink3', 'Comp Plan', 5, 'polyLink3b'],
+		['polyLink4', 'Zoning Web', 6, 'polyLink4b'],
+		['polyLink5', 'Haz Mit Web', 7, 'polyLink5b'],
+		['polyLink6', 'Sus Plan', 8, 'polyLink6b'],
+		['polyLink7', 'Cli Plan', 9, 'polyLink7b'],
+		['polyLink8', 'Res Plan', 10, 'polyLink8b']
 	];
 	// array that stores colors for map and legend
 	var colorPal = [
@@ -507,6 +507,8 @@ function main() {
 					*/
 					
 					// have to check if link is valid
+					// may need to move this to function above
+					/*
 					var m;
 					var ppupCnty = popupCountyArr.length;
 					for (m=0; m < ppupCnty; m++) {
@@ -522,6 +524,7 @@ function main() {
 							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
 						}
 					}
+					*/
 				}
 			}
 			
@@ -564,6 +567,7 @@ function main() {
 					*/
 					
 					// have to check if link is valid
+					/*
 					var m;
 					var ppupPnt = popupPointArr.length;
 					for (m=0; m < ppupPnt; m++) {
@@ -576,6 +580,7 @@ function main() {
 							document.getElementById(popupPointArr[m][0]).setAttribute("href", link);
 						}
 					}
+					*/
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
@@ -613,6 +618,7 @@ function main() {
 					*/
 					
 					// have to check if link is valid
+					/*
 					var m;
 					var ppupPly = popupPolyArr.length;
 					for (m=0; m < ppupPly; m++) {
@@ -625,6 +631,7 @@ function main() {
 							document.getElementById(popupPolyArr[m][0]).setAttribute("href", link);
 						}
 					}
+					*/
 				}
 			}
 		}
@@ -1342,10 +1349,28 @@ function main() {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
 			var removeClass = "gonneRemoveClick";
+			var link1Attr = popupCountyArr[0][0];
+			var link2Attr = popupCountyArr[1][0];
+			var link3Attr = popupCountyArr[2][0];
+			var link4Attr = popupCountyArr[3][0];
+			var link5Attr = popupCountyArr[4][0];
+			var link6Attr = popupCountyArr[5][0];
+			var link7Attr = popupCountyArr[6][0];
+			var link8Attr = popupCountyArr[7][0];
+			var link9Attr = popupCountyArr[8][0];
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
 			var removeClass = "gonnaRemoveHover";
+			var link1Attr = popupCountyArr[0][3];
+			var link2Attr = popupCountyArr[1][3];
+			var link3Attr = popupCountyArr[2][3];
+			var link4Attr = popupCountyArr[3][3];
+			var link5Attr = popupCountyArr[4][3];
+			var link6Attr = popupCountyArr[5][3];
+			var link7Attr = popupCountyArr[6][3];
+			var link8Attr = popupCountyArr[7][3];
+			var link9Attr = popupCountyArr[8][3];
 		}
 		
 		title.innerHTML = target;
@@ -1384,15 +1409,15 @@ function main() {
 		link8.appendChild(text8);
 		link9.appendChild(text9);
 					
-		link1.setAttribute("id", "countyLink1");
-		link2.setAttribute("id", "countyLink2");
-		link3.setAttribute("id", "countyLink3");
-		link4.setAttribute("id", "countyLink4");
-		link5.setAttribute("id", "countyLink5");
-		link6.setAttribute("id", "countyLink6");
-		link7.setAttribute("id", "countyLink7");
-		link8.setAttribute("id", "countyLink8");
-		link9.setAttribute("id", "countyLink9");
+		link1.setAttribute("id", link1Attr);
+		link2.setAttribute("id", link2Attr);
+		link3.setAttribute("id", link3Attr);
+		link4.setAttribute("id", link4Attr);
+		link5.setAttribute("id", link5Attr);
+		link6.setAttribute("id", link6Attr);
+		link7.setAttribute("id", link7Attr);
+		link8.setAttribute("id", link8Attr);
+		link9.setAttribute("id", link9Attr);
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -1463,6 +1488,32 @@ function main() {
 		page.appendChild(break8);
 		page.appendChild(link9);
 		page.appendChild(break9);
+		
+		var m;
+		var ppupCnty = popupCountyArr.length;
+		for (m=0; m < ppupCnty; m++) {
+			var link = googleSpreadsheet[i][popupCountyArr[m][2]];
+			if (link == 'null') {
+				// deactivate link
+				//document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
+				//$(popupCountyArr[m][0]).remove();
+				if (clickHov == "click") {
+					document.getElementById(popupCountyArr[m][0]).style.color = "#CCD1D1";
+				} else if (clickHov == "hover") {
+					document.getElementById(popupCountyArr[m][3]).style.color = "#CCD1D1";
+				}
+				
+				//document.getElementById(popupCountyArr[m][0]).classList.add('deactivated');
+			} else {
+				// activate link
+				if (clickHov == "click") {
+					document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
+				} else if (clickHov == "hover") {
+					document.getElementById(popupCountyArr[m][3]).setAttribute("href", link);
+				}
+				
+			}
+		}
 	};
 	
 	function removePanelInfo(clickHov) {
@@ -1487,10 +1538,26 @@ function main() {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
 			var removeClass = "gonnaRemoveClick";
+			var link1Attr = popupPointArr[0][0];
+			var link2Attr = popupPointArr[1][0];
+			var link3Attr = popupPointArr[2][0];
+			var link4Attr = popupPointArr[3][0];
+			var link5Attr = popupPointArr[4][0];
+			var link6Attr = popupPointArr[5][0];
+			var link7Attr = popupPointArr[6][0];
+			var link8Attr = popupPointArr[7][0];
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
 			var removeClass = "gonnaRemoveHover";
+			var link1Attr = popupPointArr[0][3];
+			var link2Attr = popupPointArr[1][3];
+			var link3Attr = popupPointArr[2][3];
+			var link4Attr = popupPointArr[3][3];
+			var link5Attr = popupPointArr[4][3];
+			var link6Attr = popupPointArr[5][3];
+			var link7Attr = popupPointArr[6][3];
+			var link8Attr = popupPointArr[7][3];
 		}
 		
 		
@@ -1527,14 +1594,14 @@ function main() {
 		link7.appendChild(text7);
 		link8.appendChild(text8);
 					
-		link1.setAttribute("id", "pointLink1");
-		link2.setAttribute("id", "pointLink2");
-		link3.setAttribute("id", "pointLink3");
-		link4.setAttribute("id", "pointLink4");
-		link5.setAttribute("id", "pointLink5");
-		link6.setAttribute("id", "pointLink6");
-		link7.setAttribute("id", "pointLink7");
-		link8.setAttribute("id", "pointLink8");
+		link1.setAttribute("id", link1Attr);
+		link2.setAttribute("id", link2Attr);
+		link3.setAttribute("id", link3Attr);
+		link4.setAttribute("id", link4Attr);
+		link5.setAttribute("id", link5Attr);
+		link6.setAttribute("id", link6Attr);
+		link7.setAttribute("id", link7Attr);
+		link8.setAttribute("id", link8Attr);
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -1598,6 +1665,29 @@ function main() {
 		page.appendChild(break7);
 		page.appendChild(link8);
 		page.appendChild(break8);
+		
+		var m;
+		var ppupPnt = popupPointArr.length;
+		for (m=0; m < ppupPnt; m++) {
+			var link = googleSpreadsheet2[i][popupPointArr[m][2]];
+			if (link == 'null') {
+				// deactivate link
+				if (clickHov == "click") {
+					document.getElementById(popupPointArr[m][0]).style.color = "#CCD1D1";
+				} else if (clickHov == "hover") {
+					document.getElementById(popupPointArr[m][3]).style.color = "#CCD1D1";
+				}
+				
+			} else {
+				// activate link
+				if (clickHov == "click") {
+					document.getElementById(popupPointArr[m][0]).setAttribute("href", link);
+				} else if (clickHov == "hover") {
+					document.getElementById(popupPointArr[m][3]).setAttribute("href", link);
+				}
+				
+			}
+		}
 	};
 	
 	

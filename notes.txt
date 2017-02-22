@@ -21,5 +21,4 @@ Things to work on:
 	- check mobile compatability
 	- JS code performance updates
 		- fix for loop efficiency problem
-		- fix hard coding problem
 		- allow for most adaptability possible
