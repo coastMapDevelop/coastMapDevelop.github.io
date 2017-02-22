@@ -237,6 +237,7 @@
 		
 		<!-- Body for filter page -->
 		<div class="row">
+			<p>Choose one or more attributes to filter</p>
 			<div class="col-md-6">
 				<div class="checkbox">
 					<label><input type="checkbox" value="Govt Web" onclick="myNameSpace.storeChecks(this.value)">Gov Web</label>
@@ -268,6 +269,7 @@
 			</div>
 		</div>
 		
+		
 		<div class="form-group">
 			<label for="sel1">Select list:</label>
 			<select class="form-control mySelections" id="sel1">
@@ -277,6 +279,21 @@
 				<option>Villages</option>
 				<!--<option>All</option>-->
 			</select>
+		</div>
+		
+		<div class="row">
+			<p>Choose one or more layers</p>
+			<div class="col-md-6">
+				<div class="checkbox">
+					<label><input type="checkbox" value="Cities">Cities</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Towns">Towns</label>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="Villages">Villages</label>
+				</div>
+			</div>
 		</div>
 		
 		<div class="row myFilterButtons">

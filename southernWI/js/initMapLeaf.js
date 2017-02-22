@@ -95,12 +95,13 @@ function main() {
 		attributionControl: true, // add attribution to the map
     	zoomControl: false,		  // add zoom control to the map
         center: [43, -88],		  // coordinates of map initation
-		minZoom: 7,				  // minimum zoom level of the map
+		minZoom: 8,				  // minimum zoom level of the map
+		maxZoom: 13,
 		maxBounds: [
 			[30, -105], 	  //southwest bounds
 			[55, -70]    	  //northeast bounds
 		],
-        zoom: 8					  // map initiation zoom level
+        zoom: 9			  // map initiation zoom level
     });
 	
 	
@@ -456,10 +457,7 @@ function main() {
 			if (firstClick == false) {
 				//do nothing
 			} else if (firstClick == true) {
-				var para = document.getElementsByClassName('gonnaRemove');
-				while (para[0]) {
-					para[0].parentNode.removeChild(para[0]);
-				}
+				removePanelInfo();
 			}
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -468,123 +466,8 @@ function main() {
 			for (i=0; i < ggleSprd; i++) {
 				if (target == googleSpreadsheet[i][0]) {
 					
-					var title = document.getElementById("featurePageName");
-					title.innerHTML = target;
-					var pop2000 = document.getElementById("featurePop2000");
-					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
-					var pop2010 = document.getElementById("featurePop2010");
-					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
 					
-					var link1 = document.createElement("a");
-					var link2 = document.createElement("a");
-					var link3 = document.createElement("a");
-					var link4 = document.createElement("a");
-					var link5 = document.createElement("a");
-					var link6 = document.createElement("a");
-					var link7 = document.createElement("a");
-					var link8 = document.createElement("a");
-					var link9 = document.createElement("a");
-					
-					var text1 = document.createTextNode("Gov Website");
-					var text2 = document.createTextNode("Web Map URL");
-					var text3 = document.createTextNode("Web Map Other");
-					var text4 = document.createTextNode("Web Map State");
-					var text5 = document.createTextNode("Comp Plan");
-					var text6 = document.createTextNode("Haz Mit Plan");
-					var text7 = document.createTextNode("Climate Plan");
-					var text8 = document.createTextNode("Resilience Plan");
-					var text9 = document.createTextNode("Zoning URL")
-					
-					link1.appendChild(text1);
-					link2.appendChild(text2);
-					link3.appendChild(text3);
-					link4.appendChild(text4);
-					link5.appendChild(text5);
-					link6.appendChild(text6);
-					link7.appendChild(text7);
-					link8.appendChild(text8);
-					link9.appendChild(text9);
-					
-					link1.setAttribute("id", "countyLink1");
-					link2.setAttribute("id", "countyLink2");
-					link3.setAttribute("id", "countyLink3");
-					link4.setAttribute("id", "countyLink4");
-					link5.setAttribute("id", "countyLink5");
-					link6.setAttribute("id", "countyLink6");
-					link7.setAttribute("id", "countyLink7");
-					link8.setAttribute("id", "countyLink8");
-					link9.setAttribute("id", "countyLink9");
-					
-					link1.setAttribute("target", "_blank");
-					link2.setAttribute("target", "_blank");
-					link3.setAttribute("target", "_blank");
-					link4.setAttribute("target", "_blank");
-					link5.setAttribute("target", "_blank");
-					link6.setAttribute("target", "_blank");
-					link7.setAttribute("target", "_blank");
-					link8.setAttribute("target", "_blank");
-					link9.setAttribute("target", "_blank");
-					
-					link1.setAttribute("class", "gonnaRemove");
-					link2.setAttribute("class", "gonnaRemove");
-					link3.setAttribute("class", "gonnaRemove");
-					link4.setAttribute("class", "gonnaRemove");
-					link5.setAttribute("class", "gonnaRemove");
-					link6.setAttribute("class", "gonnaRemove");
-					link7.setAttribute("class", "gonnaRemove");
-					link8.setAttribute("class", "gonnaRemove");
-					link9.setAttribute("class", "gonnaRemove");
-					
-					var break1 = document.createElement("br");
-					var break2 = document.createElement("br");
-					var break3 = document.createElement("br");
-					var break4 = document.createElement("br");
-					var break5 = document.createElement("br");
-					var break6 = document.createElement("br");
-					var break7 = document.createElement("br");
-					var break8 = document.createElement("br");
-					var break9 = document.createElement("br");
-					
-					break1.setAttribute('id', 'break1');
-					break2.setAttribute('id', 'break2');
-					break3.setAttribute('id', 'break3');
-					break4.setAttribute('id', 'break4');
-					break5.setAttribute('id', 'break5');
-					break6.setAttribute('id', 'break6');
-					break7.setAttribute('id', 'break7');
-					break8.setAttribute('id', 'break8');
-					break9.setAttribute('id', 'break9');
-					
-					break1.setAttribute("class", "gonnaRemove");
-					break2.setAttribute("class", "gonnaRemove");
-					break3.setAttribute("class", "gonnaRemove");
-					break4.setAttribute("class", "gonnaRemove");
-					break5.setAttribute("class", "gonnaRemove");
-					break6.setAttribute("class", "gonnaRemove");
-					break7.setAttribute("class", "gonnaRemove");
-					break8.setAttribute("class", "gonnaRemove");
-					break9.setAttribute("class", "gonnaRemove");
-					
-					var page = document.getElementById('featurePage');
-					page.appendChild(link1);
-					page.appendChild(break1);
-					page.appendChild(link2);
-					page.appendChild(break2);
-					page.appendChild(link3);
-					page.appendChild(break3);
-					page.appendChild(link4);
-					page.appendChild(break4);
-					page.appendChild(link5);
-					page.appendChild(break5);
-					page.appendChild(link6);
-					page.appendChild(break6);
-					page.appendChild(link7);
-					page.appendChild(break7);
-					page.appendChild(link8);
-					page.appendChild(break8);
-					page.appendChild(link9);
-					page.appendChild(break9);
-					
+					addCountyPanelInfo();
 					/*
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + " County</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" + "<br>" + 
@@ -621,10 +504,7 @@ function main() {
 			if (firstClick == false) {
 				//do nothing
 			} else if (firstClick == true) {
-				var para = document.getElementsByClassName('gonnaRemove');
-				while (para[0]) {
-					para[0].parentNode.removeChild(para[0]);
-				}
+				removePanelInfo();
 			}
 			
 			
@@ -634,111 +514,9 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					var title = document.getElementById("featurePageName");
-					title.innerHTML = target;
-					var pop2000 = document.getElementById("featurePop2000");
-					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
-					var pop2010 = document.getElementById("featurePop2010");
-					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
 					
-					var link1 = document.createElement("a");
-					var link2 = document.createElement("a");
-					var link3 = document.createElement("a");
-					var link4 = document.createElement("a");
-					var link5 = document.createElement("a");
-					var link6 = document.createElement("a");
-					var link7 = document.createElement("a");
-					var link8 = document.createElement("a");
 					
-					var text1 = document.createTextNode("Gov Website");
-					var text2 = document.createTextNode("Web Map URL");
-					var text3 = document.createTextNode("Comp Plan");
-					var text4 = document.createTextNode("Zoning Web");
-					var text5 = document.createTextNode("Haz Mit Web");
-					var text6 = document.createTextNode("Sus Plan");
-					var text7 = document.createTextNode("Cli Plan");
-					var text8 = document.createTextNode("Res Plan");
-					
-					link1.appendChild(text1);
-					link2.appendChild(text2);
-					link3.appendChild(text3);
-					link4.appendChild(text4);
-					link5.appendChild(text5);
-					link6.appendChild(text6);
-					link7.appendChild(text7);
-					link8.appendChild(text8);
-					
-					link1.setAttribute("id", "pointLink1");
-					link2.setAttribute("id", "pointLink2");
-					link3.setAttribute("id", "pointLink3");
-					link4.setAttribute("id", "pointLink4");
-					link5.setAttribute("id", "pointLink5");
-					link6.setAttribute("id", "pointLink6");
-					link7.setAttribute("id", "pointLink7");
-					link8.setAttribute("id", "pointLink8");
-					
-					link1.setAttribute("target", "_blank");
-					link2.setAttribute("target", "_blank");
-					link3.setAttribute("target", "_blank");
-					link4.setAttribute("target", "_blank");
-					link5.setAttribute("target", "_blank");
-					link6.setAttribute("target", "_blank");
-					link7.setAttribute("target", "_blank");
-					link8.setAttribute("target", "_blank");
-					
-					link1.setAttribute("class", "gonnaRemove");
-					link2.setAttribute("class", "gonnaRemove");
-					link3.setAttribute("class", "gonnaRemove");
-					link4.setAttribute("class", "gonnaRemove");
-					link5.setAttribute("class", "gonnaRemove");
-					link6.setAttribute("class", "gonnaRemove");
-					link7.setAttribute("class", "gonnaRemove");
-					link8.setAttribute("class", "gonnaRemove");
-					
-					var break1 = document.createElement("br");
-					var break2 = document.createElement("br");
-					var break3 = document.createElement("br");
-					var break4 = document.createElement("br");
-					var break5 = document.createElement("br");
-					var break6 = document.createElement("br");
-					var break7 = document.createElement("br");
-					var break8 = document.createElement("br");
-					
-					break1.setAttribute('id', 'break1');
-					break2.setAttribute('id', 'break2');
-					break3.setAttribute('id', 'break3');
-					break4.setAttribute('id', 'break4');
-					break5.setAttribute('id', 'break5');
-					break6.setAttribute('id', 'break6');
-					break7.setAttribute('id', 'break7');
-					break8.setAttribute('id', 'break8');
-					
-					break1.setAttribute('class', 'gonnaRemove');
-					break2.setAttribute('class', 'gonnaRemove');
-					break3.setAttribute('class', 'gonnaRemove');
-					break4.setAttribute('class', 'gonnaRemove');
-					break5.setAttribute('class', 'gonnaRemove');
-					break6.setAttribute('class', 'gonnaRemove');
-					break7.setAttribute('class', 'gonnaRemove');
-					break8.setAttribute('class', 'gonnaRemove');
-					
-					var page = document.getElementById('featurePage');
-					page.appendChild(link1);
-					page.appendChild(break1);
-					page.appendChild(link2);
-					page.appendChild(break2);
-					page.appendChild(link3);
-					page.appendChild(break3);
-					page.appendChild(link4);
-					page.appendChild(break4);
-					page.appendChild(link5);
-					page.appendChild(break5);
-					page.appendChild(link6);
-					page.appendChild(break6);
-					page.appendChild(link7);
-					page.appendChild(break7);
-					page.appendChild(link8);
-					page.appendChild(break8);
+					addUrbanPanelInfo();
 					
 					
 					
@@ -775,10 +553,8 @@ function main() {
 			if (firstClick == false) {
 				//do nothing
 			} else if (firstClick == true) {
-				var para = document.getElementsByClassName('gonnaRemove');
-				while (para[0]) {
-					para[0].parentNode.removeChild(para[0]);
-				}
+				
+				removePanelInfo();
 			}
 			
 			
@@ -788,111 +564,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					var title = document.getElementById("featurePageName");
-					title.innerHTML = target;
-					var pop2000 = document.getElementById("featurePop2000");
-					pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
-					var pop2010 = document.getElementById("featurePop2010");
-					pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
-					
-					var link1 = document.createElement("a");
-					var link2 = document.createElement("a");
-					var link3 = document.createElement("a");
-					var link4 = document.createElement("a");
-					var link5 = document.createElement("a");
-					var link6 = document.createElement("a");
-					var link7 = document.createElement("a");
-					var link8 = document.createElement("a");
-					
-					var text1 = document.createTextNode("Gov Website");
-					var text2 = document.createTextNode("Web Map URL");
-					var text3 = document.createTextNode("Comp Plan");
-					var text4 = document.createTextNode("Zoning Web");
-					var text5 = document.createTextNode("Haz Mit Web");
-					var text6 = document.createTextNode("Sus Plan");
-					var text7 = document.createTextNode("Cli Plan");
-					var text8 = document.createTextNode("Res Plan");
-					
-					link1.appendChild(text1);
-					link2.appendChild(text2);
-					link3.appendChild(text3);
-					link4.appendChild(text4);
-					link5.appendChild(text5);
-					link6.appendChild(text6);
-					link7.appendChild(text7);
-					link8.appendChild(text8);
-					
-					link1.setAttribute("id", "polyLink1");
-					link2.setAttribute("id", "polyLink2");
-					link3.setAttribute("id", "polyLink3");
-					link4.setAttribute("id", "polyLink4");
-					link5.setAttribute("id", "polyLink5");
-					link6.setAttribute("id", "polyLink6");
-					link7.setAttribute("id", "polyLink7");
-					link8.setAttribute("id", "polyLink8");
-					
-					link1.setAttribute("target", "_blank");
-					link2.setAttribute("target", "_blank");
-					link3.setAttribute("target", "_blank");
-					link4.setAttribute("target", "_blank");
-					link5.setAttribute("target", "_blank");
-					link6.setAttribute("target", "_blank");
-					link7.setAttribute("target", "_blank");
-					link8.setAttribute("target", "_blank");
-					
-					link1.setAttribute("class", "gonnaRemove");
-					link2.setAttribute("class", "gonnaRemove");
-					link3.setAttribute("class", "gonnaRemove");
-					link4.setAttribute("class", "gonnaRemove");
-					link5.setAttribute("class", "gonnaRemove");
-					link6.setAttribute("class", "gonnaRemove");
-					link7.setAttribute("class", "gonnaRemove");
-					link8.setAttribute("class", "gonnaRemove");
-					
-					var break1 = document.createElement("br");
-					var break2 = document.createElement("br");
-					var break3 = document.createElement("br");
-					var break4 = document.createElement("br");
-					var break5 = document.createElement("br");
-					var break6 = document.createElement("br");
-					var break7 = document.createElement("br");
-					var break8 = document.createElement("br");
-					
-					break1.setAttribute('id', 'break1');
-					break2.setAttribute('id', 'break2');
-					break3.setAttribute('id', 'break3');
-					break4.setAttribute('id', 'break4');
-					break5.setAttribute('id', 'break5');
-					break6.setAttribute('id', 'break6');
-					break7.setAttribute('id', 'break7');
-					break8.setAttribute('id', 'break8');
-					
-					break1.setAttribute('class', 'gonnaRemove');
-					break2.setAttribute('class', 'gonnaRemove');
-					break3.setAttribute('class', 'gonnaRemove');
-					break4.setAttribute('class', 'gonnaRemove');
-					break5.setAttribute('class', 'gonnaRemove');
-					break6.setAttribute('class', 'gonnaRemove');
-					break7.setAttribute('class', 'gonnaRemove');
-					break8.setAttribute('class', 'gonnaRemove');
-					
-					var page = document.getElementById('featurePage');
-					page.appendChild(link1);
-					page.appendChild(break1);
-					page.appendChild(link2);
-					page.appendChild(break2);
-					page.appendChild(link3);
-					page.appendChild(break3);
-					page.appendChild(link4);
-					page.appendChild(break4);
-					page.appendChild(link5);
-					page.appendChild(break5);
-					page.appendChild(link6);
-					page.appendChild(break6);
-					page.appendChild(link7);
-					page.appendChild(break7);
-					page.appendChild(link8);
-					page.appendChild(break8);
+					addUrbanPanelInfo();
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1622,6 +1294,242 @@ function main() {
 		}
 		
 		name.style.right = "0";
+	};
+	
+	
+	function addCountyPanelInfo() {
+		var title = document.getElementById("featurePageName");
+		title.innerHTML = target;
+		var pop2000 = document.getElementById("featurePop2000");
+		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
+		var pop2010 = document.getElementById("featurePop2010");
+		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
+					
+		var link1 = document.createElement("a");
+		var link2 = document.createElement("a");
+		var link3 = document.createElement("a");
+		var link4 = document.createElement("a");
+		var link5 = document.createElement("a");
+		var link6 = document.createElement("a");
+		var link7 = document.createElement("a");
+		var link8 = document.createElement("a");
+		var link9 = document.createElement("a");
+					
+		var text1 = document.createTextNode("Gov Website");
+		var text2 = document.createTextNode("Web Map URL");
+		var text3 = document.createTextNode("Web Map Other");
+		var text4 = document.createTextNode("Web Map State");
+		var text5 = document.createTextNode("Comp Plan");
+		var text6 = document.createTextNode("Haz Mit Plan");
+		var text7 = document.createTextNode("Climate Plan");
+		var text8 = document.createTextNode("Resilience Plan");
+		var text9 = document.createTextNode("Zoning URL")
+					
+		link1.appendChild(text1);
+		link2.appendChild(text2);
+		link3.appendChild(text3);
+		link4.appendChild(text4);
+		link5.appendChild(text5);
+		link6.appendChild(text6);
+		link7.appendChild(text7);
+		link8.appendChild(text8);
+		link9.appendChild(text9);
+					
+		link1.setAttribute("id", "countyLink1");
+		link2.setAttribute("id", "countyLink2");
+		link3.setAttribute("id", "countyLink3");
+		link4.setAttribute("id", "countyLink4");
+		link5.setAttribute("id", "countyLink5");
+		link6.setAttribute("id", "countyLink6");
+		link7.setAttribute("id", "countyLink7");
+		link8.setAttribute("id", "countyLink8");
+		link9.setAttribute("id", "countyLink9");
+					
+		link1.setAttribute("target", "_blank");
+		link2.setAttribute("target", "_blank");
+		link3.setAttribute("target", "_blank");
+		link4.setAttribute("target", "_blank");
+		link5.setAttribute("target", "_blank");
+		link6.setAttribute("target", "_blank");
+		link7.setAttribute("target", "_blank");
+		link8.setAttribute("target", "_blank");
+		link9.setAttribute("target", "_blank");
+					
+		link1.setAttribute("class", "gonnaRemove");
+		link2.setAttribute("class", "gonnaRemove");
+		link3.setAttribute("class", "gonnaRemove");
+		link4.setAttribute("class", "gonnaRemove");
+		link5.setAttribute("class", "gonnaRemove");
+		link6.setAttribute("class", "gonnaRemove");
+		link7.setAttribute("class", "gonnaRemove");
+		link8.setAttribute("class", "gonnaRemove");
+		link9.setAttribute("class", "gonnaRemove");
+					
+		var break1 = document.createElement("br");
+		var break2 = document.createElement("br");
+		var break3 = document.createElement("br");
+		var break4 = document.createElement("br");
+		var break5 = document.createElement("br");
+		var break6 = document.createElement("br");
+		var break7 = document.createElement("br");
+		var break8 = document.createElement("br");
+		var break9 = document.createElement("br");
+					
+		break1.setAttribute('id', 'break1');
+		break2.setAttribute('id', 'break2');
+		break3.setAttribute('id', 'break3');
+		break4.setAttribute('id', 'break4');
+		break5.setAttribute('id', 'break5');
+		break6.setAttribute('id', 'break6');
+		break7.setAttribute('id', 'break7');
+		break8.setAttribute('id', 'break8');
+		break9.setAttribute('id', 'break9');
+					
+		break1.setAttribute("class", "gonnaRemove");
+		break2.setAttribute("class", "gonnaRemove");
+		break3.setAttribute("class", "gonnaRemove");
+		break4.setAttribute("class", "gonnaRemove");
+		break5.setAttribute("class", "gonnaRemove");
+		break6.setAttribute("class", "gonnaRemove");
+		break7.setAttribute("class", "gonnaRemove");
+		break8.setAttribute("class", "gonnaRemove");
+		break9.setAttribute("class", "gonnaRemove");
+					
+		var page = document.getElementById('featurePage');
+		page.appendChild(link1);
+		page.appendChild(break1);
+		page.appendChild(link2);
+		page.appendChild(break2);
+		page.appendChild(link3);
+		page.appendChild(break3);
+		page.appendChild(link4);
+		page.appendChild(break4);
+		page.appendChild(link5);
+		page.appendChild(break5);
+		page.appendChild(link6);
+		page.appendChild(break6);
+		page.appendChild(link7);
+		page.appendChild(break7);
+		page.appendChild(link8);
+		page.appendChild(break8);
+		page.appendChild(link9);
+		page.appendChild(break9);
+	};
+	
+	function removePanelInfo() {
+		var para = document.getElementsByClassName('gonnaRemove');
+		while (para[0]) {
+			para[0].parentNode.removeChild(para[0]);
+		}
+	};
+	
+	
+	function addUrbanPanelInfo() {
+		var title = document.getElementById("featurePageName");
+		title.innerHTML = target;
+		var pop2000 = document.getElementById("featurePop2000");
+		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
+		var pop2010 = document.getElementById("featurePop2010");
+		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
+					
+		var link1 = document.createElement("a");
+		var link2 = document.createElement("a");
+		var link3 = document.createElement("a");
+		var link4 = document.createElement("a");
+		var link5 = document.createElement("a");
+		var link6 = document.createElement("a");
+		var link7 = document.createElement("a");
+		var link8 = document.createElement("a");
+					
+		var text1 = document.createTextNode("Gov Website");
+		var text2 = document.createTextNode("Web Map URL");
+		var text3 = document.createTextNode("Comp Plan");
+		var text4 = document.createTextNode("Zoning Web");
+		var text5 = document.createTextNode("Haz Mit Web");
+		var text6 = document.createTextNode("Sus Plan");
+		var text7 = document.createTextNode("Cli Plan");
+		var text8 = document.createTextNode("Res Plan");
+					
+		link1.appendChild(text1);
+		link2.appendChild(text2);
+		link3.appendChild(text3);
+		link4.appendChild(text4);
+		link5.appendChild(text5);
+		link6.appendChild(text6);
+		link7.appendChild(text7);
+		link8.appendChild(text8);
+					
+		link1.setAttribute("id", "pointLink1");
+		link2.setAttribute("id", "pointLink2");
+		link3.setAttribute("id", "pointLink3");
+		link4.setAttribute("id", "pointLink4");
+		link5.setAttribute("id", "pointLink5");
+		link6.setAttribute("id", "pointLink6");
+		link7.setAttribute("id", "pointLink7");
+		link8.setAttribute("id", "pointLink8");
+					
+		link1.setAttribute("target", "_blank");
+		link2.setAttribute("target", "_blank");
+		link3.setAttribute("target", "_blank");
+		link4.setAttribute("target", "_blank");
+		link5.setAttribute("target", "_blank");
+		link6.setAttribute("target", "_blank");
+		link7.setAttribute("target", "_blank");
+		link8.setAttribute("target", "_blank");
+					
+		link1.setAttribute("class", "gonnaRemove");
+		link2.setAttribute("class", "gonnaRemove");
+		link3.setAttribute("class", "gonnaRemove");
+		link4.setAttribute("class", "gonnaRemove");
+		link5.setAttribute("class", "gonnaRemove");
+		link6.setAttribute("class", "gonnaRemove");
+		link7.setAttribute("class", "gonnaRemove");
+		link8.setAttribute("class", "gonnaRemove");
+					
+		var break1 = document.createElement("br");
+		var break2 = document.createElement("br");
+		var break3 = document.createElement("br");
+		var break4 = document.createElement("br");
+		var break5 = document.createElement("br");
+		var break6 = document.createElement("br");
+		var break7 = document.createElement("br");
+		var break8 = document.createElement("br");
+					
+		break1.setAttribute('id', 'break1');
+		break2.setAttribute('id', 'break2');
+		break3.setAttribute('id', 'break3');
+		break4.setAttribute('id', 'break4');
+		break5.setAttribute('id', 'break5');
+		break6.setAttribute('id', 'break6');
+		break7.setAttribute('id', 'break7');
+		break8.setAttribute('id', 'break8');
+					
+		break1.setAttribute('class', 'gonnaRemove');
+		break2.setAttribute('class', 'gonnaRemove');
+		break3.setAttribute('class', 'gonnaRemove');
+		break4.setAttribute('class', 'gonnaRemove');
+		break5.setAttribute('class', 'gonnaRemove');
+		break6.setAttribute('class', 'gonnaRemove');
+		break7.setAttribute('class', 'gonnaRemove');
+		break8.setAttribute('class', 'gonnaRemove');
+					
+		var page = document.getElementById('featurePage');
+		page.appendChild(link1);
+		page.appendChild(break1);
+		page.appendChild(link2);
+		page.appendChild(break2);
+		page.appendChild(link3);
+		page.appendChild(break3);
+		page.appendChild(link4);
+		page.appendChild(break4);
+		page.appendChild(link5);
+		page.appendChild(break5);
+		page.appendChild(link6);
+		page.appendChild(break6);
+		page.appendChild(link7);
+		page.appendChild(break7);
+		page.appendChild(link8);
+		page.appendChild(break8);
 	};
 	
 	

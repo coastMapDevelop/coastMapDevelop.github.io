@@ -2,15 +2,20 @@
 
 
 Things to work on:
+	- change filter to remove everything but what you want
+	- change city, town, villages to buttons, from list
+	- change hover to change panel information, then back to what was clicked when not hovered
+	- move legend to more prominent location (always shown though)
+	- fix search
+	- after click search, on exit remove highlight
+	- add city, county, town, or village to panel
+	- when centering on county, make sure to not block any of the feature
 	- change buttons on filter page to custom
-	- when clicking a feature in the mobile menu, zoom first, then add info panel
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- decide upon fonts
-	- clicking on a feature in the search pane only zooms to county level, change to be able to zoom to county, town, city, or village
 	- no indicator that the currently selected urban polygon is the chosen one
 	- distinguish hover, click, and mouseout by LSAD for points and polygons
-	- tooltip in center of polygon
-	- move map attribution in view
+	- change tooltip to popup (or panel display)
 	- comment code
 	- documentation for JS file and code
 	- check mobile compatability
