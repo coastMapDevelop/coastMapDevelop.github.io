@@ -105,6 +105,8 @@ function main() {
         zoom: 9			  // map initiation zoom level
     });
 	
+	var hash = new L.Hash(map);
+	
 	
 	
 	// hydda.full tiles
