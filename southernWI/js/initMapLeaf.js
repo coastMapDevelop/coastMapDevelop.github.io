@@ -265,7 +265,7 @@ function main() {
 			
 			
 			
-			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
+			//layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
 			
 		
 			// set new style for hover county polygon
@@ -289,7 +289,7 @@ function main() {
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			
-			layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
+			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
 			layer.setStyle({
 				weight: 2,
 				fillOpacity: 1,
@@ -946,7 +946,8 @@ function main() {
 					index = z;
 				}
 			}
-			
+			 
+			 // here we need to loop and specify which layers are clicked
 			if (currentSelectArr[0] == "Towns") {
 				theLayer = townsPoints;
 			} else if (currentSelectArr[0] == "Cities") {

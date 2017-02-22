@@ -3,7 +3,7 @@
 
 Things to work on:
 	- change filter to remove everything but what you want
-	- change city, town, villages to buttons, from list
+	- change city, town, villages to buttons, from list (add functionality)
 	- change hover to change panel information, then back to what was clicked when not hovered
 	- move legend to more prominent location (always shown though)
 	- fix search

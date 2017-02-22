@@ -116,32 +116,38 @@ body {
 	z-index: 1001;
 	height: 50px;
 	width: 100%;
-	visibility: hidden;
+	visibility: visible;
 }
 
 #supBottomMenu {
 	position: absolute;
-	/*right: 85px;*/
-	right: 0;
+	right: 85px;
+	/*right: 0;*/
 	bottom: 0px;
 	height: 50px;
 	width: auto;
 	text-align: center;
 	background: transparent;
 	z-index: 1002;
-	/*color: #7B7D7D;*/
-	color: white;
+	color: #7B7D7D;
+	/*color: white;*/
 	opacity: .6;
 	cursor: pointer;
+	/*
 	-webkit-transition: .15s opacity;
 	-moz-transition: .15s opacity;
 	-o-transition: .15s opacity;
 	transition: .15s opacity;
+	*/
+	-webkit-transition: .25s color;
+	-moz-transition: .25s color;
+	-o-transition: .25s color;
+	transition: .25s color;
 }
 
 #supBottomMenu:hover {
-	/*color: black;*/
-	opacity: 1;
+	color: black;
+	/*opacity: 1;*/
 }
 
 #supBottomMenu p {
@@ -151,8 +157,8 @@ body {
 #bottomLegend {
 	position: absolute;
 	left: 10px;
-	/*bottom: 5px;*/
-	top: 90px;
+	bottom: 5px;
+	/*top: 90px;*/
 	background: transparent;
 	z-index: 1001;
 	height: 30px;
