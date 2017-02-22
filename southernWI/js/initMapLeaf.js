@@ -485,7 +485,11 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-			removePanelInfo("click");
+			if (clickHov == "click") {
+				removePanelInfo("click");
+			} else if (clickHov == "hover") {
+				removePanelInfo("hover");
+			}
 			/*
 			if (firstClick == false) {
 				
@@ -538,7 +542,11 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-			removePanelInfo("click");
+			if (clickHov == "click") {
+				removePanelInfo("click");
+			} else if (clickHov == "hover") {
+				removePanelInfo("hover");
+			}
 			/*
 			if (firstClick == false) {
 				
@@ -593,7 +601,11 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-			removePanelInfo("click");
+			if (clickHov == "click") {
+				removePanelInfo("click");
+			} else if (clickHov == "hover") {
+				removePanelInfo("hover");
+			}
 			/*
 			if (firstClick == false) {
 				
