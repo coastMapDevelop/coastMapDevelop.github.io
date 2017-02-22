@@ -1520,8 +1520,11 @@ function main() {
 	
 	function removePanelInfo(clickHov) {
 		if (clickHov == "click") {
+			console.log('test');
 			var para = document.getElementsByClassName('gonnaRemoveClick');
+			console.log('test2');
 			while (para[0]) {
+				console.log('test3');
 				para[0].parentNode.removeChild(para[0]);
 			}
 		} else if (clickHov == "hover") {
