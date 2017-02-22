@@ -250,12 +250,17 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
+		var hoverPanel = document.getElementById("hoverFeaturePage");
+		hoverPanel.style.right = "75px";
+		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			// experimental
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			/*
 			if (hoverControl == false) {
 				checkFeaturePage("featurePage");
 			}
+			*/
 			
 			
 			
@@ -289,7 +294,10 @@ function main() {
 	
 	// on mouseout
 	function resetHighlight(e) {
+		var hoverPanel = document.getElementById("hoverFeaturePage");
+		hoverPanel.style.right = "";
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
+
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
@@ -336,7 +344,7 @@ function main() {
 			//console.log(clickedCountyName);
 			
 			map.setView(center, 10);
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
@@ -382,7 +390,7 @@ function main() {
 			}, 50);
 			
 			map.setView(center, 10);
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type); // call function to cross reference clicked layer name with google spreadsheet data
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
@@ -394,7 +402,7 @@ function main() {
 			removeMarkers();
 			clickedUrbanPolyName.push(layer.feature.properties.Name_1);
 			
-			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor); // call function to cross reference clicked layer name with google spreadsheet data
+			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 		firstClick = true;
 	};
@@ -456,7 +464,7 @@ function main() {
 	};
 	
 	// function to cross reference name of county polygon with google spreadsheet
-	function crossReference(e, layer, props, type, color) {
+	function crossReference(e, layer, props, type, color, clickHov) {
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
 			var target = props.NAME10; // reference
 			
@@ -477,7 +485,7 @@ function main() {
 				if (target == googleSpreadsheet[i][0]) {
 					
 					
-					addCountyPanelInfo(target, i);
+					addCountyPanelInfo(target, i, clickHov);
 					/*
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + " County</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" + "<br>" + 
@@ -526,7 +534,7 @@ function main() {
 					
 					
 					
-					addUrbanPanelInfo(target, i);
+					addUrbanPanelInfo(target, i, clickHov);
 					
 					
 					
@@ -574,7 +582,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					addUrbanPanelInfo(target, i);
+					addUrbanPanelInfo(target, i, clickHov);
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1308,8 +1316,15 @@ function main() {
 	};
 	
 	
-	function addCountyPanelInfo(target, i) {
-		var title = document.getElementById("featurePageName");
+	function addCountyPanelInfo(target, i, clickHov) {
+		if (clickHov == "click") {
+			var title = document.getElementById("featurePageName");
+			var page = document.getElementById('featurePage');
+		} else if (clickHov == "hover") {
+			var title = document.getElementById("hoverFeaturePageName");
+			var page = document.getElementById("hoverFeaturePage");
+		}
+		
 		title.innerHTML = target;
 		var pop2000 = document.getElementById("featurePop2000");
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
@@ -1406,7 +1421,7 @@ function main() {
 		break8.setAttribute("class", "gonnaRemove");
 		break9.setAttribute("class", "gonnaRemove");
 					
-		var page = document.getElementById('featurePage');
+		
 		page.appendChild(link1);
 		page.appendChild(break1);
 		page.appendChild(link2);
@@ -1435,8 +1450,16 @@ function main() {
 	};
 	
 	
-	function addUrbanPanelInfo(target, i) {
-		var title = document.getElementById("featurePageName");
+	function addUrbanPanelInfo(target, i, clickHov) {
+		if (clickHov == "click") {
+			var title = document.getElementById("featurePageName");
+			var page = document.getElementById('featurePage');
+		} else if (clickHov == "hover") {
+			var title = document.getElementById("hoverFeaturePageName");
+			var page = document.getElementById("hoverFeaturePage");
+		}
+		
+		
 		title.innerHTML = target;
 		var pop2000 = document.getElementById("featurePop2000");
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
@@ -1524,7 +1547,7 @@ function main() {
 		break7.setAttribute('class', 'gonnaRemove');
 		break8.setAttribute('class', 'gonnaRemove');
 					
-		var page = document.getElementById('featurePage');
+		
 		page.appendChild(link1);
 		page.appendChild(break1);
 		page.appendChild(link2);
