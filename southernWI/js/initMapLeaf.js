@@ -265,6 +265,7 @@ function main() {
 			
 			
 			layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
+			
 		
 			// set new style for hover county polygon
 			layer.setStyle({
@@ -275,7 +276,9 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			
-			layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
+			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
+			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
+					
 				
 			layer.setStyle({
 				weight: 2,
@@ -322,6 +325,7 @@ function main() {
 			villagesPolygon.resetStyle(e.target);
 		}
 		this.closeTooltip(); // close tooltip on mouseout
+	
 	};
 	
 	
@@ -475,12 +479,13 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-			
+			/*
 			if (firstClick == false) {
-				//do nothing
+				
 			} else if (firstClick == true) {
 				removePanelInfo();
 			}
+			*/
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
@@ -522,12 +527,13 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
-			
+			/*
 			if (firstClick == false) {
-				//do nothing
+				
 			} else if (firstClick == true) {
 				removePanelInfo();
 			}
+			*/
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -572,12 +578,14 @@ function main() {
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
+			/*
 			if (firstClick == false) {
-				//do nothing
+				
 			} else if (firstClick == true) {
 				
 				removePanelInfo();
 			}
+			*/
 			
 			
 			// loop to retrieve necessary data from spreadsheet 
@@ -1321,12 +1329,15 @@ function main() {
 	
 	
 	function addCountyPanelInfo(target, i, clickHov) {
+		removePanelInfo(clickHov);
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
+			var removeClass = "gonneRemoveClick";
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
+			var removeClass = "gonnaRemoveHover";
 		}
 		
 		title.innerHTML = target;
@@ -1385,15 +1396,15 @@ function main() {
 		link8.setAttribute("target", "_blank");
 		link9.setAttribute("target", "_blank");
 					
-		link1.setAttribute("class", "gonnaRemove");
-		link2.setAttribute("class", "gonnaRemove");
-		link3.setAttribute("class", "gonnaRemove");
-		link4.setAttribute("class", "gonnaRemove");
-		link5.setAttribute("class", "gonnaRemove");
-		link6.setAttribute("class", "gonnaRemove");
-		link7.setAttribute("class", "gonnaRemove");
-		link8.setAttribute("class", "gonnaRemove");
-		link9.setAttribute("class", "gonnaRemove");
+		link1.setAttribute("class", removeClass);
+		link2.setAttribute("class", removeClass);
+		link3.setAttribute("class", removeClass);
+		link4.setAttribute("class", removeClass);
+		link5.setAttribute("class", removeClass);
+		link6.setAttribute("class", removeClass);
+		link7.setAttribute("class", removeClass);
+		link8.setAttribute("class", removeClass);
+		link9.setAttribute("class", removeClass);
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -1415,15 +1426,15 @@ function main() {
 		break8.setAttribute('id', 'break8');
 		break9.setAttribute('id', 'break9');
 					
-		break1.setAttribute("class", "gonnaRemove");
-		break2.setAttribute("class", "gonnaRemove");
-		break3.setAttribute("class", "gonnaRemove");
-		break4.setAttribute("class", "gonnaRemove");
-		break5.setAttribute("class", "gonnaRemove");
-		break6.setAttribute("class", "gonnaRemove");
-		break7.setAttribute("class", "gonnaRemove");
-		break8.setAttribute("class", "gonnaRemove");
-		break9.setAttribute("class", "gonnaRemove");
+		break1.setAttribute("class", removeClass);
+		break2.setAttribute("class", removeClass);
+		break3.setAttribute("class", removeClass);
+		break4.setAttribute("class", removeClass);
+		break5.setAttribute("class", removeClass);
+		break6.setAttribute("class", removeClass);
+		break7.setAttribute("class", removeClass);
+		break8.setAttribute("class", removeClass);
+		break9.setAttribute("class", removeClass);
 					
 		
 		page.appendChild(link1);
@@ -1446,21 +1457,32 @@ function main() {
 		page.appendChild(break9);
 	};
 	
-	function removePanelInfo() {
-		var para = document.getElementsByClassName('gonnaRemove');
-		while (para[0]) {
-			para[0].parentNode.removeChild(para[0]);
+	function removePanelInfo(clickHov) {
+		if (clickHov == "click") {
+			var para = document.getElementsByClassName('gonnaRemoveClick');
+			while (para[0]) {
+				para[0].parentNode.removeChild(para[0]);
+			}
+		} else if (clickHov == "hover") {
+			var para = document.getElementsByClassName('gonnaRemoveHover');
+			while (para[0]) {
+				para[0].parentNode.removeChild(para[0]);
+			}
 		}
+		
 	};
 	
 	
 	function addUrbanPanelInfo(target, i, clickHov) {
+		removePanelInfo(clickHov);
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
+			var removeClass = "gonnaRemoveClick";
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
+			var removeClass = "gonnaRemoveHover";
 		}
 		
 		
@@ -1515,14 +1537,14 @@ function main() {
 		link7.setAttribute("target", "_blank");
 		link8.setAttribute("target", "_blank");
 					
-		link1.setAttribute("class", "gonnaRemove");
-		link2.setAttribute("class", "gonnaRemove");
-		link3.setAttribute("class", "gonnaRemove");
-		link4.setAttribute("class", "gonnaRemove");
-		link5.setAttribute("class", "gonnaRemove");
-		link6.setAttribute("class", "gonnaRemove");
-		link7.setAttribute("class", "gonnaRemove");
-		link8.setAttribute("class", "gonnaRemove");
+		link1.setAttribute("class", removeClass);
+		link2.setAttribute("class", removeClass);
+		link3.setAttribute("class", removeClass);
+		link4.setAttribute("class", removeClass);
+		link5.setAttribute("class", removeClass);
+		link6.setAttribute("class", removeClass);
+		link7.setAttribute("class", removeClass);
+		link8.setAttribute("class", removeClass);
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -1542,14 +1564,14 @@ function main() {
 		break7.setAttribute('id', 'break7');
 		break8.setAttribute('id', 'break8');
 					
-		break1.setAttribute('class', 'gonnaRemove');
-		break2.setAttribute('class', 'gonnaRemove');
-		break3.setAttribute('class', 'gonnaRemove');
-		break4.setAttribute('class', 'gonnaRemove');
-		break5.setAttribute('class', 'gonnaRemove');
-		break6.setAttribute('class', 'gonnaRemove');
-		break7.setAttribute('class', 'gonnaRemove');
-		break8.setAttribute('class', 'gonnaRemove');
+		break1.setAttribute('class', removeClass);
+		break2.setAttribute('class', removeClass);
+		break3.setAttribute('class', removeClass);
+		break4.setAttribute('class', removeClass);
+		break5.setAttribute('class', removeClass);
+		break6.setAttribute('class', removeClass);
+		break7.setAttribute('class', removeClass);
+		break8.setAttribute('class', removeClass);
 					
 		
 		page.appendChild(link1);
