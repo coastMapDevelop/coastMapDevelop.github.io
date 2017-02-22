@@ -1336,7 +1336,7 @@ function main() {
 	
 	
 	function addCountyPanelInfo(target, i, clickHov) {
-		removePanelInfo(clickHov);
+		
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
@@ -1481,7 +1481,7 @@ function main() {
 	
 	
 	function addUrbanPanelInfo(target, i, clickHov) {
-		removePanelInfo(clickHov);
+	
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
