@@ -252,9 +252,10 @@ function main() {
 		
 		var hoverPanel = document.getElementById("hoverFeaturePage");
 		hoverPanel.style.right = "75px";
-		removePanelInfo("hover");
+		
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+			removePanelInfo("hover");
 			// experimental
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			/*
@@ -275,6 +276,7 @@ function main() {
 			});
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
+			removePanelInfo("hover");
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			
 			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
@@ -287,6 +289,7 @@ function main() {
 			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			removePanelInfo("hover");
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			
 			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
