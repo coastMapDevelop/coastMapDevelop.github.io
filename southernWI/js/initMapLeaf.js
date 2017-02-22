@@ -467,7 +467,7 @@ function main() {
 				if (target == googleSpreadsheet[i][0]) {
 					
 					
-					addCountyPanelInfo();
+					addCountyPanelInfo(target);
 					/*
 					// set clicked popup with data and add to map
 					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + " County</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" + "<br>" + 
@@ -516,7 +516,7 @@ function main() {
 					
 					
 					
-					addUrbanPanelInfo();
+					addUrbanPanelInfo(target);
 					
 					
 					
@@ -564,7 +564,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					addUrbanPanelInfo();
+					addUrbanPanelInfo(target);
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1297,7 +1297,7 @@ function main() {
 	};
 	
 	
-	function addCountyPanelInfo() {
+	function addCountyPanelInfo(target) {
 		var title = document.getElementById("featurePageName");
 		title.innerHTML = target;
 		var pop2000 = document.getElementById("featurePop2000");
@@ -1424,7 +1424,7 @@ function main() {
 	};
 	
 	
-	function addUrbanPanelInfo() {
+	function addUrbanPanelInfo(target) {
 		var title = document.getElementById("featurePageName");
 		title.innerHTML = target;
 		var pop2000 = document.getElementById("featurePop2000");
