@@ -484,7 +484,7 @@ function main() {
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
 			var target = props.NAME10; // reference
 			
-			
+			console.log(layer);
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
@@ -567,7 +567,7 @@ function main() {
 					
 					
 					
-					addUrbanPanelInfo(target, i, clickHov, layer);
+					addUrbanPanelInfo(target, i, clickHov);
 					
 					
 					
@@ -625,7 +625,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					addUrbanPanelInfo(target, i, clickHov, layer);
+					addUrbanPanelInfo(target, i, clickHov);
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1558,10 +1558,8 @@ function main() {
 	};
 	
 	
-	function addUrbanPanelInfo(target, i, clickHov, layer) {
+	function addUrbanPanelInfo(target, i, clickHov) {
 		if (clickHov == "click") {
-			console.log('test');
-			console.log(layer);
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
 			var pop2000 = document.getElementById("featurePop2000");
