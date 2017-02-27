@@ -484,7 +484,7 @@ function main() {
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
 			var target = props.NAME10; // reference
 			
-			console.log(layer);
+			console.log(color);
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
