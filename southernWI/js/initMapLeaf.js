@@ -1008,6 +1008,7 @@ function main() {
 						if (layer.feature.properties.filter = "false") {
 							layer.feature.properties.filter = "false";
 						} else {
+							console.log('true');
 							layer.feature.properties.filter = "true";
 						}
 					}
