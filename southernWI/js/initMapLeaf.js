@@ -567,7 +567,7 @@ function main() {
 					
 					
 					
-					addUrbanPanelInfo(target, i, clickHov);
+					addUrbanPanelInfo(target, i, clickHov, layer);
 					
 					
 					
@@ -625,7 +625,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					addUrbanPanelInfo(target, i, clickHov);
+					addUrbanPanelInfo(target, i, clickHov, layer);
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1558,8 +1558,8 @@ function main() {
 	};
 	
 	
-	function addUrbanPanelInfo(target, i, clickHov) {
-	
+	function addUrbanPanelInfo(target, i, clickHov, layer) {
+		console.log(layer);
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');

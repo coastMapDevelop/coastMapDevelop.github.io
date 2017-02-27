@@ -4,31 +4,34 @@
 Things to work on:
 	- change filter to remove everything but what you want
 	- change city, town, villages to buttons, from list (add functionality)
-	- change hover to change panel information, then back to what was clicked when not hovered
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side)
 	- fix search
 	- after click search, on exit remove highlight
-	- add city, county, town, or village to panel
-	- when centering on county, make sure to not block any of the feature
+	- add city, county, town, or village to panel (header)
+	- when centering on county, make sure to not block any of the features
 	- change buttons on filter page to custom
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- decide upon fonts
 	- no indicator that the currently selected urban polygon is the chosen one
 	- distinguish hover, click, and mouseout by LSAD for points and polygons
-	- change tooltip to popup (or panel display)
-	- comment code
-	- documentation for JS file and code
 	- check mobile compatability
 	- JS code performance updates
-		- fix for loop efficiency proble
-		- allow for most adaptability possible
+		- fix for loop efficiency problem
 	- when going into mobile mode, remove all pullOutPages that are active
 
 	- data sources - will be more
-	- maybe have polygon inside the information panel?
-	- need milwaukee city polygon (not in sources?)
+	- maybe have polygon inside the information panel???
+	- need milwaukee city polygon (not in sources???)
 	- need new urban polygon data (clipped to shoreline)
 	- AJ suggested mapshaper urban polygon simplification
 	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
 	
 	- help with julianne cooper on a project (future)
+
+	- when finished:
+		- comment code
+		- documentation for JS file
+		- documentation for HTML file
+		- documentation for CSS file
+		- documentation for performing specific tasks
+		
