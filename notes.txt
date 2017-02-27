@@ -2,9 +2,8 @@
 
 
 Things to work on:
-	- change filter to remove everything but what you want
-	- change city, town, villages to buttons, from list (add functionality)
-	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side)
+	- all all selector for dropdown (filter)
+	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- fix search
 	- after click search, on exit remove highlight
 	- when centering on county, make sure to not block any of the features

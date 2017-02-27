@@ -1125,13 +1125,14 @@ function main() {
 							map.setView(center, 10);
 							checkFeaturePage("featurePage");
 							removeMarkers();
-							crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor);
+							crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 						}
 					});
 				}
 			});
 		} else if (num == 1) {
 			alert('urban point searched');
+			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
 				
@@ -1155,11 +1156,44 @@ function main() {
 		
 		function urbanSearch(layer) {
 			removeMarkers();
-
+			
 			// add animated point
+			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+			myMarkers.addLayer(marker);
+			myMarkers.bringToBack();
+			//geojson.bringToBack();
+			
+			circleInterval = setInterval(function() {
+				myMarkers.eachLayer(function (layer) {
+    				var radius = layer.getRadius();
+    				
+    				if (radius == maxRadius) {
+    					radiusControl = false;
+    				} else if (radius == minRadius) {
+    					radiusControl = true;
+    				} else if (radius < maxRadius && radius > minRadius) {
+    					
+    				}
+    				
+    				if (radiusControl == true) {
+    					var newRadius = radius + .5;
+    				} else if (radiusControl == false) {
+    					var newRadius = radius - .5;
+    				}
+    				
+    				layer.setRadius(newRadius);
+    				
+    				
+    				
+				});
+			}, 50);
+			
 			// center on point
+			map.setView(center, 10);
 			// checkfeaturepage
+			checkFeaturePage('featurePage');
 			// crossreference
+			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 		};
 	};
 	
