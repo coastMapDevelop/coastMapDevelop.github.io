@@ -1133,7 +1133,7 @@ function main() {
 				}
 			});
 		} else if (num == 1) {
-			//alert('urban point searched');
+			alert('urban point searched');
 			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
