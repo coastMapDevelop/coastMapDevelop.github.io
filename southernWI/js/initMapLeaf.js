@@ -1005,7 +1005,7 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 						// add to array true
-						if (layer.feature.properties.filter = "false") {
+						if (layer.feature.properties.filter == "false") {
 							layer.feature.properties.filter = "false";
 						} else {
 							console.log('true');
