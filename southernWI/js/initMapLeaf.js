@@ -1155,13 +1155,14 @@ function main() {
 		}
 		
 		function urbanSearch(layer) {
+			var center = layer._latlng;
 			removeMarkers();
 			
 			// add animated point
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
-			//geojson.bringToBack();
+			geojson.bringToBack();
 			
 			circleInterval = setInterval(function() {
 				myMarkers.eachLayer(function (layer) {
