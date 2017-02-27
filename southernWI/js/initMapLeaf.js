@@ -955,6 +955,7 @@ function main() {
 	
 	
 	function testFilter() {
+		resetFilter();
 		var index;
 		var row;
 		var theLayer;

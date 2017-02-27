@@ -26,6 +26,7 @@ Things to work on:
 	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
 	
 	- help with julianne cooper on a project (future)
+	- get townships for other coastal states
 
 	- when finished:
 		- comment code
