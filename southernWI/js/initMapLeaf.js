@@ -1120,6 +1120,8 @@ function main() {
 						if (name == layer.feature.properties.NAME10) {
 							// zoom to that feature
 							//map.fitBounds(layer.getBounds());
+							clickedCountyName.length = 0;
+							clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
