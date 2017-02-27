@@ -1559,8 +1559,9 @@ function main() {
 	
 	
 	function addUrbanPanelInfo(target, i, clickHov, layer) {
-		console.log(layer);
 		if (clickHov == "click") {
+			console.log('test');
+			console.log(layer);
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
 			var pop2000 = document.getElementById("featurePop2000");
