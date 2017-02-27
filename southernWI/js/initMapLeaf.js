@@ -481,10 +481,11 @@ function main() {
 	
 	// function to cross reference name of county polygon with google spreadsheet
 	function crossReference(e, layer, props, type, color, clickHov) {
+		var featureColor = color;
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
 			var target = props.NAME10; // reference
 			
-			console.log(color);
+			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
@@ -567,7 +568,7 @@ function main() {
 					
 					
 					
-					addUrbanPanelInfo(target, i, clickHov);
+					addUrbanPanelInfo(target, i, clickHov, featureColor);
 					
 					
 					
@@ -625,7 +626,7 @@ function main() {
 			for (i=0; i < gglSprd2; i++) {
 				if (target == googleSpreadsheet2[i][0]) {
 					
-					addUrbanPanelInfo(target, i, clickHov);
+					addUrbanPanelInfo(target, i, clickHov, featureColor);
 					
 					/*
 					// set clicked popup with data and add to map
@@ -1558,7 +1559,16 @@ function main() {
 	};
 	
 	
-	function addUrbanPanelInfo(target, i, clickHov) {
+	function addUrbanPanelInfo(target, i, clickHov, color) {
+		var featureColorSelector;
+		if (color == colorPal[1][0]) {
+			featureColorSelector = ", City";
+		} else if (color == colorPal[2][0]) {
+			featureColorSelector = ", Town";
+		} else if (color == colorPal[3][0]) {
+			featureColorSelector = ", Village";
+		}
+		
 		if (clickHov == "click") {
 			var title = document.getElementById("featurePageName");
 			var page = document.getElementById('featurePage');
@@ -1590,7 +1600,7 @@ function main() {
 		}
 		
 		
-		title.innerHTML = target;
+		title.innerHTML = target + featureColorSelector;
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
 		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
 					
