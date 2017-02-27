@@ -960,32 +960,92 @@ function main() {
 		var theLayer;
 		var ppupPnt = popupPointArr.length;
 		var gglSprd2 = googleSpreadsheet2.length;
-			
+		
+		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
-		for (i=0; i < ccChk; i++) {		// go throuch each attribute in currentCheckArr
+		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
 			
+			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row
 			var z;
-			
 			for (z=0; z < ppupPnt; z++) {
 				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
 			}
 			 
-			 // here we need to loop and specify which layers are clicked
-			if (currentSelectArr[0] == "Towns") {
-				theLayer = townsPoints;
-			} else if (currentSelectArr[0] == "Cities") {
-				theLayer = citiesPoints;
-			} else if (currentSelectArr[0] == "Villages") {
-				theLayer = villagesPoints;
+			// third, determine which layers were selected
+			var g;
+			var currSltA = currentSelectArr.length;
+			for (g=0; g < currSltA; g++) {
+				if (currentSelectArr[g] == "Towns") {
+					theLayer = townsPoints;
+				} else if (currentSelectArr[g] == "Cities") {
+					theLayer = citiesPoints;
+				} else if (currentSelectArr[g] == "Villages") {
+					theLayer = villagesPoints;
+				}
+				
+				// fourth, loop through the selected layer
+				theLayer.eachLayer(function (layer) {
+					var name = layer.feature.properties.name;
+					//fifth, find the match row on the google spreadsheet
+					var m;
+					for (m=0; m < gglSprd2; m++) {
+						if (name == googleSpreadsheet2[m][0]) {
+							var row = m;		// match row is found
+						}
+					}
+					
+					// sixth, check if attribute is null or not
+					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+						// add to array false
+						layer.feature.properties.filter = "false";
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.unbindTooltip();
+					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
+						// add to array true
+						if (layer.feature.properties.filter = "false") {
+							layer.feature.properties.filter = "false";
+						} else {
+							layer.feature.properties.filter = "true";
+						}
+					}
+				});
+				
+				// seventh, for the layers that were not selected for filtering, remove
+				if (currentSelectArr.indexOf("Towns") == -1) {
+					// remove all towns, treat as null
+					townsPoints.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
+					});
+				}
+				
+				if (currentSelectArr.indexOf("Cities") == -1) {
+					// remove all cities, treat as null
+					citiesPoints.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
+					});
+				}
+				
+				if (currentSelectArr.indexOf("Villages") == -1) {
+					// remove all vilages, treat as null
+					villagesPoints.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
+					});
+				}
 			}
 			
-			theLayer.eachLayer(function (layer) {			// go through each layer in geojson layer
+			/*
+			// fourth, go through each layer that was selected
+			theLayer.eachLayer(function (layer) {			
 				var name = layer.feature.properties.name;	// get the name of the layer
 				// for this layer only, find the match row on the google spreadsheet
+				// fifth, find the match row on the google spreadsheet
 				var m;
 				for(m=0; m < gglSprd2; m++) {
 					if (name == googleSpreadsheet2[m][0]) {
@@ -995,6 +1055,7 @@ function main() {
 					}
 				}
 				
+				// sixth, check if attribute is null or not
 				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
 					// add to array false
 					layer.feature.properties.filter = "false";
@@ -1009,21 +1070,39 @@ function main() {
 					}
 				}
 			});
+			*/
 		}
 	};
 	
 	function resetFilter() {
+		/*
 		var theLayer;
-		
-		if (currentSelectArr[0] == "Towns") {
-			theLayer = townsPoints;
-		} else if (currentSelectArr[0] == "Cities") {
-			theLayer = citiesPoints;
-		} else if (currentSelectArr[0] == "Villages") {
-			theLayer = villagesPoints;
-		}
+		var g;
+		var currSltA = currentSelectArr.length;
+		for (g=0; g < currSltA; g++) {
+			if (currentSelectArr[g] == "Towns") {
+				theLayer = townsPoints;
+			} else if (currentSelectArr[g] == "Cities") {
+				theLayer = citiesPoints;
+			} else if (currentSelectArr[g] == "Villages") {
+				theLayer = villagesPoints;
+			}
 			
-		theLayer.eachLayer(function (layer) {
+			theLayer.eachLayer(function (layer) {
+				layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+				layer.feature.properties.filter = "true";
+			});
+		}
+		*/
+		townsPoints.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+		citiesPoints.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+		villagesPoints.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
 		});
