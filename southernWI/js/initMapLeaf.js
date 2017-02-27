@@ -1003,7 +1003,6 @@ function main() {
 						// add to array false
 						layer.feature.properties.filter = "false";
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
-						layer.unbindTooltip();
 					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 						// add to array true
 						if (layer.feature.properties.filter = "false") {
