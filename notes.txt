@@ -9,7 +9,8 @@ Things to work on:
 	- check mobile compatability
 	- JS code performance updates
 		- fix for loop efficiency problem
-	- when going into mobile mode, remove all pullOutPages that are active
+	- check and optimize variable declarations
+	- check and optimize function placements
 
 	- data sources - will be more
 	- maybe have polygon inside the information panel???
