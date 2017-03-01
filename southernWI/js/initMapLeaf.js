@@ -45,25 +45,25 @@ function main() {
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
-		['pointLink1', 'Govt Web', 3, 'pointLink1b'],
-		['pointLink2', 'Map Web', 4, 'pointLink2b'],
-		['pointLink3', 'Comp Plan', 5, 'pointLink3b'],
-		['pointLink4', 'Zoning Web', 6, 'pointLink4b'],
-		['pointLink5', 'Haz Mit Web', 7, 'pointLink5b'],
-		['pointLink6', 'Sus Plan', 8, 'pointLink6b'],
-		['pointLink7', 'Cli Plan', 9, 'pointLink7b'],
-		['pointLink8', 'Res Plan', 10, 'pointLink8b']
+		['pointLink1', 'Govt Web', 4, 'pointLink1b'],
+		['pointLink2', 'Map Web', 5, 'pointLink2b'],
+		['pointLink3', 'Comp Plan', 6, 'pointLink3b'],
+		['pointLink4', 'Zoning Web', 7, 'pointLink4b'],
+		['pointLink5', 'Haz Mit Web', 8, 'pointLink5b'],
+		['pointLink6', 'Sus Plan', 9, 'pointLink6b'],
+		['pointLink7', 'Cli Plan', 10, 'pointLink7b'],
+		['pointLink8', 'Res Plan', 11, 'pointLink8b']
 	];
 	// for naming and assigning popup content for urban polygons
 	var popupPolyArr = [
-		['polyLink1', 'Govt Web', 3, 'polyLink1b'],
-		['polyLink2', 'Map Web', 4, 'polyLink2b'],
-		['polyLink3', 'Comp Plan', 5, 'polyLink3b'],
-		['polyLink4', 'Zoning Web', 6, 'polyLink4b'],
-		['polyLink5', 'Haz Mit Web', 7, 'polyLink5b'],
-		['polyLink6', 'Sus Plan', 8, 'polyLink6b'],
-		['polyLink7', 'Cli Plan', 9, 'polyLink7b'],
-		['polyLink8', 'Res Plan', 10, 'polyLink8b']
+		['polyLink1', 'Govt Web', 4, 'polyLink1b'],
+		['polyLink2', 'Map Web', 5, 'polyLink2b'],
+		['polyLink3', 'Comp Plan', 6, 'polyLink3b'],
+		['polyLink4', 'Zoning Web', 7, 'polyLink4b'],
+		['polyLink5', 'Haz Mit Web', 8, 'polyLink5b'],
+		['polyLink6', 'Sus Plan', 9, 'polyLink6b'],
+		['polyLink7', 'Cli Plan', 10, 'polyLink7b'],
+		['polyLink8', 'Res Plan', 11, 'polyLink8b']
 	];
 	// array that stores colors for map and legend
 	var colorPal = [
@@ -548,7 +548,7 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target2 == googleSpreadsheet2[i][4]) {
+				if (target2 == googleSpreadsheet2[i][1]) {
 					
 					
 					
@@ -593,7 +593,7 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target2 == googleSpreadsheet2[i][4]) {
+				if (target2 == googleSpreadsheet2[i][1]) {
 					
 					addUrbanPanelInfo(target, i, clickHov, featureColor);
 					
@@ -1224,10 +1224,9 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
+					var arr = [row[0], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
 					googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
 				}
-				console.log(googleSpreadsheet2);
 			} else {
 				console.log('No data found.');
 			}
@@ -1679,8 +1678,8 @@ function main() {
 		
 		
 		title.innerHTML = target + featureColorSelector;
-		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][1];
-		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][2];
+		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][2];
+		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][3];
 					
 		var link1 = document.createElement("a");
 		var link2 = document.createElement("a");
