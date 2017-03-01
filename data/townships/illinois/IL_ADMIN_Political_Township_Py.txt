@@ -1,0 +1,198 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: Tom Heavisides, Office of Realty and Environmental Planning
+      Publication_Date: 1985
+      Title: Political Townships in Illinois
+      Edition: 20040330
+      Geospatial_Data_Presentation_Form: map
+      Series_Information:
+        Series_Name: IGIS GIS Database
+        Issue_Identification: GISDB.IL_ADMIN_Political_Township_Py
+      Publication_Information:
+        Publication_Place: Champaign, Illinois
+        Publisher: Illinois Department of Natural Resources
+      Online_Linkage: http://www.isgs.illinois.edu/
+      Online_Linkage: http://illinois.edu
+  Description:
+    Abstract: This map shows political township boundaries of Illinois.
+    Purpose:
+      The purpose of this map is to show political (voting) townships in Illinois. Information contained in this data set is valid unless there has been re-districting since 1985.
+
+      These data are appropriate for use in regional thematic analysis. The data are not appropriate as a geodetic, legal or engineering base. The data set was not and is not intended as a substitute for surveyed locations, such as can be determined by a registered Public Land Surveyor. Although useful in a GIS as a thematic, reference, or base layer for maps, the data set has no legal basis in the definition of boundaries or property lines.
+    Supplemental_Information: This is edition 20040330.  The previous edition was 1.0.  Recent updates:  the data were converted from coverage storage model to SDE storage model.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 1985
+    Currentness_Reference: publication date
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: None planned
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -91.58050943
+      East_Bounding_Coordinate: -87.38825182
+      North_Bounding_Coordinate: 42.49669441
+      South_Bounding_Coordinate: 36.9521143
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: none
+      Theme_Keyword: township
+      Theme_Keyword: political boundary
+      Theme_Keyword: vote
+      Theme_Keyword: district
+      Theme_Keyword: political
+    Place:
+      Place_Keyword_Thesaurus: none
+      Place_Keyword: Illinois
+  Access_Constraints:
+    ISGS information must be obtained directly from the ISGS or from an authorized distributor.  Be aware that ISGS information obtained from an unauthorized third party may have been altered subsequent to original distribution, or may no longer be current.
+
+    Any access to these data, Web sites, computer systems, electronic services, and electronic networks is governed by University and campus policies, in particular, but not limited to, the Policy on Appropriate Use of Computers and Network Systems at the University of Illinois at Urbana-Champaign, the ISGS Terms of Use document available at the ISGS Web site, and the University of Illinois Web Privacy Notice.
+
+    Links to these are provided in the Cross References section.
+  Use_Constraints:
+    ISGS information is the property of and copyrighted by the Board of Trustees of the University of Illinois with all rights reserved.  University copyright policy is stated in the General Rules Concerning University Organization and Procedure, Article III, Section 4.  A link is provided in the Cross References section.
+
+    Individuals or entities may make fair use of copyrighted ISGS material, such as reproducing a single figure or table, or using a brief text quotation, without obtaining formal permission, but in all cases the Illinois State Geological Survey must be credited as the source of the material. To reproduce ISGS information beyond the fair use standard, permission must be obtained from the ISGS Information Office, 615 East Peabody Drive, Champaign, Illinois 61820, 217-333-4747, isgs@isgs.illinois.edu. License fees and a license agreement may be required, depending on the proposed usage.
+
+    Any use of these data is governed by University and campus policies, in particular, but not limited to, the Policy on Appropriate Use of Computers and Network Systems at the University of Illinois at Urbana-Champaign, the ISGS Terms of Use document available at the ISGS Web site, and the University of Illinois Web Privacy Notice.  Links to these are provided in the Cross References section.
+
+    Map information is to be used at a scientifically and cartographically appropriate scale, that is, at a scale no greater than indicated on the map or as described in the documentation of the map or map data.  Map information is not appropriate for, and is not to be used as, a geodetic, legal, or engineering base. Map information has no legal basis in the definition of boundaries or property lines and is not intended as a substitute for surveyed locations such as can be determined by a registered Public Land Surveyor.
+
+    The data do not replace the need for detailed site-specific studies.
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Instructions: Please refer to the Distribution Information section.
+  Native_Data_Set_Environment: ArcSDE 9.1 on Oracle 10g
+  Cross_Reference:
+    Citation_Information:
+      Title: ISGS Terms of Use
+      Online_Linkage: http://www.isgs.illinois.edu
+  Cross_Reference:
+    Citation_Information:
+      Title: University of Illinois Web Privacy Notice
+      Online_Linkage: http://www.vpaa.uillinois.edu/policies/web_privacy.cfm
+  Cross_Reference:
+    Citation_Information:
+      Title: University Copyright Policy (stated in the General Rules Concerning University Organization and Procedure, Article III, Section 4)
+      Online_Linkage: http://www.uillinois.edu/trustees/rules.cfm#sec34
+  Cross_Reference:
+    Citation_Information:
+      Title: Policy on Appropriate Use of Computers and Network Systems at the University of Illinois at Urbana-Champaign
+      Online_Linkage: http://www.fs.uiuc.edu/cam/CAM/viii/viii-1.1.html
+Data_Quality_Information:
+  Attribute_Accuracy:
+    Attribute_Accuracy_Report: No report.
+  Logical_Consistency_Report: No report.
+  Completeness_Report: No report.
+  Positional_Accuracy:
+    Horizontal_Positional_Accuracy:
+      Horizontal_Positional_Accuracy_Report: No report.
+  Lineage:
+    Process_Step:
+      Process_Description: Created by Tom Heavisides, DNR Office of Realty and Environmental Planning, using township maps from IDOT.
+      Process_Date: 1985
+    Process_Step:
+      Process_Description:
+        Source coverage (politown) converted to double precision and reprojected to GCS_NAD83 using Workstation ArcInfo 7.2.1.
+
+        The polygon features were imported into the ISGS SDE enterprise database  following steps outlined in ISGS procedure GISDB_0009.  Some redundant fields were removed.
+
+        Metadata updated.
+      Process_Date: 20040330
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+    Process_Step:
+      Process_Description:
+        A user found a township in Fayette county (in the SW corner) that was missing the name.  It should be Pope township and is just south of Seminary and Kaskaskia township.  Made the correction using the following SQL.
+
+        update IL_ADMIN_Political_Township_Py
+        set tship_name = 'POPE'
+        where objectid = 1299;
+        commit;
+      Process_Date: 20080602
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: D. Nelson
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Vector
+  Point_and_Vector_Object_Information:
+    SDTS_Terms_Description:
+      SDTS_Point_and_Vector_Object_Type: G-polygon
+      Point_and_Vector_Object_Count: 1691
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Geographic:
+      Latitude_Resolution: 0.000001
+      Longitude_Resolution: 0.000001
+      Geographic_Coordinate_Units: Decimal degrees
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: Geodetic Reference System 80
+      Semi-major_Axis: 6378137.000000
+      Denominator_of_Flattening_Ratio: 298.257222
+  Vertical_Coordinate_System_Definition:
+    Altitude_System_Definition:
+Entity_and_Attribute_Information:
+  Overview_Description:
+    Entity_and_Attribute_Overview:
+      Attribute items are in typical ArcSDE feature class format.  Those requiring additional explanation are:
+
+      TSHIP_NUM
+      The numeric township identifier by county. Each county has political township #1, #2, etc.
+
+      TSHIP_NAME
+      Name of township in capital letters.
+
+      COUNT_FED_FIPS
+      The 6 digit federal FIPS code for the state and county.
+
+      COUNTY_
+      The county FIPS number.
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: Information Office, Illinois State Geological Survey (ISGS), a division of the Institute of Natural Resource Sustainability (INRS) of the University of Illinois
+      Contact_Address:
+        Address_Type: mailing and physical address
+        Address: 615 East Peabody Drive
+        City: Champaign
+        State_or_Province: Illinois
+        Postal_Code: 61820
+        Country: USA
+      Contact_Voice_Telephone: 217-333-4747
+      Contact_TDD/TTY_Telephone: 217-785-0211
+      Contact_Electronic_Mail_Address: isgs@isgs.illinois.edu
+      Hours_of_Service: 8:00 a.m. - 4:30 p.m., Monday-Friday, U.S. Central Time
+  Distribution_Liability:
+    Refer to the Legal Notices of Terms and Conditions of the University of Illinois Web Privacy Policy (there is a link in the Cross References section) for policy statements regarding the following:
+
+    Disclaimer of Liability
+    Disclaimer of Warranties and Accuracy of Data
+    Disclaimer of Endorsement
+    Disclaimer for External Links
+    Disclaimer of Duty to Continue Provision of Data
+    Security
+    Choice of Law
+
+    By obtaining these data you agree to the provisions of the University of Illinois Web Privacy Policy, regardless of the manner in which the information was obtained.
+  Technical_Prerequisites: The data are intended for use with GIS software. The ISGS uses ESRI ArcGIS software, however,  ESRI formats can be imported into many different GIS software packages. It is expected that customers who obtain these data have the technical expertise to use GIS software. The ISGS does not provide software support of any kind.
+Metadata_Reference_Information:
+  Metadata_Date: 20090224
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+      Contact_Instructions: Please refer to the Distribution Information section.
+  Metadata_Standard_Name: FGDC Content Standards for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
+  Metadata_Time_Convention: local time
+  Metadata_Access_Constraints: The access constraints as stated for the data apply also to the metadata.  Refer to the Access Constraints section of the Identification Information section.
+  Metadata_Use_Constraints: The use constraints as stated for the data apply also to the metadata.  Refer to the Use Constraints section of the Identification Information section.
+  Metadata_Extensions:
+    Online_Linkage: http://www.esri.com/metadata/esriprof80.html
+    Profile_Name: ESRI Metadata Profile
