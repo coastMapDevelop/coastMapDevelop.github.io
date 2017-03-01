@@ -547,6 +547,7 @@ function main() {
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
+			alert(googleSpreadsheet2[0][4]);
 			for (i=0; i < gglSprd2; i++) {
 				if (target2 == googleSpreadsheet2[i][4]) {
 					
