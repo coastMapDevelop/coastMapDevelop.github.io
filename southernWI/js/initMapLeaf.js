@@ -1197,6 +1197,8 @@ function main() {
 			// remove all active panels
 			supMobileMenu.style.right = "";
 			supMobileMenu.style.visibility = "";
+			mobileMenuToggle.innerHTML = "menu";
+			
 			
 		}
 	});
