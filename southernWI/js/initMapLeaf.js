@@ -1125,13 +1125,13 @@ function main() {
 				if (name == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
-							//clickedCountyName.length = 0;
+							removeMarkers();
 							clickedCountyName.push(layer.feature.properties.NAME10);
+							alert(clickedCountyName[0]);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
 							checkFeaturePage("featurePage");
-							removeMarkers();
 							crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 						}
 					});

@@ -2,7 +2,6 @@
 
 
 Things to work on:
-	- all all selector for dropdown (filter)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- after click search, on exit remove highlight (county)
 	- when centering on county, make sure to not block any of the features
@@ -10,7 +9,7 @@ Things to work on:
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- decide upon fonts
 	- no indicator that the currently selected urban polygon is the chosen one
-	- distinguish hover, click, and mouseout by LSAD for points and polygons
+	- fix same name hover problem
 	- check mobile compatability
 	- JS code performance updates
 		- fix for loop efficiency problem
