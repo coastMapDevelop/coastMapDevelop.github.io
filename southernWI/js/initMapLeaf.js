@@ -30,6 +30,7 @@ function main() {
 	var polygonArray= [];	// holds polygon features in map
 	var currentCheckArr = [];
 	var currentSelectArr = ['Cities'];
+	var allSelectArr = ['Cities', 'Villages', 'Towns'];
 	var popupCountyArr = [
 		['countyLink1', 'Gov Website', 3, 'countyLink1b'],
 		['countyLink2', 'Web Map URL', 4, 'countyLink2b'],
@@ -978,13 +979,19 @@ function main() {
 			 
 			// third, determine which layers were selected
 			var g;
-			var currSltA = currentSelectArr.length;
+			if (currentSelectArr[0] == "All") {
+				var currSltA = allSelectArr.length;
+				var currSlt = allSelectArr;
+			} else {
+				var currSltA = currentSelectArr.length;
+				var currSlt = currentSelectArr;
+			}
 			for (g=0; g < currSltA; g++) {
-				if (currentSelectArr[g] == "Towns") {
+				if (currSlt[g] == "Towns") {
 					theLayer = townsPoints;
-				} else if (currentSelectArr[g] == "Cities") {
+				} else if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
-				} else if (currentSelectArr[g] == "Villages") {
+				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
 				}
 				
@@ -1016,7 +1023,7 @@ function main() {
 				});
 				
 				// seventh, for the layers that were not selected for filtering, remove
-				if (currentSelectArr.indexOf("Towns") == -1) {
+				if (currSlt.indexOf("Towns") == -1) {
 					// remove all towns, treat as null
 					townsPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
@@ -1024,7 +1031,7 @@ function main() {
 					});
 				}
 				
-				if (currentSelectArr.indexOf("Cities") == -1) {
+				if (currSlt.indexOf("Cities") == -1) {
 					// remove all cities, treat as null
 					citiesPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
@@ -1032,7 +1039,7 @@ function main() {
 					});
 				}
 				
-				if (currentSelectArr.indexOf("Villages") == -1) {
+				if (currSlt.indexOf("Villages") == -1) {
 					// remove all vilages, treat as null
 					villagesPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
