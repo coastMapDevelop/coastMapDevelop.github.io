@@ -624,10 +624,6 @@ body {
 	margin-bottom: 10px;
 	cursor: pointer;
 	color: black;
-	-webkit-transition: .1s background, .1s color, .1s border;
-	-moz-transition: .1s background, .1s color, .1s border;
-	-o-transition: .1s background, .1s color, .1s border;
-	transition: .1s background, .1s color, .1s border;
 }
 
 .myCheckBox:hover {

@@ -4,10 +4,7 @@
 Things to work on:
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- when centering on county, make sure to not block any of the features
-	- change buttons on filter page to custom
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
-	- may need to look at filter again (checking for name, not name + city (or village or town)
-	- don't allow clicking filter button if no attributes are filtered
 	- no indicator that the currently selected urban polygon is the chosen one
 	- check mobile compatability
 	- JS code performance updates
