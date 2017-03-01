@@ -11,6 +11,7 @@ Things to work on:
 		- fix for loop efficiency problem
 	- check and optimize variable declarations
 	- check and optimize function placements
+	- possible update to dynamic font size
 
 	- data sources - will be more
 	- maybe have polygon inside the information panel???
