@@ -1160,13 +1160,20 @@ function main() {
 		};
 	};
 	
-	function storeChecks(source) {
+	function storeChecks(source, id) {
 		var isThere = currentCheckArr.indexOf(source);
-	
+		var clicked = document.getElementById(id);
+		
 		if (isThere == -1) {
 			currentCheckArr.push(source);
+			clicked.style.background = "#003744";
+			clicked.style.color = "white";
+			clicked.style.border = "1px solid white";
 		} else if (isThere >= 0) {
 			currentCheckArr.splice(isThere, 1);
+			clicked.style.background = "white";
+			clicked.style.color = "black";
+			clicked.style.border = "1px solid black";
 		}
 	};
 	

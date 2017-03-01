@@ -236,6 +236,7 @@
 		<!-- // Header for filter page -->
 		
 		<!-- Body for filter page -->
+		<!--
 		<div class="row">
 			<p>Choose one or more attributes to filter</p>
 			<div class="col-md-6">
@@ -266,6 +267,24 @@
 				<div class="checkbox">
 					<label><input type="checkbox" value="Res Plan" onclick="myNameSpace.storeChecks(this.value)">Res Plan</label>
 				</div>
+			</div>
+		</div>
+		-->
+		
+		<div class="row">
+			<p>Choose one or more attributes to filter.</p>
+			<div class="col-md-6">
+				<div id="govweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Govt Web</div>
+				<div id="mapweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Map Web</div>
+				<div id="compweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Comp Plan</div>
+				<div id="zoningweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Zoning Web</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div id="hazmitweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Haz Mit Web</div>
+				<div id="susweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Sus Plan</div>
+				<div id="cliweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Cli Plan</div>
+				<div id="resweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Res Plan</div>
 			</div>
 		</div>
 		
