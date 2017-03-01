@@ -21,6 +21,7 @@ function main() {
 	var hoverControl = false;
 	var remove;		// search panel
 	var remove2;	// search control
+	var hoverPanel = document.getElementById("hoverFeaturePage");
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -249,11 +250,13 @@ function main() {
 		zIndex: 20
 	};
 	
+	
+	
 	// on mouseover
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
-		var hoverPanel = document.getElementById("hoverFeaturePage");
+		//var hoverPanel = document.getElementById("hoverFeaturePage");
 		hoverPanel.style.right = "75px";
 		
 		
@@ -285,7 +288,7 @@ function main() {
 			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
 					
-				
+			
 			layer.setStyle({
 				weight: 2,
 				fillOpacity: 1,
@@ -306,10 +309,9 @@ function main() {
 	};
 	
 	
-	
 	// on mouseout
 	function resetHighlight(e) {
-		var hoverPanel = document.getElementById("hoverFeaturePage");
+		//var hoverPanel = document.getElementById("hoverFeaturePage");
 		hoverPanel.style.right = "";
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 
@@ -518,31 +520,12 @@ function main() {
 						"<a id='countyLink4' target='_blank'>Web Map State</a>" + "<br>" + "<a id='countyLink5' target='_blank'>Comp Plan</a>" + "<br>" + "<a id='countyLink6' target='_blank'>Haz Mit Plan</a>" + "<br>" + 
 						"<a id='countyLink7' target='_blank'>Climate Plan</a>" + "<br>" + "<a id='countyLink8' target='_blank'>Resilience Plan</a>" + "<br>" + "<a id='countyLink9' target='_blank'>Zoning URL</a>").openOn(map);
 					*/
-					
-					// have to check if link is valid
-					// may need to move this to function above
-					/*
-					var m;
-					var ppupCnty = popupCountyArr.length;
-					for (m=0; m < ppupCnty; m++) {
-						var link = googleSpreadsheet[i][popupCountyArr[m][2]];
-						if (link == 'null') {
-							// deactivate link
-							//document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
-							//$(popupCountyArr[m][0]).remove();
-							document.getElementById(popupCountyArr[m][0]).style.color = "#CCD1D1";
-							//document.getElementById(popupCountyArr[m][0]).classList.add('deactivated');
-						} else {
-							// activate link
-							document.getElementById(popupCountyArr[m][0]).setAttribute("href", link);
-						}
-					}
-					*/
 				}
 			}
 			
 		} else if (type == 'Point') {
 			var target = props.name;
+			var target2 = props.NAMELSAD;
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
@@ -565,7 +548,7 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target == googleSpreadsheet2[i][0]) {
+				if (target2 == googleSpreadsheet2[i][4]) {
 					
 					
 					
@@ -582,26 +565,11 @@ function main() {
 						"<a id='pointLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='pointLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
 					*/
-					
-					// have to check if link is valid
-					/*
-					var m;
-					var ppupPnt = popupPointArr.length;
-					for (m=0; m < ppupPnt; m++) {
-						var link = googleSpreadsheet2[i][popupPointArr[m][2]];
-						if (link == 'null') {
-							// deactivate link
-							document.getElementById(popupPointArr[m][0]).style.color = "#CCD1D1";
-						} else {
-							// activate link
-							document.getElementById(popupPointArr[m][0]).setAttribute("href", link);
-						}
-					}
-					*/
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
 			var target = props.Name_1;
+			var target2 = props.NAMELSAD;
 			
 			// call function to store clicked features
 			//stacheClicked(target, e, type);
@@ -625,7 +593,7 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target == googleSpreadsheet2[i][0]) {
+				if (target2 == googleSpreadsheet2[i][4]) {
 					
 					addUrbanPanelInfo(target, i, clickHov, featureColor);
 					
@@ -636,22 +604,6 @@ function main() {
 						"<a id='polyLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='polyLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='polyLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
 						"<a id='polyLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='polyLink8' target='_blank'>Res Plan</a>").openOn(map);
 					// add other positions in array
-					*/
-					
-					// have to check if link is valid
-					/*
-					var m;
-					var ppupPly = popupPolyArr.length;
-					for (m=0; m < ppupPly; m++) {
-						var link = googleSpreadsheet2[i][popupPolyArr[m][2]];
-						if (link == 'null') {
-							// deactivate link
-							document.getElementById(popupPolyArr[m][0]).style.color = "#CCD1D1";
-						} else {
-							// activate link
-							document.getElementById(popupPolyArr[m][0]).setAttribute("href", link);
-						}
-					}
 					*/
 				}
 			}
@@ -1127,7 +1079,6 @@ function main() {
 						if (name == layer.feature.properties.NAME10) {
 							removeMarkers();
 							clickedCountyName.push(layer.feature.properties.NAME10);
-							alert(clickedCountyName[0]);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
