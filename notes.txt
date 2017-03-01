@@ -2,9 +2,9 @@
 
 
 Things to work on:
-	- when centering on county, make sure to not block any of the features
+	- when centering on county, make sure to not block any of the features (for smaller view)
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
-	- check mobile compatability
+	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
 		- fix for loop efficiency problem
 	- check and optimize variable declarations
