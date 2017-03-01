@@ -2,10 +2,8 @@
 
 
 Things to work on:
-	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- when centering on county, make sure to not block any of the features
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
-	- no indicator that the currently selected urban polygon is the chosen one
 	- check mobile compatability
 	- JS code performance updates
 		- fix for loop efficiency problem
@@ -14,6 +12,7 @@ Things to work on:
 	- possible update to dynamic font size
 
 	- data sources - will be more
+	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- maybe have polygon inside the information panel???
 	- need milwaukee city polygon (not in sources???) (reason not displaying in search)
 	- kenosha city not displaying in search (don't have polygon

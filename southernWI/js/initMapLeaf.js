@@ -683,6 +683,8 @@ function main() {
 			for (j=0; j < plyA; j++) {
 				map.removeLayer(polygonArray[j]);
 			}
+			
+			//geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
 			
@@ -697,6 +699,7 @@ function main() {
 				map.addLayer(polygonArray[j]);
 			}
 			
+			//geojson.setStyle({fillOpacity:0.4});
 		}
 	};
 	
@@ -1198,8 +1201,6 @@ function main() {
 			supMobileMenu.style.right = "";
 			supMobileMenu.style.visibility = "";
 			mobileMenuToggle.innerHTML = "menu";
-			
-			
 		}
 	});
 	
