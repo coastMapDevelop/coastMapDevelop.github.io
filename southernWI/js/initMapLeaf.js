@@ -1824,17 +1824,19 @@ function main() {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
 			if (props.NAME10 != null) {
-				name.innerHTML = props.NAME10;
+				//name.innerHTML = props.NAME10;
+				name.innerHTML = props.NAMELSAD10;
 				name.setAttribute("id", props.NAME10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				container.appendChild(document.createTextNode(props.NAMELSAD10));
+				//container.appendChild(document.createTextNode(props.NAMELSAD10));
 			} else if (props.NAME10 == null) {
-				name.innerHTML = props.Name_1;
+				//name.innerHTML = props.Name_1;
+				name.innerHTML = props.NAMELSAD;
 				name.setAttribute("id", props.Name_1);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				container.appendChild(document.createTextNode(props.NAMELSAD));
+				//container.appendChild(document.createTextNode(props.NAMELSAD));
 			}
 		}
 	};
