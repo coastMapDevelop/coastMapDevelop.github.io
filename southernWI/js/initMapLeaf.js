@@ -1125,10 +1125,8 @@ function main() {
 				if (name == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
-							// zoom to that feature
-							//map.fitBounds(layer.getBounds());
-							clickedCountyName.length = 0;
-							clickedCountyName.push(layer.feature.properties.NAME10);
+							//clickedCountyName.length = 0;
+							//clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
@@ -1140,7 +1138,7 @@ function main() {
 				}
 			});
 		} else if (num == 1) {
-			alert('urban point searched');
+			alert(source);
 			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
@@ -1151,12 +1149,16 @@ function main() {
 			});
 			
 			citiesPoints.eachLayer(function (layer) {
+				var name = layer.feature.properties.name;
+				
 				if (name == source) {
 					urbanSearch(layer);
 				}
 			});
 			
 			villagesPoints.eachLayer(function (layer) {
+				var name = layer.feature.properties.name;
+				
 				if (name == source) {
 					urbanSearch(layer);
 				}
