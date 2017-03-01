@@ -547,7 +547,6 @@ function main() {
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
-			alert(googleSpreadsheet2[0][4]);
 			for (i=0; i < gglSprd2; i++) {
 				if (target2 == googleSpreadsheet2[i][4]) {
 					
@@ -1228,6 +1227,7 @@ function main() {
 					var arr = [row[0], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
 					googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
 				}
+				console.log(googleSpreadsheet2);
 			} else {
 				console.log('No data found.');
 			}
