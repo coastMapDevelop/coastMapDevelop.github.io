@@ -1185,6 +1185,22 @@ function main() {
 		});
 	};
 	
+	$(window).resize(function() {
+		if ($(window).width() <= 600) {
+			// remove all active panels
+			searchPage.style.right = "";
+			basemapPage.style.right = "";
+			filterPage.style.right = "";
+			featurePage.style.right = "";
+			hoverFeaturePage.style.right = "";
+		} else {
+			// remove all active panels
+			supMobileMenu.style.right = "";
+			supMobileMenu.style.visibility = "";
+			
+		}
+	});
+	
 	function initiateMapColors() {
 		// initiate colors for legend
 		document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
