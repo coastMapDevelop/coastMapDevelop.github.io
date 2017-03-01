@@ -4,8 +4,7 @@
 Things to work on:
 	- all all selector for dropdown (filter)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
-	- fix search
-	- after click search, on exit remove highlight
+	- after click search, on exit remove highlight (county)
 	- when centering on county, make sure to not block any of the features
 	- change buttons on filter page to custom
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)

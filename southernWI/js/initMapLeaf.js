@@ -1126,7 +1126,7 @@ function main() {
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
 							//clickedCountyName.length = 0;
-							//clickedCountyName.push(layer.feature.properties.NAME10);
+							clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
@@ -1138,7 +1138,7 @@ function main() {
 				}
 			});
 		} else if (num == 1) {
-			alert(source);
+			
 			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
