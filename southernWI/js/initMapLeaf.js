@@ -449,14 +449,33 @@ function main() {
 			}, 250);
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
+			
+			var myPointName = layer.feature.properties.name;
 			var center = layer._latlng;
 			
 			removeMarkers();
 			clickedUrbanName.length = 0;
 			
-			//removeMarkers();
+			
 			clickedUrbanName.push(layer.feature.properties.name);
 			console.log(clickedUrbanName);
+			
+			// find the urban polygon that matches and change it's style to match clicked
+			citiesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			});
+			townsPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			});
+			villagesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			}
 			
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
