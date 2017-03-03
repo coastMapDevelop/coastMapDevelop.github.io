@@ -496,11 +496,65 @@ function main() {
 			}, 500);
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
+			var pointPos;
+			var polyName = layer.feature.properties.Name_1;
+			var center = layer.getBounds().getCenter();
+			map.setView(center, currentZoom);
 			checkFeaturePage("featurePage");
 			clickedUrbanName.length = 0;
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.Name_1);
 			console.log(clickedUrbanName);
+			
+			// need to loop through point layers and find the right point that matches the polygon
+			citiesPoints.eachLayer(function (layer) {
+				if (polyName == layer.feature.properties.name) {
+					pointPos = layer._latlng;
+				}
+			});
+			townsPoints.eachLayer(function (layer) {
+				if (polyName == layer.feature.properties.name) {
+					pointPos = layer._latlng;
+				}
+			});
+			villagesPoints.eachLayer(function (layer) {
+				if (polyName == layer.feature.properties.name) {
+					pointPos = layer._latlng;
+				}
+			}
+			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: 'white'});
+			myMarkers.addLayer(marker);
+			myMarkers.bringToBack();
+			geojson.bringToBack();
+			if (checkZoom >= 10 && currentZoom >= 11) {
+				myMarkers.setStyle({opacity: 0});
+			}
+			
+			
+			circleInterval = setInterval(function() {
+				myMarkers.eachLayer(function (layer) {
+    				var radius = layer.getRadius();
+    				
+    				if (radius == maxRadius) {
+    					radiusControl = false;
+    				} else if (radius == minRadius) {
+    					radiusControl = true;
+    				} else if (radius < maxRadius && radius > minRadius) {
+    					
+    				}
+    				
+    				if (radiusControl == true) {
+    					var newRadius = radius + .5;
+    				} else if (radiusControl == false) {
+    					var newRadius = radius - .5;
+    				}
+    				
+    				layer.setRadius(newRadius);
+    				
+    				
+    				
+				});
+			}, 50);
 			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}

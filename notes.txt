@@ -23,6 +23,7 @@ Things to work on:
 	- help with julianne cooper on a project (future)
 	- get townships for other coastal states
 	- update full coastal view map with southern wisconsin functions
+	- more information in panels, pop, growth, change, shoreline miles, people, 
 
 	- when finished:
 		- comment code
