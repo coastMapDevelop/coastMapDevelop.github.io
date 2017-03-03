@@ -6,7 +6,6 @@ Things to work on:
 	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
-		- fix for loop efficiency problem
 	- check and optimize variable declarations
 	- check and optimize function placements
 	- possible update to dynamic font size
@@ -22,6 +21,7 @@ Things to work on:
 	
 	- help with julianne cooper on a project (future)
 	- get townships for other coastal states
+	- update full coastal view map with southern wisconsin functions
 
 	- when finished:
 		- comment code

@@ -519,6 +519,7 @@ body {
 	z-index: 1002;
 	overflow-y:scroll;
 	overflow-x: hidden;
+	text-align: center;
 }
 
 #hoverFeaturePage {
@@ -527,6 +528,7 @@ body {
 	z-index: 1002;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	text-align: center;
 }
 
 #infoPage {

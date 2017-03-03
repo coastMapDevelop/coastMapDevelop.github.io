@@ -74,7 +74,6 @@ function main() {
 	];
 	var clickedCountyName = [];
 	var clickedUrbanName = [];
-	var clickedUrbanPolyName = [];
 	var supSideArr = [
 		['firstBox', 'supSideMenu01'],
 		['secondBox', 'supSideMenu02'],
@@ -329,10 +328,33 @@ function main() {
 			villagesPoints.resetStyle(e.target);
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
 			citiesPolygon.resetStyle(e.target);
+			
+			// experimental
+			citiesPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			// experimental
+			
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[2][0]) {
 			townsPolygon.resetStyle(e.target);
+			
+			// experimental
+			townsPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			// experimental
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[3][0]) {
 			villagesPolygon.resetStyle(e.target);
+			
+			// experimental
+			villagesPolygon.eachLayer(function(layer) {
+				layer.setStyle({fillOpacity: 0.75, weight: 1});
+			});
+			// experimental
 		}
 		//this.closeTooltip(); // close tooltip on mouseout
 		//map.closePopup();
@@ -417,9 +439,9 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			checkFeaturePage("featurePage");
-			clickedUrbanPolyName.length = 0;
+			clickedUrbanName.length = 0;
 			removeMarkers();
-			clickedUrbanPolyName.push(layer.feature.properties.Name_1);
+			clickedUrbanName.push(layer.feature.properties.Name_1);
 			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
@@ -439,11 +461,27 @@ function main() {
 		}
 		clickedCountyName.length = 0;
 		
-	
+		if (clickedUrbanName.length != 0 ) {
+			// maybe check here for LSAD and see if it's city, village, or town to save computation power
+			citiesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			
+			townsPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			
+			villagesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+		}
 		clickedUrbanName.length = 0;
-		
-	
-		clickedUrbanPolyName.length = 0;
 	};
 	
 	/* not in use 
