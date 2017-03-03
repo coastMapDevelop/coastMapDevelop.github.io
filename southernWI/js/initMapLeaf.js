@@ -1040,8 +1040,26 @@ function main() {
 		}
 		
 		function urbanSearch(layer) {
+			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
 			removeMarkers();
+			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+			// find the urban polygon that matches and change it's style to match clicked
+			citiesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			});
+			townsPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			});
+			villagesPolygon.eachLayer(function (layer) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
+			});
 			
 			// add animated point
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
