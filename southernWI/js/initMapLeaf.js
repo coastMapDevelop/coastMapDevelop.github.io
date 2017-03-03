@@ -475,7 +475,7 @@ function main() {
 				if (layer.feature.properties.Name_1 == myPointName) {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
-			}
+			});
 			
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
