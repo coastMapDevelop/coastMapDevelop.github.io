@@ -449,15 +449,12 @@ function main() {
 			}, 250);
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
-			citiesPolygon.resetStyle();
-			townsPolygon.resetStyle();
-			villagesPolygon.resetStyle();
 			var center = layer._latlng;
 			
-			
+			removeMarkers();
 			clickedUrbanName.length = 0;
 			
-			removeMarkers();
+			//removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.name);
 			console.log(clickedUrbanName);
 			
