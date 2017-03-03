@@ -3,35 +3,36 @@ var myNameSpace;	// allows for exposing functions in main()
 
 function main() {
 	/* main variable declarations */
-	var geojson; 			// variable to hold county polygons - layer
-	var townsPoints;	 	// variable to hold town points - layer
-	var citiesPoints;		// variable to hold city points - layer 
-	var villagesPoints;		// variable to hold village points - layer
-	var townsPolygon;		// variable to hold town polygons - layer
-	var citiesPolygon;		// variable to hold city polygons - layer
-	var villagesPolygon;	// variable to hold village polygons - layer
-	var myMarkers;			// variable to hold markers - animation
-	var checkZoom; 			// keeps track of zoom direction
-	var currentZoom = 8; 	// keeps track of current zoom
-	var circleInterval;		// stores interval variable
-	var maxRadius = 30;
-	var minRadius = 15;
-	var radiusControl = false;
-	var firstClick = false;
-	var hoverControl = false;
-	var remove;		// search panel
-	var remove2;	// search control
-	var hoverPanel = document.getElementById("hoverFeaturePage");
+	var geojson; 				// variable to hold county polygons - layer
+	var townsPoints;	 		// variable to hold town points - layer
+	var citiesPoints;			// variable to hold city points - layer 
+	var villagesPoints;			// variable to hold village points - layer
+	var townsPolygon;			// variable to hold town polygons - layer
+	var citiesPolygon;			// variable to hold city polygons - layer
+	var villagesPolygon;		// variable to hold village polygons - layer
+	var myMarkers;				// variable to hold markers - animation
+	var checkZoom; 				// keeps track of zoom direction
+	var currentZoom = 8; 		// keeps track of current zoom
+	var circleInterval;			// stores interval variable
+	var maxRadius = 30;			// stores maximum radius of circle throbber
+	var minRadius = 15;			// stores minimum radius of circle throbber
+	var radiusControl = false;	// stores boolean value for circle throbber
+	var firstClick = false;		// stores if the map has yet been clicked
+	var hoverControl = false;	// stores boolean value for hovering - currently not in use (delete?) (check)
+	var remove;					// for storing search panel
+	var remove2;				// for storing search control
+	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
 	/* // main variable declarations */
 	
 	/* main array declarations */
-	var googleSpreadsheet = []; // Array for storing google spreadsheets data: county
-	var googleSpreadsheet2 = []; // Array for storing google spreadsheets data: urban
-	var pointArray = [];	// holds point features in map
-	var polygonArray= [];	// holds polygon features in map
-	var currentCheckArr = [];
-	var currentSelectArr = ['Cities'];
-	var allSelectArr = ['Cities', 'Villages', 'Towns'];
+	var googleSpreadsheet = []; 	// Array for storing google spreadsheets data: county
+	var googleSpreadsheet2 = []; 	// Array for storing google spreadsheets data: urban
+	var pointArray = [];			// holds point features in map
+	var polygonArray= [];			// holds polygon features in map
+	var currentCheckArr = [];		// holds attributes for filtering
+	var currentSelectArr = ['Cities'];	// holds layers for filtering
+	var allSelectArr = ['Cities', 'Villages', 'Towns'];	// holds all layers for filtering all layers
+	// for naming and assigning popup contents for points
 	var popupCountyArr = [
 		['countyLink1', 'Gov Website', 3, 'countyLink1b'],
 		['countyLink2', 'Web Map URL', 4, 'countyLink2b'],
@@ -72,13 +73,14 @@ function main() {
 		["#a1dab4", "bubble03"],
 		["#ffffcc", "bubble04"]
 	];
-	var clickedCountyName = [];
-	var clickedUrbanName = [];
+	var clickedCountyName = [];		// stores the last clicked county name
+	var clickedUrbanName = [];		// stores the last clicked urban name
 	var supSideArr = [
 		['firstBox', 'supSideMenu01'],
 		['secondBox', 'supSideMenu02'],
 		['thirdBox', 'supSideMenu03']
 	];
+	// stores information for ui functions and features
 	var uiMenuArr = [
 		['firstBox', 'firstCircle', 'searchPage', 'searchPageToggle'],
 		['secondBox', 'secondCircle', 'basemapPage', 'basemapPageToggle'],
