@@ -262,10 +262,9 @@ function main() {
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-			// experimental
-			if (clickedUrbanName[0] != layer.feature.properties.NAME10) {
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}
+		
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			
 			// experimental
 			
 			/*
@@ -288,10 +287,9 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			//removePanelInfo("hover");
 			
-			// experimental
-			if (clickedUrbanName[0] != layer.feature.properties.name) {
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}
+	
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			
 			// experimental
 			
 			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
@@ -306,10 +304,9 @@ function main() {
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-			// experimental
-			if (clickedUrbanName[0] != layer.feature.properties.Name_1) {
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}
+			
+			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			
 			// experimental
 			
 			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
@@ -410,6 +407,7 @@ function main() {
 			villagesPolygon.eachLayer(function(layer) {
 				layer.setStyle({fillOpacity: 0.75, weight: 1});
 			});
+			console.log(clickedUrbanName);
 			// experimental
 		}
 		//this.closeTooltip(); // close tooltip on mouseout
@@ -521,6 +519,7 @@ function main() {
 		clickedCountyName.length = 0;
 		
 		if (clickedUrbanName.length != 0 ) {
+			
 			// maybe check here for LSAD and see if it's city, village, or town to save computation power
 			citiesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
