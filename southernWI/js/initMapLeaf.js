@@ -261,7 +261,7 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//removePanelInfo("hover");
-			// experimental
+			
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			/*
 			if (hoverControl == false) {
@@ -329,6 +329,7 @@ function main() {
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
 			citiesPolygon.resetStyle(e.target);
 			
+			console.log(clickedUrbanName);
 			// experimental
 			citiesPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
@@ -340,6 +341,7 @@ function main() {
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[2][0]) {
 			townsPolygon.resetStyle(e.target);
 			
+			console.log(clickedUrbanName);
 			// experimental
 			townsPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
@@ -350,6 +352,7 @@ function main() {
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[3][0]) {
 			villagesPolygon.resetStyle(e.target);
 			
+			console.log(clickedUrbanName);
 			// experimental
 			villagesPolygon.eachLayer(function(layer) {
 				layer.setStyle({fillOpacity: 0.75, weight: 1});
@@ -369,12 +372,13 @@ function main() {
 		
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			
+			/* experimental
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
+			*/
 			clickedCountyName.length = 0;
 	
 			
@@ -399,6 +403,7 @@ function main() {
 			
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.name);
+			console.log(clickedUrbanName);
 			
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
@@ -516,7 +521,6 @@ function main() {
 			click: zoomToFeature		 // call zoomToFeature function on click
 		});
 		
-		// experimental
 		feature.layer = layer;
 	};
 	
@@ -1874,7 +1878,7 @@ function main() {
 	
 	
 	
-	// experimental
+	
 	var options = {
 		position: 'topleft',
 		title: 'Search',
@@ -1920,7 +1924,7 @@ function main() {
 	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
 	
 	
-	// experimental
+	
 	
 	
 	// fill name space with function variables so we can use them publicly
