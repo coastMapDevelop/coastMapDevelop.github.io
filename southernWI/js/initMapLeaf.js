@@ -262,8 +262,12 @@ function main() {
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-		
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			} else if (clickedCountyName[0] == layer.feature.properties.NAME10) {
+				alert('bleh');
+			}
+			
 			
 			// experimental
 			
