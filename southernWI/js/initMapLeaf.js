@@ -341,6 +341,7 @@ function main() {
 			citiesPoints.resetStyle(e.target);
 			
 			villagesPoints.resetStyle(e.target);
+		/*
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
 			// experimental
 			//citiesPolygon.resetStyle(e.target);
@@ -371,6 +372,41 @@ function main() {
 			//villagesPolygon.resetStyle(e.target);
 			
 			console.log(clickedUrbanName);
+			
+			villagesPolygon.eachLayer(function(layer) {
+				layer.setStyle({fillOpacity: 0.75, weight: 1});
+			});
+			// experimental
+		*/
+		} else if ((e.target.feature.geometry.type == 'MultiPolygon' && (e.target.options.fillColor == colorPal[1][0] || e.target.options.fillColor == colorPal[2][0] || 
+			e.target.options.fillColor == colorPal[3][0]))) {
+			// experimental
+			//citiesPolygon.resetStyle(e.target);
+			
+			
+			
+			citiesPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			// experimental
+			
+			// experimental
+			// townsPolygon.resetStyle(e.target);
+			
+			
+			townsPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			// experimental
+		
+			// experimental
+			//villagesPolygon.resetStyle(e.target);
+			
+			
 			
 			villagesPolygon.eachLayer(function(layer) {
 				layer.setStyle({fillOpacity: 0.75, weight: 1});
