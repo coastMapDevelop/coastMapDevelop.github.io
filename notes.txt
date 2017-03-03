@@ -3,8 +3,8 @@
 
 Things to work on:
 	- if hovering over the same clicked feature, don't show hovered feature panel
+	- clicking point, rest style of urban polygon, then set style to match clicked
 	- when centering on county, make sure to not block any of the features (for smaller view)
-	- add styling for urban polygons when clicked and hovered, same as county features (or popup)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
 	- check and optimize variable declarations

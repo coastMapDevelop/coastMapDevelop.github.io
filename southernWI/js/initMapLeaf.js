@@ -449,6 +449,9 @@ function main() {
 			}, 250);
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
+			citiesPolygon.resetStyle();
+			townsPolygon.resetStyle();
+			villagesPolygon.resetStyle();
 			var center = layer._latlng;
 			
 			
@@ -575,7 +578,6 @@ function main() {
 		clickedCountyName.length = 0;
 		
 		if (clickedUrbanName.length != 0 ) {
-			
 			// maybe check here for LSAD and see if it's city, village, or town to save computation power
 			citiesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
