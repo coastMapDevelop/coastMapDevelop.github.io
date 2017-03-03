@@ -181,9 +181,7 @@ function main() {
 	/* // store and initialize current base layer */
 	
 	
-	//var popup = L.popup();	// add hover popup
-	
-	
+	/* initialize and declare layer styles */
 	// county style
 	var myStyle = {
 		"fillColor": colorPal[0][0],
@@ -256,38 +254,19 @@ function main() {
 		fillOpacity: 0.75,
 		zIndex: 20
 	};
+	/* // initialize and declare layer styles */
 	
 	
 	
-	// on mouseover
+	/* mouseover feature function */
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
-		//var hoverPanel = document.getElementById("hoverFeaturePage");
-		
-		//hoverPanel.style.right = "75px";
-		
-		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			//removePanelInfo("hover");
-			
 			if (clickedCountyName[0] != layer.feature.properties.NAME10) {
 				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			}
-			
-			// experimental
-			
-			/*
-			if (hoverControl == false) {
-				checkFeaturePage("featurePage");
-			}
-			*/
-			
-			
-			
-			//layer.bindTooltip(layer.feature.properties.NAMELSAD10).openTooltip(); // open tooltip on hover with name of county
-			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
 		
 			// set new style for hover county polygon
 			layer.setStyle({
@@ -296,19 +275,10 @@ function main() {
 			});
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
-			//removePanelInfo("hover");
-			
 			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
 				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}
-			
-			
-			// experimental
-			
-			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
-			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
-					
+			}	
 			
 			layer.setStyle({
 				weight: 2,
@@ -316,29 +286,22 @@ function main() {
 			})
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
-			//removePanelInfo("hover");
-			
 			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
 				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			}
 			
-			// experimental
-			
-			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
-			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
 			layer.setStyle({
 				weight: 2,
-				fillOpacity: 1,
-				//color: '#666'
+				fillOpacity: 1
 			})
 		}
 	};
+	/* // mouseover feature function */
 	
 	
-	// on mouseout
+	/* mouseout feature function */
 	function resetHighlight(e) {
-		//var hoverPanel = document.getElementById("hoverFeaturePage");
 		hoverPanel.style.right = "";
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
 
@@ -347,115 +310,48 @@ function main() {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
-			//geojson.resetStyle(e.target); // reset style of county polygons
+			
 		} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 			townsPoints.resetStyle(e.target);
 			
 			citiesPoints.resetStyle(e.target);
 			
 			villagesPoints.resetStyle(e.target);
-		/*
-		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
-			// experimental
-			//citiesPolygon.resetStyle(e.target);
-			
-			console.log(clickedUrbanName);
-			
-			citiesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			// experimental
-			
-		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[2][0]) {
-			// experimental
-			// townsPolygon.resetStyle(e.target);
-			
-			console.log(clickedUrbanName);
-			
-			townsPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			// experimental
-		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[3][0]) {
-			// experimental
-			//villagesPolygon.resetStyle(e.target);
-			
-			console.log(clickedUrbanName);
-			
-			villagesPolygon.eachLayer(function(layer) {
-				layer.setStyle({fillOpacity: 0.75, weight: 1});
-			});
-			// experimental
-		*/
-		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0]) {
-			// experimental
-			//citiesPolygon.resetStyle(e.target);
-			
-			
-			
-			citiesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			// experimental
-			
-			// experimental
-			// townsPolygon.resetStyle(e.target);
-			
-			
-			townsPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			// experimental
 		
-			// experimental
-			//villagesPolygon.resetStyle(e.target);
+		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0]) {
 			
-			
-			
+			citiesPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
+			townsPolygon.eachLayer(function(layer) {
+				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
+			});
 			villagesPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
-			
-			// experimental
 		}
-		//this.closeTooltip(); // close tooltip on mouseout
-		//map.closePopup();
-	
 	};
+	/* // mouseout feature function */
 	
 	
-	// on click
+	/* click feature function */
 	function zoomToFeature(e) {
 		var layer = e.target; // reference layer
 		hoverControl = true;
 		
-		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			/* experimental
-			geojson.eachLayer(function(layer) {
-				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			*/
 			clickedCountyName.length = 0;
 	
-			
 			var center = layer.getBounds().getCenter();
 			removeMarkers();
 			
 			clickedCountyName.push(layer.feature.properties.NAME10);
-			
 			
 			map.setView(center, 10);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
@@ -471,7 +367,6 @@ function main() {
 			
 			removeMarkers();
 			clickedUrbanName.length = 0;
-			
 			
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			console.log(clickedUrbanName);
@@ -565,7 +460,6 @@ function main() {
 				myMarkers.setStyle({opacity: 0});
 			}
 			
-			
 			circleInterval = setInterval(function() {
 				myMarkers.eachLayer(function (layer) {
     				var radius = layer.getRadius();
@@ -595,7 +489,10 @@ function main() {
 		}
 		firstClick = true;
 	};
+	/* // click feature function */
 	
+	
+	/* remove markers and reset layers */
 	function removeMarkers() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
@@ -631,32 +528,11 @@ function main() {
 		}
 		clickedUrbanName.length = 0;
 	};
-	
-	/* not in use 
-	// function to zoom to clicked feature in query list
-	function testZoom(e, position) {
-		// check if is county, urban point, or urban polygon
-		// check and set zoom levels
-		// set bounds or view
-		// initiate and fill popup (move filling of popups to new functions)
-		if (storedTypeClicked[position] == 'MultiPolygon') {
-			map.fitBounds(e.target.getBounds());
-			var zoom = map.getZoom();
-			if (zoom <= 10) {
-				currentZoom = zoom;
-				checkZoom = zoom - 1;
-				updateZoom();
-			} else {
-				// do nothing
-			}
-		} else if (storedTypeClicked[position] == 'Point') {
-			map.setView(e.latlng, 10);
-		}
-	};
-	  not in use */
+	/* // remove markers and reset layers */
 	
 	
-	// adds eventlisteners
+	
+	/* add event listeners */
 	function onEachFeature(feature, layer) {
 		layer.on({
 			mouseover: highlightFeature, // call highlightFeature function on mouseover
@@ -666,45 +542,29 @@ function main() {
 		
 		feature.layer = layer;
 	};
+	/* // add event listeners */
 	
-	// function to cross reference name of county polygon with google spreadsheet
+	
+	
+
+	/* function to cross reference name of county polygon with google spreadsheet */
 	function crossReference(e, layer, props, type, color, clickHov) {
 		var featureColor = color;
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
 			var target = props.NAME10; // reference
 			
-			
-			// call function to store clicked features
-			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
 				removePanelInfo("click");
 			} else if (clickHov == "hover") {
 				removePanelInfo("hover");
 			}
-			/*
-			if (firstClick == false) {
-				
-			} else if (firstClick == true) {
-				removePanelInfo("click");
-			}
-			*/
-			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			var ggleSprd = googleSpreadsheet.length;
 			for (i=0; i < ggleSprd; i++) {
 				if (target == googleSpreadsheet[i][0]) {
-					
-					
 					addCountyPanelInfo(target, i, clickHov);
-					/*
-					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + " County</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet[i][2] + "<br>" + "<br>" + 
-						"<b id='govPopup'>Resources</b>" + "<hr class='popupLine'>" + "<a id='countyLink1' target='_blank'>Gov Website</a>" + "<br>" + "<a id='countyLink2' target='_blank'>Web Map URL</a>" + "<br>" + "<a id='countyLink3' target='_blank'>Web Map Other</a>" + "<br>" + 
-						"<a id='countyLink4' target='_blank'>Web Map State</a>" + "<br>" + "<a id='countyLink5' target='_blank'>Comp Plan</a>" + "<br>" + "<a id='countyLink6' target='_blank'>Haz Mit Plan</a>" + "<br>" + 
-						"<a id='countyLink7' target='_blank'>Climate Plan</a>" + "<br>" + "<a id='countyLink8' target='_blank'>Resilience Plan</a>" + "<br>" + "<a id='countyLink9' target='_blank'>Zoning URL</a>").openOn(map);
-					*/
 				}
 			}
 			
@@ -712,90 +572,44 @@ function main() {
 			var target = props.name;
 			var target2 = props.NAMELSAD;
 			
-			// call function to store clicked features
-			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
 				removePanelInfo("click");
 			} else if (clickHov == "hover") {
 				removePanelInfo("hover");
 			}
-			/*
-			if (firstClick == false) {
-				
-			} else if (firstClick == true) {
-				removePanelInfo("click");
-			}
-			*/
-			
-			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
 				if (target2 == googleSpreadsheet2[i][1]) {
-					
-					
-					
 					addUrbanPanelInfo(target, i, clickHov, featureColor);
-					
-					
-					
-					
-					/*
-					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + "</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + "<br>" + 
-						"<b id='govPopup'>Resources</b>" + "<hr class='popupLine'>" + "<a id='pointLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='pointLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='pointLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
-						"<a id='pointLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='pointLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='pointLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
-						"<a id='pointLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='pointLink8' target='_blank'>Res Plan</a>").openOn(map);
-					// add other positions in array
-					*/
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
 			var target = props.Name_1;
 			var target2 = props.NAMELSAD;
 			
-			// call function to store clicked features
-			//stacheClicked(target, e, type);
 			if (clickHov == "click") {
 				removePanelInfo("click");
 			} else if (clickHov == "hover") {
 				removePanelInfo("hover");
 			}
-			/*
-			if (firstClick == false) {
-				
-			} else if (firstClick == true) {
-				
-				removePanelInfo("click");
-			}
-			*/
-			
-			
 			
 			// loop to retrieve necessary data from spreadsheet 
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
 				if (target2 == googleSpreadsheet2[i][1]) {
-					
 					addUrbanPanelInfo(target, i, clickHov, featureColor);
-					
-					/*
-					// set clicked popup with data and add to map
-					popup.setLatLng(e.latlng).setContent("<b id='titlePopup'>" + target + "</b>" + "<hr class='popupLine'>" + "Population 2000: " + googleSpreadsheet2[i][1] + "<br>" + "Population 2010: " + googleSpreadsheet2[i][2] + "<br>" + "<br>" + 
-						"<b id='govPopup'>Resources</b>" + "<hr class='popupLine'>" + "<a id='polyLink1' target='_blank'>Govt Web</a>" + "<br>" + "<a id='polyLink2' target='_blank'>Map Web</a>" + "<br>" + "<a id='polyLink3' target='_blank'>Comp Plan</a>" + "<br>" + 
-						"<a id='polyLink4' target='_blank'>Zoning Web</a>" + "<br>" + "<a id='polyLink5' target='_blank'>Haz Mit Web</a>" + "<br>" + "<a id='polyLink6' target='_blank'>Sus Plan</a>" + "<br>" + 
-						"<a id='polyLink7' target='_blank'>Cli Plan</a>" + "<br>" + "<a id='polyLink8' target='_blank'>Res Plan</a>").openOn(map);
-					// add other positions in array
-					*/
 				}
 			}
 		}
 	};
+	/* // function to cross reference name of county polygon with google spreadsheet */
 	
 	
+	/* event listener, fires whenever map zoom is changed */
 	map.on('zoom', function(e) {
 		checkZoom = currentZoom; // lag behind current zoom
 		currentZoom = map.getZoom(); // update continuously with zoom
@@ -808,50 +622,12 @@ function main() {
 		
 		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
 	});
+	/* // event listener, fires whenever map zoom is changed */
 	
-	/*
-	// function to add list of names to recent clicks
-	function stacheClicked(target, e, type) {
-		var container = document.getElementById('queryContainer');
-		
-		if (recentClickArr.indexOf(target) < 0) {
-			recentClickArr.splice(0, 0, target);
-			storedEClicked.splice(0, 0, e);
-			storedTypeClicked.splice(0, 0, type);
-			if (recentClickArr.length > 5) {
-				recentClickArr.splice(5, 1);
-				storedEClicked.splice(5, 1);
-				storedTypeClicked.splice(5, 1);
-				container.removeChild(container.childNodes[3]);
-			}
-			console.log(recentClickArr);
-			
-			//var queryButton = document.getElementById('queryButton');
-			//queryButton.style.cursor = 'pointer';
-			//queryButton.style.color = 'black';
-			//queryButton.classList.add('active');
-			
-			
-			// add a queryRow to the queryContainer
-			var para = document.createElement("p");
-			var node = document.createTextNode(target);
-			para.appendChild(node);
-			
-			var element = document.createElement("div");
-			element.classList.add('queryRow');
-			element.setAttribute("id", target);
-			element.setAttribute("onclick", "clickedQueryItem(this.id)");
-			element.appendChild(para);
-			
-			//container.appendChild(element);
-			
-		} else if (recentClickArr.indexOf(target) >= 0) {
-			console.log(recentClickArr);
-		}
-	};
-	*/
 	
-	// function to check whether to add points or polygons to the map based on zoom 
+	
+	
+	/* checks whether to add points or polygons to the map based on zoom */
 	function updateZoom() {
 		var pntA = pointArray.length;
 		var plyA = polygonArray.length;
@@ -887,6 +663,7 @@ function main() {
 			//geojson.setStyle({fillOpacity:0.4});
 		}
 	};
+	/* // checks whether to add points or polygons to the map based on zoom */
 	
 	
 	$.ajax({
@@ -1075,15 +852,11 @@ function main() {
 		}
 	
 	};
+
 	
-	// function that allows reseting of the maps extent to original
-	/* not in use
-	function home() {
-		map.setView(new L.LatLng(44, -88), 6);
-	};
-		not in use */
 	
-	// function that handles changing of the base map
+
+	/* handles changing of the base map */
 	function changeBaseMap(source) {
 		map.removeLayer(baseLayers[currentLayer]);
 		currentLayer = source;
@@ -1093,8 +866,13 @@ function main() {
 		var active = image.classList.contains('active');
 		
 	};
+	/* // handles changing of the base map */
 	
 	
+	
+	
+	
+	/* handles filtering the features */
 	function testFilter() {
 		resetFilter();
 		var index;
@@ -1187,61 +965,13 @@ function main() {
 					});
 				}
 			}
-			
-			/*
-			// fourth, go through each layer that was selected
-			theLayer.eachLayer(function (layer) {			
-				var name = layer.feature.properties.name;	// get the name of the layer
-				// for this layer only, find the match row on the google spreadsheet
-				// fifth, find the match row on the google spreadsheet
-				var m;
-				for(m=0; m < gglSprd2; m++) {
-					if (name == googleSpreadsheet2[m][0]) {
-						var row = m; 			// match row is found
-					} else {
-						// do nothing
-					}
-				}
-				
-				// sixth, check if attribute is null or not
-				if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
-					// add to array false
-					layer.feature.properties.filter = "false";
-					layer.setStyle({opacity: '0', fillOpacity: '0'});
-					layer.unbindTooltip();
-				} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
-					// add to array true
-					if (layer.feature.properties.filter = "false") {
-						layer.feature.properties.filter = "false";
-					} else {
-						layer.feature.properties.filter = "true";
-					}
-				}
-			});
-			*/
 		}
 	};
+	/* // handles filtering the features */
 	
+	
+	/* handles reseting the filtering */
 	function resetFilter() {
-		/*
-		var theLayer;
-		var g;
-		var currSltA = currentSelectArr.length;
-		for (g=0; g < currSltA; g++) {
-			if (currentSelectArr[g] == "Towns") {
-				theLayer = townsPoints;
-			} else if (currentSelectArr[g] == "Cities") {
-				theLayer = citiesPoints;
-			} else if (currentSelectArr[g] == "Villages") {
-				theLayer = villagesPoints;
-			}
-			
-			theLayer.eachLayer(function (layer) {
-				layer.setStyle({opacity: '1', fillOpacity: '0.75'});
-				layer.feature.properties.filter = "true";
-			});
-		}
-		*/
 		townsPoints.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
@@ -1255,8 +985,11 @@ function main() {
 			layer.feature.properties.filter = "true";
 		});
 	};
+	/* // handles reseting the filtering */
 	
 	
+	
+	/* handles zooming to the searched feature */
 	function zoomSearchedFeature(source, num) {
 		if (num == 0) {
 			geojson.eachLayer(function (layer) {		// go through each layer in county geojson
@@ -1347,7 +1080,12 @@ function main() {
 			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 		};
 	};
+	/* // handles zooming to the searched feature */
 	
+	
+	
+	
+	/* handles storing filter attribute options */
 	function storeChecks(source, id) {
 		var isThere = currentCheckArr.indexOf(source);
 		var clicked = document.getElementById(id);
@@ -1364,7 +1102,11 @@ function main() {
 			clicked.style.border = "1px solid black";
 		}
 	};
+	/* // handles storing filter attribute options */
 	
+	
+	
+	/* handles initiating event listener for layer filter selection */
 	function listenToMyForm() {
 		$('.mySelections').on('change', function(){
 			currentSelectArr.length = 0;
@@ -1372,7 +1114,10 @@ function main() {
 			currentSelectArr.push(selected);
 		});
 	};
+	/* // handles initiating event listener for layer filter selection */
 	
+	
+	/* handles removing panels if width is below certain amount */
 	$(window).resize(function() {
 		if ($(window).width() <= 600) {
 			// remove all active panels
@@ -1388,7 +1133,11 @@ function main() {
 			mobileMenuToggle.innerHTML = "menu";
 		}
 	});
+	/* // handles removing panels if width is below certain amount */
 	
+	
+	
+	/* handles giving features their color */
 	function initiateMapColors() {
 		// initiate colors for legend
 		document.getElementById(colorPal[0][1]).style.background = colorPal[0][0];
@@ -1396,16 +1145,23 @@ function main() {
 		document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
 		document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
 	};
+	/* // handles giving features their color */
 	
-	// Load Sheets API client library.
+	
+	
+	/* load sheets API client library */
 	function loadSheetsApi() {
 		var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 		gapi.client.load(discoveryUrl).then(listMajors);
 	};
+	/* // load sheets API client library */
+	
+	
 
-	//Print data from spreadsheet
+	
 	// https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0  = old spreadsheet
 	// https://docs.google.com/spreadsheets/d/1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA/edit#gid=0  = new spreadsheet
+	/* store data from spreadsheet */
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
@@ -1445,8 +1201,14 @@ function main() {
 			console.log('Error: ' + response.result.error.message);
 		});
 	};
+	/* // store data from spreadsheet */
 	
-	// function to toggle the visibility of layers in the map
+	
+	
+	
+	
+
+	/* handles toggling the visibility of layers */
 	function toggleLayers(source) {
 		// check for an active class to toggle on/off
 		var clicked = document.getElementById(source);
@@ -1470,12 +1232,13 @@ function main() {
 			// add layer
 		}
 	};
+	/* // handles toggling the visibility of layers */
 	
 	
 	
 	
 	
-	
+	/* handles displaying a part of side menu */
 	function displaySupMenu(source) {
 		var button = document.getElementById(source);
 		var active = button.classList.contains("active");
@@ -1527,8 +1290,11 @@ function main() {
 			}
 		}
 	};
+	/* // handles displaying a part of side menu */
 	
 	
+	
+	/* handles multiple ui hover and click functions */
 	function uiHover(source, num) {
 		var circle = document.getElementById(source);
 		var box;
@@ -1593,7 +1359,11 @@ function main() {
 			}
 		}
 	};
-
+	/* // handles multiple ui hover and click functions */
+	
+	
+	
+	/* handles reseting feature page */
 	function checkFeaturePage(source) {
 		var page = document.getElementById("featurePage");
 		var active = page.classList.contains('active');
@@ -1611,7 +1381,11 @@ function main() {
 			// do nothing
 		}
 	};
+	/* // handles reseting feature page */
 
+	
+	
+	/* handles displaying the mobile menu */
 	function showMobileMenu(source) {
 		var button = document.getElementById(source);
 		var page = document.getElementById("supMobileMenu");
@@ -1633,8 +1407,11 @@ function main() {
 		
 		}
 	};
+	/* // handles displaying the mobile menu */
 	
 	
+	
+	/* handles clicking mobile menu functions */
 	function mobileMenuClicked(val) {
 		var name;
 		if (val == 0) {
@@ -1649,8 +1426,11 @@ function main() {
 		
 		name.style.right = "0";
 	};
+	/* // handles clicking mobile menu functions */
 	
 	
+	
+	/* handles adding information for county features */
 	function addCountyPanelInfo(target, i, clickHov) {
 		
 		if (clickHov == "click") {
@@ -1807,15 +1587,12 @@ function main() {
 			var link = googleSpreadsheet[i][popupCountyArr[m][2]];
 			if (link == 'null') {
 				// deactivate link
-				//document.getElementById(popupCountyArr[m][0]).style.visibility = "hidden";
-				//$(popupCountyArr[m][0]).remove();
 				if (clickHov == "click") {
 					document.getElementById(popupCountyArr[m][0]).style.color = "#CCD1D1";
 				} else if (clickHov == "hover") {
 					document.getElementById(popupCountyArr[m][3]).style.color = "#CCD1D1";
 				}
 				
-				//document.getElementById(popupCountyArr[m][0]).classList.add('deactivated');
 			} else {
 				// activate link
 				if (clickHov == "click") {
@@ -1827,7 +1604,12 @@ function main() {
 			}
 		}
 	};
+	/* // handles adding information for county features */
 	
+	
+	
+	
+	/* handles removing panel information */
 	function removePanelInfo(clickHov) {
 		if (clickHov == "click") {
 			
@@ -1845,8 +1627,11 @@ function main() {
 		}
 		
 	};
+	/* // handles removing panel information */
 	
 	
+	
+	/* handles adding information for urban features */
 	function addUrbanPanelInfo(target, i, clickHov, color) {
 		var featureColorSelector;
 		if (color == colorPal[1][0]) {
@@ -2014,6 +1799,7 @@ function main() {
 			}
 		}
 	};
+	/* // handles adding information for urban features */
 	
 	
 	
@@ -2021,7 +1807,7 @@ function main() {
 	
 	
 	
-	
+	/* define options for fuse search */
 	var options = {
 		position: 'topleft',
 		title: 'Search',
@@ -2051,6 +1837,10 @@ function main() {
 			}
 		}
 	};
+	/* // define options for fuse search */
+	
+	
+	/* define and initiate fuse search control */
 	var searchCtrl = L.control.fuseSearch(options);
 	searchCtrl.addTo(map);
 	
@@ -2061,16 +1851,17 @@ function main() {
 	
 	var add = document.getElementById("searchPage");
 	add.appendChild(remove);
-	//add.appendChild(remove2);
+	/* // define and initiate fuse search control */
 	
-	
+	/* move the attribution */
 	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
+	/* // move the attribution */
 	
 	
 	
 	
-	
-	// fill name space with function variables so we can use them publicly
+
+	/* fill name space with function or variables so we can access them publicly */
 	myNameSpace = {
 		toggle: toggle,
 		changeBaseMap: changeBaseMap,
@@ -2086,6 +1877,7 @@ function main() {
 		showMobileMenu: showMobileMenu,
 		mobileMenuClicked: mobileMenuClicked
 	};
+	/* // fill name space with function or variables so we can access them publicly */
 
 };
 
