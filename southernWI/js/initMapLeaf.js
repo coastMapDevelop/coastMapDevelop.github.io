@@ -458,7 +458,7 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
 			
-			var myPointName = layer.feature.properties.name;
+			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
 			
 			removeMarkers();
@@ -470,17 +470,17 @@ function main() {
 			
 			// find the urban polygon that matches and change it's style to match clicked
 			citiesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == myPointName) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
 			townsPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == myPointName) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
 			villagesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == myPointName) {
+				if (layer.feature.properties.NAMELSAD == myPointName) {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
@@ -524,7 +524,7 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			var pointPos;
-			var polyName = layer.feature.properties.Name_1;
+			var polyName = layer.feature.properties.NAMELSAD;
 			var center = layer.getBounds().getCenter();
 			map.setView(center, currentZoom);
 			checkFeaturePage("featurePage");
@@ -535,17 +535,17 @@ function main() {
 			
 			// need to loop through point layers and find the right point that matches the polygon
 			citiesPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.name) {
+				if (polyName == layer.feature.properties.NAMELSAD) {
 					pointPos = layer._latlng;
 				}
 			});
 			townsPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.name) {
+				if (polyName == layer.feature.properties.NAMELSAD) {
 					pointPos = layer._latlng;
 				}
 			});
 			villagesPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.name) {
+				if (polyName == layer.feature.properties.NAMELSAD) {
 					pointPos = layer._latlng;
 				}
 			});
