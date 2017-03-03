@@ -286,7 +286,7 @@ function main() {
 				weight: 2,
 				fillOpacity: 1,
 			})
-			
+			// add layer.feature.properties.filter == "true" condition
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
 				hoverPanel.style.right = "75px";
@@ -319,7 +319,7 @@ function main() {
 			citiesPoints.resetStyle(e.target);
 			
 			villagesPoints.resetStyle(e.target);
-		
+		// add e.target.feature.properties.filter == "true" as a condition
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0]) {
 			
 			citiesPolygon.eachLayer(function(layer) {
@@ -426,7 +426,7 @@ function main() {
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
 			}, 500);
-			
+			// add layer.feature.properties.filter == "true" as a condition
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			var pointPos;
 			var polyName = layer.feature.properties.NAMELSAD;
@@ -879,7 +879,9 @@ function main() {
 		resetFilter();
 		var index;
 		var row;
+		// var row2;
 		var theLayer;
+		// var theSecondLayer;
 		var ppupPnt = popupPointArr.length;
 		var gglSprd2 = googleSpreadsheet2.length;
 		
@@ -909,10 +911,13 @@ function main() {
 			for (g=0; g < currSltA; g++) {
 				if (currSlt[g] == "Towns") {
 					theLayer = townsPoints;
+					// theSecondLayer = townsPolygon;
 				} else if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
+					// theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
+					// theSecondLayer = villagesPolygon;
 				}
 				
 				// fourth, loop through the selected layer
@@ -942,6 +947,35 @@ function main() {
 					}
 				});
 				
+				// fourth (b) loop through the selected polygon layer
+				/*
+				theSecondLayer.eachLayer(function (layer) {
+					var name = layer.feature.properties.NAMELSAD;
+					// fifth, find the match row on the google spreadsheet
+					var m;
+					for (m=0; m < gglSprd2; m++) {
+						if (name == googleSpreadsheet2[m][1]) {
+							var row2 = m;
+						}
+					}
+					
+					// sixth, check if attribute is null or not
+					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+						// add to array false
+						layer.feature.properties.filter = "false";
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
+						// add to array true
+						if (layer.feature.properties.filter == "false") {
+							layer.feature.properties.filter = "false";
+						} else {
+							console.log("true");
+							layer.feature.properties.filter = "true";
+						}
+					}
+				});
+				*/
+				
 				// seventh, for the layers that were not selected for filtering, remove
 				if (currSlt.indexOf("Towns") == -1) {
 					// remove all towns, treat as null
@@ -949,6 +983,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
+					/*
+					townsPolygon.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+					});
+					*/
 				}
 				
 				if (currSlt.indexOf("Cities") == -1) {
@@ -957,6 +996,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
+					/*
+					citiesPolygon.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+					});
+					*/
 				}
 				
 				if (currSlt.indexOf("Villages") == -1) {
@@ -965,6 +1009,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
+					/*
+					villagesPolygon.eachLayer(function (layer) {
+						layer.setStyle({opacity: '0', fillOpacity: '0'});
+					});
+					*/
 				}
 			}
 		}
@@ -986,6 +1035,21 @@ function main() {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
 		});
+		
+		/*
+		townsPolygon.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+		citiesPolygon.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+		villagesPolygon.eachLayer(function (layer) {
+			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.feature.properties.filter = "true";
+		});
+		*/
 	};
 	/* // handles reseting the filtering */
 	
