@@ -262,7 +262,12 @@ function main() {
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			// experimental
+			if (clickedUrbanName[0] != layer.feature.properties.NAME10) {
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			}
+			// experimental
+			
 			/*
 			if (hoverControl == false) {
 				checkFeaturePage("featurePage");
@@ -282,7 +287,12 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			//removePanelInfo("hover");
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			
+			// experimental
+			if (clickedUrbanName[0] != layer.feature.properties.name) {
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			}
+			// experimental
 			
 			//layer.bindTooltip(layer.feature.properties.name).openTooltip(); // open tooltip on hover with name of point
 			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
@@ -295,7 +305,12 @@ function main() {
 			
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			//removePanelInfo("hover");
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			
+			// experimental
+			if (clickedUrbanName[0] != layer.feature.properties.Name_1) {
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			}
+			// experimental
 			
 			//layer.bindTooltip(layer.feature.properties.Name_1).openTooltip(); // open tooltip on hover with name of urban polygon
 			//popup.setLatLng(e.latlng).setContent("test").openOn(map);
@@ -327,10 +342,11 @@ function main() {
 			
 			villagesPoints.resetStyle(e.target);
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[1][0]) {
-			citiesPolygon.resetStyle(e.target);
+			// experimental
+			//citiesPolygon.resetStyle(e.target);
 			
 			console.log(clickedUrbanName);
-			// experimental
+			
 			citiesPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
@@ -339,10 +355,11 @@ function main() {
 			// experimental
 			
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[2][0]) {
-			townsPolygon.resetStyle(e.target);
+			// experimental
+			// townsPolygon.resetStyle(e.target);
 			
 			console.log(clickedUrbanName);
-			// experimental
+			
 			townsPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
@@ -350,10 +367,11 @@ function main() {
 			});
 			// experimental
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[3][0]) {
-			villagesPolygon.resetStyle(e.target);
+			// experimental
+			//villagesPolygon.resetStyle(e.target);
 			
 			console.log(clickedUrbanName);
-			// experimental
+			
 			villagesPolygon.eachLayer(function(layer) {
 				layer.setStyle({fillOpacity: 0.75, weight: 1});
 			});
@@ -447,6 +465,7 @@ function main() {
 			clickedUrbanName.length = 0;
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.Name_1);
+			console.log(clickedUrbanName);
 			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
