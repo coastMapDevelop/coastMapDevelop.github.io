@@ -917,11 +917,11 @@ function main() {
 				
 				// fourth, loop through the selected layer
 				theLayer.eachLayer(function (layer) {
-					var name = layer.feature.properties.name;
+					var name = layer.feature.properties.NAMELSAD;
 					//fifth, find the match row on the google spreadsheet
 					var m;
 					for (m=0; m < gglSprd2; m++) {
-						if (name == googleSpreadsheet2[m][0]) {
+						if (name == googleSpreadsheet2[m][1]) {
 							var row = m;		// match row is found
 						}
 					}
