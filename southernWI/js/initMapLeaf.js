@@ -1707,11 +1707,11 @@ function main() {
 	function addUrbanPanelInfo(target, i, clickHov, color) {
 		var featureColorSelector;
 		if (color == colorPal[1][0]) {
-			featureColorSelector = ", City";
+			featureColorSelector = "City of ";
 		} else if (color == colorPal[2][0]) {
-			featureColorSelector = ", Town";
+			featureColorSelector = "Town of ";
 		} else if (color == colorPal[3][0]) {
-			featureColorSelector = ", Village";
+			featureColorSelector = "Village of ";
 		}
 		
 		if (clickHov == "click") {
@@ -1745,7 +1745,7 @@ function main() {
 		}
 		
 		
-		title.innerHTML = target + featureColorSelector;
+		title.innerHTML = featureColorSelector + target;
 		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][2];
 		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][3];
 					
