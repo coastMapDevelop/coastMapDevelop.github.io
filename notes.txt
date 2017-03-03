@@ -2,18 +2,18 @@
 
 
 Things to work on:
-	- when centering on county, make sure to not block any of the features (for smaller view)
+	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
 	- check and optimize variable declarations
 	- check and optimize function placements
 	- possible update to dynamic font size
 
-	- data sources - will be more
+	- data sources - will be more (update and formalize google spreadsheet, talk to david)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
-	- maybe have polygon inside the information panel???
-	- need milwaukee city polygon (not in sources???) (reason not displaying in search)
-	- kenosha city not displaying in search (don't have polygon
+	- maybe have polygon inside the information panel (as image)
+	- need milwaukee city polygon (reason not displaying in search)
+	- need kenosha city polygon (reason not displaying in search)
 	- need new urban polygon data (clipped to shoreline)
 	- AJ suggested mapshaper urban polygon simplification
 	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
