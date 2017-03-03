@@ -290,7 +290,7 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			//removePanelInfo("hover");
 			
-			if (clickedUrbanName[0] != layer.feature.properties.name) {
+			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
 				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			}
@@ -310,7 +310,7 @@ function main() {
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-			if (clickedUrbanName[0] != layer.feature.properties.Name_1) {
+			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
 				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 			}
@@ -390,7 +390,7 @@ function main() {
 			
 			
 			citiesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
@@ -401,7 +401,7 @@ function main() {
 			
 			
 			townsPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
@@ -413,7 +413,7 @@ function main() {
 			
 			
 			villagesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
@@ -465,7 +465,7 @@ function main() {
 			clickedUrbanName.length = 0;
 			
 			
-			clickedUrbanName.push(layer.feature.properties.name);
+			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			console.log(clickedUrbanName);
 			
 			// find the urban polygon that matches and change it's style to match clicked
@@ -530,7 +530,7 @@ function main() {
 			checkFeaturePage("featurePage");
 			clickedUrbanName.length = 0;
 			removeMarkers();
-			clickedUrbanName.push(layer.feature.properties.Name_1);
+			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			console.log(clickedUrbanName);
 			
 			// need to loop through point layers and find the right point that matches the polygon
@@ -604,19 +604,19 @@ function main() {
 		if (clickedUrbanName.length != 0 ) {
 			// maybe check here for LSAD and see if it's city, village, or town to save computation power
 			citiesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
 			
 			townsPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});
 			
 			villagesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.Name_1 == clickedUrbanName[0]) {
+				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
 				}
 			});

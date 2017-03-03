@@ -2,7 +2,7 @@
 
 
 Things to work on:
-	- if hovering over the same clicked feature, don't show hovered feature panel
+	- problem with name again, have to switch to finding name with city, village, or town (for changing style of urban polygon, and clickedUrbanName
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
