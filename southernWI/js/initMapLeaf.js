@@ -405,9 +405,11 @@ function main() {
 			
 			
 			villagesPolygon.eachLayer(function(layer) {
-				layer.setStyle({fillOpacity: 0.75, weight: 1});
+				if (layer.feature.properties.Name_1 != clickedUrbanName[0]) {
+					layer.setStyle({fillOpacity: 0.75, weight: 1});
+				}
 			});
-			console.log(clickedUrbanName);
+			
 			// experimental
 		}
 		//this.closeTooltip(); // close tooltip on mouseout
