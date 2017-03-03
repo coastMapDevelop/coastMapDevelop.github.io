@@ -378,8 +378,7 @@ function main() {
 			});
 			// experimental
 		*/
-		} else if ((e.target.feature.geometry.type == 'MultiPolygon' && (e.target.options.fillColor == colorPal[1][0] || e.target.options.fillColor == colorPal[2][0] || 
-			e.target.options.fillColor == colorPal[3][0]))) {
+		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0]) {
 			// experimental
 			//citiesPolygon.resetStyle(e.target);
 			
