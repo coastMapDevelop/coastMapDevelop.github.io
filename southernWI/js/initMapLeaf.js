@@ -92,7 +92,7 @@ function main() {
 	loadSheetsApi();
 	listenToMyForm();
 	
-	// initiate basemap
+	/* initiate basemap */
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
     	zoomControl: false,		  // add zoom control to the map
@@ -105,11 +105,15 @@ function main() {
 		],
         zoom: 9			  // map initiation zoom level
     });
+	/* // initiate basemap */
 	
+	/* initiate url hash */
 	var hash = new L.Hash(map);
+	/* // initiate url hash */
 	
 	
 	
+	/* initiate and declare basemaps */
 	// hydda.full tiles
 	var Hydda_Full = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 		attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -157,6 +161,7 @@ function main() {
 		attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
 		maxZoom: 13
 	});
+	/* // initiate and declare basemaps */
 	
 	// library for holding base map layer information
 	var baseLayers = {
@@ -170,10 +175,13 @@ function main() {
 		"Tile_Layer_8": Esri_OceanBasemap
 	};
 	
+	/* store and initialize current base layer */
 	var currentLayer = "Tile_Layer_1";	// stores our currently visible base map layer
 	baseLayers[currentLayer].addTo(map);	// add tiles to map
+	/* // store and initialize current base layer */
 	
-	var popup = L.popup();	// add hover popup
+	
+	//var popup = L.popup();	// add hover popup
 	
 	
 	// county style
