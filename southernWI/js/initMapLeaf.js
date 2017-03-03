@@ -521,7 +521,7 @@ function main() {
 				if (polyName == layer.feature.properties.name) {
 					pointPos = layer._latlng;
 				}
-			}
+			});
 			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
