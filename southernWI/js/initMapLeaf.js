@@ -879,9 +879,9 @@ function main() {
 		resetFilter();
 		var index;
 		var row;
-		// var row2;
+		var row2;
 		var theLayer;
-		// var theSecondLayer;
+		var theSecondLayer;
 		var ppupPnt = popupPointArr.length;
 		var gglSprd2 = googleSpreadsheet2.length;
 		
@@ -911,13 +911,13 @@ function main() {
 			for (g=0; g < currSltA; g++) {
 				if (currSlt[g] == "Towns") {
 					theLayer = townsPoints;
-					// theSecondLayer = townsPolygon;
+					theSecondLayer = townsPolygon;
 				} else if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
-					// theSecondLayer = citiesPolygon;
+					theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
-					// theSecondLayer = villagesPolygon;
+					theSecondLayer = villagesPolygon;
 				}
 				
 				// fourth, loop through the selected layer
@@ -948,7 +948,7 @@ function main() {
 				});
 				
 				// fourth (b) loop through the selected polygon layer
-				/*
+				
 				theSecondLayer.eachLayer(function (layer) {
 					var name = layer.feature.properties.NAMELSAD;
 					// fifth, find the match row on the google spreadsheet
@@ -960,7 +960,7 @@ function main() {
 					}
 					
 					// sixth, check if attribute is null or not
-					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+					if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
 						// add to array false
 						layer.feature.properties.filter = "false";
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
@@ -974,7 +974,7 @@ function main() {
 						}
 					}
 				});
-				*/
+				
 				
 				// seventh, for the layers that were not selected for filtering, remove
 				if (currSlt.indexOf("Towns") == -1) {
@@ -983,11 +983,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
-					/*
+					
 					townsPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 					});
-					*/
+					
 				}
 				
 				if (currSlt.indexOf("Cities") == -1) {
@@ -996,11 +996,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
-					/*
+					
 					citiesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 					});
-					*/
+					
 				}
 				
 				if (currSlt.indexOf("Villages") == -1) {
@@ -1009,11 +1009,11 @@ function main() {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 						layer.feature.properties.filter = "false";
 					});
-					/*
+					
 					villagesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 					});
-					*/
+					
 				}
 			}
 		}
@@ -1036,7 +1036,7 @@ function main() {
 			layer.feature.properties.filter = "true";
 		});
 		
-		/*
+		
 		townsPolygon.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
@@ -1049,7 +1049,7 @@ function main() {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 			layer.feature.properties.filter = "true";
 		});
-		*/
+		
 	};
 	/* // handles reseting the filtering */
 	
