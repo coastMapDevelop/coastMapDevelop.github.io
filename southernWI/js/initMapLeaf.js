@@ -256,18 +256,17 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		//var hoverPanel = document.getElementById("hoverFeaturePage");
-		hoverPanel.style.right = "75px";
+		
+		//hoverPanel.style.right = "75px";
 		
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
 			if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+				hoverPanel.style.right = "75px";
 				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			} else if (clickedCountyName[0] == layer.feature.properties.NAME10) {
-				alert('bleh');
 			}
-			
 			
 			// experimental
 			
@@ -291,8 +290,11 @@ function main() {
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
 			//removePanelInfo("hover");
 			
-	
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			if (clickedUrbanName[0] != layer.feature.properties.name) {
+				hoverPanel.style.right = "75px";
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			}
+			
 			
 			// experimental
 			
@@ -308,8 +310,10 @@ function main() {
 		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0]) {
 			//removePanelInfo("hover");
 			
-			
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			if (clickedUrbanName[0] != layer.feature.properties.Name_1) {
+				hoverPanel.style.right = "75px";
+				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			}
 			
 			// experimental
 			
