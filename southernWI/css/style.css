@@ -61,7 +61,7 @@ body {
 
 #mobileFilterResetMenu {
 	position: absolute;
-	top: 120px;
+	top: 110px;
 	right: 10px;
 	background: #1C2833;
 	height: 40px;
@@ -70,7 +70,7 @@ body {
 	border-radius: 40px;
 	visibility: hidden;
 	border: 2px solid transparent;
-	z-index: 1002;
+	z-index: 1001;
 	cursor: pointer;
 	text-align: center;
 	-webkit-transition: .25s background, .25s color, .25s border;
@@ -96,7 +96,7 @@ body {
 	border-radius: 40px;
 	visibility: hidden;
 	border: 2px solid transparent;
-	z-index: 1002;
+	z-index: 1001;
 	cursor: pointer;
 	text-align: center;
 	-webkit-transition: .25s background, .25s color, .25s border;
