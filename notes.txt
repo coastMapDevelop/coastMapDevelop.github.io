@@ -3,8 +3,6 @@
 
 Things to work on:
 	- add button on feature page for mobile to temporarily hide info, then add button to reshow info
-	- add margin to bottom of reset filter button
-	- when performing a function in a panel on mobile view (i.e., click searched, click filter, click basemap) also remove mobile menu panel
 	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
 	- add a reset filter button on mobile view (quick click)
 	- change zoning to "zoning code"
