@@ -2,9 +2,12 @@
 
 
 Things to work on:
-	- add button on feature page for mobile to temporarily hide info, then add button to reshow info
+	- problem is when clicking filter, it's only filtering the layers that are currently in the map, and only points or polygons are ever in the map
+	- filter different layers - may need a boolean to check each zoom, and run filter when changing
+	- reset filter, not reseting in different zooms (layers not added in map)
+	- add button on feature page for mobile to temporarily hide info, then add button to reshow info (only display if feature is currently clicked)
 	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
-	- add a reset filter button on mobile view (quick click)
+	- add a reset filter button on mobile view (quick click) (only display if a filter is currently applied)
 
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
