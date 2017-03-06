@@ -687,6 +687,7 @@ function main() {
 			}
 			
 			countyZoomFillControl = false;
+			console.log(countyClickedZoomControl);
 			if (countyClickedZoomControl == false) {
 				geojson.eachLayer(function (layer) {
 					try {
