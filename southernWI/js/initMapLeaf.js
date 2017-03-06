@@ -1139,7 +1139,7 @@ function main() {
 				layer.feature.properties.filter = "true";
 			});
 		} catch (err) {
-			alert(err);
+			console.log(err);
 		}
 		
 		
@@ -1160,7 +1160,7 @@ function main() {
 				layer.feature.properties.filter = "true";
 			});
 		} catch (err) {
-			alert(err);
+			console.log(err);
 		}
 		
 		
