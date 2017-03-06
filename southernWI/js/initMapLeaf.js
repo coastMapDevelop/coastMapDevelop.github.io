@@ -1416,7 +1416,7 @@ function main() {
 	/* handles hovering filter buttons */
 	function hoverChecks(source, num) {
 		var theBox = document.getElementById(source);
-		var isActive = classList.contains('myCheckBoxActive');
+		var isActive = theBox.classList.contains('myCheckBoxActive');
 		if (num == 0) {
 			if (isActive == true) {
 				// do nothing
