@@ -996,7 +996,7 @@ function main() {
 			}
 			
 			polyZoomC = false;
-			pointC = true;
+			pointZoomC = true;
 			
 			
 		}
