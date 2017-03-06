@@ -239,7 +239,7 @@
 		<div class="row">
 			<p>Choose one or more attributes to filter.</p>
 			<div class="col-md-6">
-				<div id="govweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Govt Web</div>
+				<div id="govweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Govt Web</div>
 				<div id="mapweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Map Web</div>
 				<div id="compweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Comp Plan</div>
 				<div id="zoningweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)">Zoning Web</div>

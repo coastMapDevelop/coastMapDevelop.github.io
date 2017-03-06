@@ -1415,6 +1415,27 @@ function main() {
 	
 	
 	
+	
+	/* handles hovering filter buttons */
+	function hoverChecks(source, num) {
+		var theBox = document.getElementById(source);
+		
+		if (num == 0) {
+			theBox.style.background = "#003744";
+			theBox.style.color = "white";
+			theBox.style.border = "1px solid white";
+		} else if (num == 1) {
+			theBox.style.background = "";
+			theBox.style.color = "";
+			theBox.style.border = "";
+		}
+	
+	};
+	/* // handles hovering filter buttons */
+	
+	
+	
+	
 	/* handles initiating event listener for layer filter selection */
 	function listenToMyForm() {
 		$('.mySelections').on('change', function(){

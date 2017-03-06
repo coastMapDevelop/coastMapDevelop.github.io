@@ -619,11 +619,7 @@ body {
 	color: black;
 }
 
-.myCheckBox:hover {
-	background: #003744;
-	color: white;
-	border: 1px solid white;
-}
+
 
 
 @media only screen and (max-width: 600px) {
