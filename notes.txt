@@ -2,7 +2,7 @@
 
 
 Things to work on:
-	- layer.bringToFront() and layer.bringToBack() works for points, but not polygons (t.parentNode is null)
+	- when zooming for filter, when adding back to the map, we have to go through each layer and check if filter = false, if is false, we need to bring to back
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates

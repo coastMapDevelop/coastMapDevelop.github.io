@@ -641,6 +641,37 @@ function main() {
 			for(i=0; i < pntA; i++) {
 				map.addLayer(pointArray[i]);
 				myMarkers.setStyle({opacity: 1});
+				
+				try {
+					citiesPoints.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+				
+				try {
+					villagesPoints.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+				
+				try {
+					townsPoints.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+			
 			}
 			
 			var j;
@@ -661,6 +692,37 @@ function main() {
 			var j;
 			for (j=0; j < plyA; j++) {
 				map.addLayer(polygonArray[j]);
+				
+				try {
+					citiesPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+				
+				try {
+					townsPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+				
+				try {
+					citiesPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.filter == "false" ) {
+							layer.bringToBack();
+						}
+					});
+				} catch (err) {
+					
+				}
+				
 			}
 			
 			//geojson.setStyle({fillOpacity:0.4});
