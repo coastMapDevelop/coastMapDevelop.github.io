@@ -687,7 +687,7 @@ function main() {
 			
 			countyZoomFillControl = false;
 
-			layer.setStyle({fillOpacity:0.75});
+			geojson.setStyle({fillOpacity:0.75});
 		
 			//geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
