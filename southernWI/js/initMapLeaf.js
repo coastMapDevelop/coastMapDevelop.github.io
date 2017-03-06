@@ -965,7 +965,7 @@ function main() {
 						// add to array false
 						layer.feature.properties.filter = "false";
 			
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
 						// add to array true
 						if (layer.feature.properties.filter == "false") {
@@ -987,7 +987,7 @@ function main() {
 					});
 					
 					townsPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1001,7 +1001,7 @@ function main() {
 					});
 					
 					citiesPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1015,7 +1015,7 @@ function main() {
 					});
 					
 					villagesPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1043,15 +1043,15 @@ function main() {
 		
 		
 		townsPolygon.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		citiesPolygon.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		villagesPolygon.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		
