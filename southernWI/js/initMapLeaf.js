@@ -23,6 +23,7 @@ function main() {
 	var remove2;				// for storing search control
 	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
 	var countyZoomFillControl = false;
+	var countyClickedZoomControl = false;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -356,10 +357,10 @@ function main() {
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
 			clickedCountyName.length = 0;
-	
+			
 			var center = layer.getBounds().getCenter();
 			removeMarkers();
-			
+			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
 			
 			map.setView(center, 10);
@@ -505,7 +506,7 @@ function main() {
 	function removeMarkers() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
-		
+		countyClickedZoomControl = false;
 		if (clickedCountyName.length != 0) {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
@@ -686,8 +687,10 @@ function main() {
 			}
 			
 			countyZoomFillControl = false;
-
-			geojson.setStyle({fillOpacity:0.75});
+			if (countyClickedZoomControl = false) {
+				geojson.setStyle({fillOpacity:0.75});
+			}
+			
 		
 			//geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
