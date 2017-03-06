@@ -688,7 +688,11 @@ function main() {
 			
 			countyZoomFillControl = false;
 			if (countyClickedZoomControl == false) {
-				geojson.setStyle({fillOpacity:0.75});
+				geojson.eachLayer(function (layer) {
+					if (clickedCountyName[0] != layer.NAME10) {
+						layer.setStyle({fillOpacity:0.75});
+					}
+				});
 			}
 			
 		
