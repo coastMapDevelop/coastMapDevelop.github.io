@@ -114,7 +114,7 @@ body {
 	left: 0;
 	bottom: 0;
 	background: #FBFCFC;
-	z-index: 1001;
+	z-index: 1003;
 	height: 50px;
 	width: 100%;
 	visibility: visible;
@@ -229,7 +229,7 @@ body {
 	color: white;
 	width: 75px;
 	height: 100%;
-	z-index: 1003;
+	z-index: 1004;
 }
 
 /* possibly delete */

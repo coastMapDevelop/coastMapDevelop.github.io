@@ -2,8 +2,6 @@
 
 
 Things to work on:
-	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
-	- get population data for 2015 and estimate for 2016 or 2017
 	- move and change names of resources in feature clicked page and feature hovered page
 	- feature clicked page and feature hovered page are on top of the bottom menu, need to fix this (z index)
 	- filter page : when clicking reset, clear the attribute array and remove highlight from attribute selections
