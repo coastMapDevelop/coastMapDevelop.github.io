@@ -510,7 +510,12 @@ function main() {
 		if (clickedCountyName.length != 0) {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
-					layer.setStyle({fillOpacity:0.75, weight: 1});
+					if (countyZoomFillControl == false) {
+						layer.setStyle({fillOpacity:0.75, weight: 1});
+					} else if (countyZoomFillControl == true) {
+						layer.setStyle({fillOpacity:0.4, weight: 1});
+					}
+				
 				}
 			});
 		}
