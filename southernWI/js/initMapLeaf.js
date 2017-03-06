@@ -710,7 +710,7 @@ function main() {
 			}
 			
 		
-			//geojson.setStyle({fillOpacity:0.75});
+			
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
 			
