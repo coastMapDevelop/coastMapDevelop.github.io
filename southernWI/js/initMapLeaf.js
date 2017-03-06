@@ -22,6 +22,7 @@ function main() {
 	var remove;					// for storing search panel
 	var remove2;				// for storing search control
 	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
+	var countyZoomFillControl = false;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -309,7 +310,12 @@ function main() {
 
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
+					if (countyZoomFillControl == false) {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					} else if (countyZoomFillControl == true) {
+						layer.setStyle({fillOpacity: 0.4, weight: 1});
+					}
+					
 				}
 			});
 			
@@ -679,6 +685,7 @@ function main() {
 				map.removeLayer(polygonArray[j]);
 			}
 			
+			countyZoomFillControl = false;
 			geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
@@ -725,6 +732,7 @@ function main() {
 				
 			}
 			
+			countyZoomFillControl = true;
 			geojson.setStyle({fillOpacity:0.4});
 		}
 	};
