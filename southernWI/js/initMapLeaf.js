@@ -1074,6 +1074,7 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("basemapPageToggle", 3);
+			showMobileMenu("mobileMenu");
 		}
 		
 	};
@@ -1327,6 +1328,7 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("filterPageToggle", 3);
+			showMobileMenu("mobileMenu");
 		}
 	};
 	/* // handles filtering the features */
@@ -1493,6 +1495,7 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("searchPageToggle", 3);
+			showMobileMenu("mobileMenu");
 		}
 	};
 	/* // handles zooming to the searched feature */
