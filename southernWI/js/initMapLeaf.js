@@ -847,7 +847,6 @@ function main() {
 				map.addLayer(pointArray[i]);
 				myMarkers.setStyle({opacity: 1});
 				
-				// if a filter is applied (from boolean) then filter the newly added points (testFilter function)
 				try {
 					citiesPoints.eachLayer(function (layer) {
 						if (layer.feature.properties.filter == "false" ) {
@@ -879,6 +878,9 @@ function main() {
 				}
 			
 			}
+			
+			// if a filter is applied (from boolean) then filter the newly added points (testFilter function)
+			console.log("filter newly added points");
 			
 			var j;
 			for (j=0; j < plyA; j++) {
@@ -917,11 +919,14 @@ function main() {
 				myMarkers.setStyle({opacity: 0});
 			}
 			
+			// if a filter is applied (from boolean) then filter the newly added polygons (testFilter function)
+			console.log("filter newly added polygons");
 			var j;
 			for (j=0; j < plyA; j++) {
 				map.addLayer(polygonArray[j]);
 				
-				// if a filter is applied (from boolean) then filter the newly added polygons (testFilter function)
+				
+				
 				try {
 					citiesPolygon.eachLayer(function (layer) {
 						if (layer.feature.properties.filter == "false" ) {
