@@ -25,6 +25,8 @@ function main() {
 	var countyZoomFillControl = false;
 	var countyClickedZoomControl = false;
 	var isMobile = false;
+	var polyZoomC = true;
+	var pointZoomC = true;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -840,6 +842,12 @@ function main() {
 		var pntA = pointArray.length;
 		var plyA = polygonArray.length;
 		if (checkZoom <= 11 && currentZoom <= 10) {
+			
+			if (pointZoomC == true) {
+				// run all the processes here
+				console.log("add points");
+			}
+			
 			// check which layers are currently active
 			
 			var i;
@@ -880,7 +888,7 @@ function main() {
 			}
 			
 			// if a filter is applied (from boolean) then filter the newly added points (testFilter function)
-			console.log("filter newly added points");
+			
 			
 			var j;
 			for (j=0; j < plyA; j++) {
@@ -908,9 +916,17 @@ function main() {
 				geojson.setStyle({fillOpacity:0.75});
 			}
 			
+			pointZoomC = false;
+			polyZoomC = true;
+			
 		
 			
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
+			
+			if (polyZoomC == true) {
+				// do all processes here
+				console.log("add poly");
+			}
 			// check which layers are currently active
 			
 			var i;
@@ -920,7 +936,7 @@ function main() {
 			}
 			
 			// if a filter is applied (from boolean) then filter the newly added polygons (testFilter function)
-			console.log("filter newly added polygons");
+		
 			var j;
 			for (j=0; j < plyA; j++) {
 				map.addLayer(polygonArray[j]);
@@ -978,6 +994,9 @@ function main() {
 				
 				geojson.setStyle({fillOpacity:0.4});
 			}
+			
+			polyZoomC = false;
+			pointC = true;
 			
 			
 		}
