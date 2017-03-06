@@ -934,19 +934,29 @@ function main() {
 					
 					// sixth, check if attribute is null or not
 					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
-						// add to array false
-						layer.feature.properties.filter = "false";
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						layer.bringToBack();
+						try {
+							// add to array false
+							layer.feature.properties.filter = "false";
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
+						}
+						catch (err) {
+							alert(err);
+						}
 					
 					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
-						// add to array true
-						if (layer.feature.properties.filter == "false") {
-							layer.feature.properties.filter = "false";
-						} else {
+						try {
+							// add to array true
+							if (layer.feature.properties.filter == "false") {
+								layer.feature.properties.filter = "false";
+							} else {
 							
-							layer.feature.properties.filter = "true";
+								layer.feature.properties.filter = "true";
+							}
+						} catch (err) {
+							alert(err);
 						}
+	
 					}
 				});
 				
@@ -964,20 +974,30 @@ function main() {
 					
 					// sixth, check if attribute is null or not
 					if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
-						// add to array false
-						layer.feature.properties.filter = "false";
+						try {
+							// add to array false
+							layer.feature.properties.filter = "false";
 			
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						//layer.bringToBack();
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
+						} catch (err) {
+							alert(err);
+						}
+						
 					
 					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
-						// add to array true
-						if (layer.feature.properties.filter == "false") {
-							layer.feature.properties.filter = "false";
-						} else {
+						try {
+							// add to array true
+							if (layer.feature.properties.filter == "false") {
+								layer.feature.properties.filter = "false";
+							} else {
 						
-							layer.feature.properties.filter = "true";
+								layer.feature.properties.filter = "true";
+							}
+						} catch (err) {
+							alert(err);
 						}
+						
 					}
 				});
 				
@@ -986,17 +1006,27 @@ function main() {
 				if (currSlt.indexOf("Towns") == -1) {
 					// remove all towns, treat as null
 					townsPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 					
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+						
 					});
 					
 					townsPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						//layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 						
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+						
 					});
 					
 				}
@@ -1004,17 +1034,27 @@ function main() {
 				if (currSlt.indexOf("Cities") == -1) {
 					// remove all cities, treat as null
 					citiesPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 						
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+						
 					});
 					
 					citiesPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						//layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 						
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+						
 					});
 					
 				}
@@ -1022,17 +1062,27 @@ function main() {
 				if (currSlt.indexOf("Villages") == -1) {
 					// remove all vilages, treat as null
 					villagesPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 						
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+					
 					});
 					
 					villagesPolygon.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-						//layer.bringToBack();
+						try {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
 					
-						layer.feature.properties.filter = "false";
+							layer.feature.properties.filter = "false";
+						} catch (err) {
+							alert(err);
+						}
+						
 					});
 					
 				}
