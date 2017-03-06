@@ -321,7 +321,7 @@ function main() {
 			villagesPoints.resetStyle(e.target);
 		
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
-			console.log(clickedUrbanName[0]);
+			
 			
 			citiesPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
@@ -964,7 +964,7 @@ function main() {
 					if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
 						// add to array false
 						layer.feature.properties.filter = "false";
-						console.log(layer.feature.properties.filter);
+			
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
 					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
 						// add to array true
@@ -988,6 +988,7 @@ function main() {
 					
 					townsPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
 					});
 					
 				}
@@ -1001,6 +1002,7 @@ function main() {
 					
 					citiesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
 					});
 					
 				}
@@ -1014,6 +1016,7 @@ function main() {
 					
 					villagesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.feature.properties.filter = "false";
 					});
 					
 				}
