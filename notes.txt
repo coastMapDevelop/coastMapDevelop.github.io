@@ -2,7 +2,8 @@
 
 
 Things to work on:
-	- filtering removed polygons, hide and change mouseover, have to bring to back (also points)
+	- when filtering urban points and polygons, they change their style, however we can still mouseover them. We have to change the function of mouseover to change
+		when the filter = false. When filter = false, change urban polygon / point to act like the county below it.
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
