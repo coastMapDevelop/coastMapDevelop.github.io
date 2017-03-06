@@ -1038,34 +1038,34 @@ function main() {
 	function resetFilter() {
 		townsPoints.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		citiesPoints.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		villagesPoints.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		
 		
 		townsPolygon.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		citiesPolygon.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		villagesPolygon.eachLayer(function (layer) {
 			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-			layer.bringToFront(); // experimental
+			//layer.bringToFront(); // experimental
 			layer.feature.properties.filter = "true";
 		});
 		
