@@ -467,35 +467,6 @@ function main() {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/* mouseover feature function */
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
