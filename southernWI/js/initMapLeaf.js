@@ -262,6 +262,240 @@ function main() {
 	
 	
 	
+	
+	/* event listener, fires whenever map zoom is changed */
+	map.on('zoom', function(e) {
+		checkZoom = currentZoom; // lag behind current zoom
+		currentZoom = map.getZoom(); // update continuously with zoom
+		
+		if ((checkZoom - currentZoom) < 0) {
+			checkZoom = currentZoom - 1;
+		} else if ((checkZoom - currentZoom) > 0) {
+			checkZoom = currentZoom + 1;
+		}
+		
+		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
+	});
+	/* // event listener, fires whenever map zoom is changed */
+	
+	
+	
+	
+	$.ajax({
+		dataType: "json",
+		url: "data/southernWIGeojson/southernWIPolygons.geojson",
+		success: function(data) {
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
+			geojson = L.geoJson(data, {
+				style: myStyle,
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					return feature.properties.COUNTYFP10;
+				}
+			}).addTo(map);
+			
+			myMarkers = L.featureGroup().addTo(map);
+			
+			citiesPolygon = L.geoJson(data, {
+				style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 25) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(citiesPolygon);
+			
+			townsPolygon = L.geoJson(data, {
+				style: townPolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 43) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(townsPolygon);
+			
+			villagesPolygon = L.geoJson(data, {
+				style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
+				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 47) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(villagesPolygon);
+			
+			addPointLayers();
+		}
+	});
+	
+	
+	function addPointLayers() {
+		$.ajax({
+			dataType: "json",
+			url: "data/southernWIGeojson/urbanPoints.geojson",
+			success: function(data) {
+				townsPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, townPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 43) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				pointArray.push(townsPoints);
+				
+				citiesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, cityPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 25) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				pointArray.push(citiesPoints);
+			
+				villagesPoints = L.geoJson(data, {
+					// convert markers to points
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, villagePointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 47) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				pointArray.push(villagesPoints);
+			}
+		});
+		initiateMapColors();
+	};
+	
+	
+	
+	
+	/* handles removing panels if width is below certain amount */
+	$(window).resize(function() {
+		if ($(window).width() <= 600) {
+			// remove all active panels
+			searchPage.style.right = "";
+			basemapPage.style.right = "";
+			filterPage.style.right = "";
+			featurePage.style.right = "";
+			hoverFeaturePage.style.right = "";
+		} else {
+			// remove all active panels
+			supMobileMenu.style.right = "";
+			supMobileMenu.style.visibility = "";
+			mobileMenuToggle.innerHTML = "menu";
+		}
+	});
+	/* // handles removing panels if width is below certain amount */
+	
+	
+	
+	
+	/* define options for fuse search */
+	var options = {
+		position: 'topleft',
+		title: 'Search',
+		placeholder: 'Racine',
+		panelTitle: '',
+		maxResultLength: 10,
+		showInvisibleFeatures: true,
+		caseSensitive: false,
+		threshold: 0,
+		showResultFct: function (feature, container) {
+			props = feature.properties;
+			var name = L.DomUtil.create('b', null, container);
+			if (props.NAME10 != null) {
+				//name.innerHTML = props.NAME10;
+				name.innerHTML = props.NAMELSAD10;
+				name.setAttribute("id", props.NAME10);
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
+				container.appendChild(L.DomUtil.create('br', null, container));
+				//container.appendChild(document.createTextNode(props.NAMELSAD10));
+			} else if (props.NAME10 == null) {
+				//name.innerHTML = props.Name_1;
+				name.innerHTML = props.NAMELSAD;
+				name.setAttribute("id", props.Name_1);
+				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
+				container.appendChild(L.DomUtil.create('br', null, container));
+				//container.appendChild(document.createTextNode(props.NAMELSAD));
+			}
+		}
+	};
+	/* // define options for fuse search */
+	
+	
+	/* define and initiate fuse search control */
+	var searchCtrl = L.control.fuseSearch(options);
+	searchCtrl.addTo(map);
+	
+	remove = document.getElementById('mySearchPanel'); 
+	remove.parentNode.removeChild(remove);
+	remove2 = document.getElementById('mySearchContainer');
+	remove2.parentNode.removeChild(remove2);
+	
+	var add = document.getElementById("searchPage");
+	add.appendChild(remove);
+	/* // define and initiate fuse search control */
+	
+	/* move the attribution */
+	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
+	/* // move the attribution */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/* mouseover feature function */
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
@@ -624,21 +858,6 @@ function main() {
 	/* // function to cross reference name of county polygon with google spreadsheet */
 	
 	
-	/* event listener, fires whenever map zoom is changed */
-	map.on('zoom', function(e) {
-		checkZoom = currentZoom; // lag behind current zoom
-		currentZoom = map.getZoom(); // update continuously with zoom
-		
-		if ((checkZoom - currentZoom) < 0) {
-			checkZoom = currentZoom - 1;
-		} else if ((checkZoom - currentZoom) > 0) {
-			checkZoom = currentZoom + 1;
-		}
-		
-		updateZoom(); // call function to check whether to add points or polygons based on direction and current zoom
-	});
-	/* // event listener, fires whenever map zoom is changed */
-	
 	
 	
 	
@@ -785,112 +1004,7 @@ function main() {
 	/* // checks whether to add points or polygons to the map based on zoom */
 	
 	
-	$.ajax({
-		dataType: "json",
-		url: "data/southernWIGeojson/southernWIPolygons.geojson",
-		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
-			geojson = L.geoJson(data, {
-				style: myStyle,
-				onEachFeature: onEachFeature,
-				filter: function(feature, layer) {
-					return feature.properties.COUNTYFP10;
-				}
-			}).addTo(map);
-			
-			myMarkers = L.featureGroup().addTo(map);
-			
-			citiesPolygon = L.geoJson(data, {
-				style: cityPolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 25) {
-						return feature;
-					}
-				}
-			});
-			polygonArray.push(citiesPolygon);
-			
-			townsPolygon = L.geoJson(data, {
-				style: townPolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 43) {
-						return feature;
-					}
-				}
-			});
-			polygonArray.push(townsPolygon);
-			
-			villagesPolygon = L.geoJson(data, {
-				style: villagePolygonStyle,		// set style to urbanPolygonStyle variable
-				onEachFeature: onEachFeature,	// set onEachFeature to onEachFeature function
-				filter: function(feature, layer) {
-					if (feature.properties.LSAD == 47) {
-						return feature;
-					}
-				}
-			});
-			polygonArray.push(villagesPolygon);
-			
-			addPointLayers();
-		}
-	});
 	
-	
-	function addPointLayers() {
-		$.ajax({
-			dataType: "json",
-			url: "data/southernWIGeojson/urbanPoints.geojson",
-			success: function(data) {
-				townsPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, townPointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 43) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				pointArray.push(townsPoints);
-				
-				citiesPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, cityPointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 25) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				pointArray.push(citiesPoints);
-			
-				villagesPoints = L.geoJson(data, {
-					// convert markers to points
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, villagePointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 47) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				pointArray.push(villagesPoints);
-			}
-		});
-		initiateMapColors();
-	};
 	
 	
 	
@@ -1453,24 +1567,6 @@ function main() {
 	};
 	/* // handles initiating event listener for layer filter selection */
 	
-	
-	/* handles removing panels if width is below certain amount */
-	$(window).resize(function() {
-		if ($(window).width() <= 600) {
-			// remove all active panels
-			searchPage.style.right = "";
-			basemapPage.style.right = "";
-			filterPage.style.right = "";
-			featurePage.style.right = "";
-			hoverFeaturePage.style.right = "";
-		} else {
-			// remove all active panels
-			supMobileMenu.style.right = "";
-			supMobileMenu.style.visibility = "";
-			mobileMenuToggle.innerHTML = "menu";
-		}
-	});
-	/* // handles removing panels if width is below certain amount */
 	
 	
 	
@@ -2143,55 +2239,7 @@ function main() {
 	
 	
 	
-	/* define options for fuse search */
-	var options = {
-		position: 'topleft',
-		title: 'Search',
-		placeholder: 'Racine',
-		panelTitle: '',
-		maxResultLength: 10,
-		showInvisibleFeatures: true,
-		caseSensitive: false,
-		threshold: 0,
-		showResultFct: function (feature, container) {
-			props = feature.properties;
-			var name = L.DomUtil.create('b', null, container);
-			if (props.NAME10 != null) {
-				//name.innerHTML = props.NAME10;
-				name.innerHTML = props.NAMELSAD10;
-				name.setAttribute("id", props.NAME10);
-				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
-				container.appendChild(L.DomUtil.create('br', null, container));
-				//container.appendChild(document.createTextNode(props.NAMELSAD10));
-			} else if (props.NAME10 == null) {
-				//name.innerHTML = props.Name_1;
-				name.innerHTML = props.NAMELSAD;
-				name.setAttribute("id", props.Name_1);
-				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
-				container.appendChild(L.DomUtil.create('br', null, container));
-				//container.appendChild(document.createTextNode(props.NAMELSAD));
-			}
-		}
-	};
-	/* // define options for fuse search */
 	
-	
-	/* define and initiate fuse search control */
-	var searchCtrl = L.control.fuseSearch(options);
-	searchCtrl.addTo(map);
-	
-	remove = document.getElementById('mySearchPanel'); 
-	remove.parentNode.removeChild(remove);
-	remove2 = document.getElementById('mySearchContainer');
-	remove2.parentNode.removeChild(remove2);
-	
-	var add = document.getElementById("searchPage");
-	add.appendChild(remove);
-	/* // define and initiate fuse search control */
-	
-	/* move the attribution */
-	$('.leaflet-control-attribution').detach().appendTo('#infoPage');
-	/* // move the attribution */
 	
 	
 	
