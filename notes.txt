@@ -5,6 +5,7 @@ Things to work on:
 	- add button on feature page for mobile to temporarily hide info, then add button to reshow info
 	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
 	- add a reset filter button on mobile view (quick click)
+
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right

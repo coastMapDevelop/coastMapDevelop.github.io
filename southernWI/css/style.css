@@ -59,6 +59,58 @@ body {
 	box-shadow: 2px 3px 5px 0px grey;
 }
 
+#mobileFilterResetMenu {
+	position: absolute;
+	top: 120px;
+	right: 10px;
+	background: #1C2833;
+	height: 40px;
+	width: 40px;
+	color: white;
+	border-radius: 40px;
+	visibility: hidden;
+	border: 2px solid transparent;
+	z-index: 1002;
+	cursor: pointer;
+	text-align: center;
+	-webkit-transition: .25s background, .25s color, .25s border;
+	-moz-transition: .25s background, .25s color, .25s border;
+	-o-transition: .25s background, .25s color, .25s border;
+	transition: .25s background, .25s color, .25s border;
+}
+
+#mobileFilterResetMenu:hover {
+	background: transparent;
+	color: black;
+	border: 2px solid #1C2833;
+}
+
+#mobileFeatureMenu {
+	position: absolute;
+	top: 60px;
+	right: 10px;
+	background: #1C2833;
+	height: 40px;
+	width: 40px;
+	color: white;
+	border-radius: 40px;
+	visibility: hidden;
+	border: 2px solid transparent;
+	z-index: 1002;
+	cursor: pointer;
+	text-align: center;
+	-webkit-transition: .25s background, .25s color, .25s border;
+	-moz-transition: .25s background, .25s color, .25s border;
+	-o-transition: .25s background, .25s color, .25s border;
+	transition: .25s background, .25s color, .25s border;
+}
+
+#mobileFeatureMenu:hover {
+	background: transparent;
+	color: black;
+	border: 2px solid #1C2833;
+}
+
 #mobileMenu {
 	position: absolute;
 	top: 10px;
@@ -648,6 +700,14 @@ body {
 	}
 	
 	#mobileMenu {
+		visibility: visible;
+	}
+	
+	#mobileFeatureMenu {
+		visibility: visible;
+	}
+	
+	#mobileFilterResetMenu {
 		visibility: visible;
 	}
 	
