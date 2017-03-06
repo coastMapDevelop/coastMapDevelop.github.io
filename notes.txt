@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
 	- get population data for 2015 and estimate for 2016 or 2017
 	- move and change names of resources in feature clicked page and feature hovered page
 	- feature clicked page and feature hovered page are on top of the bottom menu, need to fix this (z index)
@@ -16,11 +17,9 @@ Things to work on:
 	- data sources - will be more (update and formalize google spreadsheet, talk to david)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- maybe have polygon inside the information panel (as image)
-	- need milwaukee city polygon (reason not displaying in search)
-	- need kenosha city polygon (reason not displaying in search)
 	- need new urban polygon data (clipped to shoreline)
 	- AJ suggested mapshaper urban polygon simplification
-	- when zooming into urban polygons, changed county style to only outline, or reduce opacity
+	
 	
 	- help with julianne cooper on a project (future)
 	- get townships for other coastal states
