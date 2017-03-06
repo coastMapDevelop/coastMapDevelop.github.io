@@ -687,7 +687,7 @@ function main() {
 			}
 			
 			countyZoomFillControl = false;
-			console.log(countyClickedZoomControl);
+			
 			
 			if (countyClickedZoomControl == true) {
 				if (clickedCountyName.length == 0) {
@@ -758,7 +758,27 @@ function main() {
 			
 			countyZoomFillControl = true;
 			
-			geojson.setStyle({fillOpacity:0.4});
+			if (countyClickedZoomControl == true) {
+				if (clickedCountyName.length == 0) {
+					geojson.setStyle({fillOpacity:0.4});
+				} else if (clickedCountyName.length > 0) {
+					geojson.eachLayer(function (layer) {
+						try {
+							if (clickedCountyName[0] != layer.NAME10) {
+								layer.setStyle({fillOpacity:0.4});
+							}
+						} catch (err) {
+							geojson.setStyle({fillOpacity:0.4});
+						}
+					});
+				}
+				
+			
+			} else if (countyClickedZoomControl == false) {
+				geojson.setStyle({fillOpacity:0.4});
+			}
+			
+			
 		}
 	};
 	/* // checks whether to add points or polygons to the map based on zoom */
