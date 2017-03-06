@@ -694,7 +694,7 @@ function main() {
 				console.log(clickedCountyName[0]);
 				geojson.eachLayer(function (layer) {
 						
-					if (clickedCountyName[0] != layer.NAME10) {
+					if (clickedCountyName[0] != layer.feature.properties.NAME10) {
 						layer.setStyle({fillOpacity:0.75});
 					}
 						
