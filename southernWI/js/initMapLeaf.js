@@ -941,7 +941,7 @@ function main() {
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						} catch (err) {
-							console.log(err);
+							
 						}
 						
 						
@@ -957,7 +957,7 @@ function main() {
 								layer.feature.properties.filter = "true";
 							}
 						} catch (err) {
-							console.log(err);
+							
 						}
 						
 						
@@ -987,7 +987,7 @@ function main() {
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						} catch (err) {
-							console.log(err);
+							
 						}
 						
 						
@@ -1004,7 +1004,7 @@ function main() {
 								layer.feature.properties.filter = "true";
 							}
 						} catch (err) {
-							console.log(err);
+							
 						}
 						
 						
@@ -1027,7 +1027,7 @@ function main() {
 						
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 					
 					try {
@@ -1041,7 +1041,7 @@ function main() {
 						
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 				
 					
@@ -1060,7 +1060,7 @@ function main() {
 						
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 					
 					
@@ -1075,7 +1075,7 @@ function main() {
 						
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 					
 					
@@ -1094,7 +1094,7 @@ function main() {
 					
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 					
 					
@@ -1109,7 +1109,7 @@ function main() {
 						
 						});
 					} catch (err) {
-						console.log(err);
+						
 					}
 					
 					
@@ -1139,7 +1139,7 @@ function main() {
 				layer.feature.properties.filter = "true";
 			});
 		} catch (err) {
-			console.log(err);
+			
 		}
 		
 		
@@ -1160,7 +1160,7 @@ function main() {
 				layer.feature.properties.filter = "true";
 			});
 		} catch (err) {
-			console.log(err);
+			
 		}
 		
 		
