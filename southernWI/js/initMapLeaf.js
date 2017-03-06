@@ -1275,11 +1275,16 @@ function main() {
 		}
 		
 		var myBoxes = document.getElementsByClassName('myCheckBoxActive');
-		var i;
-		var boxLength = myBoxes.length;
-		for (i=0; i < boxLength; i++) {
-			myBoxes[i].classList.remove('myCheckBoxActive');
+		try {
+			var i;
+			var boxLength = myBoxes.length;
+			for (i=0; i < boxLength; i++) {
+				myBoxes[i].classList.remove('myCheckBoxActive');
+			}
+		} catch (err) {
+			console.log(err);
 		}
+		
 		currentCheckArr.length = 0;
 		
 		
