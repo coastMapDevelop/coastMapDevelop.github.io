@@ -688,18 +688,22 @@ function main() {
 			
 			countyZoomFillControl = false;
 			console.log(countyClickedZoomControl);
-			console.log(clickedCountyName.length);
+			
 			if (countyClickedZoomControl == false) {
-				
-				geojson.eachLayer(function (layer) {
-					try {
-						if (clickedCountyName[0] != layer.NAME10) {
-							layer.setStyle({fillOpacity:0.75});
+				if (clickedCountyName.length == 0) {
+					geojson.setStyle({fillOpacity:0.75});
+				} else if (clickedCountyName.length > 0) {
+					geojson.eachLayer(function (layer) {
+						try {
+							if (clickedCountyName[0] != layer.NAME10) {
+								layer.setStyle({fillOpacity:0.75});
+							}
+						} catch (err) {
+							geojson.setStyle({fillOpacity:0.75});
 						}
-					} catch (err) {
-						geojson.setStyle({fillOpacity:0.75});
-					}
-				});
+					});
+				}
+				
 			
 			} else if (countyClickedZoomControl == true) {
 				geojson.setStyle({fillOpacity:0.75});
