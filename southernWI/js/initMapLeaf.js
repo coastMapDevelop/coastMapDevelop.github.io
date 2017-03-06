@@ -695,7 +695,7 @@ function main() {
 			
 			
 			if (countyClickedZoomControl == true) {
-				console.log('clicked');
+				
 				
 				geojson.eachLayer(function (layer) {
 						
@@ -708,7 +708,7 @@ function main() {
 				
 			
 			} else if (countyClickedZoomControl == false) {
-				console.log('not clicked');
+				
 				geojson.setStyle({fillOpacity:0.75});
 			}
 			
@@ -762,7 +762,7 @@ function main() {
 			countyZoomFillControl = true;
 			
 			if (countyClickedZoomControl == true) {
-				console.log('clicked');
+				
 				
 				geojson.eachLayer(function (layer) {
 						
@@ -775,7 +775,7 @@ function main() {
 				
 			
 			} else if (countyClickedZoomControl == false) {
-				console.log('not clicked');
+				
 				geojson.setStyle({fillOpacity:0.4});
 			}
 			
