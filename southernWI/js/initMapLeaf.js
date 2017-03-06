@@ -1395,9 +1395,9 @@ function main() {
 	
 	
 	/* handles storing filter attribute options */
-	function storeChecks(source, id) {
+	function storeChecks(source, myId) {
 		var isThere = currentCheckArr.indexOf(source);
-		var clicked = document.getElementById(id);
+		var clicked = document.getElementById(myId);
 		
 		if (isThere == -1) {
 			currentCheckArr.push(source);
