@@ -1892,25 +1892,24 @@ function main() {
 		break7.setAttribute("class", removeClass);
 		break8.setAttribute("class", removeClass);
 		break9.setAttribute("class", removeClass);
-					
 		
-		page.appendChild(link1);
+		page.appendChild(link1); // add gov website
 		page.appendChild(break1);
-		page.appendChild(link2);
+		page.appendChild(link2);	// add web map url
 		page.appendChild(break2);
-		page.appendChild(link3);
+		page.appendChild(link3);	// add web map other
 		page.appendChild(break3);
-		page.appendChild(link4);
+		page.appendChild(link4);	// add web map state
 		page.appendChild(break4);
-		page.appendChild(link5);
+		page.appendChild(link5);	// add comp plan
 		page.appendChild(break5);
-		page.appendChild(link6);
+		page.appendChild(link6);	// add haz mit plan
 		page.appendChild(break6);
-		page.appendChild(link7);
+		page.appendChild(link7);	// add climate plan
 		page.appendChild(break7);
-		page.appendChild(link8);
+		page.appendChild(link8);	// add resilience plan
 		page.appendChild(break8);
-		page.appendChild(link9);
+		page.appendChild(link9);	// add zoning url
 		page.appendChild(break9);
 		
 		var m;
@@ -2089,23 +2088,23 @@ function main() {
 		break6.setAttribute('class', removeClass);
 		break7.setAttribute('class', removeClass);
 		break8.setAttribute('class', removeClass);
-					
 		
-		page.appendChild(link1);
+		
+		page.appendChild(link1);	// gov website
 		page.appendChild(break1);
-		page.appendChild(link2);
+		page.appendChild(link2);	// web map url
 		page.appendChild(break2);
-		page.appendChild(link3);
+		page.appendChild(link3);	// comp plan
 		page.appendChild(break3);
-		page.appendChild(link4);
+		page.appendChild(link4);	// zoning web
 		page.appendChild(break4);
-		page.appendChild(link5);
+		page.appendChild(link5);	// haz mit web
 		page.appendChild(break5);
-		page.appendChild(link6);
+		page.appendChild(link6);	// sus plan
 		page.appendChild(break6);
-		page.appendChild(link7);
+		page.appendChild(link7);	// cli plan
 		page.appendChild(break7);
-		page.appendChild(link8);
+		page.appendChild(link8);	// res plan
 		page.appendChild(break8);
 		
 		var m;
