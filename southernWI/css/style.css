@@ -617,6 +617,10 @@ body {
 	margin-bottom: 10px;
 	cursor: pointer;
 	color: black;
+	-webkit-transition: .1s background, .1s color, .1s background;
+	-moz-transition: .1s background, .1s color, .1s background;
+	-o-transition: .1s background, .1s color, .1s background;
+	transition: .1s background, .1s color, .1s background;
 }
 
 .myCheckBoxActive {
