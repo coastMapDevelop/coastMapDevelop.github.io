@@ -486,6 +486,7 @@ body {
 .myFilterButtons {
 	text-align: center;
 	margin-top: 50px;
+	margin-bottom: 60px;
 	cursor:pointer;
 }
 
