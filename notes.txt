@@ -2,6 +2,13 @@
 
 
 Things to work on:
+	- add margin to bottom of reset filter button
+	- when performing a function in a panel on mobile view (i.e., click searched, click filter, click basemap) also remove mobile menu panel
+	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
+	- add a reset filter button on mobile view (quick click)
+	- when clicking searched feature on mobile, treat as closing panel also
+	- when selecting filter on mobile, treat as closing panel also
+	- when selecting basemap on mobile, treat as closing panel also
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right

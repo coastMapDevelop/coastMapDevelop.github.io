@@ -24,6 +24,7 @@ function main() {
 	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
 	var countyZoomFillControl = false;
 	var countyClickedZoomControl = false;
+	var isMobile = false;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -400,11 +401,13 @@ function main() {
 			filterPage.style.right = "";
 			featurePage.style.right = "";
 			hoverFeaturePage.style.right = "";
+			isMobile = true;
 		} else {
 			// remove all active panels
 			supMobileMenu.style.right = "";
 			supMobileMenu.style.visibility = "";
 			mobileMenuToggle.innerHTML = "menu";
+			isMobile = false;
 		}
 	});
 	/* // handles removing panels if width is below certain amount */
@@ -1069,6 +1072,10 @@ function main() {
 		var image = document.getElementById(source);
 		var active = image.classList.contains('active');
 		
+		if (isMobile == true) {
+			uiHover("basemapPageToggle", 3);
+		}
+		
 	};
 	/* // handles changing of the base map */
 	
@@ -1317,6 +1324,10 @@ function main() {
 				}
 			}
 		}
+		
+		if (isMobile == true) {
+			uiHover("filterPageToggle", 3);
+		}
 	};
 	/* // handles filtering the features */
 	
@@ -1479,6 +1490,10 @@ function main() {
 			// crossreference
 			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 		};
+		
+		if (isMobile == true) {
+			uiHover("searchPageToggle", 3);
+		}
 	};
 	/* // handles zooming to the searched feature */
 	
