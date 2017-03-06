@@ -699,6 +699,8 @@ function main() {
 					}
 				});
 			
+			} else if (countyClickedZoomControl == true) {
+				geojson.setStyle({fillOpacity:0.75});
 			}
 			
 		
