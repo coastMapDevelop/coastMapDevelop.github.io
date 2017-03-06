@@ -2,6 +2,8 @@
 
 
 Things to work on:
+	- clicked county on urban polygon zoom - when clicking x on feature page, resets to wrong fillOpacity
+	- filtering cities - error
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right
