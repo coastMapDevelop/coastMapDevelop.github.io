@@ -2205,7 +2205,8 @@ function main() {
 		displaySupMenu: displaySupMenu,
 		uiHover: uiHover,
 		showMobileMenu: showMobileMenu,
-		mobileMenuClicked: mobileMenuClicked
+		mobileMenuClicked: mobileMenuClicked,
+		hoverChecks: hoverChecks
 	};
 	/* // fill name space with function or variables so we can access them publicly */
 
