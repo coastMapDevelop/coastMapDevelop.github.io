@@ -619,6 +619,17 @@ body {
 	color: black;
 }
 
+.myCheckBoxActive {
+	background: #003744;
+	color: white;
+	background: 1px solid white;
+}
+
+.myCheckBoxHover {
+	background: #003744;
+	color: white;
+	background: 1px solid white;
+}
 
 
 

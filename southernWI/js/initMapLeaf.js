@@ -1401,14 +1401,11 @@ function main() {
 		
 		if (isThere == -1) {
 			currentCheckArr.push(source);
-			clicked.style.background = "#003744";
-			clicked.style.color = "white";
-			clicked.style.border = "1px solid white";
+			
+			clicked.classList.add('myCheckBoxActive');
 		} else if (isThere >= 0) {
 			currentCheckArr.splice(isThere, 1);
-			clicked.style.background = "white";
-			clicked.style.color = "black";
-			clicked.style.border = "1px solid black";
+			clicked.classList.remove('myCheckBoxActive');
 		}
 	};
 	/* // handles storing filter attribute options */
@@ -1419,15 +1416,19 @@ function main() {
 	/* handles hovering filter buttons */
 	function hoverChecks(source, num) {
 		var theBox = document.getElementById(source);
-		
+		var isActive = classList.contains('myCheckBoxActive');
 		if (num == 0) {
-			theBox.style.background = "#003744";
-			theBox.style.color = "white";
-			theBox.style.border = "1px solid white";
+			if (isActive == true) {
+				// do nothing
+			} else if (isActive == false) {
+				theBox.classList.add('myCheckBoxHover');
+			}
 		} else if (num == 1) {
-			theBox.style.background = "";
-			theBox.style.color = "";
-			theBox.style.border = "";
+			if (isActive == true) {
+				// do nothing
+			} else if (isActive == false) {
+				theBox.classList.remove('myCheckBoxHover');
+			}
 		}
 	
 	};
