@@ -686,11 +686,9 @@ function main() {
 			}
 			
 			countyZoomFillControl = false;
-			geojson.eachLayer(function (layer) {
-				if (clickedCountyName[0] != layer.NAME10) {
-					layer.setStyle({fillOpacity:0.75});
-				}
-			});
+
+			layer.setStyle({fillOpacity:0.75});
+		
 			//geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
