@@ -1274,10 +1274,6 @@ function main() {
 			
 		}
 		
-		var myBoxes = document.getElementsByClassName('myCheckBoxActive');
-		console.log(myBoxes);
-		
-		currentCheckArr.length = 0;
 		
 		
 	};
