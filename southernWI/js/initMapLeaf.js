@@ -679,7 +679,7 @@ function main() {
 				map.removeLayer(polygonArray[j]);
 			}
 			
-			//geojson.setStyle({fillOpacity:0.75});
+			geojson.setStyle({fillOpacity:0.75});
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			// check which layers are currently active
 			
@@ -725,7 +725,7 @@ function main() {
 				
 			}
 			
-			//geojson.setStyle({fillOpacity:0.4});
+			geojson.setStyle({fillOpacity:0.4});
 		}
 	};
 	/* // checks whether to add points or polygons to the map based on zoom */
