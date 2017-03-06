@@ -128,7 +128,7 @@ body {
 	width: auto;
 	text-align: center;
 	background: transparent;
-	z-index: 1002;
+	z-index: 1003;
 	color: #7B7D7D;
 	opacity: .6;
 	cursor: pointer;
@@ -151,7 +151,7 @@ body {
 	left: 10px;
 	bottom: 5px;
 	background: transparent;
-	z-index: 1001;
+	z-index: 1003;
 	height: 30px;
 	width: 400px;
 }
