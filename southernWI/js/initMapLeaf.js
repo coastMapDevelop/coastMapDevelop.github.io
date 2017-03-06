@@ -936,7 +936,7 @@ function main() {
 					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
 						// add to array false
 						layer.feature.properties.filter = "false";
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 						// add to array true
 						if (layer.feature.properties.filter == "false") {
@@ -982,7 +982,7 @@ function main() {
 				if (currSlt.indexOf("Towns") == -1) {
 					// remove all towns, treat as null
 					townsPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -996,7 +996,7 @@ function main() {
 				if (currSlt.indexOf("Cities") == -1) {
 					// remove all cities, treat as null
 					citiesPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1010,7 +1010,7 @@ function main() {
 				if (currSlt.indexOf("Villages") == -1) {
 					// remove all vilages, treat as null
 					villagesPoints.eachLayer(function (layer) {
-						layer.setStyle({opacity: '0', fillOpacity: '0'});
+						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '0'});
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1029,15 +1029,15 @@ function main() {
 	/* handles reseting the filtering */
 	function resetFilter() {
 		townsPoints.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		citiesPoints.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		villagesPoints.eachLayer(function (layer) {
-			layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+			layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 			layer.feature.properties.filter = "true";
 		});
 		

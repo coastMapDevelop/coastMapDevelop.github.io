@@ -2,7 +2,7 @@
 
 
 Things to work on:
-	- filtering removed polygons, hide and change mouseover, have to bring to back
+	- filtering removed polygons, hide and change mouseover, have to bring to back (also points)
 	- when centering on county, make sure to not block any of the features (for smaller view) (figure out how to setView on center,and a little to the right
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
