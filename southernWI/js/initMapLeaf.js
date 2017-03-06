@@ -937,6 +937,7 @@ function main() {
 						// add to array false
 						layer.feature.properties.filter = "false";
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+						map.removeLayer(layer);
 						//layer.bringToBack(); // experimental
 					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 						// add to array true
@@ -967,6 +968,7 @@ function main() {
 						layer.feature.properties.filter = "false";
 			
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+						map.removeLayer(layer);
 						//layer.bringToBack(); // experimental
 					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
 						// add to array true
