@@ -988,12 +988,14 @@ function main() {
 					townsPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
 					townsPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1004,12 +1006,14 @@ function main() {
 					citiesPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
 					citiesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
@@ -1020,12 +1024,14 @@ function main() {
 					villagesPoints.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
 					villagesPolygon.eachLayer(function (layer) {
 						layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 						//layer.bringToBack(); // experimental
+						map.removeLayer(layer);
 						layer.feature.properties.filter = "false";
 					});
 					
