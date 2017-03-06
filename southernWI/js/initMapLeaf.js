@@ -691,7 +691,7 @@ function main() {
 			
 			if (countyClickedZoomControl == true) {
 				console.log('clicked');
-				
+				console.log(clickedCountyName[0]);
 				geojson.eachLayer(function (layer) {
 						
 					if (clickedCountyName[0] != layer.NAME10) {
