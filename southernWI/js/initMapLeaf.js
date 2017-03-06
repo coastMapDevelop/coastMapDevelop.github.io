@@ -322,6 +322,7 @@ function main() {
 		
 		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
 			console.log(clickedUrbanName[0]);
+			console.log(e.target.feature.properties.filter);
 			citiesPolygon.eachLayer(function(layer) {
 				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0]) {
 					layer.setStyle({fillOpacity: 0.75, weight: 1});
@@ -371,7 +372,7 @@ function main() {
 			clickedUrbanName.length = 0;
 			
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
-			console.log(clickedUrbanName);
+			
 			
 			// find the urban polygon that matches and change it's style to match clicked
 			citiesPolygon.eachLayer(function (layer) {
@@ -436,7 +437,7 @@ function main() {
 			clickedUrbanName.length = 0;
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
-			console.log(clickedUrbanName);
+		
 			
 			// need to loop through point layers and find the right point that matches the polygon
 			citiesPoints.eachLayer(function (layer) {
@@ -941,7 +942,7 @@ function main() {
 						if (layer.feature.properties.filter == "false") {
 							layer.feature.properties.filter = "false";
 						} else {
-							console.log('true');
+							
 							layer.feature.properties.filter = "true";
 						}
 					}
@@ -969,7 +970,7 @@ function main() {
 						if (layer.feature.properties.filter == "false") {
 							layer.feature.properties.filter = "false";
 						} else {
-							console.log("true");
+						
 							layer.feature.properties.filter = "true";
 						}
 					}
