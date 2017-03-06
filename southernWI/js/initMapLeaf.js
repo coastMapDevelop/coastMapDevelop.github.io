@@ -1274,6 +1274,14 @@ function main() {
 			
 		}
 		
+		var myBoxes = document.getElementsByClassName('myCheckBoxActive');
+		var i;
+		var boxLength = myBoxes.length;
+		for (i=0; i < boxLength; i++) {
+			myBoxes[i].classList.remove('myCheckBoxActive');
+		}
+		currentCheckArr.length = 0;
+		
 		
 	};
 	/* // handles reseting the filtering */
