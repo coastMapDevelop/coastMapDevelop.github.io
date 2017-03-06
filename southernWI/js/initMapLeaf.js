@@ -689,7 +689,7 @@ function main() {
 			countyZoomFillControl = false;
 			console.log(countyClickedZoomControl);
 			
-			if (countyClickedZoomControl == false) {
+			if (countyClickedZoomControl == true) {
 				if (clickedCountyName.length == 0) {
 					geojson.setStyle({fillOpacity:0.75});
 				} else if (clickedCountyName.length > 0) {
@@ -705,7 +705,7 @@ function main() {
 				}
 				
 			
-			} else if (countyClickedZoomControl == true) {
+			} else if (countyClickedZoomControl == false) {
 				geojson.setStyle({fillOpacity:0.75});
 			}
 			
@@ -757,6 +757,7 @@ function main() {
 			}
 			
 			countyZoomFillControl = true;
+			
 			geojson.setStyle({fillOpacity:0.4});
 		}
 	};
