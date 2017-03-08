@@ -1115,6 +1115,7 @@ function main() {
 	/* handles filtering the features */
 	function testFilter() {
 		resetFilter();
+		hasFilter = true;
 		var index;
 		var row;
 		var row2;
@@ -1364,6 +1365,7 @@ function main() {
 	
 	/* handles reseting the filtering */
 	function resetFilter() {
+		hasFilter = false;
 		try {
 			townsPoints.eachLayer(function (layer) {
 				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
