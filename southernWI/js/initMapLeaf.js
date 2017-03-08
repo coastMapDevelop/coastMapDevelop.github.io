@@ -844,12 +844,76 @@ function main() {
 		if (checkZoom <= 11 && currentZoom <= 10) {
 			
 			if (pointZoomC == true) {
-				// run all the processes here
-				console.log("add points");
+				var i;
+				for(i=0; i < pntA; i++) {
+					map.addLayer(pointArray[i]);
+					myMarkers.setStyle({opacity: 1});
+				
+					try {
+						citiesPoints.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				
+					try {
+						villagesPoints.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				
+					try {
+						townsPoints.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				}
+				
+				
+				var j;
+				for (j=0; j < plyA; j++) {
+					map.removeLayer(polygonArray[j]);
+				}
+			
+				countyZoomFillControl = false;
+			
+			
+				if (countyClickedZoomControl == true) {
+				
+				
+					geojson.eachLayer(function (layer) {
+						
+						if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+							layer.setStyle({fillOpacity:0.75});
+						}
+						
+					});
+				
+				
+			
+				} else if (countyClickedZoomControl == false) {
+				
+					geojson.setStyle({fillOpacity:0.75});
+				}
+			
+				pointZoomC = false;
+				polyZoomC = true;
+				
 			}
 			
-			// check which layers are currently active
 			
+			/*
 			var i;
 			for(i=0; i < pntA; i++) {
 				map.addLayer(pointArray[i]);
@@ -886,10 +950,11 @@ function main() {
 				}
 			
 			}
+			*/
 			
 			// if a filter is applied (from boolean) then filter the newly added points (testFilter function)
 			
-			
+			/*
 			var j;
 			for (j=0; j < plyA; j++) {
 				map.removeLayer(polygonArray[j]);
@@ -918,25 +983,90 @@ function main() {
 			
 			pointZoomC = false;
 			polyZoomC = true;
-			
+			*/
 		
 			
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			
 			if (polyZoomC == true) {
-				// do all processes here
-				console.log("add poly");
+				var i;
+				for(i=0; i < pntA; i++) {
+					map.removeLayer(pointArray[i]);
+					myMarkers.setStyle({opacity: 0});
+				}
+				
+				
+				var j;
+				for (j=0; j < plyA; j++) {
+					map.addLayer(polygonArray[j]);
+				
+				
+				
+					try {
+						citiesPolygon.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				
+					try {
+						townsPolygon.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				
+					try {
+						citiesPolygon.eachLayer(function (layer) {
+							if (layer.feature.properties.filter == "false" ) {
+								layer.bringToBack();
+							}
+						});
+					} catch (err) {
+					
+					}
+				
+				}
+			
+				countyZoomFillControl = true;
+			
+				if (countyClickedZoomControl == true) {
+				
+				
+					geojson.eachLayer(function (layer) {
+						
+						if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+							layer.setStyle({fillOpacity:0.4});
+						}
+						
+					});
+				
+				
+			
+				} else if (countyClickedZoomControl == false) {
+				
+					geojson.setStyle({fillOpacity:0.4});
+				}	
+			
+				polyZoomC = false;
+				pointZoomC = true;
 			}
 			// check which layers are currently active
-			
+			/*
 			var i;
 			for(i=0; i < pntA; i++) {
 				map.removeLayer(pointArray[i]);
 				myMarkers.setStyle({opacity: 0});
 			}
-			
+			*/
 			// if a filter is applied (from boolean) then filter the newly added polygons (testFilter function)
-		
+			/*
 			var j;
 			for (j=0; j < plyA; j++) {
 				map.addLayer(polygonArray[j]);
@@ -997,7 +1127,7 @@ function main() {
 			
 			polyZoomC = false;
 			pointZoomC = true;
-			
+			*/
 			
 		}
 	};
