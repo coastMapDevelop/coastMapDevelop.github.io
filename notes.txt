@@ -3,9 +3,6 @@
 
 Things to work on:
 	- create controls to limit function calls on changing window size like we did for zooming map
-	- add button on feature page for mobile to temporarily hide info, then add button to reshow info (only display if feature is currently clicked)
-	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
-	- add a reset filter button on mobile view (quick click) (only display if a filter is currently applied)
 
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
@@ -17,6 +14,7 @@ Things to work on:
 	- possible update to dynamic font size
 
 	- data sources - will be more (update and formalize google spreadsheet, talk to david)
+	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
 	- maybe have polygon inside the information panel (as image)
 	- need new urban polygon data (clipped to shoreline)

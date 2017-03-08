@@ -28,6 +28,7 @@ function main() {
 	var polyZoomC = true;
 	var pointZoomC = true;
 	var hasFilter = false;
+	var windowChange = false;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -393,34 +394,46 @@ function main() {
 	};
 	
 	
-	
+	if ($(window).width() <= 600) {
+		windowChange = true;
+	} else {
+		windowChange = false;
+	}
 	
 	/* handles removing panels if width is below certain amount */
 	$(window).resize(function() {
 		if ($(window).width() <= 600) {
-			// remove all active panels
-			searchPage.style.right = "";
-			basemapPage.style.right = "";
-			filterPage.style.right = "";
-			featurePage.style.right = "";
-			hoverFeaturePage.style.right = "";
-			isMobile = true;
+			if (windowChange == false) {
+				// remove all active panels
+				searchPage.style.right = "";
+				basemapPage.style.right = "";
+				filterPage.style.right = "";
+				featurePage.style.right = "";
+				hoverFeaturePage.style.right = "";
+				isMobile = true;
+				
+				/*
+				if (hasFilter == true) {
+					document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
+				}
 			
-			if (hasFilter == true) {
-				document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
+				if (clickedCountyName.length != 0 || clickedUrbanName.length != 0) {
+					document.getElementById('mobileFeatureMenu').style.visibility = "visible";
+				}
+				*/
 			}
-			
-			if (clickedCountyName.length != 0 || clickedUrbanName.length != 0) {
-				document.getElementById('mobileFeatureMenu').style.visibility = "visible";
-			}
+			windowChange = true;
 		} else {
-			// remove all active panels
-			supMobileMenu.style.right = "";
-			supMobileMenu.style.visibility = "";
-			mobileMenuToggle.innerHTML = "menu";
-			isMobile = false;
-			document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
-			document.getElementById('mobileFeatureMenu').style.visibility = "hidden";
+			if (windowChange == true) {
+				// remove all active panels
+				supMobileMenu.style.right = "";
+				supMobileMenu.style.visibility = "";
+				mobileMenuToggle.innerHTML = "menu";
+				isMobile = false;
+				document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
+				document.getElementById('mobileFeatureMenu').style.visibility = "hidden";
+			}
+			windowChange = false;
 		}
 	});
 	/* // handles removing panels if width is below certain amount */
