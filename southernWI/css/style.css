@@ -708,15 +708,16 @@ body {
 	#mobileMenu {
 		visibility: visible;
 	}
-	
+	/*
 	#mobileFeatureMenu {
 		visibility: visible;
 	}
-	
+	*/
+	/*
 	#mobileFilterResetMenu {
 		visibility: visible;
 	}
-	
+	*/
 	#supBottomMenu {
 		visibility: hidden;
 	}

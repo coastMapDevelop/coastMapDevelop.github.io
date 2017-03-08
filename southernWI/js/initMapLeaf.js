@@ -405,12 +405,22 @@ function main() {
 			featurePage.style.right = "";
 			hoverFeaturePage.style.right = "";
 			isMobile = true;
+			
+			if (hasFilter == true) {
+				document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
+			}
+			
+			if (clickedCountyName.length !=0 || clickedUrbanName.length != 0) {
+				document.getElementById('mobileFeatureMenu').style.visibility = "visible";
+			}
 		} else {
 			// remove all active panels
 			supMobileMenu.style.right = "";
 			supMobileMenu.style.visibility = "";
 			mobileMenuToggle.innerHTML = "menu";
 			isMobile = false;
+			document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
+			document.getElementById('mobileFeatureMenu').style.visibility = "hidden";
 		}
 	});
 	/* // handles removing panels if width is below certain amount */
