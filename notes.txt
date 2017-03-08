@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- create controls to limit function calls on changing window size like we did for zooming map
 	- add button on feature page for mobile to temporarily hide info, then add button to reshow info (only display if feature is currently clicked)
 	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
 	- add a reset filter button on mobile view (quick click) (only display if a filter is currently applied)
