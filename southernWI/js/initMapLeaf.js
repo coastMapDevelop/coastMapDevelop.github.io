@@ -2228,6 +2228,7 @@ function main() {
 			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		}
 	};
+	alert('test');
 	
 	
 	
