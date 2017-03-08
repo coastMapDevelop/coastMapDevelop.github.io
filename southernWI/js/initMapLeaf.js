@@ -2206,6 +2206,17 @@ function main() {
 	
 	
 	
+	function mobileFeatureHide(num) {
+		var thePage = document.getElementById('featurePage');
+		if (num == 0) {
+			thePage.style.right = "0";
+		} else if (num == 1) {
+			thePage.style.right = "";
+		}
+	};
+	
+	
+	
 	
 	
 	
@@ -2231,7 +2242,8 @@ function main() {
 		uiHover: uiHover,
 		showMobileMenu: showMobileMenu,
 		mobileMenuClicked: mobileMenuClicked,
-		hoverChecks: hoverChecks
+		hoverChecks: hoverChecks,
+		mobileFeatureHide: mobileFeatureHide
 	};
 	/* // fill name space with function or variables so we can access them publicly */
 

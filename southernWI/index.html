@@ -59,7 +59,7 @@
 	
 	
 	<!-- mobile feature toggle -->
-	<div id="mobileFeatureMenu">
+	<div id="mobileFeatureMenu" onclick="myNameSpace.mobileFeatureHide(0)">
 		
 	</div>
 	<!-- // mobile feature toggle -->
@@ -68,7 +68,7 @@
 	
 	
 	<!-- mobile filter reset toggle -->
-	<div id="mobileFilterResetMenu">
+	<div id="mobileFilterResetMenu" onclick="myNameSpace.resetFilter()">
 	
 	</div>
 	<!-- // mobile filter reset toggle -->
@@ -308,7 +308,7 @@
 		<h3 id="featurePageName" style="margin-top: 50px; font-size: 35px;"></h3>
 		<hr>
 		<!-- // Header for feature page -->
-		<p class="mobileSupFeature">Click to view in map</p>
+		<p class="mobileSupFeature" onclick="myNameSpace.mobileFeatureHide(1)">Click to view in map</p>
 		<!-- Body for feature page -->
 		<p id="featurePop2000"></p>
 		<p id="featurePop2010"></p>
