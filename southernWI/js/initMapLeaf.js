@@ -412,7 +412,7 @@ function main() {
 				hoverFeaturePage.style.right = "";
 				isMobile = true;
 				
-				/*
+				
 				if (hasFilter == true) {
 					document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 				}
@@ -420,7 +420,7 @@ function main() {
 				if (clickedCountyName.length != 0 || clickedUrbanName.length != 0) {
 					document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 				}
-				*/
+				
 			}
 			windowChange = true;
 		} else {
