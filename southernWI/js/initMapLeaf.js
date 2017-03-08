@@ -593,11 +593,12 @@ function main() {
 			clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
+			var theBounds = layer.getBounds();
 			removeMarkers();
 			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
 			
-			map.setView(center, 10);
+			map.setView(theBounds, 10);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 
 			window.setTimeout(function() {
