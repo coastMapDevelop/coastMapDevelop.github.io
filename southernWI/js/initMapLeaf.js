@@ -593,7 +593,8 @@ function main() {
 			clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
-			console.log(center);
+			var wantToChange = center.lng;
+			console.log(wantToChange);
 			removeMarkers();
 			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
@@ -2228,7 +2229,6 @@ function main() {
 			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		}
 	};
-	alert('test');
 	
 	
 	
