@@ -2,7 +2,6 @@
 
 
 Things to work on:
-	- create controls to limit function calls on changing window size like we did for zooming map
 
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
