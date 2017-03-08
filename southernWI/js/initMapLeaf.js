@@ -593,6 +593,7 @@ function main() {
 			clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
+			console.log(center);
 			var wantToChange = center.lng;
 			console.log(wantToChange);
 			removeMarkers();
