@@ -594,7 +594,7 @@ function main() {
 			
 			var center = layer.getBounds().getCenter();
 			console.log(center);
-			var wantToChange = center.lng + .06
+			var wantToChange = center.lng + .06;
 			
 			removeMarkers();
 			countyClickedZoomControl = true;
