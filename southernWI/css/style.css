@@ -566,6 +566,12 @@ body {
 	text-align: center;
 }
 
+.mobileSupFeature {
+	visibility: hidden;
+	color: blue;
+	cursor: pointer;
+}
+
 #hoverFeaturePage {
 	width: 350px;
 	right: -610px;
@@ -750,6 +756,10 @@ body {
 	#infoPage {
 		width: 100%;
 		z-index: 1003;
+	}
+	
+	.mobileSupFeature {
+		visibility: visible;
 	}
 }
 
