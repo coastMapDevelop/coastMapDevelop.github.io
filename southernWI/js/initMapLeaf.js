@@ -718,6 +718,7 @@ function main() {
 			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
+		document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		firstClick = true;
 	};
 	/* // click feature function */
@@ -725,6 +726,7 @@ function main() {
 	
 	/* remove markers and reset layers */
 	function removeMarkers() {
+		document.getElementById('mobileFeatureMenu').style.visibility = "hidden";
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
 		countyClickedZoomControl = false;
@@ -1064,6 +1066,7 @@ function main() {
 	function testFilter() {
 		resetFilter();
 		hasFilter = true;
+		document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 		var index;
 		var row;
 		var row2;
@@ -1314,6 +1317,7 @@ function main() {
 	/* handles reseting the filtering */
 	function resetFilter() {
 		hasFilter = false;
+		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
 		try {
 			townsPoints.eachLayer(function (layer) {
 				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
