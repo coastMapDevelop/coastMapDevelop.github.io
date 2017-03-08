@@ -593,7 +593,6 @@ function main() {
 			clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
-			console.log(center);
 			removeMarkers();
 			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
