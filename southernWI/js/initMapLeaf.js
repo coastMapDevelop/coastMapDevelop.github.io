@@ -851,6 +851,7 @@ function main() {
 					myMarkers.setStyle({opacity: 1});
 					
 					/* not necessary if calling filter function */
+					/*
 					try {
 						citiesPoints.eachLayer(function (layer) {
 							if (layer.feature.properties.filter == "false" ) {
@@ -880,13 +881,16 @@ function main() {
 					} catch (err) {
 					
 					}
+					*/
 					/* not necessary if calling filter function */
 				}
 				
 				if (hasFilter == true) {
 					console.log('apply filter');
+					testFilter();
 				} else if (hasFilter == false) {
 					console.log('reset filter');
+					resetFilter();
 				}
 				
 				
@@ -938,6 +942,7 @@ function main() {
 				
 				
 					/* not necessary if calling test filter */
+					/*
 					try {
 						citiesPolygon.eachLayer(function (layer) {
 							if (layer.feature.properties.filter == "false" ) {
@@ -967,14 +972,17 @@ function main() {
 					} catch (err) {
 					
 					}
+					*/
 					/* not necessary if calling test filter */
 				
 				}
 				
 				if (hasFilter == true) {
 					console.log('apply filter');
+					testFilter();
 				} else if (hasFilter == false) {
 					console.log('reset filter');
+					resetFilter();
 				}
 			
 				countyZoomFillControl = true;
