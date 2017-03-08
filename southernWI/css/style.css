@@ -480,7 +480,7 @@ body {
 	width: 350px;
 	right: -610px;
 	z-index: 1001;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	overflow-x: hidden;
 }
 
@@ -505,7 +505,7 @@ body {
 	width: 350px;
 	right: -610px;
 	z-index: 1001;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	overflow-x: hidden;
 }
 
@@ -561,7 +561,7 @@ body {
 	width: 350px;
 	right: -610px;
 	z-index: 1002;
-	overflow-y:scroll;
+	/*overflow-y:scroll;*/
 	overflow-x: hidden;
 	text-align: center;
 }
@@ -576,7 +576,7 @@ body {
 	width: 350px;
 	right: -610px;
 	z-index: 1002;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	overflow-x: hidden;
 	text-align: center;
 }
