@@ -410,7 +410,7 @@ function main() {
 				document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 			}
 			
-			if (clickedCountyName.length !=0 || clickedUrbanName.length != 0) {
+			if (clickedCountyName.length != 0 || clickedUrbanName.length != 0) {
 				document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 			}
 		} else {
@@ -718,7 +718,6 @@ function main() {
 			
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
-		document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		firstClick = true;
 	};
 	/* // click feature function */
@@ -2212,6 +2211,7 @@ function main() {
 			thePage.style.right = "0";
 		} else if (num == 1) {
 			thePage.style.right = "";
+			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		}
 	};
 	
