@@ -10,17 +10,17 @@ Things to work on:
 	- check and optimize function placements
 	- possible update to dynamic font size
 
-	- data sources - will be more (update and formalize google spreadsheet, talk to david)
-	- think about adding small map in feature page on mobile view for spatial context (non-interactive)
-	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side) (meet with Aj and David)
+	- data sources - will be more (update and formalize google spreadsheet, talk to david, get spreadsheet organized)
+	- think about adding small map in feature page on mobile view for spatial context (non-interactive) (can be image)
+	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side)
 	- need new urban polygon data (clipped to shoreline)
 	- AJ suggested mapshaper urban polygon simplification
 	
 	
 	- help with julianne cooper on a project (future)
-	- get townships for other coastal states
-	- update full coastal view map with southern wisconsin functions
-	- more information in panels, pop, growth, change, shoreline miles, people, 
+	- get townships for other coastal states (+ merge and add to full map)
+	- update full coastal view map with southern wisconsin functions (i.e. alter southern wi map to accept new parameters)
+	- more information in panels, pop, growth, change, shoreline miles, people, etc.
 
 	- when finished:
 		- comment code
