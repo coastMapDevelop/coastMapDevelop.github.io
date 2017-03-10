@@ -1386,8 +1386,8 @@ function main() {
 				if (name == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
-							countyClickedZoomControl = true;
 							removeMarkers();
+							countyClickedZoomControl = true;
 							clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
