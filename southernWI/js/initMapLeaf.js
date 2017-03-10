@@ -611,7 +611,9 @@ function main() {
 			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
 			
+			console.log('test');
 			removeMarkers();
+			console.log('test2');
 			
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			

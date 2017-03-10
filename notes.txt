@@ -2,7 +2,8 @@
 
 
 Things to work on:
-
+	
+	- catch errors when toggling on/off layers
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
