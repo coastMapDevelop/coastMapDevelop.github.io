@@ -590,7 +590,7 @@ function main() {
 		hoverControl = true;
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			clickedCountyName.length = 0;
+			//clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
 			removeMarkers();
@@ -1387,6 +1387,7 @@ function main() {
 				if (name == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
+							countyClickedZoomControl = true;
 							removeMarkers();
 							clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});

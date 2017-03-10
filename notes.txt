@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- when using the search feature for county; highlights, however when zooming in, it doesn't keep the selected style
 
 	- change zoning to "zoning code"
 	- move and change names of resources in feature clicked page and feature hovered page (should just need to change order in filter and feature pages
