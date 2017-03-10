@@ -588,9 +588,7 @@ function main() {
 	
 	/* click feature function */
 	function zoomToFeature(e) {
-		console.log('test0.7');
 		var layer = e.target; // reference layer
-		console.log('test0.8');
 		hoverControl = true;
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
@@ -609,15 +607,13 @@ function main() {
 			}, 250);
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
-			console.log('test0.6');
 			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
-			console.log('test0.5');
 			removeMarkers();
-			console.log('test0.4');
+
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			
-			console.log('test0.3');
+	
 			// find the urban polygon that matches and change it's style to match clicked
 			citiesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.NAMELSAD == myPointName) {
@@ -634,8 +630,9 @@ function main() {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
-			console.log('test0.2');
+			console.log(layer);
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+			console.log('test11');
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
 			geojson.bringToBack();
