@@ -170,6 +170,7 @@ body {
 	height: 50px;
 	width: 100%;
 	visibility: visible;
+	overflow-x: hidden;
 }
 
 #supBottomMenu {
@@ -275,6 +276,7 @@ body {
 
 #sideMenu {
 	position: absolute;
+	overflow-x: hidden;
 	top: 0;
 	right: 0;
 	background: #1C2833;
@@ -465,13 +467,12 @@ body {
 
 .pullOutPage {
 	position: absolute;
+	overflow-x: hidden;
 	top: 0;
 	background: #FBFCFC;
 	height: 100%;
-	/* experimental
 	padding-left: 25px;
 	padding-right: 25px;
-	*/
 	-webkit-transition: .2s right;
 	-moz-transition: .2s right;
 	-o-transition: .2s right;
@@ -483,7 +484,6 @@ body {
 	right: -610px;
 	z-index: 1001;
 	/*overflow-y: scroll;*/
-	overflow-x: hidden;
 }
 
 .pageToggle {
@@ -508,7 +508,6 @@ body {
 	right: -610px;
 	z-index: 1001;
 	/*overflow-y: scroll;*/
-	overflow-x: hidden;
 }
 
 #basemapPage .row p {
@@ -517,9 +516,7 @@ body {
 
 #basemapPage img {
 	cursor: pointer;
-	/* experimental
 	padding-bottom: 10px;
-	*/
 	-webkit-transition: .25s opacity;
 	-moz-transition: .25s opacity;
 	-o-transition: .25s opacity;
@@ -536,7 +533,6 @@ body {
 	width: 350px;
 	right: -610px;
 	z-index: 1001;
-	overflow-x:hidden;
 }
 
 .myFilterButtons {
@@ -566,7 +562,6 @@ body {
 	right: -610px;
 	z-index: 1002;
 	/*overflow-y:scroll;*/
-	overflow-x: hidden;
 	text-align: center;
 }
 
@@ -581,7 +576,6 @@ body {
 	right: -610px;
 	z-index: 1002;
 	/*overflow-y: scroll;*/
-	overflow-x: hidden;
 	text-align: center;
 }
 
@@ -672,9 +666,7 @@ body {
 .myCheckBox {
 	width: auto;
 	height: auto;
-	/* experimental
 	padding: 5px;
-	*/
 	background: white;
 	border-radius: 5px;
 	border: 1px solid black;
