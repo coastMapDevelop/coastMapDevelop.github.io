@@ -932,15 +932,14 @@ function main() {
 				}
 				
 				if (hasFilter == true) {
-					
 					testFilter();
 				} else if (hasFilter == false) {
-				
 					resetFilter();
 				}
 			
 				countyZoomFillControl = true;
-			
+				console.log(countyClickedZoomControl);
+				console.log(clickedCountyName[0]);
 				if (countyClickedZoomControl == true) {
 				
 				
