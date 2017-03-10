@@ -664,8 +664,9 @@ function main() {
 			}, 50);
 			
 			map.setView(center, 10);
+			console.log('test');
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
-
+			console.log('test2');
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
 			}, 500);
