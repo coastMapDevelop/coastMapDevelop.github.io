@@ -588,7 +588,9 @@ function main() {
 	
 	/* click feature function */
 	function zoomToFeature(e) {
+		console.log('test0.7');
 		var layer = e.target; // reference layer
+		console.log('test0.8');
 		hoverControl = true;
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
@@ -607,15 +609,15 @@ function main() {
 			}, 250);
 			
 		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
-			
+			console.log('test0.6');
 			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
-			
+			console.log('test0.5');
 			removeMarkers();
-			
+			console.log('test0.4');
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			
-			
+			console.log('test0.3');
 			// find the urban polygon that matches and change it's style to match clicked
 			citiesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.NAMELSAD == myPointName) {
@@ -632,12 +634,12 @@ function main() {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
-			
+			console.log('test0.2');
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
 			geojson.bringToBack();
-			
+			console.log('test0.1');
 			circleInterval = setInterval(function() {
 				myMarkers.eachLayer(function (layer) {
     				var radius = layer.getRadius();
@@ -662,9 +664,9 @@ function main() {
     				
 				});
 			}, 50);
-			
+			console.log('test0');
 			map.setView(center, 10);
-			console.log('test');
+			console.log('test1');
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 			console.log('test2');
 			window.setTimeout(function() {
