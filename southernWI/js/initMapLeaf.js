@@ -610,7 +610,6 @@ function main() {
 			var center = layer._latlng;
 			
 			removeMarkers();
-			clickedUrbanName.length = 0;
 			
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			
@@ -674,8 +673,8 @@ function main() {
 			var polyName = layer.feature.properties.NAMELSAD;
 			var center = layer.getBounds().getCenter();
 			map.setView(center, currentZoom);
-			checkFeaturePage("featurePage");
-			clickedUrbanName.length = 0;
+			//checkFeaturePage("featurePage");
+			//clickedUrbanName.length = 0;
 			removeMarkers();
 			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 		
@@ -728,7 +727,7 @@ function main() {
     				
 				});
 			}, 50);
-			
+			checkFeaturePage("featurePage");
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		}
 		firstClick = true;
@@ -938,8 +937,7 @@ function main() {
 				}
 			
 				countyZoomFillControl = true;
-				console.log(countyClickedZoomControl);
-				console.log(clickedCountyName[0]);
+		
 				if (countyClickedZoomControl == true) {
 				
 				
