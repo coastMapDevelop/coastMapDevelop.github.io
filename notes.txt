@@ -3,7 +3,7 @@
 
 Things to work on:
 	
-	- when clicking on a point with counties toggled off, error
+	- if counties are toggled off, change color of circle throb, and outlines of circles
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates

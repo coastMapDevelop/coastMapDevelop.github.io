@@ -638,7 +638,7 @@ function main() {
 			try {
 				geojson.bringToBack();
 			} catch (err) {
-				console.log(err);
+			
 			}
 			
 			circleInterval = setInterval(function() {
@@ -707,7 +707,7 @@ function main() {
 			try {
 				geojson.bringToBack();
 			} catch (err) {
-				console.log(err);
+			
 			}
 			if (checkZoom >= 10 && currentZoom >= 11) {
 				myMarkers.setStyle({opacity: 0});
