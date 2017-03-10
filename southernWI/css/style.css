@@ -468,8 +468,10 @@ body {
 	top: 0;
 	background: #FBFCFC;
 	height: 100%;
+	/* experimental
 	padding-left: 25px;
 	padding-right: 25px;
+	*/
 	-webkit-transition: .2s right;
 	-moz-transition: .2s right;
 	-o-transition: .2s right;
@@ -515,7 +517,9 @@ body {
 
 #basemapPage img {
 	cursor: pointer;
+	/* experimental
 	padding-bottom: 10px;
+	*/
 	-webkit-transition: .25s opacity;
 	-moz-transition: .25s opacity;
 	-o-transition: .25s opacity;
@@ -668,7 +672,9 @@ body {
 .myCheckBox {
 	width: auto;
 	height: auto;
+	/* experimental
 	padding: 5px;
+	*/
 	background: white;
 	border-radius: 5px;
 	border: 1px solid black;
