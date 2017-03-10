@@ -2110,7 +2110,7 @@ function main() {
 		var text2 = document.createTextNode("Web Map URL");
 		var text3 = document.createTextNode("Comp Plan");
 		var text4 = document.createTextNode("Zoning Code");
-		var text5 = document.createTextNode("Haz Mit Web");
+		var text5 = document.createTextNode("Haz Mit Plan");
 		var text6 = document.createTextNode("Sus Plan");
 		var text7 = document.createTextNode("Cli Plan");
 		var text8 = document.createTextNode("Res Plan");
@@ -2185,7 +2185,7 @@ function main() {
 		page.appendChild(break2);
 		page.appendChild(link3);	// comp plan
 		page.appendChild(break3);
-		page.appendChild(link4);	// zoning web
+		page.appendChild(link8);	// res plan
 		page.appendChild(break4);
 		page.appendChild(link5);	// haz mit web
 		page.appendChild(break5);
@@ -2193,7 +2193,7 @@ function main() {
 		page.appendChild(break6);
 		page.appendChild(link7);	// cli plan
 		page.appendChild(break7);
-		page.appendChild(link8);	// res plan
+		page.appendChild(link4);	// zoning web
 		page.appendChild(break8);
 		
 		var m;
