@@ -630,13 +630,17 @@ function main() {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 				}
 			});
-			console.log(layer);
+		
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
-			console.log('test11');
+			
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
-			geojson.bringToBack();
-			console.log('test0.1');
+			try {
+				geojson.bringToBack();
+			} catch (err) {
+				console.log(err);
+			}
+			
 			circleInterval = setInterval(function() {
 				myMarkers.eachLayer(function (layer) {
     				var radius = layer.getRadius();
@@ -661,11 +665,11 @@ function main() {
     				
 				});
 			}, 50);
-			console.log('test0');
+		
 			map.setView(center, 10);
-			console.log('test1');
+		
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
-			console.log('test2');
+		
 			window.setTimeout(function() {
 				checkFeaturePage("featurePage");
 			}, 500);
@@ -700,7 +704,11 @@ function main() {
 			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
-			geojson.bringToBack();
+			try {
+				geojson.bringToBack();
+			} catch (err) {
+				console.log(err);
+			}
 			if (checkZoom >= 10 && currentZoom >= 11) {
 				myMarkers.setStyle({opacity: 0});
 			}
