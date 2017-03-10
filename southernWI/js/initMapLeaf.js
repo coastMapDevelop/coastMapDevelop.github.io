@@ -1910,7 +1910,7 @@ function main() {
 		var text6 = document.createTextNode("Haz Mit Plan");
 		var text7 = document.createTextNode("Climate Plan");
 		var text8 = document.createTextNode("Resilience Plan");
-		var text9 = document.createTextNode("Zoning URL")
+		var text9 = document.createTextNode("Zoning Code")
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2109,7 +2109,7 @@ function main() {
 		var text1 = document.createTextNode("Gov Website");
 		var text2 = document.createTextNode("Web Map URL");
 		var text3 = document.createTextNode("Comp Plan");
-		var text4 = document.createTextNode("Zoning Web");
+		var text4 = document.createTextNode("Zoning Code");
 		var text5 = document.createTextNode("Haz Mit Web");
 		var text6 = document.createTextNode("Sus Plan");
 		var text7 = document.createTextNode("Cli Plan");
