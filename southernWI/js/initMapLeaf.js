@@ -500,39 +500,41 @@ function main() {
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
-			if (clickedCountyName[0] != layer.feature.properties.NAME10) {
-				hoverPanel.style.right = "75px";
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}
+		if (windowChange == false) {
+			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+				if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+					hoverPanel.style.right = "75px";
+					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+				}
 		
-			// set new style for hover county polygon
-			layer.setStyle({
-				fillOpacity: 1,
-				zIndex: 11
-			});
+				// set new style for hover county polygon
+				layer.setStyle({
+					fillOpacity: 1,
+					zIndex: 11
+				});
 			
-		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
-			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
-				hoverPanel.style.right = "75px";
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
-			}	
+			} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
+				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+					hoverPanel.style.right = "75px";
+					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+				}	
 			
-			layer.setStyle({
-				weight: 2,
-				fillOpacity: 1,
-			})
+				layer.setStyle({
+					weight: 2,
+					fillOpacity: 1,
+				})
 			
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
-			if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
-				hoverPanel.style.right = "75px";
-				crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+			} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
+				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+					hoverPanel.style.right = "75px";
+					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
+				}
+			
+				layer.setStyle({
+					weight: 2,
+					fillOpacity: 1
+				})
 			}
-			
-			layer.setStyle({
-				weight: 2,
-				fillOpacity: 1
-			})
 		}
 	};
 	/* // mouseover feature function */

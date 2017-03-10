@@ -170,7 +170,6 @@ body {
 	height: 50px;
 	width: 100%;
 	visibility: visible;
-	overflow-x: hidden;
 }
 
 #supBottomMenu {
@@ -276,7 +275,6 @@ body {
 
 #sideMenu {
 	position: absolute;
-	overflow-x: hidden;
 	top: 0;
 	right: 0;
 	background: #1C2833;
@@ -691,9 +689,7 @@ body {
 
 
 @media only screen and (max-width: 600px) {
-	body {
-		overflow-x: hidden;
-	}
+
 	
 	#sideMenu {
 		visibility:hidden;
