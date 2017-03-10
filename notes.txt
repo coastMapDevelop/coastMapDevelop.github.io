@@ -3,6 +3,7 @@
 
 Things to work on:
 	
+	- villages button on legend - no color?
 	- when clicking filter button on mobile view, does not remove filter panel (starting in mobile view?)
 	- if counties are toggled off, change color of circle throb, and outlines of circles
 	- when centering on county, make sure to not block any of the features (for smaller view)
