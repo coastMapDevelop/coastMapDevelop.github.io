@@ -727,8 +727,9 @@ function main() {
     				
 				});
 			}, 50);
-			checkFeaturePage("featurePage");
+			//checkFeaturePage("featurePage");
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
+			checkFeaturePage("featurePage");
 		}
 		firstClick = true;
 	};
@@ -1350,19 +1351,25 @@ function main() {
 		
 		try {
 			townsPolygon.eachLayer(function (layer) {
-				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-				layer.bringToFront();
-				layer.feature.properties.filter = "true";
+				if (clickedUrbanName != layer.features.properties.NAMELSAD) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
 			});
 			citiesPolygon.eachLayer(function (layer) {
-				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-				layer.bringToFront();
-				layer.feature.properties.filter = "true";
+				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
 			});
 			villagesPolygon.eachLayer(function (layer) {
-				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
-				layer.bringToFront();
-				layer.feature.properties.filter = "true";
+				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
 			});
 		} catch (err) {
 			
@@ -1479,10 +1486,10 @@ function main() {
 			
 			// center on point
 			map.setView(center, 10);
-			// checkfeaturepage
-			checkFeaturePage('featurePage');
 			// crossreference
 			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
+			// checkfeaturepage
+			checkFeaturePage('featurePage');
 		};
 		
 		if (isMobile == true) {
