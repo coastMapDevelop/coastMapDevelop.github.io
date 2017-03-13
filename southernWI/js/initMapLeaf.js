@@ -900,7 +900,7 @@ function main() {
 				}
 				
 				if (hasFilter == true) {
-				
+					
 					testFilter();
 				} else if (hasFilter == false) {
 					
