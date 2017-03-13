@@ -1384,6 +1384,19 @@ function main() {
 					
 					
 				}
+				
+				if (currSlt.indexOf("Counties") == -1) {
+					try {
+						// remove all counties, treat as null
+						geojson.eachLayer(function (layer) {
+							layer.setStyle({opacity: '0', fillOpacity: '0'});
+							layer.bringToBack();
+							layer.feature.properties.filter = "false";
+						});
+					} catch (err) {
+						
+					}
+				}
 			}
 		}
 		
@@ -1438,6 +1451,18 @@ function main() {
 			villagesPolygon.eachLayer(function (layer) {
 				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
+			});
+		} catch (err) {
+			console.log(err);
+		}
+		
+		try {
+			geojson.eachLayer(function (layer) {
+				if (clickedCountyName != layer.feature.properties.NAME10) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
 				}
