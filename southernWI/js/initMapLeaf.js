@@ -760,13 +760,7 @@ function main() {
 					if (countyZoomFillControl == false) {
 						
 						layer.setStyle({fillOpacity:0.75, weight: 1});
-						try {
-							if (layer.feature.properties.filter == true) {
-								console.log('filter is true');
-							}
-						} catch (err) {
-							console.log(err);
-						}
+						
 
 						
 					} else if (countyZoomFillControl == true) {
