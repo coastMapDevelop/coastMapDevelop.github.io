@@ -758,7 +758,7 @@ function main() {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						
+						console.log(layer.feature.properties.filter);
 						layer.setStyle({fillOpacity:0.75, weight: 1});
 						
 
