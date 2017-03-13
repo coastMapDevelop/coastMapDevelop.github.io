@@ -38,7 +38,8 @@ function main() {
 	var polygonArray= [];			// holds polygon features in map
 	var currentCheckArr = [];		// holds attributes for filtering
 	var currentSelectArr = ['Cities'];	// holds layers for filtering
-	var allSelectArr = ['Cities', 'Villages', 'Towns'];	// holds all layers for filtering all layers
+	var allSelectArr = ['Cities', 'Villages', 'Towns', 'Counties'];	// holds all layers for filtering all layers
+	var urbanSelectArr = ['Cities', 'Villages', 'Towns'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
 		['countyLink1', 'Gov Website', 3, 'countyLink1b'],
@@ -1119,18 +1120,21 @@ function main() {
 			}
 			
 			// included with second, loop through county arr to match the attribute with the corresponding county google spreadsheet row
-			var g;
-			for (g=0; g < ppupCnty; g++) {
-				if (attribute == popupCountyArr[g][1]) {
-					index2 = g;
+			var r;
+			for (r=0; r < ppupCnty; r++) {
+				if (attribute == popupCountyArr[r][1]) {
+					index2 = r;
 				}
 			}
 			 
-			// third, determine which layers were selected (update with all urban, counties, and all)
+			// third, determine which layers were selected
 			var g;
 			if (currentSelectArr[0] == "All") {
 				var currSltA = allSelectArr.length;
 				var currSlt = allSelectArr;
+			} else if (currentSelectArr[0] == "Cities, Villages, Towns") {
+				var currSltA = urbanSelectArr.length;
+				var currSlt = urbanSelectArr;
 			} else {
 				var currSltA = currentSelectArr.length;
 				var currSlt = currentSelectArr;
@@ -1145,6 +1149,8 @@ function main() {
 				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
 					theSecondLayer = villagesPolygon;
+				} else if (currSlt[g] == "Counties") {
+					theThirdLayer = geojson;
 				}
 				
 				// fourth, loop through the selected layer
@@ -1195,7 +1201,7 @@ function main() {
 				
 				theSecondLayer.eachLayer(function (layer) {
 					var name = layer.feature.properties.NAMELSAD;
-					// fifth, find the match row on the google spreadsheet
+					// fifth (b), find the match row on the google spreadsheet
 					var m;
 					for (m=0; m < gglSprd2; m++) {
 						if (name == googleSpreadsheet2[m][1]) {
@@ -1203,7 +1209,7 @@ function main() {
 						}
 					}
 					
-					// sixth, check if attribute is null or not
+					// sixth (b), check if attribute is null or not
 					if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
 						
 						try {
@@ -1237,6 +1243,44 @@ function main() {
 						
 					}
 				});
+				
+				// fourth (c) loop through the county layer
+				try {
+					theThirdLayer.eachLayer(function (layer) {
+						var name = layer.feature.properties.NAME10;
+						// fifth (b), find the match row on the google spreadsheet
+						var m;
+						for (m=0; m < gglSprd; m++) {
+							if (name == googleSpreadsheet[m][1]) {
+								var row3 = m;
+							}
+						}
+						// sixth (c), check if attribute is null or not
+						if (googleSpreadsheet[row3][popupCountyArr[index2][2]] == 'null') {
+							try {
+								// add to array false
+								layer.feature.properties.filter = "false";
+								layer.setStyle({opacity: '0', fillOpacity: '0'});
+								layer.bringToBack();
+							} catch (err) {
+								
+							}
+						} else if (googleSpreadsheet[row3][popupCountyArr[index2][2]] != 'null') {
+							try {
+								// add to array true
+								if (layer.feature.properties.filter == "false") {
+									layer.feature.properties.filter = "false";
+								} else {
+									layer.feature.properties.filter = "true";
+								}
+							} catch (err) {
+								
+							}
+						}
+					});
+				} catch (err) {
+					
+				}
 				
 				
 				// seventh, for the layers that were not selected for filtering, remove
