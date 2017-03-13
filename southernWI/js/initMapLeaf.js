@@ -43,14 +43,14 @@ function main() {
 	var countySelectArr = ['Counties'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
-		['countyLink1', 'Gov Website', 3, 'countyLink1b'],
-		['countyLink2', 'Web Map URL', 4, 'countyLink2b'],
+		['countyLink1', 'Govt Web', 3, 'countyLink1b'],
+		['countyLink2', 'Map Web', 4, 'countyLink2b'],
 		['countyLink3', 'Web Map Other', 5, 'countyLink3b'],
 		['countyLink4', 'Web Map State', 6, 'countyLink4b'],
 		['countyLink5', 'Comp Plan', 7, 'countyLink5b'],
 		['countyLink6', 'Haz Mit Plan', 8, 'countyLink6b'],
-		['countyLink7', 'Climate Plan', 9, 'countyLink7b'],
-		['countyLink8', 'Resilience Plan', 10, 'countyLink8b'],
+		['countyLink7', 'Cli Plan', 9, 'countyLink7b'],
+		['countyLink8', 'Res Plan', 10, 'countyLink8b'],
 		['countyLink9', 'Zoning Code', 11, 'countyLink9b']
 	];
 	// for naming and assigning popup content for points
@@ -1130,7 +1130,7 @@ function main() {
 				if (attribute == popupCountyArr[r][1]) {
 					index2 = r;
 				} else {
-					
+					alert("County Attribute Doesn't Exist");
 				}
 			}
 			 
