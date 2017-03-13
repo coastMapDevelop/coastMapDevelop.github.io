@@ -1124,6 +1124,8 @@ function main() {
 			for (r=0; r < ppupCnty; r++) {
 				if (attribute == popupCountyArr[r][1]) {
 					index2 = r;
+				} else {
+					console.log('test');
 				}
 			}
 			 
@@ -1260,7 +1262,7 @@ function main() {
 						// fifth (b), find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd; m++) {
-							if (name == googleSpreadsheet[m][1]) {
+							if (name == googleSpreadsheet[m][0]) {
 								var row3 = m;
 							}
 						}
