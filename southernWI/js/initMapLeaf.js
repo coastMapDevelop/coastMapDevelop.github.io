@@ -1153,96 +1153,105 @@ function main() {
 					theThirdLayer = geojson;
 				}
 				
-				// fourth, loop through the selected layer
-				theLayer.eachLayer(function (layer) {
-					var name = layer.feature.properties.NAMELSAD;
-					//fifth, find the match row on the google spreadsheet
-					var m;
-					for (m=0; m < gglSprd2; m++) {
-						if (name == googleSpreadsheet2[m][1]) {
-							var row = m;		// match row is found
-						}
-					}
-					
-					// sixth, check if attribute is null or not
-					if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
-						
-						// add to array false
-						try {
-							layer.feature.properties.filter = "false";
-							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-							layer.bringToBack();
-						} catch (err) {
-							
-						}
-						
-						
-					
-					} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
-						
-						try {
-							// add to array true
-							if (layer.feature.properties.filter == "false") {
-								layer.feature.properties.filter = "false";
-							} else {
-							
-								layer.feature.properties.filter = "true";
+				try {
+					// fourth, loop through the selected layer
+					theLayer.eachLayer(function (layer) {
+						var name = layer.feature.properties.NAMELSAD;
+						//fifth, find the match row on the google spreadsheet
+						var m;
+						for (m=0; m < gglSprd2; m++) {
+							if (name == googleSpreadsheet2[m][1]) {
+								var row = m;		// match row is found
 							}
-						} catch (err) {
-							
 						}
+					
+						// sixth, check if attribute is null or not
+						if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+						
+							// add to array false
+							try {
+								layer.feature.properties.filter = "false";
+								layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+								layer.bringToBack();
+							} catch (err) {
+							
+							}
+						
+						
+					
+						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
+						
+							try {
+								// add to array true
+								if (layer.feature.properties.filter == "false") {
+									layer.feature.properties.filter = "false";
+								} else {
+							
+									layer.feature.properties.filter = "true";
+								}
+							} catch (err) {
+							
+							}
 						
 						
 	
-					}
-				});
+						}
+					});
+				} catch (err) {
+					
+				}
+				
 				
 				// fourth (b) loop through the selected polygon layer
-				
-				theSecondLayer.eachLayer(function (layer) {
-					var name = layer.feature.properties.NAMELSAD;
-					// fifth (b), find the match row on the google spreadsheet
-					var m;
-					for (m=0; m < gglSprd2; m++) {
-						if (name == googleSpreadsheet2[m][1]) {
-							var row2 = m;
-						}
-					}
-					
-					// sixth (b), check if attribute is null or not
-					if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
-						
-						try {
-							// add to array false
-							layer.feature.properties.filter = "false";
-		
-							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
-							layer.bringToBack();
-						} catch (err) {
-							
-						}
-						
-						
-						
-					
-					} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
-						
-						try {
-							// add to array true
-							if (layer.feature.properties.filter == "false") {
-								layer.feature.properties.filter = "false";
-							} else {
-						
-								layer.feature.properties.filter = "true";
+				try {
+					theSecondLayer.eachLayer(function (layer) {
+						var name = layer.feature.properties.NAMELSAD;
+						// fifth (b), find the match row on the google spreadsheet
+						var m;
+						for (m=0; m < gglSprd2; m++) {
+							if (name == googleSpreadsheet2[m][1]) {
+								var row2 = m;
 							}
-						} catch (err) {
-							
 						}
+					
+						// sixth (b), check if attribute is null or not
+						if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
+						
+							try {
+								// add to array false
+								layer.feature.properties.filter = "false";
+		
+								layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+								layer.bringToBack();
+							} catch (err) {
+							
+							}
 						
 						
 						
-					}
-				});
+					
+						} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
+						
+							try {
+								// add to array true
+								if (layer.feature.properties.filter == "false") {
+									layer.feature.properties.filter = "false";
+								} else {
+						
+									layer.feature.properties.filter = "true";
+								}
+							} catch (err) {
+							
+							}
+						
+						
+						
+						}
+					});
+				} catch (err) {
+					
+				}
+				
 				
 				// fourth (c) loop through the county layer
 				try {
