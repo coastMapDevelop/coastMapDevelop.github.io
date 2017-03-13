@@ -1087,18 +1087,21 @@ function main() {
 		resetFilter();
 		hasFilter = true;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
-		var index;
-		var row;
-		var row2;
-		var theLayer;
-		var theSecondLayer;
+		var index;	// urban
+		var index2; // counties
+		var row;	// points
+		var row2;	// urban polys
+		var row3;	// counties
+		var theLayer;	// points
+		var theSecondLayer;	// urban polys
+		var theThirdLayer;	// counties
 		var ppupPnt = popupPointArr.length;
 		var gglSprd2 = googleSpreadsheet2.length;
 		
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
-		console.log(currentCheckArr);
+	
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
 			
@@ -1106,8 +1109,8 @@ function main() {
 			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row
 			var z;
 			for (z=0; z < ppupPnt; z++) {
-				console.log(attribute);
-				console.log(popupPointArr[z][1]);
+				
+				
 				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
@@ -1386,7 +1389,7 @@ function main() {
 				}
 			});
 		} catch (err) {
-			
+			console.log(err);
 		}
 		
 		
