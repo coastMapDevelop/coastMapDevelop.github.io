@@ -502,7 +502,7 @@ function main() {
 		var layer = e.target; // reference layer
 		
 		if (windowChange == false) {
-			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
 				if (clickedCountyName[0] != layer.feature.properties.NAME10) {
 					hoverPanel.style.right = "75px";
 					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
@@ -544,7 +544,7 @@ function main() {
 	/* mouseout feature function */
 	function resetHighlight(e) {
 		hoverPanel.style.right = "";
-		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0]) {
+		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0] && e.target.feature.properties.filter == "true") {
 
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
@@ -592,7 +592,7 @@ function main() {
 		var layer = e.target; // reference layer
 		hoverControl = true;
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0]) {
+		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
 			//clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
@@ -1412,6 +1412,20 @@ function main() {
 	function resetFilter() {
 		hasFilter = false;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
+		
+		try {
+			geojson.eachLayer(function (layer) {
+				if (clickedCountyName != layer.feature.properties.NAME10) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
+			});
+		} catch (err) {
+			console.log(err);
+		}
+		
+		
 		try {
 			townsPoints.eachLayer(function (layer) {
 				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
@@ -1458,19 +1472,6 @@ function main() {
 		} catch (err) {
 			console.log(err);
 		}
-		
-		try {
-			geojson.eachLayer(function (layer) {
-				if (clickedCountyName != layer.feature.properties.NAME10) {
-					layer.setStyle({opacity: '1', fillOpacity: '0.75'});
-					layer.bringToFront();
-					layer.feature.properties.filter = "true";
-				}
-			});
-		} catch (err) {
-			console.log(err);
-		}
-		
 		
 		
 	};
