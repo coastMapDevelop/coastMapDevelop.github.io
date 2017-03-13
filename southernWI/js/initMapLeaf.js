@@ -754,6 +754,7 @@ function main() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
 		countyClickedZoomControl = false;
+		console.log(clickedCountyName);
 		if (clickedCountyName.length != 0) {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
