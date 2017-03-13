@@ -761,16 +761,16 @@ function main() {
 						if (layer.feature.properties.filter == true) {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
 						} else if (layer.feature.properties.filter == false) {
-							layer.setStyle({opacity: '0', fillOpacity: '0'});
-							layer.bringToBack();
+							layer.setStyle({fillOpacity:0.75, weight: 1});
+							console.log('false');
 						}
 						
 					} else if (countyZoomFillControl == true) {
 						if (layer.feature.properties.filter == true) {
 							layer.setStyle({fillOpacity:0.4, weight: 1});
 						} else if (layer.feature.properties.filter == false) {
-							layer.setStyle({opacity: '0', fillOpacity: '0'});
-							layer.bringToBack();
+							layer.setStyle({fillOpacity:0.4, weight: 1});
+							console.log('false');
 						}
 						
 					}
