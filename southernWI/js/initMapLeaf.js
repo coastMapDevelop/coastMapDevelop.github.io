@@ -1097,6 +1097,8 @@ function main() {
 		var theThirdLayer;	// counties
 		var ppupPnt = popupPointArr.length;
 		var gglSprd2 = googleSpreadsheet2.length;
+		var ppupCnty = popupCountyArr.length;
+		var gglSprd = googleSpreadsheet.length;
 		
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
@@ -1115,8 +1117,16 @@ function main() {
 					index = z;
 				}
 			}
+			
+			// included with second, loop through county arr to match the attribute with the corresponding county google spreadsheet row
+			var g;
+			for (g=0; g < ppupCnty; g++) {
+				if (attribute == popupCountyArr[g][1]) {
+					index2 = g;
+				}
+			}
 			 
-			// third, determine which layers were selected
+			// third, determine which layers were selected (update with all urban, counties, and all)
 			var g;
 			if (currentSelectArr[0] == "All") {
 				var currSltA = allSelectArr.length;
@@ -1368,7 +1378,7 @@ function main() {
 		
 		try {
 			townsPolygon.eachLayer(function (layer) {
-				if (clickedUrbanName != layer.features.properties.NAMELSAD) {
+				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
