@@ -594,12 +594,12 @@ function main() {
 		hoverControl = true;
 		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
-			//clickedCountyName.length = 0;
 			
 			var center = layer.getBounds().getCenter();
 			removeMarkers();
 			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
+			console.log(clickedCountyName);
 			
 			map.setView(center, 10);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
@@ -754,7 +754,6 @@ function main() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
 		countyClickedZoomControl = false;
-		console.log(clickedCountyName);
 		if (clickedCountyName.length != 0) {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
@@ -763,7 +762,7 @@ function main() {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
 						} else if (layer.feature.properties.filter == false) {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
-							console.log('false');
+							
 						}
 						
 					} else if (countyZoomFillControl == true) {
@@ -771,7 +770,7 @@ function main() {
 							layer.setStyle({fillOpacity:0.4, weight: 1});
 						} else if (layer.feature.properties.filter == false) {
 							layer.setStyle({fillOpacity:0.4, weight: 1});
-							console.log('false');
+							
 						}
 						
 					}
@@ -1458,7 +1457,7 @@ function main() {
 				}
 			});
 		} catch (err) {
-			console.log(err);
+			
 		}
 		
 		
@@ -1506,7 +1505,7 @@ function main() {
 				}
 			});
 		} catch (err) {
-			console.log(err);
+		
 		}
 		
 		
