@@ -599,7 +599,7 @@ function main() {
 			removeMarkers();
 			countyClickedZoomControl = true;
 			clickedCountyName.push(layer.feature.properties.NAME10);
-			console.log(clickedCountyName);
+			
 			
 			map.setView(center, 10);
 			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
@@ -754,8 +754,8 @@ function main() {
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
 		countyClickedZoomControl = false;
-		console.log(clickedCountyName);
 		if (clickedCountyName.length != 0) {
+			console.log('test');
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
