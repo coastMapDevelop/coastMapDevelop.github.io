@@ -1133,6 +1133,8 @@ function main() {
 				
 				}
 			}
+			
+			
 			 
 			// third, determine which layers were selected
 			var g;
