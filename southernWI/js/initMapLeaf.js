@@ -1431,7 +1431,12 @@ function main() {
 		try {
 			geojson.eachLayer(function (layer) {
 				if (clickedCountyName != layer.feature.properties.NAME10) {
-					layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+					if (currentZoom >= 11) {
+						layer.setStyle({opacity: '1', fillOpacity: '0.75'});
+					} else {
+						layer.setStyle({opacity: '1', fillOpacity: '0.4'});
+					}
+					
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
 				}
