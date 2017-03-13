@@ -49,15 +49,15 @@ function main() {
 		['countyLink6', 'Haz Mit Plan', 8, 'countyLink6b'],
 		['countyLink7', 'Climate Plan', 9, 'countyLink7b'],
 		['countyLink8', 'Resilience Plan', 10, 'countyLink8b'],
-		['countyLink9', 'Zoning URL', 11, 'countyLink9b']
+		['countyLink9', 'Zoning Code', 11, 'countyLink9b']
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
 		['pointLink1', 'Govt Web', 4, 'pointLink1b'],
 		['pointLink2', 'Map Web', 5, 'pointLink2b'],
 		['pointLink3', 'Comp Plan', 6, 'pointLink3b'],
-		['pointLink4', 'Zoning Web', 7, 'pointLink4b'],
-		['pointLink5', 'Haz Mit Web', 8, 'pointLink5b'],
+		['pointLink4', 'Zoning Code', 7, 'pointLink4b'],
+		['pointLink5', 'Haz Mit Plan', 8, 'pointLink5b'],
 		['pointLink6', 'Sus Plan', 9, 'pointLink6b'],
 		['pointLink7', 'Cli Plan', 10, 'pointLink7b'],
 		['pointLink8', 'Res Plan', 11, 'pointLink8b']
@@ -67,8 +67,8 @@ function main() {
 		['polyLink1', 'Govt Web', 4, 'polyLink1b'],
 		['polyLink2', 'Map Web', 5, 'polyLink2b'],
 		['polyLink3', 'Comp Plan', 6, 'polyLink3b'],
-		['polyLink4', 'Zoning Web', 7, 'polyLink4b'],
-		['polyLink5', 'Haz Mit Web', 8, 'polyLink5b'],
+		['polyLink4', 'Zoning Code', 7, 'polyLink4b'],
+		['polyLink5', 'Haz Mit Plan', 8, 'polyLink5b'],
 		['polyLink6', 'Sus Plan', 9, 'polyLink6b'],
 		['polyLink7', 'Cli Plan', 10, 'polyLink7b'],
 		['polyLink8', 'Res Plan', 11, 'polyLink8b']
@@ -1098,12 +1098,16 @@ function main() {
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
+		console.log(currentCheckArr);
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
+			
 			
 			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row
 			var z;
 			for (z=0; z < ppupPnt; z++) {
+				console.log(attribute);
+				console.log(popupPointArr[z][1]);
 				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
