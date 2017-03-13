@@ -758,24 +758,21 @@ function main() {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						console.log(layer.feature.properties.filter);
+						
 						//if (countyFilterControl == false) {console.log('false')};
-						if (layer.feature.properties.filter == true) {
-							layer.setStyle({fillOpacity:0.75, weight: 1});
-						} else if (layer.feature.properties.filter == false) {
-							layer.setStyle({fillOpacity: 0, opacity: 0});
-						}
+						layer.setStyle({fillOpacity:0.75, weight: 1});
+						
 						
 						
 
 						
 					} else if (countyZoomFillControl == true) {
 						
-						if (layer.feature.properties.filter == true) {
-							layer.setStyle({fillOpacity:0.4, weight: 1});
-						} else if (layer.feature.properties.filter == false) {
-							layer.setStyle({fillOpacity: 0, opacity: 0});
-						}
+					
+						layer.setStyle({fillOpacity:0.4, weight: 1});
+					
+					
+					
 							
 						
 					}
