@@ -902,23 +902,24 @@ function main() {
 			
 				countyZoomFillControl = false;
 				
-				console.log(countyClickedZoomControl);
+				
 				if (countyClickedZoomControl == true) {
 				
 				
 					geojson.eachLayer(function (layer) {
-						
-						if (clickedCountyName[0] != layer.feature.properties.NAME10) {
-							layer.setStyle({fillOpacity:0.75});
+						if (hasFilter == false) {
+							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+								layer.setStyle({fillOpacity:0.75});
+							}
 						}
-						
 					});
 				
 				
 			
 				} else if (countyClickedZoomControl == false) {
-				
-					geojson.setStyle({fillOpacity:0.75});
+					if (hasFilter == false) {
+						geojson.setStyle({fillOpacity:0.75});
+					}
 				}
 			
 				pointZoomC = false;
@@ -954,9 +955,10 @@ function main() {
 				
 				
 					geojson.eachLayer(function (layer) {
-						
-						if (clickedCountyName[0] != layer.feature.properties.NAME10) {
-							layer.setStyle({fillOpacity:0.4});
+						if (hasFilter == false) {
+							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+								layer.setStyle({fillOpacity:0.4});
+							}
 						}
 						
 					});
@@ -964,8 +966,10 @@ function main() {
 				
 			
 				} else if (countyClickedZoomControl == false) {
-				
-					geojson.setStyle({fillOpacity:0.4});
+					if (hasFilter == false) {
+						geojson.setStyle({fillOpacity:0.4});
+					}
+					
 				}	
 			
 				polyZoomC = false;
