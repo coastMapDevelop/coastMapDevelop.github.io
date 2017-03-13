@@ -901,8 +901,8 @@ function main() {
 				}
 			
 				countyZoomFillControl = false;
-			
-			
+				
+				console.log(countyClickedZoomControl);
 				if (countyClickedZoomControl == true) {
 				
 				
@@ -1125,7 +1125,7 @@ function main() {
 				if (attribute == popupCountyArr[r][1]) {
 					index2 = r;
 				} else {
-					console.log('test');
+					
 				}
 			}
 			 
