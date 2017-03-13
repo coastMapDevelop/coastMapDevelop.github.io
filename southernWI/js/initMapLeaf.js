@@ -1432,9 +1432,9 @@ function main() {
 			geojson.eachLayer(function (layer) {
 				if (clickedCountyName != layer.feature.properties.NAME10) {
 					if (currentZoom >= 11) {
-						layer.setStyle({opacity: '1', fillOpacity: '0.75'});
-					} else {
 						layer.setStyle({opacity: '1', fillOpacity: '0.4'});
+					} else {
+						layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 					}
 					
 					layer.bringToFront();
