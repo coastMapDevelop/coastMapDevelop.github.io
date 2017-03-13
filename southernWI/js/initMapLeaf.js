@@ -1130,7 +1130,7 @@ function main() {
 				if (attribute == popupCountyArr[r][1]) {
 					index2 = r;
 				} else {
-					alert("County Attribute Doesn't Exist");
+				
 				}
 			}
 			 
