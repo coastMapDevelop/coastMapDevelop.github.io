@@ -550,14 +550,11 @@ function main() {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
 						console.log(layer.feature.properties.filter);
-						if (layer.feature.properties.filter == true) {
-							console.log(layer.feature.properties.filter);
+						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity: 0.75, weight: 1});
-						} else {
-							console.log('no');
 						}
 					} else if (countyZoomFillControl == true) {
-						if (layer.feature.properties.filter == true) {
+						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity: 0.4, weight: 1});
 						}
 					}
@@ -767,7 +764,12 @@ function main() {
 						
 						
 						//if (countyFilterControl == false) {console.log('false')};
-						layer.setStyle({fillOpacity:0.75, weight: 1});
+						if (layer.feature.properties.filter == "true") {
+							layer.setStyle({fillOpacity:0.75, weight: 1});
+						} else if (layer.feature.properties.filter == "false") {
+							layer.setStyle({fillOpacity:0, weight: 0, opacity: 0});
+						}
+						
 						
 						
 						
@@ -775,8 +777,12 @@ function main() {
 						
 					} else if (countyZoomFillControl == true) {
 						
-					
-						layer.setStyle({fillOpacity:0.4, weight: 1});
+						if (layer.feature.properties.filter == "true") {
+							layer.setStyle({fillOpacity:0.4, weight: 1});
+						} else if (layer.feature.properties.filter == "false") {
+							layer.setStyle({fillOpacity:0, weight: 0, opacity: 0});
+						}
+						
 					
 					
 					
