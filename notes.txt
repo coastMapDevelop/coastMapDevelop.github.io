@@ -2,7 +2,6 @@
 
 
 Things to work on:
-	- problem with searching filtered urban polygons - messed up filter attribute and styling
 	- why does the mouse pointer still change when hovering over a feature that is not there? (look into, maybe not all?)
 	- if counties are toggled off, change color of circle throb, and outlines of circles
 	

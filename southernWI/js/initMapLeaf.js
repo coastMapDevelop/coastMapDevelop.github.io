@@ -538,6 +538,8 @@ function main() {
 					weight: 2,
 					fillOpacity: 1
 				})
+			} else if (layer.feature.properties.filter == "false") {
+				$('.leaflet-container').css('cursor','crosshair');
 			}
 		}
 	};
