@@ -1703,6 +1703,8 @@ function main() {
 		holdZoomSource = source;
 		holdZoomNum = num;
 	};
+	/* // handles accepting reset of filter after a search */
+	
 	
 	
 	
