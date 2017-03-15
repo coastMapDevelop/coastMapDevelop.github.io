@@ -1613,6 +1613,7 @@ function main() {
 			}
 			
 			function runUrbanQuery(layer) {
+				console.log('test');
 				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
