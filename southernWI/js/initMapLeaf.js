@@ -1664,7 +1664,7 @@ function main() {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 					console.log('test5');
 					// add animated point
-					var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+					var marker = L.circleMarker(center, {radius: 20, fillOpacity: 0, color: 'white'});
 					myMarkers.addLayer(marker);
 					myMarkers.bringToFront(); // experimental
 					geojson.bringToBack();
