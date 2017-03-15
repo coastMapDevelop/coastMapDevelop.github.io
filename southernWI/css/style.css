@@ -491,6 +491,7 @@ body {
 	padding-right: 25px;
 	width: 350px;
 	right: 0px;
+	z-index: 1002;
 	height: 100%;
 	background:#FBFCFC;
 	visibility:hidden;
