@@ -162,9 +162,21 @@
 		<i id="searchPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Search</h3>
 		<div id="searchCheck">
-			<p>The feature that you have selected is currently filtered out of the map. Would you like to reset the filter to view this feature on the map?</p>
-			<p style="cursor: pointer;" onclick="myNameSpace.searchCheckToggle(0)">yes</p>
-			<p style="cursor: pointer;" onclick="myNameSpace.searchCheckToggle(1)">no</p>
+			<div class="row">
+				<div class="col-md-10">
+					<p>The feature that you have selected is currently filtered out of the map. Would you like to reset the filter to view this feature on the map?</p>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-5">
+					<p style="cursor: pointer;" onclick="myNameSpace.searchCheckToggle(0)">yes</p>
+				</div>
+				
+				<div class="col-md-5">
+					<p style="cursor: pointer;" onclick="myNameSpace.searchCheckToggle(1)">no</p>
+				</div>
+			</div>
 		</div>
 		<p>Search for a specific feature</p>
 		<hr>

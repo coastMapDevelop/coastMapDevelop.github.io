@@ -487,8 +487,6 @@ body {
 #searchCheck {
 	position:absolute;
 	text-align: center;
-	padding-left: 25px;
-	padding-right: 25px;
 	width: 350px;
 	right: 0px;
 	z-index: 1002;
@@ -744,6 +742,11 @@ body {
 		z-index: 1003;
 	}
 	
+	#searchCheck {
+		width: 100%;
+		z-index: 1004;
+	}
+	
 	#basemapPage {
 		width: 100%;
 		z-index: 1003;
@@ -771,6 +774,7 @@ body {
 	.mobileSupFeature {
 		visibility: visible;
 	}
+	
 }
 
 
