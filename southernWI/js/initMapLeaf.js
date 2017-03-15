@@ -758,11 +758,8 @@ function main() {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						var filterAtt = layer.feature.properties.filter;
 						
-						if (filterAtt == false) {
-							console.log('its false');
-						}
+						console.log(layer.feature.properties.filter);
 						//if (countyFilterControl == false) {console.log('false')};
 						layer.setStyle({fillOpacity:0.75, weight: 1});
 						
