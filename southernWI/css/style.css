@@ -709,6 +709,10 @@ body {
 	cursor: crosshair;
 }
 
+.leaflet-container {
+	cursor: crosshair;
+}
+
 
 
 @media only screen and (max-width: 600px) {
