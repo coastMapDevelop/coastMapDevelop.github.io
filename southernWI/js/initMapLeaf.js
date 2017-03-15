@@ -41,7 +41,7 @@ function main() {
 	var pointArray = [];			// holds point features in map
 	var polygonArray= [];			// holds polygon features in map
 	var currentCheckArr = [];		// holds attributes for filtering
-	var currentSelectArr = ['Counties'];	// holds layers for filtering
+	var currentSelectArr = ['Cities', 'Villages', 'Towns', 'Counties'];	// holds layers for filtering
 	var allSelectArr = ['Cities', 'Villages', 'Towns', 'Counties'];	// holds all layers for filtering all layers
 	var urbanSelectArr = ['Cities', 'Villages', 'Towns'];
 	var countySelectArr = ['Counties'];

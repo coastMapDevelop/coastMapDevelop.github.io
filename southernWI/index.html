@@ -272,7 +272,7 @@
 		
 		<!-- Body for filter page -->
 		<div class="row">
-			<p>Choose one or more attributes to filter.</p>
+			<!--<p>Choose one or more attributes to filter.</p>-->
 			<div class="col-md-6">
 				<div id="govweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Govt Web</div>
 				<div id="mapweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Map Web</div>
@@ -290,21 +290,21 @@
 		
 		
 		<div class="form-group" style="margin-top: 20px;">
-			<p>Choose a layer to filter.</p>
-			<label for="sel1">Select list:</label>
+			<!--<p>Choose a layer to filter.</p>-->
+			<label for="sel1">Choose a geometry to filter.</label>
 			<select class="form-control mySelections" id="sel1">
-				<option>Counties</option>
+				<option>All</option>
 				<option>Cities, Villages, Towns</p>
 				<!--<option>Cities</option>-->
 				<!--<option>Towns</option>-->
 				<!--<option>Villages</option>-->
-				<option>All</option>
+				<option>Counties</option>
 			</select>
 		</div>
 		
 		<div class="row myFilterButtons">
 			<div class="col-md-4 col-md-offset-2">
-				<h3 onclick="myNameSpace.testFilter()">Filter</h3>
+				<h3 onclick="myNameSpace.testFilter()">Go</h3>
 			</div>
 			
 			<div class="col-md-4">
