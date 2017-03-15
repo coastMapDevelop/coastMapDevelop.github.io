@@ -1612,7 +1612,7 @@ function main() {
 				runUrbanQuery(layer);
 			}
 			
-			function runUrbanQuery() {
+			function runUrbanQuery(layer) {
 				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
