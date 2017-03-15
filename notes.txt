@@ -4,7 +4,7 @@
 Things to work on:
 	- problem with mouseout changing color back to white (points) instead of e.target, filter all only if filter == true
 	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view) - just add color change part to windowChange true for click (or for mouseover - because style resets after you exit a click, and we never mouseover on mobile)
-
+	- move points to boundary edge (those points which are far inland)
 
 
 
