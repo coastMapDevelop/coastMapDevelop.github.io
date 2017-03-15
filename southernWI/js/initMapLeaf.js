@@ -1585,6 +1585,8 @@ function main() {
 		myPointColor = "white";
 		try {
 			myMarkers.setStyle({color: myMarkerColor});
+		} catch (err) {
+			
 		}
 		try {
 			townsPoints.setStyle({color: myPointColor});
