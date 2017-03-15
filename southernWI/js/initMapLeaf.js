@@ -1545,6 +1545,11 @@ function main() {
 							removeMarkers();
 							countyClickedZoomControl = true;
 							clickedCountyName.push(layer.feature.properties.NAME10);
+							if (hasFilter == true) {
+								if (layer.feature.properties.filter == "false") {
+									alert('the feature you searched is currently filter out, we will reset the filter');
+								}
+							}
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
