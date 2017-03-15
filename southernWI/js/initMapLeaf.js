@@ -1645,6 +1645,7 @@ function main() {
 			if (currentZoom >= 11) {
 				// set view to polygon bounds
 				myMarkers.setStyle({opacity: 0});
+				map.setView(center, 11);
 			} else if (currentZoom < 11) {
 				map.setView(center, 10);
 			}
