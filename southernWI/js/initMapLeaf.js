@@ -1644,6 +1644,7 @@ function main() {
 			// center on point
 			if (currentZoom >= 11) {
 				// set view to polygon bounds
+				myMarkers.setStyle({opacity: 0});
 			} else if (currentZoom < 11) {
 				map.setView(center, 10);
 			}

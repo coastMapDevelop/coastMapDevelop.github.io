@@ -9,6 +9,7 @@ Things to work on:
 		chooses no, do nothing
 	- why does the mouse pointer still change when hovering over a feature that is not there? (look into, maybe not all?)
 	
+	
 	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view)
 	- searching filtered feature, still work, but if filter is still on, have to hide after removing panel
 	- if counties are toggled off, change color of circle throb, and outlines of circles
