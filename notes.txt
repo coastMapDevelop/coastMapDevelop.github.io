@@ -20,7 +20,7 @@ Things to work on:
 	- AJ suggested mapshaper urban polygon simplification
 	
 	
-	- help with julianne cooper on a project (future)
+	- help with julianne cooper on a project (future) (green bay lake vis)
 	- get townships for other coastal states (+ merge and add to full map)
 	- update full coastal view map with southern wisconsin functions (i.e. alter southern wi map to accept new parameters)
 	- more information in panels, pop, growth, change, shoreline miles, people, etc.
