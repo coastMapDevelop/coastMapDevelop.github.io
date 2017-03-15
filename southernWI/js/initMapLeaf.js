@@ -29,6 +29,8 @@ function main() {
 	var pointZoomC = true;
 	var hasFilter = false;
 	var windowChange = false;
+	var holdZoomSource;
+	var holdZoomNum;
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -1545,18 +1547,25 @@ function main() {
 							removeMarkers();
 							if (hasFilter == true) {
 								if (layer.feature.properties.filter == "false") {
-									alert('the feature you searched is currently filter out, we will reset the filter');
-									resetFilter();
+									holdZoom(source, num);
+								} else {
+									countyClickedZoomControl = true;
+									clickedCountyName.push(layer.feature.properties.NAME10);
+									layer.setStyle({fillOpacity: '1'});
+									var center = layer.getBounds().getCenter();
+									map.setView(center, 10);
+									checkFeaturePage("featurePage");
+									crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 								}
+							} else {
+								countyClickedZoomControl = true;
+								clickedCountyName.push(layer.feature.properties.NAME10);
+								layer.setStyle({fillOpacity: '1'});
+								var center = layer.getBounds().getCenter();
+								map.setView(center, 10);
+								checkFeaturePage("featurePage");
+								crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 							}
-							
-							countyClickedZoomControl = true;
-							clickedCountyName.push(layer.feature.properties.NAME10);
-							layer.setStyle({fillOpacity: '1'});
-							var center = layer.getBounds().getCenter();
-							map.setView(center, 10);
-							checkFeaturePage("featurePage");
-							crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 						}
 					});
 				}
@@ -1663,6 +1672,25 @@ function main() {
 	};
 	/* // handles zooming to the searched feature */
 	
+	
+	
+	
+	/* handles accepting reset of filter after a search */
+	function searchCheckToggle(num) {
+		document.getElementById("searchCheck").style.visibility = "hidden";
+		if (num == 0) {
+			resetFilter();
+			zoomSearchedFeature(holdZoomSource, holdZoomNum);
+		} else if (num == 1) {
+			
+		}
+	};
+	
+	function holdZoom(source, num) {
+		document.getElementById('searchCheck').style.visibility = "visible";
+		holdZoomSource = source;
+		holdZoomNum = num;
+	};
 	
 	
 	

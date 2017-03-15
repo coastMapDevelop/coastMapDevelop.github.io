@@ -485,11 +485,13 @@ body {
 }
 
 #searchCheck {
+	position:absolute;
 	width: 350px;
 	right: 75px;
 	z-index: 1002;
 	height: 100%;
-	background:black;
+	background:#FBFCFC;
+	visibility:hidden;
 }
 
 .pageToggle {
