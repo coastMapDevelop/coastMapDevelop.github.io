@@ -549,7 +549,7 @@ function main() {
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						console.log(layer.feature.properties.filter);
+					
 						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity: 0.75, weight: 1});
 						}
@@ -763,7 +763,7 @@ function main() {
 					if (countyZoomFillControl == false) {
 						
 						
-						//if (countyFilterControl == false) {console.log('false')};
+					
 						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
 						} else if (layer.feature.properties.filter == "false") {
@@ -1324,7 +1324,7 @@ function main() {
 						}
 					});
 					
-					// countyFilterControl = true;
+				
 				} catch (err) {
 					
 				}
@@ -1460,7 +1460,7 @@ function main() {
 		hasFilter = false;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
 		
-		// countyFilterControl = false
+		
 		
 		try {
 			geojson.eachLayer(function (layer) {
