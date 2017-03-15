@@ -575,10 +575,13 @@ function main() {
 			
 			} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 				townsPoints.resetStyle(e.target);
+				townsPoints.setStyle({color: myPointColor});
 			
 				citiesPoints.resetStyle(e.target);
+				citiesPoints.setStyle({color: myPointColor});
 			
 				villagesPoints.resetStyle(e.target);
+				villagesPoints.setStyle({color: myPointColor});
 		
 			} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
 		
@@ -1242,9 +1245,53 @@ function main() {
 			if (currentSelectArr[0] == "All") {
 				var currSltA = allSelectArr.length;
 				var currSlt = allSelectArr;
+				myMarkerColor = "black";
+				myPointColor = "black";
+				try {
+					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
+				try {
+					townsPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					citiesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					villagesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
 			} else if (currentSelectArr[0] == "Cities, Villages, Towns") {
 				var currSltA = urbanSelectArr.length;
 				var currSlt = urbanSelectArr;
+				myMarkerColor = "black";
+				myPointColor = "black";
+				try {
+					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
+				try {
+					townsPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					citiesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					villagesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
 			} else if (currentSelectArr[0] == "Counties") {
 				var currSltA = countySelectArr.length;
 				var currSlt = countySelectArr;
@@ -1533,6 +1580,27 @@ function main() {
 	function resetFilter() {
 		hasFilter = false;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
+		
+		myMarkerColor = "white";
+		myPointColor = "white";
+		try {
+			myMarkers.setStyle({color: myMarkerColor});
+		}
+		try {
+			townsPoints.setStyle({color: myPointColor});
+		} catch (err) {
+					
+		}
+		try {
+			citiesPoints.setStyle({color: myPointColor});
+		} catch (err) {
+					
+		}
+		try {
+			villagesPoints.setStyle({color: myPointColor});
+		} catch (err) {
+					
+		}
 		
 		
 		
