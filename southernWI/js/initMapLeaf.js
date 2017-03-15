@@ -539,10 +539,9 @@ function main() {
 					fillOpacity: 1
 				})
 			} else if (layer.feature.properties.filter == "false") {
-				//$('.leaflet-mouse-marker').css('cursor','crosshair !important');
 				
-				$('.leaflet-clickable').css('cursor', 'crosshair');
-				$('#map').css('cursor', 'crosshair');
+				$('.leaflet-interactive').css('cursor', 'crosshair !important');
+				$('.leaflet-clickable').css('cursor', 'crosshair !important');
 				console.log('no click!');
 			}
 		}
