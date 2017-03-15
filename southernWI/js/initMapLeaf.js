@@ -801,19 +801,32 @@ function main() {
 			// maybe check here for LSAD and see if it's city, village, or town to save computation power
 			citiesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
+					if (layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					} else if (layer.feature.properties.filter == "false") {
+						layer.setStyle({fillOpacity: 0, weight: 0, opacity: 0});
+					}
+					
 				}
 			});
 			
 			townsPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
+					if (layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					} else if (layer.feature.properties.filter == "false") {
+						layer.setStyle({fillOpacity: 0, weight: 0, opacity: 0});
+					}
 				}
 			});
 			
 			villagesPolygon.eachLayer(function (layer) {
 				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
+					if (layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					} else if (layer.feature.properties.filter == "false") {
+						layer.setStyle({fillOpacity: 0, weight: 0, opacity: 0});
+					}
 				}
 			});
 		}
@@ -1662,13 +1675,13 @@ function main() {
 				function addNeccessaryStyles(layer) {
 					
 					layer.setStyle({fillOpacity: 1, weight: 2});
-					console.log('test5');
+					
 					// add animated point
 					var marker = L.circleMarker(center, {radius: 20, fillOpacity: 0, color: 'white'});
 					myMarkers.addLayer(marker);
 					myMarkers.bringToFront(); // experimental
 					geojson.bringToBack();
-					console.log('test6');
+					
 					circleInterval = setInterval(function() {
 						myMarkers.eachLayer(function (layer) {
 							var radius = layer.getRadius();
@@ -1693,7 +1706,7 @@ function main() {
     				
 						});
 					}, 50);
-					console.log('test7');
+					
 					// center on point
 					if (currentZoom >= 11) {
 						// set view to polygon bounds
@@ -1702,13 +1715,13 @@ function main() {
 					} else if (currentZoom < 11) {
 						map.setView(center, 10);
 					}
-					console.log('test8');
+					
 					// crossreference
 					crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
-					console.log('test9');
+					
 					// checkfeaturepage
 					checkFeaturePage('featurePage');
-					console.log('test10');
+				
 				};
 				
 			};
