@@ -1050,6 +1050,12 @@ function main() {
 			// remove layer
 			if (source == "bubble01") {
 				map.removeLayer(geojson);
+				myMarkerColor = "black";
+				try {
+					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
 			} else if (source == "bubble02") {
 				map.removeLayer(citiesPoints);
 				map.removeLayer(citiesPolygon);
@@ -1089,6 +1095,12 @@ function main() {
 			if (source == "bubble01") {
 				map.addLayer(geojson);
 				geojson.bringToBack();
+				myMarkerColor = "white";
+				try {
+					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
 			} else if (source == "bubble02") {
 				// check zoom level
 				if (currentZoom >= 11) {
