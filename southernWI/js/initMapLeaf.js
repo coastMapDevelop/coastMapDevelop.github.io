@@ -539,7 +539,7 @@ function main() {
 					fillOpacity: 1
 				})
 			} else if (layer.feature.properties.filter == "false") {
-				$('.leaflet-overlay-pane').css('cursor','crosshair');
+				$('.leaflet-mouse-marker').css('cursor','crosshair');
 			}
 		}
 	};
