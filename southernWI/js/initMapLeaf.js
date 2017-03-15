@@ -1471,7 +1471,7 @@ function main() {
 						layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 					}
 					
-					layer.bringToFront();
+					//layer.bringToFront(); experimental
 					layer.feature.properties.filter = "true";
 				}
 			});
