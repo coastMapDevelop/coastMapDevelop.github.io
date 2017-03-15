@@ -540,7 +540,10 @@ function main() {
 				})
 			} else if (layer.feature.properties.filter == "false") {
 				//$('.leaflet-mouse-marker').css('cursor','crosshair !important');
-				$('.leaflet-clickable').css('cursor', 'crosshair !important');
+				
+				$('.leaflet-clickable').css('cursor', 'crosshair');
+				$('#map').css('cursor', 'crosshair');
+				console.log('no click!');
 			}
 		}
 	};
