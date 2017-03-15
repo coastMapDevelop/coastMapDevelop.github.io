@@ -557,7 +557,6 @@ function main() {
 							layer.setStyle({fillOpacity: 0.4, weight: 1});
 						}
 					}
-					
 				}
 			});
 			
