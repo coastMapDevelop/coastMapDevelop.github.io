@@ -409,6 +409,10 @@ body {
 	position: absolute;
 }
 
+.filterActive {
+	color: yellow;
+}
+
 #myZoomControls {
 	position:absolute;
 	top: 0;

@@ -1196,6 +1196,7 @@ function main() {
 	/* handles filtering the features */
 	function testFilter() {
 		resetFilter();
+		document.getElementById('theFilterBubble').classList.add('filterActive');
 		hasFilter = true;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 		var index;	// urban
@@ -1581,6 +1582,7 @@ function main() {
 	function resetFilter() {
 		hasFilter = false;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
+		document.getElementById('theFilterBubble').classList.remove('filterActive');
 		
 		myMarkerColor = "white";
 		myPointColor = "white";
