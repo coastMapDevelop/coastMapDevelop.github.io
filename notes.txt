@@ -2,8 +2,6 @@
 
 
 Things to work on:
-	- when searching for an urban feature, and when in zoom level where urban polygons are in view, don't zoom back out to urban points,
-		instead, just highlight the urban polygon, and center on that polygon
 	- if a feature is filtered out of the map, and you search for it, alert the user that that feature is filtered, give option to reset filter
 		or not to. If they choose to reset filter, then run resetFilter() function, and run the zoomSearchedFeature function. If the user
 		chooses no, do nothing

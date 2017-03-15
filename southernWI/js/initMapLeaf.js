@@ -1542,15 +1542,15 @@ function main() {
 				if (name == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
 						if (name == layer.feature.properties.NAME10) {
-							removeMarkers();
-							countyClickedZoomControl = true;
-							clickedCountyName.push(layer.feature.properties.NAME10);
 							if (hasFilter == true) {
 								if (layer.feature.properties.filter == "false") {
 									alert('the feature you searched is currently filter out, we will reset the filter');
 									resetFilter();
 								}
 							}
+							removeMarkers();
+							countyClickedZoomControl = true;
+							clickedCountyName.push(layer.feature.properties.NAME10);
 							layer.setStyle({fillOpacity: '1'});
 							var center = layer.getBounds().getCenter();
 							map.setView(center, 10);
