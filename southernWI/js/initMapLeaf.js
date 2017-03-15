@@ -1614,7 +1614,7 @@ function main() {
 			
 			function runUrbanQuery(layer) {
 				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
-				console.log('test1');
+				
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
@@ -1629,7 +1629,7 @@ function main() {
 						}
 					}
 				});
-				console.log('test2');
+				
 				townsPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
 						if (hasFilter == true) {
@@ -1643,7 +1643,7 @@ function main() {
 						}
 					}
 				});
-				console.log('test3');
+				
 				villagesPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
 						if (hasFilter == true) {
@@ -1657,11 +1657,12 @@ function main() {
 						}
 					}
 				});
-				console.log('test4');
+				
 				
 				function addNeccessaryStyles(layer) {
-					console.log('test5');
+					
 					layer.setStyle({fillOpacity: 1, weight: 2});
+					console.log('test5');
 					// add animated point
 					var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 					myMarkers.addLayer(marker);
