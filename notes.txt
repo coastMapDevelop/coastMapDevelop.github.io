@@ -2,7 +2,7 @@
 
 
 Things to work on:
-	- if counties are toggled off, change color of circle throb, and outlines of circles
+	- problem with mouseout changing color back to white (points) instead of e.target, filter all only if filter == true
 	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view) - just add color change part to windowChange true for click (or for mouseover - because style resets after you exit a click, and we never mouseover on mobile)
 
 
