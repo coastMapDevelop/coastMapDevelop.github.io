@@ -1626,7 +1626,6 @@ function main() {
 			}
 			
 			function runUrbanQuery(layer) {
-				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 				
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
@@ -1673,7 +1672,7 @@ function main() {
 				
 				
 				function addNeccessaryStyles(layer) {
-					
+					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 					layer.setStyle({fillOpacity: 1, weight: 2});
 					
 					// add animated point

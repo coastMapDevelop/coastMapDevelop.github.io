@@ -2,9 +2,7 @@
 
 
 Things to work on:
-	- if a feature is filtered out of the map, and you search for it, alert the user that that feature is filtered, give option to reset filter
-		or not to. If they choose to reset filter, then run resetFilter() function, and run the zoomSearchedFeature function. If the user
-		chooses no, do nothing
+	- problem with searching filtered urban polygons - messed up filter attribute and styling
 	- why does the mouse pointer still change when hovering over a feature that is not there? (look into, maybe not all?)
 	- if counties are toggled off, change color of circle throb, and outlines of circles
 	
