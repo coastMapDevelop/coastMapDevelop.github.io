@@ -1606,10 +1606,10 @@ function main() {
 				if (layer.feature.properties.filter == "false") {
 					holdZoom(source, num);
 				} else {
-					runUrbanQuery();
+					runUrbanQuery(layer);
 				}
 			} else {
-				runUrbanQuery();
+				runUrbanQuery(layer);
 			}
 			
 			function runUrbanQuery() {
