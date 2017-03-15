@@ -1602,67 +1602,79 @@ function main() {
 			var myPointName = layer.feature.properties.NAMELSAD;
 			var center = layer._latlng;
 			removeMarkers();
-			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
-			// find the urban polygon that matches and change it's style to match clicked
-			citiesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
+			if (hasFilter == true) {
+				if (layer.feature.properties.filter == "false") {
+					holdZoom(source, num);
+				} else {
+					runUrbanQuery();
 				}
-			});
-			townsPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
-				}
-			});
-			villagesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
-				}
-			});
-			
-			// add animated point
-			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
-			myMarkers.addLayer(marker);
-			myMarkers.bringToFront(); // experimental
-			geojson.bringToBack();
-			
-			circleInterval = setInterval(function() {
-				myMarkers.eachLayer(function (layer) {
-    				var radius = layer.getRadius();
-    				
-    				if (radius == maxRadius) {
-    					radiusControl = false;
-    				} else if (radius == minRadius) {
-    					radiusControl = true;
-    				} else if (radius < maxRadius && radius > minRadius) {
-    					
-    				}
-    				
-    				if (radiusControl == true) {
-    					var newRadius = radius + .5;
-    				} else if (radiusControl == false) {
-    					var newRadius = radius - .5;
-    				}
-    				
-    				layer.setRadius(newRadius);
-    				
-    				
-    				
-				});
-			}, 50);
-			
-			// center on point
-			if (currentZoom >= 11) {
-				// set view to polygon bounds
-				myMarkers.setStyle({opacity: 0});
-				map.setView(center, 11);
-			} else if (currentZoom < 11) {
-				map.setView(center, 10);
+			} else {
+				runUrbanQuery();
 			}
-			// crossreference
-			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
-			// checkfeaturepage
-			checkFeaturePage('featurePage');
+			
+			function runUrbanQuery() {
+				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+				// find the urban polygon that matches and change it's style to match clicked
+				citiesPolygon.eachLayer(function (layer) {
+					if (layer.feature.properties.NAMELSAD == myPointName) {
+						layer.setStyle({fillOpacity: 1, weight: 2});
+					}
+				});
+				townsPolygon.eachLayer(function (layer) {
+					if (layer.feature.properties.NAMELSAD == myPointName) {
+						layer.setStyle({fillOpacity: 1, weight: 2});
+					}
+				});
+				villagesPolygon.eachLayer(function (layer) {
+					if (layer.feature.properties.NAMELSAD == myPointName) {
+						layer.setStyle({fillOpacity: 1, weight: 2});
+					}
+				});
+			
+				// add animated point
+				var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+				myMarkers.addLayer(marker);
+				myMarkers.bringToFront(); // experimental
+				geojson.bringToBack();
+			
+				circleInterval = setInterval(function() {
+					myMarkers.eachLayer(function (layer) {
+						var radius = layer.getRadius();
+    				
+						if (radius == maxRadius) {
+							radiusControl = false;
+						} else if (radius == minRadius) {
+							radiusControl = true;
+						} else if (radius < maxRadius && radius > minRadius) {
+    					
+						}
+    				
+						if (radiusControl == true) {
+							var newRadius = radius + .5;
+						} else if (radiusControl == false) {
+							var newRadius = radius - .5;
+						}
+    				
+						layer.setRadius(newRadius);
+    				
+    				
+    				
+					});
+				}, 50);
+			
+				// center on point
+				if (currentZoom >= 11) {
+					// set view to polygon bounds
+					myMarkers.setStyle({opacity: 0});
+					map.setView(center, 11);
+				} else if (currentZoom < 11) {
+					map.setView(center, 10);
+				}
+				// crossreference
+				crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
+				// checkfeaturepage
+				checkFeaturePage('featurePage');
+			};
 		};
 		
 		if (isMobile == true) {
