@@ -31,6 +31,7 @@ function main() {
 	var windowChange = false;
 	var holdZoomSource;
 	var holdZoomNum;
+	var myMarkerColor = "white";
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -652,7 +653,7 @@ function main() {
 				}
 			});
 		
-			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
+			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: myMarkerColor});
 			
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
@@ -722,7 +723,7 @@ function main() {
 					pointPos = layer._latlng;
 				}
 			});
-			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: 'white'});
+			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: myMarkerColor});
 			myMarkers.addLayer(marker);
 			myMarkers.bringToBack();
 			try {
@@ -1690,7 +1691,7 @@ function main() {
 					layer.setStyle({fillOpacity: 1, weight: 2});
 					
 					// add animated point
-					var marker = L.circleMarker(center, {radius: 20, fillOpacity: 0, color: 'white'});
+					var marker = L.circleMarker(center, {radius: 20, fillOpacity: 0, color: myMarkerColor});
 					myMarkers.addLayer(marker);
 					myMarkers.bringToFront(); // experimental
 					geojson.bringToBack();
