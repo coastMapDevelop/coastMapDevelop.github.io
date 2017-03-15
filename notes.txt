@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- searching for an urban feature when zoomed in to polygons causes problems with marker
 	
 	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view)
 	- searching filtered feature, still work, but if filter is still on, have to hide after removing panel

@@ -1548,6 +1548,7 @@ function main() {
 							if (hasFilter == true) {
 								if (layer.feature.properties.filter == "false") {
 									alert('the feature you searched is currently filter out, we will reset the filter');
+									resetFilter();
 								}
 							}
 							layer.setStyle({fillOpacity: '1'});
@@ -1612,7 +1613,7 @@ function main() {
 			// add animated point
 			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 			myMarkers.addLayer(marker);
-			myMarkers.bringToBack();
+			myMarkers.bringToFront(); // experimental
 			geojson.bringToBack();
 			
 			circleInterval = setInterval(function() {
