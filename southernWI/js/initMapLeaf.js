@@ -759,6 +759,7 @@ function main() {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
 						
+						console.log(layer.feature.properties.filter);
 						//if (countyFilterControl == false) {console.log('false')};
 						layer.setStyle({fillOpacity:0.75, weight: 1});
 						
