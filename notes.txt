@@ -15,7 +15,7 @@ Things to work on:
 
 
 
-	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view)
+	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view) - just add color change part to windowChange true for click
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
