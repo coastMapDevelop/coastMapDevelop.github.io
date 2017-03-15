@@ -540,9 +540,9 @@ function main() {
 				})
 			} else if (layer.feature.properties.filter == "false") {
 				
-				$('.leaflet-interactive').css('cursor', 'crosshair !important');
-				$('.leaflet-clickable').css('cursor', 'crosshair !important');
-				console.log('no click!');
+				$('.leaflet-interactive').css('cursor', 'crosshair');
+				$('.leaflet-clickable').css('cursor', 'crosshair');
+				$('.leaflet-tooltip').css('cursor', 'crosshair');
 			}
 		}
 	};
@@ -551,49 +551,52 @@ function main() {
 	
 	/* mouseout feature function */
 	function resetHighlight(e) {
-		hoverPanel.style.right = "";
-		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0] && e.target.feature.properties.filter == "true") {
-			geojson.eachLayer(function(layer) {
-				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
-					if (countyZoomFillControl == false) {
+		if (windowChange == false) {
+			hoverPanel.style.right = "";
+			if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0] && e.target.feature.properties.filter == "true") {
+				geojson.eachLayer(function(layer) {
+					if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
+						if (countyZoomFillControl == false) {
 					
-						if (layer.feature.properties.filter == "true") {
-							layer.setStyle({fillOpacity: 0.75, weight: 1});
-						}
-					} else if (countyZoomFillControl == true) {
-						if (layer.feature.properties.filter == "true") {
-							layer.setStyle({fillOpacity: 0.4, weight: 1});
+							if (layer.feature.properties.filter == "true") {
+								layer.setStyle({fillOpacity: 0.75, weight: 1});
+							}
+						} else if (countyZoomFillControl == true) {
+							if (layer.feature.properties.filter == "true") {
+								layer.setStyle({fillOpacity: 0.4, weight: 1});
+							}
 						}
 					}
-				}
-			});
+				});
 			
-		} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
-			townsPoints.resetStyle(e.target);
+			} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
+				townsPoints.resetStyle(e.target);
 			
-			citiesPoints.resetStyle(e.target);
+				citiesPoints.resetStyle(e.target);
 			
-			villagesPoints.resetStyle(e.target);
+				villagesPoints.resetStyle(e.target);
 		
-		} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
+			} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
 		
-			citiesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			townsPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
-			villagesPolygon.eachLayer(function(layer) {
-				if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
-					layer.setStyle({fillOpacity: 0.75, weight: 1});
-				}
-			});
+				citiesPolygon.eachLayer(function(layer) {
+					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					}
+				});
+				townsPolygon.eachLayer(function(layer) {
+					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					}
+				});
+				villagesPolygon.eachLayer(function(layer) {
+					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					}
+				});
 			
+			}
 		}
+		
 	};
 	/* // mouseout feature function */
 	
