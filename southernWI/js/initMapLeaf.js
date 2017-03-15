@@ -32,6 +32,7 @@ function main() {
 	var holdZoomSource;
 	var holdZoomNum;
 	var myMarkerColor = "white";
+	var myPointColor = "white";
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -210,7 +211,7 @@ function main() {
 	var townPointsStyle = {
 		radius: 8,
 		fillColor: colorPal[2][0],
-		color: '#fff',
+		color: myPointColor,
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
@@ -221,7 +222,7 @@ function main() {
 	var cityPointsStyle = {
 		radius: 8,
 		fillColor: colorPal[1][0],
-		color: '#fff',
+		color: myPointColor,
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
@@ -232,7 +233,7 @@ function main() {
 	var villagePointsStyle = {
 		radius: 8,
 		fillColor: colorPal[3][0],
-		color: '#fff',
+		color: myPointColor,
 		weight: 1,
 		opacity: 1,
 		fillOpacity: 0.75,
@@ -1051,8 +1052,23 @@ function main() {
 			if (source == "bubble01") {
 				map.removeLayer(geojson);
 				myMarkerColor = "black";
+				myPointColor = "black";
 				try {
 					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
+				try {
+					townsPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					citiesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				} try {
+					villagesPoints.setStyle({color: myPointColor});
 				} catch (err) {
 					
 				}
@@ -1096,8 +1112,24 @@ function main() {
 				map.addLayer(geojson);
 				geojson.bringToBack();
 				myMarkerColor = "white";
+				myPointColor = "white";
+				
 				try {
 					myMarkers.setStyle({color: myMarkerColor});
+				} catch (err) {
+					
+				}
+				try {
+					townsPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					citiesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				} try {
+					villagesPoints.setStyle({color: myPointColor});
 				} catch (err) {
 					
 				}
