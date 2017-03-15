@@ -594,6 +594,10 @@ function main() {
 					}
 				});
 			
+			} else if (e.target.feature.properties.filter == "false") {
+				$('.leaflet-interactive').css('cursor', '');
+				$('.leaflet-clickable').css('cursor', '');
+				$('.leaflet-tooltip').css('cursor', '');
 			}
 		}
 		
