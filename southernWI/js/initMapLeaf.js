@@ -1642,7 +1642,11 @@ function main() {
 			}, 50);
 			
 			// center on point
-			map.setView(center, 10);
+			if (currentZoom >= 11) {
+				// set view to polygon bounds
+			} else if (currentZoom < 11) {
+				map.setView(center, 10);
+			}
 			// crossreference
 			crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 			// checkfeaturepage
