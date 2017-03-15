@@ -2453,7 +2453,8 @@ function main() {
 		showMobileMenu: showMobileMenu,
 		mobileMenuClicked: mobileMenuClicked,
 		hoverChecks: hoverChecks,
-		mobileFeatureHide: mobileFeatureHide
+		mobileFeatureHide: mobileFeatureHide,
+		searchCheckToggle: searchCheckToggle
 	};
 	/* // fill name space with function or variables so we can access them publicly */
 
