@@ -20,7 +20,6 @@ body {
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	cursor: crosshair;
 }
 
 #title {
@@ -700,19 +699,7 @@ body {
 	background: 1px solid white;
 }
 
-/*leaflet experimental cursor */
-.leaflet-grab {
-	cursor: crosshair;
-}
-.leaflet-dragging .leaflet-grab,
-.leaflet-dragging .leaflet-grab .leaflet-interactive,
-.leaflet-dragging .leaflet-marker-draggable {
-	cursor: crosshair;
-}
 
-.leaflet-container {
-	cursor: crosshair;
-}
 
 
 

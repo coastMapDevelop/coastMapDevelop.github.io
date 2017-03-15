@@ -543,6 +543,7 @@ function main() {
 				$('.leaflet-interactive').css('cursor', 'crosshair');
 				$('.leaflet-clickable').css('cursor', 'crosshair');
 				$('.leaflet-tooltip').css('cursor', 'crosshair');
+				$('.leaflet-container').css('cursor', 'crosshair');
 			}
 		}
 	};
