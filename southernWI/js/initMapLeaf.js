@@ -549,9 +549,12 @@ function main() {
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
+						console.log(layer.feature.properties.filter);
 						if (layer.feature.properties.filter == true) {
 							console.log(layer.feature.properties.filter);
 							layer.setStyle({fillOpacity: 0.75, weight: 1});
+						} else {
+							console.log('no');
 						}
 					} else if (countyZoomFillControl == true) {
 						if (layer.feature.properties.filter == true) {
