@@ -1613,8 +1613,8 @@ function main() {
 			}
 			
 			function runUrbanQuery(layer) {
-				console.log('test');
 				clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+				console.log('test1');
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
@@ -1629,6 +1629,7 @@ function main() {
 						}
 					}
 				});
+				console.log('test2');
 				townsPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
 						if (hasFilter == true) {
@@ -1642,6 +1643,7 @@ function main() {
 						}
 					}
 				});
+				console.log('test3');
 				villagesPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
 						if (hasFilter == true) {
@@ -1655,15 +1657,17 @@ function main() {
 						}
 					}
 				});
+				console.log('test4');
 				
 				function addNeccessaryStyles(layer) {
+					console.log('test5');
 					layer.setStyle({fillOpacity: 1, weight: 2});
 					// add animated point
 					var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: 'white'});
 					myMarkers.addLayer(marker);
 					myMarkers.bringToFront(); // experimental
 					geojson.bringToBack();
-			
+					console.log('test6');
 					circleInterval = setInterval(function() {
 						myMarkers.eachLayer(function (layer) {
 							var radius = layer.getRadius();
@@ -1688,7 +1692,7 @@ function main() {
     				
 						});
 					}, 50);
-			
+					console.log('test7');
 					// center on point
 					if (currentZoom >= 11) {
 						// set view to polygon bounds
@@ -1697,10 +1701,13 @@ function main() {
 					} else if (currentZoom < 11) {
 						map.setView(center, 10);
 					}
+					console.log('test8');
 					// crossreference
 					crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
+					console.log('test9');
 					// checkfeaturepage
 					checkFeaturePage('featurePage');
+					console.log('test10');
 				};
 				
 			};
