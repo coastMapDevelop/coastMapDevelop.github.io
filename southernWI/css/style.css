@@ -699,6 +699,16 @@ body {
 	background: 1px solid white;
 }
 
+/*leaflet experimental cursor */
+.leaflet-grab {
+	cursor: crosshair;
+}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: crosshair;
+}
+
 
 
 @media only screen and (max-width: 600px) {
