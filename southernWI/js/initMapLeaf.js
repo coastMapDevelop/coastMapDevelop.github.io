@@ -546,13 +546,16 @@ function main() {
 	function resetHighlight(e) {
 		hoverPanel.style.right = "";
 		if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0] && e.target.feature.properties.filter == "true") {
-
 			geojson.eachLayer(function(layer) {
 				if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						layer.setStyle({fillOpacity: 0.75, weight: 1});
+						if (layer.feature.properties.filter == true) {
+							layer.setStyle({fillOpacity: 0.75, weight: 1});
+						}
 					} else if (countyZoomFillControl == true) {
-						layer.setStyle({fillOpacity: 0.4, weight: 1});
+						if (layer.feature.properties.filter == true) {
+							layer.setStyle({fillOpacity: 0.4, weight: 1});
+						}
 					}
 					
 				}
