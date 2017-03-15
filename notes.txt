@@ -2,20 +2,17 @@
 
 
 Things to work on:
-	- why does the mouse pointer still change when hovering over a feature that is not there? (look into, maybe not all?)
 	- if counties are toggled off, change color of circle throb, and outlines of circles
-	
-
-
-
-
-
-
-
-
-
-
 	- mobile view - not changing color on click - because color is associated with mousing over and mousing out (toggled for mobile view) - just add color change part to windowChange true for click (or for mouseover - because style resets after you exit a click, and we never mouseover on mobile)
+
+
+
+
+
+
+
+
+
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
 	- JS code performance updates
