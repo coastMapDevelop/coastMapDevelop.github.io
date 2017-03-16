@@ -110,7 +110,7 @@ function main() {
 	/* initiate basemap */
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
-    	zoomControl: false,		  // add zoom control to the map
+    	zoomControl: true,		  // add zoom control to the map
         center: [43, -88],		  // coordinates of map initation
 		minZoom: 8,				  // minimum zoom level of the map
 		maxZoom: 13,

@@ -5,8 +5,10 @@ Things to work on:
 	- move points to boundary edge (those points which are far inland)
 	- when centering on county, make sure to not block any of the features (for smaller view)
 	- check mobile compatability (horizontal scroll issue)
-	- icons for mobile reset filter and back to feature page buttons
-
+	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
+		- change_history
+		- dashboard
+		
 
 
 
