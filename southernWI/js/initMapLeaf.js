@@ -1583,8 +1583,15 @@ function main() {
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
 		document.getElementById('theFilterBubble').classList.remove('filterActive');
 		
-		myMarkerColor = "white";
-		myPointColor = "white";
+		var isCountyIn = map.hasLayer(geojson);
+		if (isCountyIn == true) {
+			myMarkerColor = "white";
+			myPointColor = "white";
+		} else if (isCountyIn == false) {
+			myMarkerColor = "black";
+			myPointColor = "black";
+		}
+		
 		try {
 			myMarkers.setStyle({color: myMarkerColor});
 		} catch (err) {
