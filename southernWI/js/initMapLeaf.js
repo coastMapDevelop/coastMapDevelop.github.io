@@ -617,6 +617,10 @@ function main() {
 		var layer = e.target; // reference layer
 		hoverControl = true;
 		
+		if (windowChange == true) {
+			layer.setStyle({fillOpacity: 1, weight: 2});
+		}
+		
 		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
 			
 			var center = layer.getBounds().getCenter();
