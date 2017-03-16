@@ -578,8 +578,9 @@ function main() {
 				townsPoints.setStyle({color: myPointColor});
 			
 			
-				citiesPoints.resetStyle(e.target);
-				citiesPoints.setStyle({color: myPointColor});
+				//citiesPoints.resetStyle(e.target);
+				//citiesPoints.setStyle({color: myPointColor});
+				e.target.setStyle({color: myPointColor});
 			
 				villagesPoints.resetStyle(e.target);
 				villagesPoints.setStyle({color: myPointColor});
