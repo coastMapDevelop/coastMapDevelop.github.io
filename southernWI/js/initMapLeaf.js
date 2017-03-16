@@ -575,14 +575,12 @@ function main() {
 			
 			} else if (e.target.feature.geometry.type == 'Point' && e.target.feature.properties.filter == "true") {
 				townsPoints.resetStyle(e.target);
-				townsPoints.setStyle({color: myPointColor});
-			
-			
-				//citiesPoints.resetStyle(e.target);
-				//citiesPoints.setStyle({color: myPointColor});
-				e.target.setStyle({color: myPointColor});
-			
+				citiesPoints.resetStyle(e.target);
 				villagesPoints.resetStyle(e.target);
+				
+				console.log(myPointColor);
+				townsPoints.setStyle({color: myPointColor});
+				citiesPoints.setStyle({color: myPointColor});
 				villagesPoints.setStyle({color: myPointColor});
 		
 			} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
