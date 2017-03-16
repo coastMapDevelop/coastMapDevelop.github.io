@@ -12,7 +12,8 @@ Things to work on:
 		- info_outline
 		- place
 		- more
-	- add zoom control on left side of map
+	- move zoom control up when mobile
+	- change filter mobile button to bring back up filter page, not reset
 
 		
 		
