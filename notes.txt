@@ -8,6 +8,14 @@ Things to work on:
 	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
 		- change_history
 		- dashboard
+		- info
+		- info_outline
+		- place
+		- more
+	- add zoom control on left side of map
+
+		
+		
 		
 
 
