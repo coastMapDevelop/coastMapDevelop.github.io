@@ -1,0 +1,44 @@
+
+How to add new geojson files:
+	inside initMapLeaf.js,
+	to add new county geojson,
+	line 297, change url to direct to your new geojson file,
+	(attributes must match),
+	also edit filter according to your criteria,
+	to add new urban point geojson,
+	line 351, change url to direct to your new geojson file,
+	(attributes must match),
+	
+
+How to change colors:
+
+
+How to add new panel:
+
+
+How to update attribute data:
+
+
+How to update geometry data:
+
+
+How to change urban zoom levels:
+
+
+How to change mobile change width:
+
+
+How to change filter button texts:
+
+
+How to change basemaps:
+
+
+How to change search outputs:
+
+
+How to change feature panel data:
+
+
+
+	
