@@ -24,7 +24,7 @@ body {
 
 #title {
 	position: absolute;
-	left: 10px;
+	left: 20px;
 	top: 20px;
 	color: black;
 	width: auto;
@@ -654,6 +654,7 @@ body {
 /* test 2 */
 .leaflet-top {
 	top: 75px;
+	left: 20px;
 }
 
 .leaflet-left {
