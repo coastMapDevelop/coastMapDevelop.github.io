@@ -2628,7 +2628,7 @@ function main() {
 			thePage.style.right = "0";
 		} else if (num == 1) {
 			thePage.style.right = "";
-			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
+			//document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		}
 	};
 	

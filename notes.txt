@@ -13,7 +13,7 @@ Things to work on:
 		- place
 		- more
 	- move zoom control up when mobile
-	- change filter mobile button to bring back up filter page, not reset
+	- when filter is on mobile, clicking feature also brings up mobile menu
 
 		
 		
