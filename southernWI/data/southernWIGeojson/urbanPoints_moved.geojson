@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "name": "Cudahy", "STATEFP": 55, "NAMELSAD": "Cudahy city", "GEOID": "5517975", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.8638844, 42.946727 ] } },
+{ "type": "Feature", "properties": { "name": "Kenosha", "STATEFP": 55, "NAMELSAD": "Kenosha city", "GEOID": "5539225", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.818560033887906, 42.588580763857266 ] } },
+{ "type": "Feature", "properties": { "name": "Mequon", "STATEFP": 55, "NAMELSAD": "Mequon city", "GEOID": "5551150", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.909765895490366, 43.235354644220664 ] } },
+{ "type": "Feature", "properties": { "name": "Milwaukee", "STATEFP": 55, "NAMELSAD": "Milwaukee city", "GEOID": "5553000", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.907237683931697, 43.029510789229427 ] } },
+{ "type": "Feature", "properties": { "name": "Oak Creek", "STATEFP": 55, "NAMELSAD": "Oak Creek city", "GEOID": "5558800", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.842760367250449, 42.868640233450087 ] } },
+{ "type": "Feature", "properties": { "name": "Port Washington", "STATEFP": 55, "NAMELSAD": "Port Washington city", "GEOID": "5564450", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.8807328, 43.3842445 ] } },
+{ "type": "Feature", "properties": { "name": "Racine", "STATEFP": 55, "NAMELSAD": "Racine city", "GEOID": "5566000", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.8070858, 42.7282842 ] } },
+{ "type": "Feature", "properties": { "name": "South Milwaukee", "STATEFP": 55, "NAMELSAD": "South Milwaukee city", "GEOID": "5575125", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.8623115, 42.9126431 ] } },
+{ "type": "Feature", "properties": { "name": "St. Francis", "STATEFP": 55, "NAMELSAD": "St. Francis city", "GEOID": "5570650", "filter": "true", "LSAD": 25 }, "geometry": { "type": "Point", "coordinates": [ -87.873113, 42.9716577 ] } },
+{ "type": "Feature", "properties": { "name": "Port Washington", "STATEFP": 55, "NAMELSAD": "Port Washington town", "GEOID": "5508964475", "filter": "true", "LSAD": 43 }, "geometry": { "type": "Point", "coordinates": [ -87.831683783844127, 43.432373005647989 ] } },
+{ "type": "Feature", "properties": { "name": "Somers", "STATEFP": 55, "NAMELSAD": "Somers town", "GEOID": "5505974650", "filter": "true", "LSAD": 43 }, "geometry": { "type": "Point", "coordinates": [ -87.81426020356831, 42.651772685923817 ] } },
+{ "type": "Feature", "properties": { "name": "Belgium", "STATEFP": 55, "NAMELSAD": "Belgium town", "GEOID": "5508906175", "filter": "true", "LSAD": 43 }, "geometry": { "type": "Point", "coordinates": [ -87.794576306523624, 43.49909762206655 ] } },
+{ "type": "Feature", "properties": { "name": "Grafton", "STATEFP": 55, "NAMELSAD": "Grafton town", "GEOID": "5508930025", "filter": "true", "LSAD": 43 }, "geometry": { "type": "Point", "coordinates": [ -87.897925, 43.3534497 ] } },
+{ "type": "Feature", "properties": { "name": "Bayside", "STATEFP": 55, "NAMELSAD": "Bayside village", "GEOID": "5505450", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.9014862, 43.1826109 ] } },
+{ "type": "Feature", "properties": { "name": "Caledonia", "STATEFP": 55, "NAMELSAD": "Caledonia village", "GEOID": "5511950", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.790456339711042, 42.812685227626964 ] } },
+{ "type": "Feature", "properties": { "name": "Fox Point", "STATEFP": 55, "NAMELSAD": "Fox Point village", "GEOID": "5527075", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.9014473, 43.1581815 ] } },
+{ "type": "Feature", "properties": { "name": "Mount Pleasant", "STATEFP": 55, "NAMELSAD": "Mount Pleasant village", "GEOID": "5554875", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.78775321208407, 42.682823797482484 ] } },
+{ "type": "Feature", "properties": { "name": "North Bay", "STATEFP": 55, "NAMELSAD": "North Bay village", "GEOID": "5557700", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.7805092, 42.7652072 ] } },
+{ "type": "Feature", "properties": { "name": "Pleasant Prairie", "STATEFP": 55, "NAMELSAD": "Pleasant Prairie village", "GEOID": "5563300", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.813859556304735, 42.516044422329252 ] } },
+{ "type": "Feature", "properties": { "name": "Shorewood", "STATEFP": 55, "NAMELSAD": "Shorewood village", "GEOID": "5573725", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.8866678, 43.0913405 ] } },
+{ "type": "Feature", "properties": { "name": "Whitefish Bay", "STATEFP": 55, "NAMELSAD": "Whitefish Bay village", "GEOID": "5586700", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.9005561, 43.1132471 ] } },
+{ "type": "Feature", "properties": { "name": "Wind Point", "STATEFP": 55, "NAMELSAD": "Wind Point village", "GEOID": "5587700", "filter": "true", "LSAD": 47 }, "geometry": { "type": "Point", "coordinates": [ -87.7715988, 42.7803923 ] } }
+]
+}

@@ -348,7 +348,7 @@ function main() {
 	function addPointLayers() {
 		$.ajax({
 			dataType: "json",
-			url: "data/southernWIGeojson/urbanPoints.geojson",
+			url: "data/southernWIGeojson/urbanPoints_moved.geojson",
 			success: function(data) {
 				townsPoints = L.geoJson(data, {
 					// convert markers to points
