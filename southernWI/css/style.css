@@ -654,7 +654,7 @@ body {
 /* test 2 */
 .leaflet-top {
 	top: 75px;
-	left: 20px;
+	left: 10px;
 }
 
 .leaflet-left {
@@ -782,6 +782,7 @@ body {
 	
 	.leaflet-top {
 		top: 0px;
+		left: 0px;
 	}
 	
 }
