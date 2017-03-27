@@ -31,12 +31,11 @@ Things to work on:
 	- data sources - will be more (update and formalize google spreadsheet, talk to david, get spreadsheet organized)
 	- think about adding small map in feature page on mobile view for spatial context (non-interactive) (can be image)
 	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side)
-	- need new urban polygon data (clipped to shoreline) (ltsb opendata for wisconsin municipalities) (municipial boundaries spring 2017)
 	- AJ suggested mapshaper urban polygon simplification
 	
 	
 	- help with julianne cooper on a project (future) (green bay lake vis)
-	- get townships for other coastal states (+ merge and add to full map)
+	- merge new data files (shapes) with old ones
 	- update full coastal view map with southern wisconsin functions (i.e. alter southern wi map to accept new parameters)
 	- more information in panels, pop, growth, change, shoreline miles, people, etc.
 
