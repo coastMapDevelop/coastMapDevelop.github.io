@@ -40,5 +40,11 @@ How to change search outputs:
 How to change feature panel data:
 
 
+How to change google spreadsheet:
+
+
+
+
+
 
 	
