@@ -779,6 +779,10 @@ body {
 		visibility: visible;
 	}
 	
+	.leaflet-top {
+		top: 10px;
+	}
+	
 }
 
 
