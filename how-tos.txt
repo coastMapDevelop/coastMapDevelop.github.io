@@ -43,6 +43,9 @@ How to change feature panel data:
 How to change google spreadsheet:
 
 
+How to add new function and reveal to public:
+
+
 
 
 
