@@ -44,7 +44,7 @@ Things to work on:
 	- direct geojson output?
 	- shorten the data process
 	- make it easier to operate/update
-	- 
+	
 
 	- when finished:
 		- comment code
