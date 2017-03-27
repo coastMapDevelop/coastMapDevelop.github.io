@@ -475,6 +475,7 @@ body {
 	height: 100%;
 	padding-left: 25px;
 	padding-right: 25px;
+	opacity:.75;
 	-webkit-transition: .2s right;
 	-moz-transition: .2s right;
 	-o-transition: .2s right;
