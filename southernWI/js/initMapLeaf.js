@@ -294,7 +294,7 @@ function main() {
 	
 	$.ajax({
 		dataType: "json",
-		url: "data/greatLakes_urbanPolygons.geojson",
+		url: "data/southernWIGeojson/southernWIPolygons.geojson",
 		success: function(data) {
 			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
 			geojson = L.geoJson(data, {
@@ -348,7 +348,7 @@ function main() {
 	function addPointLayers() {
 		$.ajax({
 			dataType: "json",
-			url: "data/greatLakes_urbanPolygons.geojson",
+			url: "data/southernWIGeojson/urbanPoints_moved.geojson",
 			success: function(data) {
 				townsPoints = L.geoJson(data, {
 					// convert markers to points
@@ -1827,8 +1827,8 @@ function main() {
 						geojson.bringToBack();
 					}
 					catch (err) {
-						
-					}
+
+					}	
 					
 					circleInterval = setInterval(function() {
 						myMarkers.eachLayer(function (layer) {

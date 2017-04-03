@@ -12,7 +12,7 @@ function main() {
 	var villagesPolygon;		// variable to hold village polygons - layer
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
-	var currentZoom = 8; 		// keeps track of current zoom
+	var currentZoom = 6; 		// keeps track of current zoom
 	var circleInterval;			// stores interval variable
 	var maxRadius = 30;			// stores maximum radius of circle throbber
 	var minRadius = 15;			// stores minimum radius of circle throbber
@@ -112,13 +112,13 @@ function main() {
 		attributionControl: true, // add attribution to the map
     	zoomControl: true,		  // add zoom control to the map
         center: [43, -88],		  // coordinates of map initation
-		minZoom: 8,				  // minimum zoom level of the map
+		minZoom: 6,				  // minimum zoom level of the map
 		maxZoom: 13,
 		maxBounds: [
 			[30, -105], 	  //southwest bounds
 			[55, -70]    	  //northeast bounds
 		],
-        zoom: 9			  // map initiation zoom level
+        zoom: 6			  // map initiation zoom level
     });
 	/* // initiate basemap */
 	
@@ -294,7 +294,7 @@ function main() {
 	
 	$.ajax({
 		dataType: "json",
-		url: "data/southernWIGeojson/southernWIPolygons.geojson",
+		url: "data/greatLakes_urbanPolygons.geojson",
 		success: function(data) {
 			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
 			geojson = L.geoJson(data, {
@@ -348,7 +348,7 @@ function main() {
 	function addPointLayers() {
 		$.ajax({
 			dataType: "json",
-			url: "data/southernWIGeojson/urbanPoints_moved.geojson",
+			url: "data/greatLakes_urbanPoints.geojson",
 			success: function(data) {
 				townsPoints = L.geoJson(data, {
 					// convert markers to points
@@ -986,7 +986,12 @@ function main() {
 			
 				} else if (countyClickedZoomControl == false) {
 					if (hasFilter == false) {
-						geojson.setStyle({fillOpacity:0.75});
+						try {
+							geojson.setStyle({fillOpacity:0.75});
+						}
+						catch (err) {
+							
+						}
 					}
 				}
 			
