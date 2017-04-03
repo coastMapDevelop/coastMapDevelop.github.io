@@ -43,7 +43,7 @@
 		return "#" + [zoom,
 			center.lat.toFixed(precision),
 			center.lng.toFixed(precision)
-		].join("/");
+		].join("/") + "/testFilter";
 	},
 
 	L.Hash.prototype = {

@@ -111,12 +111,12 @@ function main() {
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
     	zoomControl: true,		  // add zoom control to the map
-        center: [43, -88],		  // coordinates of map initation
+        center: [44, -84],		  // coordinates of map initation
 		minZoom: 6,				  // minimum zoom level of the map
 		maxZoom: 13,
 		maxBounds: [
-			[30, -105], 	  //southwest bounds
-			[55, -70]    	  //northeast bounds
+			[27, -115], 	  //southwest bounds
+			[57, -50]    	  //northeast bounds
 		],
         zoom: 6			  // map initiation zoom level
     });
@@ -209,7 +209,7 @@ function main() {
 	
 	// town points style
 	var townPointsStyle = {
-		radius: 8,
+		radius: 7,
 		fillColor: colorPal[2][0],
 		color: myPointColor,
 		weight: 1,
@@ -220,7 +220,7 @@ function main() {
 	
 	// city points style
 	var cityPointsStyle = {
-		radius: 8,
+		radius: 7,
 		fillColor: colorPal[1][0],
 		color: myPointColor,
 		weight: 1,
@@ -231,7 +231,7 @@ function main() {
 	
 	// village points style
 	var villagePointsStyle = {
-		radius: 8,
+		radius: 7,
 		fillColor: colorPal[3][0],
 		color: myPointColor,
 		weight: 1,
