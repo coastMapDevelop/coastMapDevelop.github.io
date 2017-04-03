@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- adding townships to full coastal community dataset
 	- check mobile compatability (horizontal scroll issue)
 	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
 		- change_history

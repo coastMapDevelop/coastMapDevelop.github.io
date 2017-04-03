@@ -18,7 +18,7 @@
 			hash = hash.substr(1);
 		}
 		var args = hash.split("/");
-		if (args.length == 3) {
+		if (args.length == 4) {
 			var zoom = parseInt(args[0], 10),
 			lat = parseFloat(args[1]),
 			lon = parseFloat(args[2]);
@@ -42,8 +42,9 @@
 
 		return "#" + [zoom,
 			center.lat.toFixed(precision),
-			center.lng.toFixed(precision)
-		].join("/") + "/" + myNameSpace.hashFilterVar;
+			center.lng.toFixed(precision),
+			myNameSpace.hashFilterVar
+		].join("/");
 	},
 
 	L.Hash.prototype = {

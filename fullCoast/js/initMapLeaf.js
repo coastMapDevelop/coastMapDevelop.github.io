@@ -1223,12 +1223,14 @@ function main() {
 		var ppupCnty = popupCountyArr.length;
 		var gglSprd = googleSpreadsheet.length;
 		
+		
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
 	
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
+			
 			
 			
 			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row

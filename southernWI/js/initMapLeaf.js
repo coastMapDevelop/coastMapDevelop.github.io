@@ -33,6 +33,7 @@ function main() {
 	var holdZoomNum;
 	var myMarkerColor = "white";
 	var myPointColor = "white";
+	var hashFilterVar = "myTestFiler";
 	/* // main variable declarations */
 	
 	/* main array declarations */
@@ -2666,7 +2667,8 @@ function main() {
 		mobileMenuClicked: mobileMenuClicked,
 		hoverChecks: hoverChecks,
 		mobileFeatureHide: mobileFeatureHide,
-		searchCheckToggle: searchCheckToggle
+		searchCheckToggle: searchCheckToggle,
+		hashFilterVar: hashFilterVar
 	};
 	/* // fill name space with function or variables so we can access them publicly */
 
