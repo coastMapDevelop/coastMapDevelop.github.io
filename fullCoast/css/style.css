@@ -660,6 +660,10 @@ body {
 .leaflet-left {
 	
 }
+
+.leaflet-control-attribution {
+	margin-bottom: 60px;
+}
 /* //test 2 */
 
 /* for popup */
