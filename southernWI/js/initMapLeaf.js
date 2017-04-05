@@ -17,8 +17,8 @@ function main() {
 	var maxRadius = 30;			// stores maximum radius of circle throbber
 	var minRadius = 15;			// stores minimum radius of circle throbber
 	var radiusControl = false;	// stores boolean value for circle throbber
-	var firstClick = false;		// stores if the map has yet been clicked
-	var hoverControl = false;	// stores boolean value for hovering - currently not in use (delete?) (check)
+	//var firstClick = false;		// stores if the map has yet been clicked
+	//var hoverControl = false;	// stores boolean value for hovering - currently not in use (delete?) (check)
 	var remove;					// for storing search panel
 	var remove2;				// for storing search control
 	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
@@ -200,12 +200,12 @@ function main() {
 	/* initialize and declare layer styles */
 	// county style
 	var myStyle = {
-		"fillColor": colorPal[0][0],
-		'weight': 1,
-		'opacity': 0.75,
-		'color': '#fff',
-		'fillOpacity': 0.75,
-		'zIndex': 9
+		fillColor: colorPal[0][0],
+		weight: 1,
+		opacity: 0.75,
+		color: '#fff',
+		fillOpacity: 0.75,
+		zIndex: 9
 	};
 	
 	// town points style
@@ -616,7 +616,7 @@ function main() {
 	/* click feature function */
 	function zoomToFeature(e) {
 		var layer = e.target; // reference layer
-		hoverControl = true;
+		//hoverControl = true;
 		
 		if (windowChange == true) {
 			if (layer.feature.geometry.type != 'Point') {
@@ -774,7 +774,7 @@ function main() {
 			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 			checkFeaturePage("featurePage");
 		}
-		firstClick = true;
+		//firstClick = true;
 	};
 	/* // click feature function */
 	
@@ -2168,7 +2168,7 @@ function main() {
 				removeMarkers();
 			}
 		} else if (num == 3) {
-			hoverControl = false;
+			//hoverControl = false;
 			var q;
 			for (q=0; q < uiMnA; q++) {
 				if (uiMenuArr[q][3] == source) {
