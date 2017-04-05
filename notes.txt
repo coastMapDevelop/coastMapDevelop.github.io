@@ -52,4 +52,9 @@ Things to work on:
 		- documentation for HTML file
 		- documentation for CSS file
 		- documentation for performing specific tasks
+
+	- additional data references:
+		- https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-ohio-current-place
+		- https://catalog.data.gov/dataset?collection_package_id=431430d9-7408-48c3-890d-e0a9cc516c12
+		
 		
