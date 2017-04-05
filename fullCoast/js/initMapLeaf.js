@@ -1206,6 +1206,8 @@ function main() {
 	
 	/* handles filtering the features */
 	function testFilter() {
+		hashFilterVar = "two";
+		L.Hash.formatHash(map, hashFilterVar);
 		resetFilter();
 		document.getElementById('theFilterBubble').classList.add('filterActive');
 		hasFilter = true;

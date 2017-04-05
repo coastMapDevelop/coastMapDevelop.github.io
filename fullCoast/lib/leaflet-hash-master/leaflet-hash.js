@@ -35,15 +35,16 @@
 		}
 	};
 
-	L.Hash.formatHash = function(map) {
+	L.Hash.formatHash = function(map, source) {
 		var center = map.getCenter(),
 		    zoom = map.getZoom(),
 		    precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
-
+		
+		
 		return "#" + [zoom,
 			center.lat.toFixed(precision),
 			center.lng.toFixed(precision),
-			myNameSpace.hashFilterVar
+			source
 		].join("/");
 	},
 
@@ -85,8 +86,8 @@
 			if (this.movingMap || !this.map._loaded) {
 				return false;
 			}
-
-			var hash = this.formatHash(this.map);
+			var myHash = myNameSpace.hashFilterVar;
+			var hash = this.formatHash(this.map, myHash);
 			if (this.lastHash != hash) {
 				location.replace(hash);
 				this.lastHash = hash;
