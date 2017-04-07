@@ -2,6 +2,14 @@
 
 
 Things to work on:
+	- Illinois: check
+	- Michigan: no towns? CDP
+	- Minnesota: no towns? CDP
+	- New York: no towns? CDP
+	- Ohio: no towns? CDP
+	- Pennsylvania: no towns? CDP
+	- Indiana: check
+	- Same county name problem
 	- adding townships to full coastal community dataset
 	- check mobile compatability (horizontal scroll issue)
 	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
