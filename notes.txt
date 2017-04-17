@@ -9,6 +9,7 @@ Things to work on:
 	- Ohio: no towns? CDP
 	- Pennsylvania: no towns? CDP
 	- Indiana: check
+	- Wisconsin: no towns? CDP
 	- Same county name problem
 	- adding townships to full coastal community dataset
 	- check mobile compatability (horizontal scroll issue)
