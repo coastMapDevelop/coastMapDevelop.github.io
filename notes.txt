@@ -2,6 +2,8 @@
 
 
 Things to work on:
+	- (mobile view), hit filter go, hit filter menu again, hit reset, hit filter go, brings up main menu
+	
 	- set up references to new google spreadsheet, with new arrays
 	- reference GEOID rather than name to not get multiple data in panel
 	- must reference and record the rows that are listed in google spreadsheet
