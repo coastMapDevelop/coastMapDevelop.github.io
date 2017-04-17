@@ -2,14 +2,26 @@
 
 
 Things to work on:
-	- Illinois: check
-	- Michigan: no towns? CDP
-	- Minnesota: no towns? CDP
-	- New York: no towns? CDP
-	- Ohio: no towns? CDP
-	- Pennsylvania: no towns? CDP
-	- Indiana: check
-	- Wisconsin: no towns? CDP
+	- set up references to new google spreadsheet, with new arrays
+	- reference GEOID rather than name to not get multiple data in panel
+	- must reference and record the rows that are listed in google spreadsheet
+	- 5 googlespreadsheet arrays, so have to go through and change / fix where googlespreadsheets are referenced
+	- (or just reference all urban panels as one googlespreadsheet array)
+	- need more recent census data municipalities
+	- Missing polygon data: City of Chicago, City of Waukegan, City of Kenosha
+	- No point for Chicago? No entry for Chicago in the Spreadsheet?
+	- Just have polygon geometries for counties, cities, and villages. We can keep centroids for townships.
+	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
+	- Find or create municipal boundaries that are clipped to the shore
+	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
+	- Illinois: subdivisions
+	- Michigan: subdivisions
+	- Minnesota: subdivisions
+	- New York: subdivisions
+	- Ohio: subdivisions
+	- Pennsylvania: subdivisions
+	- Indiana: subdivisions
+	- Wisconsin: subdivisons
 	- Same county name problem
 	- adding townships to full coastal community dataset
 	- check mobile compatability (horizontal scroll issue)
@@ -65,5 +77,6 @@ Things to work on:
 	- additional data references:
 		- https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-ohio-current-place
 		- https://catalog.data.gov/dataset?collection_package_id=431430d9-7408-48c3-890d-e0a9cc516c12
-		
+		- https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2016&layergroup=County+Subdivisions
+		- http://www.naturalearthdata.com/downloads/10m-physical-vectors/
 		

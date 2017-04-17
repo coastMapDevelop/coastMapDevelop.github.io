@@ -38,7 +38,10 @@ function main() {
 	
 	/* main array declarations */
 	var googleSpreadsheet = []; 	// Array for storing google spreadsheets data: county
-	var googleSpreadsheet2 = []; 	// Array for storing google spreadsheets data: urban
+	var googleSpreadsheet2 = []; 	// Array for storing google spreadsheets data: urban (cities)
+	var googleSpreadsheet3 = [];	// Array for storing google spreadsheets data: Villages
+	var googleSpreadsheet4 = [];	// Array for storing google spreadsheets data: Boroughs
+	var googleSpreadsheet5 = [];	// Array for storing google spreadsheets data: Townships
 	var pointArray = [];			// holds point features in map
 	var polygonArray= [];			// holds polygon features in map
 	var currentCheckArr = [];		// holds attributes for filtering
@@ -789,20 +792,11 @@ function main() {
 			geojson.eachLayer(function (layer) {
 				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
-						
-						
-					
 						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
 						} else if (layer.feature.properties.filter == "false") {
 							layer.setStyle({fillOpacity:0, weight: 0, opacity: 0});
 						}
-						
-						
-						
-						
-						
-						
 					} else if (countyZoomFillControl == true) {
 						
 						if (layer.feature.properties.filter == "true") {
@@ -810,14 +804,7 @@ function main() {
 						} else if (layer.feature.properties.filter == "false") {
 							layer.setStyle({fillOpacity:0, weight: 0, opacity: 0});
 						}
-						
-					
-					
-					
-							
-						
 					}
-				
 				}
 			});
 		}
@@ -832,7 +819,6 @@ function main() {
 					} else if (layer.feature.properties.filter == "false") {
 						layer.setStyle({fillOpacity: 0, weight: 0, opacity: 0});
 					}
-					
 				}
 			});
 			
@@ -963,7 +949,6 @@ function main() {
 					resetFilter();
 				}
 				
-				
 				var j;
 				for (j=0; j < plyA; j++) {
 					map.removeLayer(polygonArray[j]);
@@ -971,10 +956,7 @@ function main() {
 			
 				countyZoomFillControl = false;
 				
-				
 				if (countyClickedZoomControl == true) {
-				
-				
 					geojson.eachLayer(function (layer) {
 						if (hasFilter == false) {
 							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
@@ -982,9 +964,6 @@ function main() {
 							}
 						}
 					});
-				
-				
-			
 				} else if (countyClickedZoomControl == false) {
 					if (hasFilter == false) {
 						try {
@@ -1000,8 +979,6 @@ function main() {
 				polyZoomC = true;
 				
 			}
-		
-			
 		} else if (checkZoom >= 10 && currentZoom >= 11) {
 			
 			if (polyZoomC == true) {
@@ -1010,7 +987,6 @@ function main() {
 					map.removeLayer(pointArray[i]);
 					myMarkers.setStyle({opacity: 0});
 				}
-				
 				
 				var j;
 				for (j=0; j < plyA; j++) {
@@ -1026,8 +1002,6 @@ function main() {
 				countyZoomFillControl = true;
 		
 				if (countyClickedZoomControl == true) {
-				
-				
 					geojson.eachLayer(function (layer) {
 						if (hasFilter == false) {
 							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
@@ -1036,9 +1010,6 @@ function main() {
 						}
 						
 					});
-				
-				
-			
 				} else if (countyClickedZoomControl == false) {
 					if (hasFilter == false) {
 						geojson.setStyle({fillOpacity:0.4});
@@ -1049,7 +1020,6 @@ function main() {
 				polyZoomC = false;
 				pointZoomC = true;
 			}
-			
 		}
 	};
 	/* // checks whether to add points or polygons to the map based on zoom */
@@ -1196,7 +1166,6 @@ function main() {
 			uiHover("basemapPageToggle", 3);
 			showMobileMenu("mobileMenu");
 		}
-		
 	};
 	/* // handles changing of the base map */
 	
@@ -1233,13 +1202,9 @@ function main() {
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
 			
-			
-			
 			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row
 			var z;
 			for (z=0; z < ppupPnt; z++) {
-				
-				
 				if (attribute == popupPointArr[z][1]) {
 					index = z;
 				}
@@ -1255,8 +1220,6 @@ function main() {
 				}
 			}
 			
-			
-			 
 			// third, determine which layers were selected
 			var g;
 			if (currentSelectArr[0] == "All") {
@@ -1350,9 +1313,6 @@ function main() {
 							} catch (err) {
 							
 							}
-						
-						
-					
 						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
 						
 							try {
@@ -1366,15 +1326,11 @@ function main() {
 							} catch (err) {
 							
 							}
-						
-						
-	
 						}
 					});
 				} catch (err) {
 					
 				}
-				
 				
 				// fourth (b) loop through the selected polygon layer
 				try {
@@ -1400,10 +1356,6 @@ function main() {
 							} catch (err) {
 							
 							}
-						
-						
-						
-					
 						} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
 						
 							try {
@@ -1417,15 +1369,11 @@ function main() {
 							} catch (err) {
 							
 							}
-						
-						
-						
 						}
 					});
 				} catch (err) {
 					
 				}
-				
 				
 				// fourth (c) loop through the county layer
 				try {
@@ -1461,12 +1409,9 @@ function main() {
 							}
 						}
 					});
-					
-				
 				} catch (err) {
 					
 				}
-				
 				
 				// seventh, for the layers that were not selected for filtering, remove
 				if (currSlt.indexOf("Towns") == -1) {
@@ -1478,8 +1423,6 @@ function main() {
 							layer.bringToBack();
 					
 							layer.feature.properties.filter = "false";
-						
-						
 						});
 					} catch (err) {
 						
@@ -1497,77 +1440,57 @@ function main() {
 						});
 					} catch (err) {
 						
-					}
-				
-					
+					}	
 				}
 				
 				if (currSlt.indexOf("Cities") == -1) {
 					try {
 						// remove all cities, treat as null
 						citiesPoints.eachLayer(function (layer) {
-						
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						
 							layer.feature.properties.filter = "false";
-						
-						
 						});
 					} catch (err) {
 						
 					}
-					
 					
 					try {
 						citiesPolygon.eachLayer(function (layer) {
-				
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						
 							layer.feature.properties.filter = "false";
-						
-						
 						});
 					} catch (err) {
 						
 					}
-					
-					
 				}
 				
 				if (currSlt.indexOf("Villages") == -1) {
 					try {
 						// remove all vilages, treat as null
 						villagesPoints.eachLayer(function (layer) {
-						
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						
 							layer.feature.properties.filter = "false";
-						
-					
 						});
 					} catch (err) {
 						
 					}
-					
 					
 					try {
 						villagesPolygon.eachLayer(function (layer) {
-						
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
 						
 							layer.feature.properties.filter = "false";
-						
-						
 						});
 					} catch (err) {
 						
 					}
-					
-					
 				}
 				
 				if (currSlt.indexOf("Counties") == -1) {
@@ -1629,8 +1552,6 @@ function main() {
 					
 		}
 		
-		
-		
 		try {
 			geojson.eachLayer(function (layer) {
 				if (clickedCountyName != layer.feature.properties.NAME10) {
@@ -1647,7 +1568,6 @@ function main() {
 		} catch (err) {
 			
 		}
-		
 		
 		try {
 			townsPoints.eachLayer(function (layer) {
@@ -1668,7 +1588,6 @@ function main() {
 		} catch (err) {
 			
 		}
-		
 		
 		try {
 			townsPolygon.eachLayer(function (layer) {
@@ -1695,8 +1614,6 @@ function main() {
 		} catch (err) {
 		
 		}
-		
-		
 	};
 	/* // handles reseting the filtering */
 	
@@ -1738,7 +1655,6 @@ function main() {
 				}
 			});
 		} else if (num == 1) {
-			
 			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
@@ -1780,7 +1696,6 @@ function main() {
 			}
 			
 			function runUrbanQuery(layer) {
-				
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
 					if (layer.feature.properties.NAMELSAD == myPointName) {
@@ -1824,7 +1739,6 @@ function main() {
 					}
 				});
 				
-				
 				function addNeccessaryStyles(layer) {
 					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 					layer.setStyle({fillOpacity: 1, weight: 2});
@@ -1859,9 +1773,6 @@ function main() {
 							}
     				
 							layer.setRadius(newRadius);
-    				
-    				
-    				
 						});
 					}, 50);
 					
@@ -1879,9 +1790,7 @@ function main() {
 					
 					// checkfeaturepage
 					checkFeaturePage('featurePage');
-				
 				};
-				
 			};
 		};
 		
@@ -1952,7 +1861,6 @@ function main() {
 				theBox.classList.remove('myCheckBoxHover');
 			}
 		}
-	
 	};
 	/* // handles hovering filter buttons */
 	
@@ -1996,11 +1904,13 @@ function main() {
 	
 	// https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0  = old spreadsheet
 	// https://docs.google.com/spreadsheets/d/1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA/edit#gid=0  = new spreadsheet
+	// https://docs.google.com/spreadsheets/d/1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ/edit?ts=58f4fb6f#gid=0 = final spreadsheet (david owns) (needs setup)
 	/* store data from spreadsheet */
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
 			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
+			// =SUM(page1!b100; page2!b100; page3!b100; page4!b100; page5!b100; page6!b100; page7!b100;)
 			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
 		}).then(function(response) {
 			var range = response.result;
@@ -2062,7 +1972,6 @@ function main() {
 					clicked.style.background = colorPal[i][0];
 				}
 			}
-		
 			toggle(source, 1);
 			// add layer
 		}
@@ -2434,7 +2343,6 @@ function main() {
 				} else if (clickHov == "hover") {
 					document.getElementById(popupCountyArr[m][3]).setAttribute("href", link);
 				}
-				
 			}
 		}
 	};
@@ -2629,7 +2537,6 @@ function main() {
 				} else if (clickHov == "hover") {
 					document.getElementById(popupPointArr[m][3]).setAttribute("href", link);
 				}
-				
 			}
 		}
 	};
@@ -2650,15 +2557,6 @@ function main() {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	/* fill name space with function or variables so we can access them publicly */
 	myNameSpace = {
 		toggle: toggle,
