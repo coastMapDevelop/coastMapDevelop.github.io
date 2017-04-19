@@ -2068,7 +2068,7 @@ function main() {
 			} else if (active == false) {
 				var x = window.innerWidth;
 				if (x <= 600) {
-					circleCross.style.right = "0";
+					circleCross.style.right = "100%";
 				} else if (x > 600) {
 					circleCross.style.right = "425px";
 				}
@@ -2177,7 +2177,7 @@ function main() {
 			name = document.getElementById("infoPage");
 		}
 		
-		name.style.right = "0";
+		name.style.right = "100%";
 	};
 	/* // handles clicking mobile menu functions */
 	

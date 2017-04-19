@@ -14,7 +14,7 @@ Things to work on:
 	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
 	- Find or create municipal boundaries that are clipped to the shore
 	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
-	- check mobile compatability (horizontal scroll issue)
+	- check mobile compatability
 	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
 		- change_history
 		- dashboard
