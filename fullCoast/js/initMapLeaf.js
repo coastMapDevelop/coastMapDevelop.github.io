@@ -2150,7 +2150,7 @@ function main() {
 	
 	function hideMobileMenu(source) {
 		var button = document.getElementById(source);
-		var page = document.getElementById("supMobileMenu");
+		var page = document.getElementById("supMobileMenuWrapper");
 		var active = button.classList.contains('active');
 		if (active == true) {
 			page.style.right = "";
