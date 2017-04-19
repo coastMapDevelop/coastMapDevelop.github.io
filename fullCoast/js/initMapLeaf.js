@@ -130,6 +130,7 @@ function main() {
 	var hash = new L.Hash(map);
 	/* // initiate url hash */
 	
+
 	
 	
 	/* initiate and declare basemaps */
@@ -438,8 +439,8 @@ function main() {
 		} else {
 			if (windowChange == true) {
 				// remove all active panels
-				supMobileMenu.style.right = "";
-				supMobileMenu.style.visibility = "";
+				supMobileMenuWrapper.style.right = "";
+				supMobileMenuWrapper.style.visibility = "";
 				mobileMenuToggle.innerHTML = "menu";
 				isMobile = false;
 				document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
@@ -696,9 +697,6 @@ function main() {
     				}
     				
     				layer.setRadius(newRadius);
-    				
-    				
-    				
 				});
 			}, 50);
 		
@@ -768,9 +766,6 @@ function main() {
     				}
     				
     				layer.setRadius(newRadius);
-    				
-    				
-    				
 				});
 			}, 50);
 			//checkFeaturePage("featurePage");
@@ -1164,7 +1159,8 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("basemapPageToggle", 3);
-			showMobileMenu("mobileMenu");
+			//showMobileMenu("mobileMenu");
+			hideMobileMenu("mobileMenu");
 		}
 	};
 	/* // handles changing of the base map */
@@ -1510,7 +1506,8 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("filterPageToggle", 3);
-			showMobileMenu("mobileMenu");
+			//howMobileMenu("mobileMenu");
+			hideMobileMenu("mobileMenu");
 		}
 	};
 	/* // handles filtering the features */
@@ -1796,7 +1793,8 @@ function main() {
 		
 		if (isMobile == true) {
 			uiHover("searchPageToggle", 3);
-			showMobileMenu("mobileMenu");
+			//showMobileMenu("mobileMenu");
+			hideMobileMenu("mobileMenu");
 		}
 	};
 	/* // handles zooming to the searched feature */
@@ -2057,11 +2055,11 @@ function main() {
 		if (num == 1) {
 			// hovered, display box
 			circle.style.opacity = "1";
-			box.style.right = "0";
+			box.style.left = "-255px";
 		} else if (num == 0) {
 			// out, remove box
 			circle.style.opacity = "";
-			box.style.right = "";
+			box.style.left = "";
 		} else if (num == 2) {
 			var active = circleCross.classList.contains("active");
 			if (active == true) {
@@ -2132,7 +2130,7 @@ function main() {
 	/* handles displaying the mobile menu */
 	function showMobileMenu(source) {
 		var button = document.getElementById(source);
-		var page = document.getElementById("supMobileMenu");
+		var page = document.getElementById("supMobileMenuWrapper");
 		var active = button.classList.contains('active');
 	
 		if (active == false) {
@@ -2147,10 +2145,21 @@ function main() {
 			button.classList.remove('active');
 			var toggle = document.getElementById('mobileMenuToggle');
 			toggle.innerHTML = "menu";
-		
-		
 		}
 	};
+	
+	function hideMobileMenu(source) {
+		var button = document.getElementById(source);
+		var page = document.getElementById("supMobileMenu");
+		var active = button.classList.contains('active');
+		if (active == true) {
+			page.style.right = "";
+			window.setTimeout(function(){ page.style.visibility = "hidden";}, 250);
+			button.classList.remove('active');
+			var toggle = document.getElementById('mobileMenuToggle');
+			toggle.innerHTML = "menu";
+		}
+	}
 	/* // handles displaying the mobile menu */
 	
 	

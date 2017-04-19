@@ -2,8 +2,6 @@
 
 
 Things to work on:
-	- (mobile view), hit filter go, hit filter menu again, hit reset, hit filter go, brings up main menu
-	
 	- set up references to new google spreadsheet, with new arrays
 	- reference GEOID rather than name to not get multiple data in panel
 	- must reference and record the rows that are listed in google spreadsheet
@@ -16,16 +14,6 @@ Things to work on:
 	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
 	- Find or create municipal boundaries that are clipped to the shore
 	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
-	- Illinois: subdivisions
-	- Michigan: subdivisions
-	- Minnesota: subdivisions
-	- New York: subdivisions
-	- Ohio: subdivisions
-	- Pennsylvania: subdivisions
-	- Indiana: subdivisions
-	- Wisconsin: subdivisons
-	- Same county name problem
-	- adding townships to full coastal community dataset
 	- check mobile compatability (horizontal scroll issue)
 	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
 		- change_history

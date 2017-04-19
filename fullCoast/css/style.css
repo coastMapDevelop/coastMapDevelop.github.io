@@ -3,7 +3,7 @@
 
 
 
-body {
+html, body {
 	margin:0;
 	padding:0;
 	overflow-x: hidden;
@@ -13,6 +13,7 @@ body {
 	/*font-family: 'Catamaran', sans-serif;*/
 	/* century gothic */
 }
+
 
 #map {
 	position: absolute;
@@ -142,22 +143,27 @@ body {
 	border: 2px solid #1C2833;
 }
 
-
-#supMobileMenu {
-	position: absolute;
-	top: 0px;
-	right: -610px;
-	background: #fff;
-	height: 100vh;
+#supMobileMenuWrapper {
+	position: relative;
 	width: 100%;
-	visibility: hidden;
+	height: 100vh;
+	right: -610px;
+	visibility:hidden;
 	z-index: 1001;
-	overflow-x: hidden;
-	text-align: center;
 	-webkit-transition: .25s right;
 	-moz-transition: .25s right;
 	-o-transition: .25s right;
 	transition: .25s right;
+}
+
+#supMobileMenu {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: #fff;
+	height: 100%;
+	width: 100%;
+	text-align: center;
 }
 
 
@@ -316,17 +322,7 @@ body {
 /* // possibly delete */
 
 
-.menuBox {
-	position: absolute;
-	height: 75px;
-	width: 225px;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	-webkit-transition: .2s right;
-	-moz-transition: .2s right;
-	-o-transition: .2s right;
-	transition: .2s right;
-}
+
 
 .subMenuBox {
 	position: absolute;
@@ -369,22 +365,65 @@ body {
 	transition: .2s opacity;
 }
 
+.menuBox {
+	position: absolute;
+	/*height: 75px;*/
+	/*width: 225px;*/
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-transition: .2s left;
+	-moz-transition: .2s left;
+	-o-transition: .2s left;
+	transition: .2s left;
+}
+
+#firstBoxWrapper {
+	position: relative;
+	height: 75px;
+	width: 225px;
+	margin-top: 200px;
+	right: -105px;
+}
 #firstBox {
-	top: 200px;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	/*top: 200px;*/
 	background: black;
-	right: -255px;
+	/*right: -255px;*/
 }
 
+#secondBoxWrapper {
+	position: relative;
+	height: 75px;
+	width: 225px;
+	right: -105px;
+}
 #secondBox {
-	top: 275px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*top: 275px;*/
 	background: black;
-	right: -255px;
+	/*right: -255px;*/
 }
 
+#thirdBoxWrapper {
+	position: relative;
+	height: 75px;
+	width: 225px;
+	right: -105px;
+}
 #thirdBox {
-	top: 350px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*top: 350px;*/
 	background: black;
-	right: -255px;
+	/*right: -255px;*/
 }
 
 #firstCircle {
@@ -480,6 +519,7 @@ body {
 	-o-transition: .2s right;
 	transition: .2s right;
 }
+
 
 #searchPage {
 	width: 350px;
