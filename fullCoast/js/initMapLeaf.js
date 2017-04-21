@@ -621,8 +621,15 @@ function main() {
 	
 	/* click feature function */
 	function zoomToFeature(e) {
+		var clickedBefore = false;
 		var layer = e.target; // reference layer
 		//hoverControl = true;
+		if (clickedCountyName[0] == layer.feature.properties.NAME10 || clickedUrbanName[0] == layer.feature.properties.NAMELSAD10) {
+			clickedBefore = true;
+		}
+		
+		if (clickedBefore == false) {
+			
 		
 		if (windowChange == true) {
 			if (layer.feature.geometry.type != 'Point') {
@@ -775,6 +782,7 @@ function main() {
 			checkFeaturePage("featurePage");
 		}
 		//firstClick = true;
+		}
 	};
 	/* // click feature function */
 	
@@ -2116,6 +2124,7 @@ function main() {
 			var x = window.innerWidth;
 		
 			if (x <= 600) {
+				
 				page.style.right = "100%";
 			} else if (x > 600) {
 				page.style.right = "425px";
