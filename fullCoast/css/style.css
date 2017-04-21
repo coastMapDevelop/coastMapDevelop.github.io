@@ -205,7 +205,9 @@ html, body {
 }
 
 #bottomLegend {
-	position: absolute;
+	/*position: absolute;*/
+	position: relative;
+	margin-top: -30px;
 	left: 10px;
 	bottom: 5px;
 	background: transparent;
@@ -872,6 +874,7 @@ html, body {
 	
 	#bottomLegend {
 		width: 100%;
+		
 	}
 	
 	#bottomMenu {

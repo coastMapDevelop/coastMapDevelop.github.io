@@ -409,8 +409,10 @@ function main() {
 	
 	if ($(window).width() <= 600) {
 		windowChange = true;
+		isMobile = true;
 	} else {
 		windowChange = false;
+		isMobile = false;
 	}
 	
 	/* handles removing panels if width is below certain amount */
@@ -2114,7 +2116,7 @@ function main() {
 			var x = window.innerWidth;
 		
 			if (x <= 600) {
-				page.style.right = "0px";
+				page.style.right = "100%";
 			} else if (x > 600) {
 				page.style.right = "425px";
 			}
@@ -2556,7 +2558,7 @@ function main() {
 	function mobileFeatureHide(num) {
 		var thePage = document.getElementById('featurePage');
 		if (num == 0) {
-			thePage.style.right = "0";
+			thePage.style.right = "100%";
 		} else if (num == 1) {
 			thePage.style.right = "";
 			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
