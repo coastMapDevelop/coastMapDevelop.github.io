@@ -18,7 +18,8 @@ Things to work on:
 
 		
 	- have to reference new google spreadsheet, update what is inside feature infopanels, update what is filtered, and add new geojson geometry files
-		
+		- also add the unique identifier that is basically the join column into the local geojson files
+		- attributes needed in geojson: GEOID, NAMELSAD, STATEFP, COUNTYFP, LSAD, filter
 
 	- AJ suggested mapshaper urban polygon simplification
 	
