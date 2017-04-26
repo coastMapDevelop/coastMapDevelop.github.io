@@ -1917,6 +1917,7 @@ function main() {
 	// https://docs.google.com/spreadsheets/d/1JMq9zVGVeMIHE5Bj10ngnGFag3glNUV71yKYk4iyjmw/edit#gid=0  = old spreadsheet
 	// https://docs.google.com/spreadsheets/d/1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA/edit#gid=0  = new spreadsheet
 	// https://docs.google.com/spreadsheets/d/1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ/edit?ts=58f4fb6f#gid=0 = final spreadsheet (david owns) (needs setup)
+	// here's the API key for final spreadsheet = AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q
 	/* store data from spreadsheet */
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
@@ -1930,7 +1931,6 @@ function main() {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
 					var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[22], row[23], row[24]];
-					
 					googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 				}
 			} else {
