@@ -62,6 +62,9 @@
 	
 	<!-- mobile feature toggle -->
 	<div id="mobileFeatureMenu" onclick="myNameSpace.mobileFeatureHide(0)">
+		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">dashboard</i>-->
+		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">info_outline</i>-->
+		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">place</i>-->
 		<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">more</i>
 	</div>
 	<!-- // mobile feature toggle -->
@@ -194,7 +197,7 @@
 				</div>
 			</div>
 		</div>
-		<p>Search for a specific feature</p>
+		<p>Search for a specific County, City, Village, or Town</p>
 		<hr>
 		
 	</div>
@@ -354,7 +357,7 @@
 		<h3 id="featurePageName" style="margin-top: 50px; font-size: 35px;"></h3>
 		<hr>
 		
-		<p class="mobileSupFeature" onclick="myNameSpace.mobileFeatureHide(1)">Click to view in map</p>
+		<p style="color: #2471A3;" class="mobileSupFeature" onclick="myNameSpace.mobileFeatureHide(1)">Click to view in map</p>
 		
 		<p id="featurePop2000"></p>
 		<p id="featurePop2010"></p>
@@ -451,15 +454,16 @@
 			<p>Cities</p>
 		</div>
 		
+		<div id="layer04" class="legendBox">
+			<div id="bubble04" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
+			<p>Villages</p>
+		</div>
+		
 		<div id="layer03" class="legendBox">
 			<div id="bubble03" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
 			<p>Towns</p>
 		</div>
 		
-		<div id="layer04" class="legendBox">
-			<div id="bubble04" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
-			<p>Villages</p>
-		</div>
 	</div>
 	
 	<!-- // Bottom Menu - Legend -->

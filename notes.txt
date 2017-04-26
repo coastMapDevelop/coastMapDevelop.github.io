@@ -8,53 +8,22 @@ Things to work on:
 	- 5 googlespreadsheet arrays, so have to go through and change / fix where googlespreadsheets are referenced
 	- (or just reference all urban panels as one googlespreadsheet array)
 	- need more recent census data municipalities
+	- county fips code in spreadsheet?
 	- Missing polygon data: City of Chicago, City of Waukegan, City of Kenosha
 	- No point for Chicago? No entry for Chicago in the Spreadsheet?
 	- Just have polygon geometries for counties, cities, and villages. We can keep centroids for townships.
 	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
 	- Find or create municipal boundaries that are clipped to the shore
 	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
-	- check mobile compatability (need fixing - panels all messed up)
-	- icons for mobile reset filter and back to feature page buttons (maybe reset filter button can be back to filter page button?)
-		- change_history
-		- dashboard
-		- info
-		- info_outline
-		- place
-		- more
-	- when filter is on mobile, clicking feature also brings up mobile menu
 
 		
+	- have to reference new google spreadsheet, update what is inside feature infopanels, update what is filtered, and add new geojson geometry files
 		
-		
 
-
-
-
-
-
-
-
-
-	- JS code performance updates
-	- check and optimize variable declarations
-	- check and optimize function placements
-
-	- data sources - will be more (update and formalize google spreadsheet, talk to david, get spreadsheet organized)
-	- think about adding small map in feature page on mobile view for spatial context (non-interactive) (can be image)
-	- move legend to more prominent location (always shown though) (maybe just move to the right side instead of the left side)
 	- AJ suggested mapshaper urban polygon simplification
 	
 	
 	- help with julianne cooper on a project (future) (green bay lake vis)
-	- merge new data files (shapes) with old ones
-	- update full coastal view map with southern wisconsin functions (i.e. alter southern wi map to accept new parameters)
-	- more information in panels, pop, growth, change, shoreline miles, people, etc.
-
-	- API access - google spreadsheet
-	- direct geojson output?
-	- shorten the data process
-	- make it easier to operate/update
 	
 
 	- when finished:

@@ -460,7 +460,7 @@ function main() {
 	var options = {
 		position: 'topleft',
 		title: 'Search',
-		placeholder: 'Racine',
+		placeholder: 'Ex: Racine County',
 		panelTitle: '',
 		maxResultLength: 10,
 		showInvisibleFeatures: true,
@@ -537,7 +537,7 @@ function main() {
 				layer.setStyle({
 					weight: 2,
 					fillOpacity: 1,
-				})
+				});
 			
 			} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
 				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
@@ -585,7 +585,6 @@ function main() {
 				citiesPoints.resetStyle(e.target);
 				villagesPoints.resetStyle(e.target);
 				
-				
 				townsPoints.setStyle({color: myPointColor});
 				citiesPoints.setStyle({color: myPointColor});
 				villagesPoints.setStyle({color: myPointColor});
@@ -623,165 +622,167 @@ function main() {
 	function zoomToFeature(e) {
 		var clickedBefore = false;
 		var layer = e.target; // reference layer
-		//hoverControl = true;
-		if (clickedCountyName[0] == layer.feature.properties.NAME10 || clickedUrbanName[0] == layer.feature.properties.NAMELSAD10) {
-			clickedBefore = true;
-		}
 		
 		if (clickedBefore == false) {
-			
-		
-		if (windowChange == true) {
-			if (layer.feature.geometry.type != 'Point') {
-				layer.setStyle({fillOpacity: 1, weight: 2});
+			if (windowChange == true) {
+				if (layer.feature.geometry.type != 'Point') {
+					layer.setStyle({fillOpacity: 1, weight: 2});
+				}
 			}
-		}
 		
-		if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
+			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
+				if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+					var center = layer.getBounds().getCenter();
+					removeMarkers();
+					countyClickedZoomControl = true;
+					clickedCountyName.push(layer.feature.properties.NAME10);
 			
-			var center = layer.getBounds().getCenter();
-			removeMarkers();
-			countyClickedZoomControl = true;
-			clickedCountyName.push(layer.feature.properties.NAME10);
 			
-			
-			map.setView(center, 10);
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
+					map.setView(center, 10);
+					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 
-			window.setTimeout(function() {
-				checkFeaturePage("featurePage");
-			}, 250);
-			
-		} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
-			var myPointName = layer.feature.properties.NAMELSAD;
-			var center = layer._latlng;
-			removeMarkers();
+					window.setTimeout(function() {
+						checkFeaturePage("featurePage");
+					}, 250);
+				} else {
+					console.log('already clicked');
+				}
+			} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
+				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+					var myPointName = layer.feature.properties.NAMELSAD;
+					var center = layer._latlng;
+					removeMarkers();
 
-			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
 			
 	
-			// find the urban polygon that matches and change it's style to match clicked
-			citiesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
-				}
-			});
-			townsPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
-				}
-			});
-			villagesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == myPointName) {
-					layer.setStyle({fillOpacity: 1, weight: 2});
-				}
-			});
+					// find the urban polygon that matches and change it's style to match clicked
+					citiesPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.NAMELSAD == myPointName) {
+							layer.setStyle({fillOpacity: 1, weight: 2});
+						}
+					});
+					townsPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.NAMELSAD == myPointName) {
+							layer.setStyle({fillOpacity: 1, weight: 2});
+						}
+					});
+					villagesPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.NAMELSAD == myPointName) {
+							layer.setStyle({fillOpacity: 1, weight: 2});
+						}
+					});
 		
-			var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: myMarkerColor});
+					var marker = L.circleMarker(layer._latlng, {radius: 20, fillOpacity: 0, color: myMarkerColor});
 			
-			myMarkers.addLayer(marker);
-			myMarkers.bringToBack();
-			try {
-				geojson.bringToBack();
-			} catch (err) {
+					myMarkers.addLayer(marker);
+					myMarkers.bringToBack();
+					try {
+						geojson.bringToBack();
+					} catch (err) {
 			
-			}
+					}
 			
-			circleInterval = setInterval(function() {
-				myMarkers.eachLayer(function (layer) {
-    				var radius = layer.getRadius();
+					circleInterval = setInterval(function() {
+						myMarkers.eachLayer(function (layer) {
+							var radius = layer.getRadius();
     				
-    				if (radius == maxRadius) {
-    					radiusControl = false;
-    				} else if (radius == minRadius) {
-    					radiusControl = true;
-    				} else if (radius < maxRadius && radius > minRadius) {
+							if (radius == maxRadius) {
+								radiusControl = false;
+							} else if (radius == minRadius) {
+								radiusControl = true;
+							} else if (radius < maxRadius && radius > minRadius) {
     					
-    				}
+							}
     				
-    				if (radiusControl == true) {
-    					var newRadius = radius + .5;
-    				} else if (radiusControl == false) {
-    					var newRadius = radius - .5;
-    				}
+							if (radiusControl == true) {
+								var newRadius = radius + .5;
+							} else if (radiusControl == false) {
+								var newRadius = radius - .5;
+							}
     				
-    				layer.setRadius(newRadius);
-				});
-			}, 50);
+							layer.setRadius(newRadius);
+						});
+					}, 50);
 		
-			map.setView(center, 10);
+					map.setView(center, 10);
 		
-			crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
+					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		
-			window.setTimeout(function() {
-				checkFeaturePage("featurePage");
-			}, 500);
-			
-		} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
-			var pointPos;
-			var polyName = layer.feature.properties.NAMELSAD;
-			var center = layer.getBounds().getCenter();
-			map.setView(center, currentZoom);
-			//checkFeaturePage("featurePage");
-			//clickedUrbanName.length = 0;
-			removeMarkers();
-			clickedUrbanName.push(layer.feature.properties.NAMELSAD);
-		
-			
-			// need to loop through point layers and find the right point that matches the polygon
-			citiesPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.NAMELSAD) {
-					pointPos = layer._latlng;
+					window.setTimeout(function() {
+						checkFeaturePage("featurePage");
+					}, 500);
+				} else {
+					console.log('already clicked');
 				}
-			});
-			townsPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.NAMELSAD) {
-					pointPos = layer._latlng;
-				}
-			});
-			villagesPoints.eachLayer(function (layer) {
-				if (polyName == layer.feature.properties.NAMELSAD) {
-					pointPos = layer._latlng;
-				}
-			});
-			var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: myMarkerColor});
-			myMarkers.addLayer(marker);
-			myMarkers.bringToBack();
-			try {
-				geojson.bringToBack();
-			} catch (err) {
+				
+			} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
+				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+					var pointPos;
+					var polyName = layer.feature.properties.NAMELSAD;
+					var center = layer.getBounds().getCenter();
+					map.setView(center, currentZoom);
+					//checkFeaturePage("featurePage");
+					//clickedUrbanName.length = 0;
+					removeMarkers();
+					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+		
 			
-			}
-			if (checkZoom >= 10 && currentZoom >= 11) {
-				myMarkers.setStyle({opacity: 0});
-			}
+					// need to loop through point layers and find the right point that matches the polygon
+					citiesPoints.eachLayer(function (layer) {
+						if (polyName == layer.feature.properties.NAMELSAD) {
+							pointPos = layer._latlng;
+						}
+					});
+					townsPoints.eachLayer(function (layer) {
+						if (polyName == layer.feature.properties.NAMELSAD) {
+							pointPos = layer._latlng;
+						}
+					});
+					villagesPoints.eachLayer(function (layer) {
+						if (polyName == layer.feature.properties.NAMELSAD) {
+							pointPos = layer._latlng;
+						}
+					});
+					var marker = L.circleMarker(pointPos, {radius: 20, fillOpacity: 0, color: myMarkerColor});
+					myMarkers.addLayer(marker);
+					myMarkers.bringToBack();
+					try {
+						geojson.bringToBack();
+					} catch (err) {
 			
-			circleInterval = setInterval(function() {
-				myMarkers.eachLayer(function (layer) {
-    				var radius = layer.getRadius();
+					}
+					if (checkZoom >= 10 && currentZoom >= 11) {
+						myMarkers.setStyle({opacity: 0});
+					}
+			
+					circleInterval = setInterval(function() {
+						myMarkers.eachLayer(function (layer) {
+							var radius = layer.getRadius();
     				
-    				if (radius == maxRadius) {
-    					radiusControl = false;
-    				} else if (radius == minRadius) {
-    					radiusControl = true;
-    				} else if (radius < maxRadius && radius > minRadius) {
+							if (radius == maxRadius) {
+								radiusControl = false;
+							} else if (radius == minRadius) {
+								radiusControl = true;
+							} else if (radius < maxRadius && radius > minRadius) {
     					
-    				}
+							}
     				
-    				if (radiusControl == true) {
-    					var newRadius = radius + .5;
-    				} else if (radiusControl == false) {
-    					var newRadius = radius - .5;
-    				}
+							if (radiusControl == true) {
+								var newRadius = radius + .5;
+							} else if (radiusControl == false) {
+								var newRadius = radius - .5;
+							}
     				
-    				layer.setRadius(newRadius);
-				});
-			}, 50);
-			//checkFeaturePage("featurePage");
-			crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
-			checkFeaturePage("featurePage");
-		}
-		//firstClick = true;
+							layer.setRadius(newRadius);
+						});
+					}, 50);
+					//checkFeaturePage("featurePage");
+					crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
+					checkFeaturePage("featurePage");
+				}
+			}
+			//firstClick = true;
 		}
 	};
 	/* // click feature function */
@@ -789,6 +790,7 @@ function main() {
 	
 	/* remove markers and reset layers */
 	function removeMarkers() {
+		
 		document.getElementById('mobileFeatureMenu').style.visibility = "hidden";
 		myMarkers.clearLayers();
 		window.clearInterval(circleInterval);
@@ -1184,7 +1186,8 @@ function main() {
 		hashFilterVar = "two";
 		L.Hash.formatHash(map, hashFilterVar);
 		resetFilter();
-		document.getElementById('theFilterBubble').classList.add('filterActive');
+		document.getElementById('thirdCircle').classList.add('filterActive');
+		document.getElementById('thirdCircle').style.opacity = "1";
 		hasFilter = true;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 		var index;	// urban
@@ -1527,15 +1530,16 @@ function main() {
 	function resetFilter() {
 		hasFilter = false;
 		document.getElementById('mobileFilterResetMenu').style.visibility = "hidden";
-		document.getElementById('theFilterBubble').classList.remove('filterActive');
+		document.getElementById('thirdCircle').classList.remove('filterActive');
+		document.getElementById('thirdCircle').style.opacity = ".7";
 		
 		var isCountyIn = map.hasLayer(geojson);
 		if (isCountyIn == true) {
 			myMarkerColor = "white";
 			myPointColor = "white";
 		} else if (isCountyIn == false) {
-			myMarkerColor = "black";
-			myPointColor = "black";
+			myMarkerColor = "white";
+			myPointColor = "white";
 		}
 		
 		try {
@@ -1926,6 +1930,7 @@ function main() {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
 					var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[22], row[23], row[24]];
+					
 					googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
 				}
 			} else {
@@ -2068,8 +2073,13 @@ function main() {
 			box.style.left = "-255px";
 		} else if (num == 0) {
 			// out, remove box
-			circle.style.opacity = "";
-			box.style.left = "";
+			var circleActive = circle.classList.contains('filterActive');
+			if (circleActive == true) {
+				box.style.left = "";
+			} else {
+				circle.style.opacity = "";
+				box.style.left = "";
+			}
 		} else if (num == 2) {
 			var active = circleCross.classList.contains("active");
 			if (active == true) {
@@ -2568,8 +2578,10 @@ function main() {
 		var thePage = document.getElementById('featurePage');
 		if (num == 0) {
 			thePage.style.right = "100%";
+			thePage.classList.add('active');
 		} else if (num == 1) {
 			thePage.style.right = "";
+			thePage.classList.remove('active');
 			document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 		}
 	};
