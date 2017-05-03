@@ -12,6 +12,7 @@ Things to work on:
 	- Just have polygon geometries for counties, cities, and villages. We can keep centroids for townships.
 	- Correct unique ID (geoid or other id) to connect geography and spreadsheet	
 
+	(county subdivions)
 	- Illinois
 		- Evanston City
 		- Highland Park City
