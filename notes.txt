@@ -7,15 +7,10 @@ Things to work on:
 	- must reference and record the rows that are listed in google spreadsheet
 	- 5 googlespreadsheet arrays, so have to go through and change / fix where googlespreadsheets are referenced
 	- (or just reference all urban panels as one googlespreadsheet array)
-	- need more recent census data municipalities
-	- county fips code in spreadsheet?
 	- Missing polygon data: City of Chicago, City of Waukegan, City of Kenosha
 	- No point for Chicago? No entry for Chicago in the Spreadsheet?
 	- Just have polygon geometries for counties, cities, and villages. We can keep centroids for townships.
-	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
-	- Find or create municipal boundaries that are clipped to the shore
-	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
-	
+	- Correct unique ID (geoid or other id) to connect geography and spreadsheet	
 
 	- Illinois
 		- Evanston City
@@ -78,12 +73,6 @@ Things to work on:
 		- Spreadsheet missing Peshtigo City
 		
 
-		
-	- have to reference new google spreadsheet, update what is inside feature infopanels, update what is filtered, and add new geojson geometry files
-		- also add the unique identifier that is basically the join column into the local geojson files
-		- attributes needed in geojson: GEOID, NAMELSAD, STATEFP, COUNTYFP, LSAD, filter
-
-	- AJ suggested mapshaper urban polygon simplification
 	
 	
 	- help with julianne cooper on a project (future) (green bay lake vis)
