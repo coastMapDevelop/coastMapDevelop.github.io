@@ -1921,6 +1921,26 @@ function main() {
 	/* store data from spreadsheet */
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
+			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
+			range: 'Counties!A2:V',
+			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
+		}).then(function(response) {
+			var range = response.result;
+			if (range.values.length > 0) {
+				for (i=0; i < range.values.length; i++) {
+					var row = range.values[i];
+					var arr = [row[0], row[1], row[4], row[5], row[6], row[7], row[10], row[15], row[18], row[21]];
+					// row[0]=NAME10, row[1]=NAMELSAD10, row[4]=COUNTYFP, row[5]=POP2000, row[6]=POP2010, row[7]=GovtWebUrl, row[10]=WebMapUrl, row[15]=ZoningUrl, row[18]=CompPlanURL, row[21]=HazMitPlanURL
+					//googleSpreadsheet.push(arr);
+				}
+			} else {
+				console.log('No data found.');
+			}
+		}, function (response) {
+			console.log('Error: ' + response.result.error.message);
+		});
+		
+		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
 			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
 			// =SUM(page1!b100; page2!b100; page3!b100; page4!b100; page5!b100; page6!b100; page7!b100;)

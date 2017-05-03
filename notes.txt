@@ -15,6 +15,68 @@ Things to work on:
 	- Correct unique ID (geoid or other id) to connect geography and spreadsheet
 	- Find or create municipal boundaries that are clipped to the shore
 	- David working on spreadsheet: Splitting sheets for counties, cities, villages, boroughs, and townships
+	
+
+	- Illinois
+		- Evanston City
+		- Highland Park City
+		- Lake Forest City
+		- North Chicago City
+		- Waukegan City
+		- Zion City
+
+	- Indiana
+		- East Chicago City
+		- Gary City
+		- Hammond City
+		- Michigan City city
+		- Portage City
+		- Whiting City
+
+	- Michigan
+		- Algonac City
+		- Spreadsheet missing Bay City city
+		- Spreadsheet missing Detroit City
+		- Spreadsheet missing Essexville City
+		- Spreadsheet missing Grosse Pointe Woods City
+		- Spreadsheet missing Hamtramck City
+		- Spreadsheet missing Hancock City
+		- Spreadsheet missing Hart City
+		- Spreadsheet missing Highland Park City
+		- Spreadsheet missing Houghton City
+		- Harrisville City
+		- Mackinac Island City
+		- Marine City city
+		- Marysville City
+		- Spreadsheet missing Montague City
+		- Spreadsheet missing Mount Clemens City
+		- Spreadsheet missing Munising City
+		- Spreadsheet missing Muskegon Heights City
+		- Spreadsheet missing North Muskegon City
+		- Spreadsheet missing Pinconning City
+		- Spreadsheet missing Roosevelt Park City
+		- St. Clair City
+		- Spreadsheet missing Whitehall City
+
+	- Minnesota
+		- Beaver Bay City
+
+	- New York
+		- Spreadsheet missing North Tonawanda City
+		- Spreadsheet missing Tonawanda City
+		- Spreadsheet missing Watertown City
+
+	- Ohio
+		- Ashtabula City
+		- Spreadsheet missing Avon Lake City
+		- Huron City
+		- Spreadsheet missing Painesville City
+		- Spreadsheet missing Toledo City
+
+	- Wisconsin
+		- Spreadsheet missing Glendale City
+		- Spreadsheet missing Peshtigo City
+		
 
 		
 	- have to reference new google spreadsheet, update what is inside feature infopanels, update what is filtered, and add new geojson geometry files
