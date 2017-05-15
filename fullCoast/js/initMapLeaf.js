@@ -2260,9 +2260,6 @@ function main() {
 			var link4Attr = popupCountyArr[3][0];
 			var link5Attr = popupCountyArr[4][0];
 			var link6Attr = popupCountyArr[5][0];
-			/*var link7Attr = popupCountyArr[6][0];
-			var link8Attr = popupCountyArr[7][0];
-			var link9Attr = popupCountyArr[8][0];*/
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
@@ -2275,9 +2272,6 @@ function main() {
 			var link4Attr = popupCountyArr[3][3];
 			var link5Attr = popupCountyArr[4][3];
 			var link6Attr = popupCountyArr[5][3];
-			/*var link7Attr = popupCountyArr[6][3];
-			var link8Attr = popupCountyArr[7][3];
-			var link9Attr = popupCountyArr[8][3];*/
 		}
 		
 		title.innerHTML = target + " County";
@@ -2292,9 +2286,6 @@ function main() {
 		var link4 = document.createElement("a");
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
-		/*var link7 = document.createElement("a");
-		var link8 = document.createElement("a");
-		var link9 = document.createElement("a");*/
 					
 		var text1 = document.createTextNode("GovtWebURL");
 		var text2 = document.createTextNode("WebMapURL");
@@ -2302,9 +2293,6 @@ function main() {
 		var text4 = document.createTextNode("ZoningURL");
 		var text5 = document.createTextNode("CompPlanURL");
 		var text6 = document.createTextNode("HazMitPlanURL");
-		/*var text7 = document.createTextNode("Climate Plan");
-		var text8 = document.createTextNode("Resilience Plan");
-		var text9 = document.createTextNode("Zoning Code")*/
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2312,9 +2300,6 @@ function main() {
 		link4.appendChild(text4);
 		link5.appendChild(text5);
 		link6.appendChild(text6);
-		/*link7.appendChild(text7);
-		link8.appendChild(text8);
-		link9.appendChild(text9);*/
 					
 		link1.setAttribute("id", link1Attr);
 		link2.setAttribute("id", link2Attr);
@@ -2322,9 +2307,6 @@ function main() {
 		link4.setAttribute("id", link4Attr);
 		link5.setAttribute("id", link5Attr);
 		link6.setAttribute("id", link6Attr);
-		/*link7.setAttribute("id", link7Attr);
-		link8.setAttribute("id", link8Attr);
-		link9.setAttribute("id", link9Attr);*/
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -2332,9 +2314,6 @@ function main() {
 		link4.setAttribute("target", "_blank");
 		link5.setAttribute("target", "_blank");
 		link6.setAttribute("target", "_blank");
-		/*link7.setAttribute("target", "_blank");
-		link8.setAttribute("target", "_blank");
-		link9.setAttribute("target", "_blank");*/
 					
 		link1.setAttribute("class", removeClass);
 		link2.setAttribute("class", removeClass);
@@ -2342,9 +2321,6 @@ function main() {
 		link4.setAttribute("class", removeClass);
 		link5.setAttribute("class", removeClass);
 		link6.setAttribute("class", removeClass);
-		/*link7.setAttribute("class", removeClass);
-		link8.setAttribute("class", removeClass);
-		link9.setAttribute("class", removeClass);*/
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -2352,9 +2328,6 @@ function main() {
 		var break4 = document.createElement("br");
 		var break5 = document.createElement("br");
 		var break6 = document.createElement("br");
-		/*var break7 = document.createElement("br");
-		var break8 = document.createElement("br");
-		var break9 = document.createElement("br");*/
 					
 		break1.setAttribute('id', 'break1');
 		break2.setAttribute('id', 'break2');
@@ -2362,9 +2335,6 @@ function main() {
 		break4.setAttribute('id', 'break4');
 		break5.setAttribute('id', 'break5');
 		break6.setAttribute('id', 'break6');
-		/*break7.setAttribute('id', 'break7');
-		break8.setAttribute('id', 'break8');
-		break9.setAttribute('id', 'break9');*/
 					
 		break1.setAttribute("class", removeClass);
 		break2.setAttribute("class", removeClass);
@@ -2372,9 +2342,6 @@ function main() {
 		break4.setAttribute("class", removeClass);
 		break5.setAttribute("class", removeClass);
 		break6.setAttribute("class", removeClass);
-		/*break7.setAttribute("class", removeClass);
-		break8.setAttribute("class", removeClass);
-		break9.setAttribute("class", removeClass);*/
 		
 		page.appendChild(link1); // add gov website
 		page.appendChild(break1);
@@ -2388,12 +2355,6 @@ function main() {
 		page.appendChild(break5);
 		page.appendChild(link6);	// add haz mit plan
 		page.appendChild(break6);
-		/*page.appendChild(link7);	// add climate plan
-		page.appendChild(break7);
-		page.appendChild(link8);	// add resilience plan
-		page.appendChild(break8);
-		page.appendChild(link9);	// add zoning url
-		page.appendChild(break9);*/
 		
 		var m;
 		var ppupCnty = popupCountyArr.length;
@@ -2467,8 +2428,6 @@ function main() {
 			var link4Attr = popupPointArr[3][0];
 			var link5Attr = popupPointArr[4][0];
 			var link6Attr = popupPointArr[5][0];
-			/*var link7Attr = popupPointArr[6][0];
-			var link8Attr = popupPointArr[7][0];*/
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
@@ -2481,8 +2440,6 @@ function main() {
 			var link4Attr = popupPointArr[3][3];
 			var link5Attr = popupPointArr[4][3];
 			var link6Attr = popupPointArr[5][3];
-			/*var link7Attr = popupPointArr[6][3];
-			var link8Attr = popupPointArr[7][3];*/
 		}
 		
 		
@@ -2496,8 +2453,6 @@ function main() {
 		var link4 = document.createElement("a");
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
-		/*var link7 = document.createElement("a");
-		var link8 = document.createElement("a");*/
 					
 		var text1 = document.createTextNode("GovtWebURL");
 		var text2 = document.createTextNode("WebMapURL");
@@ -2505,8 +2460,6 @@ function main() {
 		var text4 = document.createTextNode("ZoningURL");
 		var text5 = document.createTextNode("CompPlanURL");
 		var text6 = document.createTextNode("HazMitPlanURL");
-		/*var text7 = document.createTextNode("Cli Plan");
-		var text8 = document.createTextNode("Res Plan");*/
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2514,8 +2467,6 @@ function main() {
 		link4.appendChild(text4);
 		link5.appendChild(text5);
 		link6.appendChild(text6);
-		/*link7.appendChild(text7);
-		link8.appendChild(text8);*/
 					
 		link1.setAttribute("id", link1Attr);
 		link2.setAttribute("id", link2Attr);
@@ -2523,8 +2474,6 @@ function main() {
 		link4.setAttribute("id", link4Attr);
 		link5.setAttribute("id", link5Attr);
 		link6.setAttribute("id", link6Attr);
-		/*link7.setAttribute("id", link7Attr);
-		link8.setAttribute("id", link8Attr);*/
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -2532,8 +2481,6 @@ function main() {
 		link4.setAttribute("target", "_blank");
 		link5.setAttribute("target", "_blank");
 		link6.setAttribute("target", "_blank");
-		/*link7.setAttribute("target", "_blank");
-		link8.setAttribute("target", "_blank");*/
 					
 		link1.setAttribute("class", removeClass);
 		link2.setAttribute("class", removeClass);
@@ -2541,8 +2488,6 @@ function main() {
 		link4.setAttribute("class", removeClass);
 		link5.setAttribute("class", removeClass);
 		link6.setAttribute("class", removeClass);
-		/*link7.setAttribute("class", removeClass);
-		link8.setAttribute("class", removeClass);*/
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -2550,8 +2495,6 @@ function main() {
 		var break4 = document.createElement("br");
 		var break5 = document.createElement("br");
 		var break6 = document.createElement("br");
-		/*var break7 = document.createElement("br");
-		var break8 = document.createElement("br");*/
 					
 		break1.setAttribute('id', 'break1');
 		break2.setAttribute('id', 'break2');
@@ -2559,8 +2502,6 @@ function main() {
 		break4.setAttribute('id', 'break4');
 		break5.setAttribute('id', 'break5');
 		break6.setAttribute('id', 'break6');
-		/*break7.setAttribute('id', 'break7');
-		break8.setAttribute('id', 'break8');*/
 					
 		break1.setAttribute('class', removeClass);
 		break2.setAttribute('class', removeClass);
@@ -2568,8 +2509,6 @@ function main() {
 		break4.setAttribute('class', removeClass);
 		break5.setAttribute('class', removeClass);
 		break6.setAttribute('class', removeClass);
-		/*break7.setAttribute('class', removeClass);
-		break8.setAttribute('class', removeClass);*/
 		
 		
 		page.appendChild(link1);	// gov website
@@ -2584,10 +2523,6 @@ function main() {
 		page.appendChild(break5);
 		page.appendChild(link6);	// sus plan
 		page.appendChild(break6);
-		/*page.appendChild(link7);	// cli plan
-		page.appendChild(break7);
-		page.appendChild(link8);	// zoning web
-		page.appendChild(break8);*/
 		
 		var m;
 		var ppupPnt = popupPointArr.length;
