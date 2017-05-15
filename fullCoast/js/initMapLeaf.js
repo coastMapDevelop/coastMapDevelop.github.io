@@ -38,10 +38,7 @@ function main() {
 	
 	/* main array declarations */
 	var googleSpreadsheet = []; 	// Array for storing google spreadsheets data: county
-	var googleSpreadsheet2 = []; 	// Array for storing google spreadsheets data: urban (cities)
-	var googleSpreadsheet3 = [];	// Array for storing google spreadsheets data: Villages
-	var googleSpreadsheet4 = [];	// Array for storing google spreadsheets data: Boroughs
-	var googleSpreadsheet5 = [];	// Array for storing google spreadsheets data: Townships
+	var googleSpreadsheet2 = []; 	// Array for storing google spreadsheets data: urban
 	var pointArray = [];			// holds point features in map
 	var polygonArray= [];			// holds polygon features in map
 	var currentCheckArr = [];		// holds attributes for filtering
@@ -51,37 +48,30 @@ function main() {
 	var countySelectArr = ['Counties'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
-		['countyLink1', 'Govt Web', 3, 'countyLink1b'],
-		['countyLink2', 'Map Web', 4, 'countyLink2b'],
-		['countyLink3', 'Web Map Other', 5, 'countyLink3b'],
-		['countyLink4', 'Web Map State', 6, 'countyLink4b'],
-		['countyLink5', 'Comp Plan', 7, 'countyLink5b'],
-		['countyLink6', 'Haz Mit Plan', 8, 'countyLink6b'],
-		['countyLink7', 'Cli Plan', 9, 'countyLink7b'],
-		['countyLink8', 'Res Plan', 10, 'countyLink8b'],
-		['countyLink9', 'Zoning Code', 11, 'countyLink9b']
+		['countyLink1', 'GovtWebURL', 8, 'countyLink1b'],
+		['countyLink2', 'WebMapURL', 11, 'countyLink2b'],
+		['countyLink3', 'CodeofOrdinanceURL', 14, 'countyLink3b'],
+		['countyLink4', 'ZoningURL', 16, 'countyLink4b'],
+		['countyLink5', 'CompPlanURL', 19, 'countyLink5b'],
+		['countyLink6', 'HazMitPlanURL', 22, 'countyLink6b']
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
-		['pointLink1', 'Govt Web', 4, 'pointLink1b'],
-		['pointLink2', 'Map Web', 5, 'pointLink2b'],
-		['pointLink3', 'Comp Plan', 6, 'pointLink3b'],
-		['pointLink4', 'Zoning Code', 7, 'pointLink4b'],
-		['pointLink5', 'Haz Mit Plan', 8, 'pointLink5b'],
-		['pointLink6', 'Sus Plan', 9, 'pointLink6b'],
-		['pointLink7', 'Cli Plan', 10, 'pointLink7b'],
-		['pointLink8', 'Res Plan', 11, 'pointLink8b']
+		['pointLink1', 'GovtWebURL', 8, 'pointLink1b'],
+		['pointLink2', 'WebMapURL', 11, 'pointLink2b'],
+		['pointLink3', 'CodeofOrdinanceURL', 14, 'pointLink3b'],
+		['pointLink4', 'ZoningURL', 17, 'pointLink4b'],
+		['pointLink5', 'CompPlanURL', 20, 'pointLink5b'],
+		['pointLink6', 'HazMitPlanURL', 23, 'pointLink6b']
 	];
 	// for naming and assigning popup content for urban polygons
 	var popupPolyArr = [
-		['polyLink1', 'Govt Web', 4, 'polyLink1b'],
-		['polyLink2', 'Map Web', 5, 'polyLink2b'],
-		['polyLink3', 'Comp Plan', 6, 'polyLink3b'],
-		['polyLink4', 'Zoning Code', 7, 'polyLink4b'],
-		['polyLink5', 'Haz Mit Plan', 8, 'polyLink5b'],
-		['polyLink6', 'Sus Plan', 9, 'polyLink6b'],
-		['polyLink7', 'Cli Plan', 10, 'polyLink7b'],
-		['polyLink8', 'Res Plan', 11, 'polyLink8b']
+		['polyLink1', 'GovtWebURL', 8, 'polyLink1b'],
+		['polyLink2', 'WebMapURL', 11, 'polyLink2b'],
+		['polyLink3', 'CodeofOrdinanceURL', 14, 'polyLink3b'],
+		['polyLink4', 'ZoningURL', 17, 'polyLink4b'],
+		['polyLink5', 'CompPlanURL', 20, 'polyLink5b'],
+		['polyLink6', 'HazMitPlanURL', 23, 'polyLink6b']
 	];
 	// array that stores colors for map and legend
 	var colorPal = [
@@ -306,7 +296,7 @@ function main() {
 				style: myStyle,
 				onEachFeature: onEachFeature,
 				filter: function(feature, layer) {
-					return feature.properties.COUNTYFP10;
+					return feature.properties.COUNTYFP10; //testMAPLE
 				}
 			}).addTo(map);
 			
@@ -874,8 +864,8 @@ function main() {
 	function crossReference(e, layer, props, type, color, clickHov) {
 		var featureColor = color;
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
-			var target = props.NAME10; // reference
-			
+			var target = props.GEOID; // reference
+			var name = props.NAME10;
 			if (clickHov == "click") {
 				removePanelInfo("click");
 			} else if (clickHov == "hover") {
@@ -886,14 +876,17 @@ function main() {
 			var i;
 			var ggleSprd = googleSpreadsheet.length;
 			for (i=0; i < ggleSprd; i++) {
-				if (target == googleSpreadsheet[i][0]) {
-					addCountyPanelInfo(target, i, clickHov);
+				if (target == googleSpreadsheet[i][2]) { 
+					addCountyPanelInfo(name, i, clickHov);
 				}
 			}
 			
 		} else if (type == 'Point') {
-			var target = props.name;
-			var target2 = props.NAMELSAD;
+			var target = props.GEOID;
+			var name = props.name;
+			
+			var target2 = props.GEOID;
+			var name2 = props.NAMELSAD;
 			
 			if (clickHov == "click") {
 				removePanelInfo("click");
@@ -905,13 +898,16 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target2 == googleSpreadsheet2[i][1]) {
-					addUrbanPanelInfo(target, i, clickHov, featureColor);
+				if (target2 == googleSpreadsheet2[i][2]) {
+					addUrbanPanelInfo(name, i, clickHov, featureColor);
 				}
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
-			var target = props.Name_1;
-			var target2 = props.NAMELSAD;
+			var target = props.GEOID;
+			var name = props.Name_1;
+			
+			var target2 = props.GEOID;
+			var name2 = props.NAMELSAD;
 			
 			if (clickHov == "click") {
 				removePanelInfo("click");
@@ -923,8 +919,8 @@ function main() {
 			var i;
 			var gglSprd2 = googleSpreadsheet2.length;
 			for (i=0; i < gglSprd2; i++) {
-				if (target2 == googleSpreadsheet2[i][1]) {
-					addUrbanPanelInfo(target, i, clickHov, featureColor);
+				if (target2 == googleSpreadsheet2[i][2]) {
+					addUrbanPanelInfo(name, i, clickHov, featureColor);
 				}
 			}
 		}
@@ -1303,10 +1299,11 @@ function main() {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAMELSAD;
+						var theID = layer.feature.properties.GEOID;
 						//fifth, find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd2; m++) {
-							if (name == googleSpreadsheet2[m][1]) {
+							if (theID == googleSpreadsheet2[m][2]) {
 								var row = m;		// match row is found
 							}
 						}
@@ -1345,10 +1342,11 @@ function main() {
 				try {
 					theSecondLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAMELSAD;
+						var theID = layer.feature.properties.GEOID;
 						// fifth (b), find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd2; m++) {
-							if (name == googleSpreadsheet2[m][1]) {
+							if (theID == googleSpreadsheet2[m][2]) {
 								var row2 = m;
 							}
 						}
@@ -1388,10 +1386,11 @@ function main() {
 				try {
 					theThirdLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAME10;
+						var theID = layer.feature.properties.GEOID;
 						// fifth (b), find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd; m++) {
-							if (name == googleSpreadsheet[m][0]) {
+							if (theID == googleSpreadsheet[m][2]) {
 								var row3 = m;
 							}
 						}
@@ -1922,16 +1921,16 @@ function main() {
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Counties!A2:V',
+			range: 'Counties!A2:Y',
 			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
 		}).then(function(response) {
 			var range = response.result;
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[4], row[5], row[6], row[7], row[10], row[15], row[18], row[21]];
-					// row[0]=NAME10, row[1]=NAMELSAD10, row[4]=COUNTYFP, row[5]=POP2000, row[6]=POP2010, row[7]=GovtWebUrl, row[10]=WebMapUrl, row[15]=ZoningUrl, row[18]=CompPlanURL, row[21]=HazMitPlanURL
-					//googleSpreadsheet.push(arr);
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[16], row[19], row[22]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[16]=ZoningURL, row[19]=CompPlanURL, row[22]=HazMitPlanURL
+					googleSpreadsheet.push(arr);
 				}
 			} else {
 				console.log('No data found.');
@@ -1940,6 +1939,7 @@ function main() {
 			console.log('Error: ' + response.result.error.message);
 		});
 		
+		/*
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
 			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
@@ -1959,7 +1959,7 @@ function main() {
 		}, function (response) {
 			console.log('Error: ' + response.result.error.message);
 		});
-	
+		
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
 			range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through AD, starting at row 2
@@ -1971,6 +1971,27 @@ function main() {
 					var row = range.values[i];
 					var arr = [row[0], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
 					googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
+				}
+			} else {
+				console.log('No data found.');
+			}
+		}, function (response) {
+			console.log('Error: ' + response.result.error.message);
+		});
+		*/
+		
+		gapi.client.sheets.spreadsheets.values.get({
+			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
+			range: 'Cities!A2:Z; Villages!A2:Z; Boroughs!A2:Z; Indian Reservations!A2:Z; Towns!A2:Z; Townships!A2:Z'
+			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
+		}).then(function(response) {
+			var range = response.results;
+			if (range.values.length > 0) {
+				for (i=0; i < range.values.length; i++) {
+					var row = range.values[i];
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					googleSpreadsheet2.push(arr);
 				}
 			} else {
 				console.log('No data found.');
@@ -2239,9 +2260,9 @@ function main() {
 			var link4Attr = popupCountyArr[3][0];
 			var link5Attr = popupCountyArr[4][0];
 			var link6Attr = popupCountyArr[5][0];
-			var link7Attr = popupCountyArr[6][0];
+			/*var link7Attr = popupCountyArr[6][0];
 			var link8Attr = popupCountyArr[7][0];
-			var link9Attr = popupCountyArr[8][0];
+			var link9Attr = popupCountyArr[8][0];*/
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
@@ -2254,9 +2275,9 @@ function main() {
 			var link4Attr = popupCountyArr[3][3];
 			var link5Attr = popupCountyArr[4][3];
 			var link6Attr = popupCountyArr[5][3];
-			var link7Attr = popupCountyArr[6][3];
+			/*var link7Attr = popupCountyArr[6][3];
 			var link8Attr = popupCountyArr[7][3];
-			var link9Attr = popupCountyArr[8][3];
+			var link9Attr = popupCountyArr[8][3];*/
 		}
 		
 		title.innerHTML = target + " County";
@@ -2271,19 +2292,19 @@ function main() {
 		var link4 = document.createElement("a");
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
-		var link7 = document.createElement("a");
+		/*var link7 = document.createElement("a");
 		var link8 = document.createElement("a");
-		var link9 = document.createElement("a");
+		var link9 = document.createElement("a");*/
 					
-		var text1 = document.createTextNode("Gov Website");
-		var text2 = document.createTextNode("Web Map URL");
-		var text3 = document.createTextNode("Web Map Other");
-		var text4 = document.createTextNode("Web Map State");
-		var text5 = document.createTextNode("Comp Plan");
-		var text6 = document.createTextNode("Haz Mit Plan");
-		var text7 = document.createTextNode("Climate Plan");
+		var text1 = document.createTextNode("GovtWebURL");
+		var text2 = document.createTextNode("WebMapURL");
+		var text3 = document.createTextNode("CodeofOrdinanceURL");
+		var text4 = document.createTextNode("ZoningURL");
+		var text5 = document.createTextNode("CompPlanURL");
+		var text6 = document.createTextNode("HazMitPlanURL");
+		/*var text7 = document.createTextNode("Climate Plan");
 		var text8 = document.createTextNode("Resilience Plan");
-		var text9 = document.createTextNode("Zoning Code")
+		var text9 = document.createTextNode("Zoning Code")*/
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2291,9 +2312,9 @@ function main() {
 		link4.appendChild(text4);
 		link5.appendChild(text5);
 		link6.appendChild(text6);
-		link7.appendChild(text7);
+		/*link7.appendChild(text7);
 		link8.appendChild(text8);
-		link9.appendChild(text9);
+		link9.appendChild(text9);*/
 					
 		link1.setAttribute("id", link1Attr);
 		link2.setAttribute("id", link2Attr);
@@ -2301,9 +2322,9 @@ function main() {
 		link4.setAttribute("id", link4Attr);
 		link5.setAttribute("id", link5Attr);
 		link6.setAttribute("id", link6Attr);
-		link7.setAttribute("id", link7Attr);
+		/*link7.setAttribute("id", link7Attr);
 		link8.setAttribute("id", link8Attr);
-		link9.setAttribute("id", link9Attr);
+		link9.setAttribute("id", link9Attr);*/
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -2311,9 +2332,9 @@ function main() {
 		link4.setAttribute("target", "_blank");
 		link5.setAttribute("target", "_blank");
 		link6.setAttribute("target", "_blank");
-		link7.setAttribute("target", "_blank");
+		/*link7.setAttribute("target", "_blank");
 		link8.setAttribute("target", "_blank");
-		link9.setAttribute("target", "_blank");
+		link9.setAttribute("target", "_blank");*/
 					
 		link1.setAttribute("class", removeClass);
 		link2.setAttribute("class", removeClass);
@@ -2321,9 +2342,9 @@ function main() {
 		link4.setAttribute("class", removeClass);
 		link5.setAttribute("class", removeClass);
 		link6.setAttribute("class", removeClass);
-		link7.setAttribute("class", removeClass);
+		/*link7.setAttribute("class", removeClass);
 		link8.setAttribute("class", removeClass);
-		link9.setAttribute("class", removeClass);
+		link9.setAttribute("class", removeClass);*/
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -2331,9 +2352,9 @@ function main() {
 		var break4 = document.createElement("br");
 		var break5 = document.createElement("br");
 		var break6 = document.createElement("br");
-		var break7 = document.createElement("br");
+		/*var break7 = document.createElement("br");
 		var break8 = document.createElement("br");
-		var break9 = document.createElement("br");
+		var break9 = document.createElement("br");*/
 					
 		break1.setAttribute('id', 'break1');
 		break2.setAttribute('id', 'break2');
@@ -2341,9 +2362,9 @@ function main() {
 		break4.setAttribute('id', 'break4');
 		break5.setAttribute('id', 'break5');
 		break6.setAttribute('id', 'break6');
-		break7.setAttribute('id', 'break7');
+		/*break7.setAttribute('id', 'break7');
 		break8.setAttribute('id', 'break8');
-		break9.setAttribute('id', 'break9');
+		break9.setAttribute('id', 'break9');*/
 					
 		break1.setAttribute("class", removeClass);
 		break2.setAttribute("class", removeClass);
@@ -2351,9 +2372,9 @@ function main() {
 		break4.setAttribute("class", removeClass);
 		break5.setAttribute("class", removeClass);
 		break6.setAttribute("class", removeClass);
-		break7.setAttribute("class", removeClass);
+		/*break7.setAttribute("class", removeClass);
 		break8.setAttribute("class", removeClass);
-		break9.setAttribute("class", removeClass);
+		break9.setAttribute("class", removeClass);*/
 		
 		page.appendChild(link1); // add gov website
 		page.appendChild(break1);
@@ -2367,12 +2388,12 @@ function main() {
 		page.appendChild(break5);
 		page.appendChild(link6);	// add haz mit plan
 		page.appendChild(break6);
-		page.appendChild(link7);	// add climate plan
+		/*page.appendChild(link7);	// add climate plan
 		page.appendChild(break7);
 		page.appendChild(link8);	// add resilience plan
 		page.appendChild(break8);
 		page.appendChild(link9);	// add zoning url
-		page.appendChild(break9);
+		page.appendChild(break9);*/
 		
 		var m;
 		var ppupCnty = popupCountyArr.length;
@@ -2446,8 +2467,8 @@ function main() {
 			var link4Attr = popupPointArr[3][0];
 			var link5Attr = popupPointArr[4][0];
 			var link6Attr = popupPointArr[5][0];
-			var link7Attr = popupPointArr[6][0];
-			var link8Attr = popupPointArr[7][0];
+			/*var link7Attr = popupPointArr[6][0];
+			var link8Attr = popupPointArr[7][0];*/
 		} else if (clickHov == "hover") {
 			var title = document.getElementById("hoverFeaturePageName");
 			var page = document.getElementById("hoverFeaturePage");
@@ -2460,8 +2481,8 @@ function main() {
 			var link4Attr = popupPointArr[3][3];
 			var link5Attr = popupPointArr[4][3];
 			var link6Attr = popupPointArr[5][3];
-			var link7Attr = popupPointArr[6][3];
-			var link8Attr = popupPointArr[7][3];
+			/*var link7Attr = popupPointArr[6][3];
+			var link8Attr = popupPointArr[7][3];*/
 		}
 		
 		
@@ -2475,17 +2496,17 @@ function main() {
 		var link4 = document.createElement("a");
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
-		var link7 = document.createElement("a");
-		var link8 = document.createElement("a");
+		/*var link7 = document.createElement("a");
+		var link8 = document.createElement("a");*/
 					
-		var text1 = document.createTextNode("Gov Website");
-		var text2 = document.createTextNode("Web Map URL");
-		var text3 = document.createTextNode("Comp Plan");
-		var text4 = document.createTextNode("Zoning Code");
-		var text5 = document.createTextNode("Haz Mit Plan");
-		var text6 = document.createTextNode("Sus Plan");
-		var text7 = document.createTextNode("Cli Plan");
-		var text8 = document.createTextNode("Res Plan");
+		var text1 = document.createTextNode("GovtWebURL");
+		var text2 = document.createTextNode("WebMapURL");
+		var text3 = document.createTextNode("CodeofOrdinanceURL");
+		var text4 = document.createTextNode("ZoningURL");
+		var text5 = document.createTextNode("CompPlanURL");
+		var text6 = document.createTextNode("HazMitPlanURL");
+		/*var text7 = document.createTextNode("Cli Plan");
+		var text8 = document.createTextNode("Res Plan");*/
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2493,8 +2514,8 @@ function main() {
 		link4.appendChild(text4);
 		link5.appendChild(text5);
 		link6.appendChild(text6);
-		link7.appendChild(text7);
-		link8.appendChild(text8);
+		/*link7.appendChild(text7);
+		link8.appendChild(text8);*/
 					
 		link1.setAttribute("id", link1Attr);
 		link2.setAttribute("id", link2Attr);
@@ -2502,8 +2523,8 @@ function main() {
 		link4.setAttribute("id", link4Attr);
 		link5.setAttribute("id", link5Attr);
 		link6.setAttribute("id", link6Attr);
-		link7.setAttribute("id", link7Attr);
-		link8.setAttribute("id", link8Attr);
+		/*link7.setAttribute("id", link7Attr);
+		link8.setAttribute("id", link8Attr);*/
 					
 		link1.setAttribute("target", "_blank");
 		link2.setAttribute("target", "_blank");
@@ -2511,8 +2532,8 @@ function main() {
 		link4.setAttribute("target", "_blank");
 		link5.setAttribute("target", "_blank");
 		link6.setAttribute("target", "_blank");
-		link7.setAttribute("target", "_blank");
-		link8.setAttribute("target", "_blank");
+		/*link7.setAttribute("target", "_blank");
+		link8.setAttribute("target", "_blank");*/
 					
 		link1.setAttribute("class", removeClass);
 		link2.setAttribute("class", removeClass);
@@ -2520,8 +2541,8 @@ function main() {
 		link4.setAttribute("class", removeClass);
 		link5.setAttribute("class", removeClass);
 		link6.setAttribute("class", removeClass);
-		link7.setAttribute("class", removeClass);
-		link8.setAttribute("class", removeClass);
+		/*link7.setAttribute("class", removeClass);
+		link8.setAttribute("class", removeClass);*/
 					
 		var break1 = document.createElement("br");
 		var break2 = document.createElement("br");
@@ -2529,8 +2550,8 @@ function main() {
 		var break4 = document.createElement("br");
 		var break5 = document.createElement("br");
 		var break6 = document.createElement("br");
-		var break7 = document.createElement("br");
-		var break8 = document.createElement("br");
+		/*var break7 = document.createElement("br");
+		var break8 = document.createElement("br");*/
 					
 		break1.setAttribute('id', 'break1');
 		break2.setAttribute('id', 'break2');
@@ -2538,8 +2559,8 @@ function main() {
 		break4.setAttribute('id', 'break4');
 		break5.setAttribute('id', 'break5');
 		break6.setAttribute('id', 'break6');
-		break7.setAttribute('id', 'break7');
-		break8.setAttribute('id', 'break8');
+		/*break7.setAttribute('id', 'break7');
+		break8.setAttribute('id', 'break8');*/
 					
 		break1.setAttribute('class', removeClass);
 		break2.setAttribute('class', removeClass);
@@ -2547,8 +2568,8 @@ function main() {
 		break4.setAttribute('class', removeClass);
 		break5.setAttribute('class', removeClass);
 		break6.setAttribute('class', removeClass);
-		break7.setAttribute('class', removeClass);
-		break8.setAttribute('class', removeClass);
+		/*break7.setAttribute('class', removeClass);
+		break8.setAttribute('class', removeClass);*/
 		
 		
 		page.appendChild(link1);	// gov website
@@ -2557,16 +2578,16 @@ function main() {
 		page.appendChild(break2);
 		page.appendChild(link3);	// comp plan
 		page.appendChild(break3);
-		page.appendChild(link8);	// res plan
+		page.appendChild(link4);	// res plan
 		page.appendChild(break4);
 		page.appendChild(link5);	// haz mit web
 		page.appendChild(break5);
 		page.appendChild(link6);	// sus plan
 		page.appendChild(break6);
-		page.appendChild(link7);	// cli plan
+		/*page.appendChild(link7);	// cli plan
 		page.appendChild(break7);
-		page.appendChild(link4);	// zoning web
-		page.appendChild(break8);
+		page.appendChild(link8);	// zoning web
+		page.appendChild(break8);*/
 		
 		var m;
 		var ppupPnt = popupPointArr.length;
