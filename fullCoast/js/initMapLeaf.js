@@ -1982,7 +1982,7 @@ function main() {
 		
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Cities!A2:Z; Villages!A2:Z; Boroughs!A2:Z; Indian Reservations!A2:Z; Towns!A2:Z; Townships!A2:Z'
+			range: 'Cities!A2:Z; Villages!A2:Z; Boroughs!A2:Z; Indian Reservations!A2:Z; Towns!A2:Z; Townships!A2:Z',
 			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
 		}).then(function(response) {
 			var range = response.results;
