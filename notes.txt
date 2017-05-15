@@ -6,7 +6,10 @@ Things to work on:
 	- reference GEOID rather than name to not get multiple data in panel
 	- Just have polygon geometries for counties, cities, and villages. We can keep centroids for townships.
 	- Change all array checks and alike to the specific geoid, rather than the name
-	
+	- Filter - Burough, Indian Reservation, Township?
+	- Search - Burough, Indian Resrvation, Township?
+	- Legend - Burough, Indian Resrvation, Township?
+	- or break Burough, Indian Resrvation, Township; into Other?
 	
 	- help with julianne cooper on a project (future) (green bay lake vis)
 	
