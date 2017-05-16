@@ -298,19 +298,7 @@ function main() {
 	
 	
 	
-	
-	$.ajax({
-		dataType: 'json',
-		url: "data/testCounty.geojson",
-		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAMELSAD10', 'STATEFP10']);
-			geojson = L.geoJson(data, {
-				style: myStyle,
-				onEachFeature: onEachFeature,
-			}).addTo(map);
-		}
-	});
-	
+
 	
 	
 	
@@ -325,9 +313,8 @@ function main() {
 		dataType: "json",
 		url: "data/greatLakes_urbanPolygons.geojson",
 		success: function(data) {
-			//searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1',  'STATEFP10', 'STATEFP']);
-			searchCtrl.indexFeatures(data, ['STATEFP', 'NAMELSAD10', 'NAMELSAD']);
-			/*
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1',  'STATEFP10', 'STATEFP']);
+			
 			geojson = L.geoJson(data, {
 				style: myStyle,
 				onEachFeature: onEachFeature,
@@ -335,7 +322,7 @@ function main() {
 					return feature.properties.COUNTYFP10; //testMAPLE
 				}
 			}).addTo(map);
-			*/
+			
 			
 			myMarkers = L.featureGroup().addTo(map);
 			
