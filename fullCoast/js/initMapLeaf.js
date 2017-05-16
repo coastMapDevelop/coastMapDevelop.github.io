@@ -291,7 +291,7 @@ function main() {
 		dataType: "json",
 		url: "data/greatLakes_urbanPolygons.geojson",
 		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1']);
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1',  'STATEFP10', 'STATEFP']);
 			geojson = L.geoJson(data, {
 				style: myStyle,
 				onEachFeature: onEachFeature,
@@ -465,14 +465,14 @@ function main() {
 				name.setAttribute("id", props.NAME10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				//container.appendChild(document.createTextNode(props.NAMELSAD10));
+				container.appendChild(document.createTextNode(props.STATEFP10));
 			} else if (props.NAME10 == null) {
 				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
 				name.setAttribute("id", props.Name_1);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				//container.appendChild(document.createTextNode(props.NAMELSAD));
+				container.appendChild(document.createTextNode(props.STATEFP));
 			}
 		}
 	};
