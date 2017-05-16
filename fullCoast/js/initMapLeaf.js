@@ -95,6 +95,17 @@ function main() {
 		['null', 'null', 'featurePage', 'featurePageToggle'],
 		['null', 'supBottomMenu', 'infoPage', 'infoPageToggle']
 	];
+	
+	var stateFPArr = [
+		[17, 'Illinois'],
+		[18, 'Indiana'],
+		[26, 'Michigan'],
+		[27, 'Minnesota'],
+		[36, 'New York'],
+		[39, 'Ohio'],
+		[42, 'Pennsylvania'],
+		[55, 'Wisconsin']
+	];
 	/* // main array declarations */
 	
 	// run authorization for google spreadsheet API
@@ -465,14 +476,28 @@ function main() {
 				name.setAttribute("id", props.NAME10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				container.appendChild(document.createTextNode(props.STATEFP10));
+				var state;
+				var i;
+				for (i=0; i < stateFPArr.length; i++) { 
+					if (props.STATEFP10 == stateFPArr[i][0]) {
+						state = stateFPArr[i][1];
+					}
+				}
+				container.appendChild(document.createTextNode(state));
 			} else if (props.NAME10 == null) {
 				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
 				name.setAttribute("id", props.Name_1);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
-				container.appendChild(document.createTextNode(props.STATEFP));
+				var state;
+				var i;
+				for (i=0; i < stateFPArr.length; i++) { 
+					if (props.STATEFP == stateFPArr[i][0]) {
+						state = stateFPArr[i][1];
+					}
+				}
+				container.appendChild(document.createTextNode(state));
 			}
 		}
 	};
