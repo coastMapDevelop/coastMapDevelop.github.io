@@ -483,7 +483,7 @@ function main() {
 						state = stateFPArr[i][1];
 					}
 				}
-				container.appendChild(document.createTextNode(state));
+				container.appendChild(document.createTextNode("- " + state));
 			} else if (props.NAME10 == null) {
 				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
@@ -497,7 +497,7 @@ function main() {
 						state = stateFPArr[i][1];
 					}
 				}
-				container.appendChild(document.createTextNode(state));
+				container.appendChild(document.createTextNode("- " + state));
 			}
 		}
 	};
