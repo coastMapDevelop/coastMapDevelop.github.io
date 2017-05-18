@@ -56,30 +56,30 @@ function main() {
 	var countySelectArr = ['Counties'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
-		['countyLink1', 'GovtWebURL', 8, 'countyLink1b'],
-		['countyLink2', 'WebMapURL', 11, 'countyLink2b'],
-		['countyLink3', 'CodeofOrdinanceURL', 14, 'countyLink3b'],
-		['countyLink4', 'ZoningURL', 16, 'countyLink4b'],
-		['countyLink5', 'CompPlanURL', 19, 'countyLink5b'],
-		['countyLink6', 'HazMitPlanURL', 22, 'countyLink6b']
+		['countyLink1', 'GovtWebURL', 5, 'countyLink1b'],
+		['countyLink2', 'WebMapURL', 6, 'countyLink2b'],
+		['countyLink3', 'CodeofOrdinanceURL', 7, 'countyLink3b'],
+		['countyLink4', 'ZoningURL', 8, 'countyLink4b'],
+		['countyLink5', 'CompPlanURL', 9, 'countyLink5b'],
+		['countyLink6', 'HazMitPlanURL', 10, 'countyLink6b']
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
-		['pointLink1', 'GovtWebURL', 8, 'pointLink1b'],
-		['pointLink2', 'WebMapURL', 11, 'pointLink2b'],
-		['pointLink3', 'CodeofOrdinanceURL', 14, 'pointLink3b'],
-		['pointLink4', 'ZoningURL', 17, 'pointLink4b'],
-		['pointLink5', 'CompPlanURL', 20, 'pointLink5b'],
-		['pointLink6', 'HazMitPlanURL', 23, 'pointLink6b']
+		['pointLink1', 'GovtWebURL', 5, 'pointLink1b'],
+		['pointLink2', 'WebMapURL', 6, 'pointLink2b'],
+		['pointLink3', 'CodeofOrdinanceURL', 7, 'pointLink3b'],
+		['pointLink4', 'ZoningURL', 8, 'pointLink4b'],
+		['pointLink5', 'CompPlanURL', 9, 'pointLink5b'],
+		['pointLink6', 'HazMitPlanURL', 10, 'pointLink6b']
 	];
 	// for naming and assigning popup content for urban polygons
 	var popupPolyArr = [
-		['polyLink1', 'GovtWebURL', 8, 'polyLink1b'],
-		['polyLink2', 'WebMapURL', 11, 'polyLink2b'],
-		['polyLink3', 'CodeofOrdinanceURL', 14, 'polyLink3b'],
-		['polyLink4', 'ZoningURL', 17, 'polyLink4b'],
-		['polyLink5', 'CompPlanURL', 20, 'polyLink5b'],
-		['polyLink6', 'HazMitPlanURL', 23, 'polyLink6b']
+		['polyLink1', 'GovtWebURL', 5, 'polyLink1b'],
+		['polyLink2', 'WebMapURL', 6, 'polyLink2b'],
+		['polyLink3', 'CodeofOrdinanceURL', 7 'polyLink3b'],
+		['polyLink4', 'ZoningURL', 8, 'polyLink4b'],
+		['polyLink5', 'CompPlanURL', 9, 'polyLink5b'],
+		['polyLink6', 'HazMitPlanURL', 10, 'polyLink6b']
 	];
 	// array that stores colors for map and legend
 	var colorPal = [
@@ -2652,9 +2652,9 @@ function main() {
 		
 		title.innerHTML = target + " County";
 		
-		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][1];
+		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet[i][3];
 		
-		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][2];
+		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet[i][4];
 					
 		var link1 = document.createElement("a");
 		var link2 = document.createElement("a");
@@ -2820,8 +2820,8 @@ function main() {
 		
 		
 		title.innerHTML = featureColorSelector + target;
-		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][2];
-		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][3];
+		pop2000.innerHTML = "Population 2000: " + googleSpreadsheet2[i][3];
+		pop2010.innerHTML = "Population 2010: " + googleSpreadsheet2[i][4];
 					
 		var link1 = document.createElement("a");
 		var link2 = document.createElement("a");
