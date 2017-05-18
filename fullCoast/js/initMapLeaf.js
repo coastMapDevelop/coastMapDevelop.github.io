@@ -673,7 +673,7 @@ function main() {
 					var center = layer.getBounds().getCenter();
 					removeMarkers();
 					countyClickedZoomControl = true;
-					clickedCountyName.push(layer.feature.properties.NAME10);
+					clickedCountyName.push(layer.feature.properties.GEOID10);
 			
 			
 					map.setView(center, 10);
