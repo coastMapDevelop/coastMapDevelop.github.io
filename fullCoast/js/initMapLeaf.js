@@ -2222,8 +2222,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2242,8 +2242,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2262,8 +2262,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2282,8 +2282,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2302,8 +2302,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2322,8 +2322,8 @@ function main() {
 			if (range.values.length > 0) {
 				for (i=0; i < range.values.length; i++) {
 					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
+					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23], row[3]];
+					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL, row[3]=LSAD
 					googleSpreadsheet2.push(arr);
 				}
 			} else {
@@ -2332,46 +2332,6 @@ function main() {
 		}, function (response) {
 			console.log('Error: ' + response.result.error.message);
 		});
-		
-		/*
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
-			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
-			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
-		}).then(function(response) {
-			var range = response.result;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[17], row[22], row[23], row[24]];
-					googleSpreadsheet.push(arr);							// send data to googleSpreadsheet array
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
-			range: 'Sheet2!A2:AD', 										   	// get data from Sheet1, and from columns A through AD, starting at row 2
-			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
-		}).then(function(response) {
-			var range = response.result;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12]];
-					googleSpreadsheet2.push(arr);	// send data to googleSpreadsheet array
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		*/
 
 	};
 	/* // store data from spreadsheet */
@@ -2789,6 +2749,16 @@ function main() {
 			featureColorSelector = "Town of ";
 		} else if (color == colorPal[3][0]) {
 			featureColorSelector = "Village of ";
+		} else if (color == colorPal[4][0]) {
+			if (gooleSpreadsheet2[i][11] == 44) {
+				featureColorSelector = "Township of ";
+			} else if (googleSpreadsheet2[i][11] == 49) {
+				featureColorSelector = "Charter Township of ";
+			} else if (googleSpreadsheet2[i][11] == 86) {
+				featureColorSelector = "Indian Reservation: ";
+			} else if (googleSpreadsheet2[i][11] == 21) {
+				featureColorSelector = "Borough of ";
+			}
 		}
 		
 		if (clickHov == "click") {
