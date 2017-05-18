@@ -543,7 +543,7 @@ function main() {
 	/* mouseover feature function */
 	function highlightFeature(e) {
 		var layer = e.target; // reference layer
-		console.log(layer.feature.properties.filter);
+		
 		if (windowChange == false) {
 			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
 				if (clickedCountyName[0] != layer.feature.properties.GEOID10) {
