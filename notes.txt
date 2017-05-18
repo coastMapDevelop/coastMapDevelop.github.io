@@ -2,6 +2,7 @@
 
 
 Things to work on:
+	- filter is not working
 	- which ones shouldn't be seen as polygons?
 	- create three separate maps with links to each one:
 		- regional

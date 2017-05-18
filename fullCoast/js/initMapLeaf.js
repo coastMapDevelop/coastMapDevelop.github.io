@@ -1401,14 +1401,14 @@ function main() {
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
-	
+		console.log(currentCheckArr);
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
 			
 			// second, loop through popupPointArr to match the attribute with the corresponding google spreadsheet row
 			var z;
 			for (z=0; z < ppupPnt; z++) {
-				if (attribute == popupPointArr[z][1]) {
+				if (attribute == popupPointArr[z][1]) { 
 					index = z;
 				}
 			}
@@ -1423,6 +1423,7 @@ function main() {
 				}
 			}
 			
+			console.log(currentSelectArr);
 			// third, determine which layers were selected
 			var g;
 			if (currentSelectArr[0] == "All") {
@@ -1489,6 +1490,8 @@ function main() {
 				var currSltA = countySelectArr.length;
 				var currSlt = countySelectArr;
 			}
+			
+			console.log(currSlt);
 			for (g=0; g < currSltA; g++) {
 				if (currSlt[g] == "Towns") {
 					theLayer = townsPoints;
@@ -1499,12 +1502,12 @@ function main() {
 				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
 					theSecondLayer = villagesPolygon;
-				} else if (currSlt[g] == "Counties") {
-					theThirdLayer = geojson;
 				} else if (currSlt[g] == "Other") {
 					theLayer = otherPoints;
 					theSecondLayer = otherPolygons;
-				}
+				} else if (currSlt[g] == "Counties") {
+					theThirdLayer = geojson;
+				} 
 				
 				try {
 					// fourth, loop through the selected layer
@@ -1520,7 +1523,7 @@ function main() {
 						}
 					
 						// sixth, check if attribute is null or not
-						if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null') {
+						if (googleSpreadsheet2[row][popupPointArr[index][2]] == 'null' || googleSpreadsheet2[row][popupPointArr[index][2]] == "" || googleSpreadsheet2[row][popupPointArr[index][2]] == " " || googleSpreadsheet2[row][popupPointArr[index][2]] == undefined || googleSpreadsheet2[row][popupPointArr[index][2]] == null) {
 						
 							// add to array false
 							try {
@@ -1530,7 +1533,7 @@ function main() {
 							} catch (err) {
 							
 							}
-						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null') {
+						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null' || googleSpreadsheet2[row][popupPointArr[index][2]] != "" || googleSpreadsheet2[row][popupPointArr[index][2]] != " " || googleSpreadsheet2[row][popupPointArr[index][2]] != undefined != googleSpreadsheet2[row][popupPointArr[index][2]] != null) {
 						
 							try {
 								// add to array true
@@ -1563,7 +1566,7 @@ function main() {
 						}
 					
 						// sixth (b), check if attribute is null or not
-						if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null') {
+						if (googleSpreadsheet2[row2][popupPointArr[index][2]] == 'null' || googleSpreadsheet2[row2][popupPointArr[index][2]] == "" || googleSpreadsheet2[row2][popupPointArr[index][2]] == " " || googleSpreadsheet2[row2][popupPointArr[index][2]] == undefined || googleSpreadsheet2[row2][popupPointArr[index][2]] == null) {
 						
 							try {
 								// add to array false
@@ -1574,7 +1577,7 @@ function main() {
 							} catch (err) {
 							
 							}
-						} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null') {
+						} else if (googleSpreadsheet2[row2][popupPointArr[index][2]] != 'null' || googleSpreadsheet2[row2][popupPointArr[index][2]] != "" || googleSpreadsheet2[row2][popupPointArr[index][2]] != " " || googleSpreadsheet2[row2][popupPointArr[index][2]] != undefined || googleSpreadsheet2[row2][popupPointArr[index][2]] != null) {
 						
 							try {
 								// add to array true
@@ -1606,7 +1609,7 @@ function main() {
 							}
 						}
 						// sixth (c), check if attribute is null or not
-						if (googleSpreadsheet[row3][popupCountyArr[index2][2]] == 'null') {
+						if (googleSpreadsheet[row3][popupCountyArr[index2][2]] == 'null' || googleSpreadsheet[row3][popupCountyArr[index2][2]] == "" || googleSpreadsheet[row3][popupCountyArr[index2][2]] == " " || googleSpreadsheet[row3][popupCountyArr[index2][2]] == undefined || googleSpreadsheet[row3][popupCountyArr[index2][2]] == null) {
 							try {
 								// add to array false
 								layer.feature.properties.filter = "false";
@@ -1615,7 +1618,7 @@ function main() {
 							} catch (err) {
 								
 							}
-						} else if (googleSpreadsheet[row3][popupCountyArr[index2][2]] != 'null') {
+						} else if (googleSpreadsheet[row3][popupCountyArr[index2][2]] != 'null' || googleSpreadsheet[row3][popupCountyArr[index2][2]] != "" || googleSpreadsheet[row3][popupCountyArr[index2][2]] != " " || googleSpreadsheet[row3][popupCountyArr[index2][2]] != undefined || googleSpreadsheet[row3][popupCountyArr[index2][2]] != null) {
 							try {
 								// add to array true
 								if (layer.feature.properties.filter == "false") {
