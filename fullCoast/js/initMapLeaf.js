@@ -2375,6 +2375,8 @@ function main() {
 		}, function (response) {
 			console.log('Error: ' + response.result.error.message);
 		});
+		
+		console.log(googleSpreadsheet2);
 	};
 	/* // store data from spreadsheet */
 	
@@ -2736,6 +2738,7 @@ function main() {
 		var ppupCnty = popupCountyArr.length;
 		for (m=0; m < ppupCnty; m++) {
 			var link = googleSpreadsheet[i][popupCountyArr[m][2]];
+			console.log(link);
 			if (link == 'null') {
 				// deactivate link
 				if (clickHov == "click") {
