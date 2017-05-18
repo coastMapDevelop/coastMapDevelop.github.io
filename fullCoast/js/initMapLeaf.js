@@ -494,7 +494,8 @@ function main() {
 			if (props.NAME10 != null) {
 				//name.innerHTML = props.NAME10;
 				name.innerHTML = props.NAMELSAD10;
-				name.setAttribute("id", props.NAME10);
+				//name.setAttribute("id", props.NAME10);
+				name.setAttribute("id", props.GEOID10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
 				var state;
@@ -508,7 +509,8 @@ function main() {
 			} else if (props.NAME10 == null) {
 				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
-				name.setAttribute("id", props.NAME);
+				//name.setAttribute("id", props.NAME);
+				name.setAttribute("id", props.GEOID);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
 				var state;
@@ -565,7 +567,7 @@ function main() {
 				});
 			
 			} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {	// here, we can decide if filter is true or false
-				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName[0] != layer.feature.properties.GEOID) {
 					hoverPanel.style.right = "425px";
 					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 				}	
@@ -576,7 +578,7 @@ function main() {
 				});
 			
 			} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
-				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName[0] != layer.feature.properties.GEOID) {
 					hoverPanel.style.right = "425px";
 					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "hover");
 				}
@@ -602,7 +604,7 @@ function main() {
 			hoverPanel.style.right = "";
 			if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor == colorPal[0][0] && e.target.feature.properties.filter == "true") {
 				geojson.eachLayer(function(layer) {
-					if (layer.feature.properties.NAME10 != clickedCountyName[0]) {
+					if (layer.feature.properties.GEOID10 != clickedCountyName[0]) {
 						if (countyZoomFillControl == false) {
 					
 							if (layer.feature.properties.filter == "true") {
@@ -628,17 +630,17 @@ function main() {
 			} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
 		
 				citiesPolygon.eachLayer(function(layer) {
-					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+					if (layer.feature.properties.GEOID != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					}
 				});
 				townsPolygon.eachLayer(function(layer) {
-					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+					if (layer.feature.properties.GEOID != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					}
 				});
 				villagesPolygon.eachLayer(function(layer) {
-					if (layer.feature.properties.NAMELSAD != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+					if (layer.feature.properties.GEOID != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					}
 				});
@@ -667,7 +669,7 @@ function main() {
 			}
 		
 			if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor == colorPal[0][0] && layer.feature.properties.filter == "true") {
-				if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+				if (clickedCountyName[0] != layer.feature.properties.GEOID10) {
 					var center = layer.getBounds().getCenter();
 					removeMarkers();
 					countyClickedZoomControl = true;
@@ -684,27 +686,27 @@ function main() {
 					console.log('already clicked');
 				}
 			} else if (layer.feature.geometry.type == 'Point' && layer.feature.properties.filter == "true") {
-				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
-					var myPointName = layer.feature.properties.NAMELSAD;
+				if (clickedUrbanName[0] != layer.feature.properties.GEOID) {
+					var myPointName = layer.feature.properties.GEOID;
 					var center = layer._latlng;
 					removeMarkers();
 
-					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+					clickedUrbanName.push(layer.feature.properties.GEOID);
 			
 	
 					// find the urban polygon that matches and change it's style to match clicked
 					citiesPolygon.eachLayer(function (layer) {
-						if (layer.feature.properties.NAMELSAD == myPointName) {
+						if (layer.feature.properties.GEOID == myPointName) {
 							layer.setStyle({fillOpacity: 1, weight: 2});
 						}
 					});
 					townsPolygon.eachLayer(function (layer) {
-						if (layer.feature.properties.NAMELSAD == myPointName) {
+						if (layer.feature.properties.GEOID == myPointName) {
 							layer.setStyle({fillOpacity: 1, weight: 2});
 						}
 					});
 					villagesPolygon.eachLayer(function (layer) {
-						if (layer.feature.properties.NAMELSAD == myPointName) {
+						if (layer.feature.properties.GEOID == myPointName) {
 							layer.setStyle({fillOpacity: 1, weight: 2});
 						}
 					});
@@ -753,30 +755,30 @@ function main() {
 				}
 				
 			} else if (layer.feature.geometry.type == "MultiPolygon" && layer.options.fillColor != colorPal[0][0] && layer.feature.properties.filter == "true") {
-				if (clickedUrbanName[0] != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName[0] != layer.feature.properties.GEOID) {
 					var pointPos;
-					var polyName = layer.feature.properties.NAMELSAD;
+					var polyName = layer.feature.properties.GEOID;
 					var center = layer.getBounds().getCenter();
 					map.setView(center, currentZoom);
 					//checkFeaturePage("featurePage");
 					//clickedUrbanName.length = 0;
 					removeMarkers();
-					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+					clickedUrbanName.push(layer.feature.properties.GEOID);
 		
 			
 					// need to loop through point layers and find the right point that matches the polygon
 					citiesPoints.eachLayer(function (layer) {
-						if (polyName == layer.feature.properties.NAMELSAD) {
+						if (polyName == layer.feature.properties.GEOID) {
 							pointPos = layer._latlng;
 						}
 					});
 					townsPoints.eachLayer(function (layer) {
-						if (polyName == layer.feature.properties.NAMELSAD) {
+						if (polyName == layer.feature.properties.GEOID) {
 							pointPos = layer._latlng;
 						}
 					});
 					villagesPoints.eachLayer(function (layer) {
-						if (polyName == layer.feature.properties.NAMELSAD) {
+						if (polyName == layer.feature.properties.GEOID) {
 							pointPos = layer._latlng;
 						}
 					});
@@ -833,7 +835,7 @@ function main() {
 		countyClickedZoomControl = false;
 		if (clickedCountyName.length != 0) {
 			geojson.eachLayer(function (layer) {
-				if (layer.feature.properties.NAME10 == clickedCountyName[0]) {
+				if (layer.feature.properties.GEOID10 == clickedCountyName[0]) {
 					if (countyZoomFillControl == false) {
 						if (layer.feature.properties.filter == "true") {
 							layer.setStyle({fillOpacity:0.75, weight: 1});
@@ -856,7 +858,7 @@ function main() {
 		if (clickedUrbanName.length != 0 ) {
 			// maybe check here for LSAD and see if it's city, village, or town to save computation power
 			citiesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
+				if (layer.feature.properties.GEOID == clickedUrbanName[0]) {
 					if (layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					} else if (layer.feature.properties.filter == "false") {
@@ -866,7 +868,7 @@ function main() {
 			});
 			
 			townsPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
+				if (layer.feature.properties.GEOID == clickedUrbanName[0]) {
 					if (layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					} else if (layer.feature.properties.filter == "false") {
@@ -876,7 +878,7 @@ function main() {
 			});
 			
 			villagesPolygon.eachLayer(function (layer) {
-				if (layer.feature.properties.NAMELSAD == clickedUrbanName[0]) {
+				if (layer.feature.properties.GEOID == clickedUrbanName[0]) {
 					if (layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					} else if (layer.feature.properties.filter == "false") {
@@ -910,7 +912,7 @@ function main() {
 	function crossReference(e, layer, props, type, color, clickHov) {
 		var featureColor = color;
 		if (type == 'MultiPolygon' && color == colorPal[0][0]) {
-			var target = props.GEOID; // reference
+			var target = props.GEOID10; // reference
 			var name = props.NAME10;
 			if (clickHov == "click") {
 				removePanelInfo("click");
@@ -929,7 +931,7 @@ function main() {
 			
 		} else if (type == 'Point') {
 			var target = props.GEOID;
-			var name = props.name;
+			var name = props.NAME;
 			
 			var target2 = props.GEOID;
 			var name2 = props.NAMELSAD;
@@ -950,7 +952,7 @@ function main() {
 			}
 		} else if (type == 'MultiPolygon' && color != colorPal[0][0]) {
 			var target = props.GEOID;
-			var name = props.Name_1;
+			var name = props.NAME;
 			
 			var target2 = props.GEOID;
 			var name2 = props.NAMELSAD;
@@ -1008,7 +1010,7 @@ function main() {
 				if (countyClickedZoomControl == true) {
 					geojson.eachLayer(function (layer) {
 						if (hasFilter == false) {
-							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+							if (clickedCountyName[0] != layer.feature.properties.GEOID10) {
 								layer.setStyle({fillOpacity:0.75});
 							}
 						}
@@ -1053,7 +1055,7 @@ function main() {
 				if (countyClickedZoomControl == true) {
 					geojson.eachLayer(function (layer) {
 						if (hasFilter == false) {
-							if (clickedCountyName[0] != layer.feature.properties.NAME10) {
+							if (clickedCountyName[0] != layer.feature.properties.GEOID10) {
 								layer.setStyle({fillOpacity:0.4});
 							}
 						}
@@ -1610,7 +1612,7 @@ function main() {
 		
 		try {
 			geojson.eachLayer(function (layer) {
-				if (clickedCountyName != layer.feature.properties.NAME10) {
+				if (clickedCountyName != layer.feature.properties.GEOID10) {
 					if (currentZoom >= 11) {
 						layer.setStyle({opacity: '1', fillOpacity: '0.4'});
 					} else {
@@ -1647,21 +1649,21 @@ function main() {
 		
 		try {
 			townsPolygon.eachLayer(function (layer) {
-				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName != layer.feature.properties.GEOID) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
 				}
 			});
 			citiesPolygon.eachLayer(function (layer) {
-				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName != layer.feature.properties.GEOID) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
 				}
 			});
 			villagesPolygon.eachLayer(function (layer) {
-				if (clickedUrbanName != layer.feature.properties.NAMELSAD) {
+				if (clickedUrbanName != layer.feature.properties.GEOID) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 					layer.bringToFront();
 					layer.feature.properties.filter = "true";
@@ -1680,17 +1682,17 @@ function main() {
 		if (num == 0) {
 			geojson.eachLayer(function (layer) {		// go through each layer in county geojson
 				var name = layer.feature.properties.NAME10;	// store the name of the layer
-			
-				if (name == source) {		// of the layer's name equals the clicked sources name
+				var theID = layer.feature.properties.GEOID10;
+				if (theID == source) {		// of the layer's name equals the clicked sources name
 					geojson.eachLayer(function (layer) {
-						if (name == layer.feature.properties.NAME10) {
+						if (theID == layer.feature.properties.GEOID10) {
 							removeMarkers();
 							if (hasFilter == true) {
 								if (layer.feature.properties.filter == "false") {
 									holdZoom(source, num);
 								} else {
 									countyClickedZoomControl = true;
-									clickedCountyName.push(layer.feature.properties.NAME10);
+									clickedCountyName.push(layer.feature.properties.GEOID10);
 									layer.setStyle({fillOpacity: '1'});
 									var center = layer.getBounds().getCenter();
 									map.setView(center, 10);
@@ -1699,7 +1701,7 @@ function main() {
 								}
 							} else {
 								countyClickedZoomControl = true;
-								clickedCountyName.push(layer.feature.properties.NAME10);
+								clickedCountyName.push(layer.feature.properties.GEOID10);
 								layer.setStyle({fillOpacity: '1'});
 								var center = layer.getBounds().getCenter();
 								map.setView(center, 10);
@@ -1714,31 +1716,31 @@ function main() {
 			// this could maybe be fixed here
 			townsPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
-				
-				if (name == source) {
+				var theID = layer.feature.properties.GEOID;
+				if (theID == source) {
 					urbanSearch(layer);
 				}
 			});
 			
 			citiesPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
-				
-				if (name == source) {
+				var theID = layer.feature.properties.GEOID;
+				if (theID == source) {
 					urbanSearch(layer);
 				}
 			});
 			
 			villagesPoints.eachLayer(function (layer) {
 				var name = layer.feature.properties.name;
-				
-				if (name == source) {
+				var theID = layer.feature.properties.GEOID;
+				if (theID == source) {
 					urbanSearch(layer);
 				}
 			});
 		}
 		
 		function urbanSearch(layer) {
-			var myPointName = layer.feature.properties.NAMELSAD;
+			var myPointName = layer.feature.properties.GEOID;
 			var center = layer._latlng;
 			removeMarkers();
 			if (hasFilter == true) {
@@ -1754,7 +1756,7 @@ function main() {
 			function runUrbanQuery(layer) {
 				// find the urban polygon that matches and change it's style to match clicked
 				citiesPolygon.eachLayer(function (layer) {
-					if (layer.feature.properties.NAMELSAD == myPointName) {
+					if (layer.feature.properties.GEOID == myPointName) {
 						if (hasFilter == true) {
 							if (layer.feature.properties.filter == "false") {
 								holdZoom(source, num);
@@ -1768,7 +1770,7 @@ function main() {
 				});
 				
 				townsPolygon.eachLayer(function (layer) {
-					if (layer.feature.properties.NAMELSAD == myPointName) {
+					if (layer.feature.properties.GEOID == myPointName) {
 						if (hasFilter == true) {
 							if (layer.feature.properties.filter == "false") {
 								holdZoom(source, num);
@@ -1782,7 +1784,7 @@ function main() {
 				});
 				
 				villagesPolygon.eachLayer(function (layer) {
-					if (layer.feature.properties.NAMELSAD == myPointName) {
+					if (layer.feature.properties.GEOID == myPointName) {
 						if (hasFilter == true) {
 							if (layer.feature.properties.filter == "false") {
 								holdZoom(source, num);
@@ -1796,7 +1798,7 @@ function main() {
 				});
 				
 				function addNeccessaryStyles(layer) {
-					clickedUrbanName.push(layer.feature.properties.NAMELSAD);
+					clickedUrbanName.push(layer.feature.properties.GEOID);
 					layer.setStyle({fillOpacity: 1, weight: 2});
 					
 					// add animated point
