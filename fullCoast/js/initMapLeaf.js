@@ -375,7 +375,8 @@ function main() {
 	function addPointLayers() {
 		$.ajax({
 			dataType: "json",
-			url: "data/greatLakes_urbanPoints.geojson",
+			/*url: "data/greatLakes_urbanPoints.geojson",*/
+			url: "data/points.geojson",
 			success: function(data) {
 				townsPoints = L.geoJson(data, {
 					// convert markers to points
