@@ -7,9 +7,15 @@ function main() {
 	var townsPoints;	 		// variable to hold town points - layer
 	var citiesPoints;			// variable to hold city points - layer 
 	var villagesPoints;			// variable to hold village points - layer
+	var townshipPoints;
+	var buroughPoints;
+	var reservationPoints;
 	var townsPolygon;			// variable to hold town polygons - layer
 	var citiesPolygon;			// variable to hold city polygons - layer
 	var villagesPolygon;		// variable to hold village polygons - layer
+	var townshipPolygon;
+	var buroughPolygon;
+	var reservationPolygon;
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
 	var currentZoom = 6; 		// keeps track of current zoom
@@ -314,7 +320,7 @@ function main() {
 		/*url: "data/greatLakes_urbanPolygons.geojson",*/
 		url: "data/polygons.geojson",
 		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name',  'STATEFP10', 'STATEFP']);
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'NAME',  'STATEFP10', 'STATEFP']);
 			
 			geojson = L.geoJson(data, {
 				style: myStyle,
@@ -359,6 +365,7 @@ function main() {
 				}
 			});
 			polygonArray.push(villagesPolygon);
+			
 			
 			addPointLayers();
 		}
@@ -501,7 +508,7 @@ function main() {
 			} else if (props.NAME10 == null) {
 				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
-				name.setAttribute("id", props.Name_1);
+				name.setAttribute("id", props.NAME);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
 				var state;
@@ -1982,7 +1989,6 @@ function main() {
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1FGzCf7ty2Id6vb6sGo14EZzdPU9Vsj7qXAs2YrISkqA', 	// can be found from link inside (or above)
 			range: 'Sheet1!A2:BK', 										   	// get data from Sheet1, and from columns A through BK, starting at row 2
-			// =SUM(page1!b100; page2!b100; page3!b100; page4!b100; page5!b100; page6!b100; page7!b100;)
 			key: 'AIzaSyDGPkSnN83PuZsEseYhMOSFBH53hpisIRU', 				// google sheets api key, authentication not required for reading
 		}).then(function(response) {
 			var range = response.result;
