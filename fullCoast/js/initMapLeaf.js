@@ -76,7 +76,7 @@ function main() {
 	var popupPolyArr = [
 		['polyLink1', 'GovtWebURL', 5, 'polyLink1b'],
 		['polyLink2', 'WebMapURL', 6, 'polyLink2b'],
-		['polyLink3', 'CodeofOrdinanceURL', 7 'polyLink3b'],
+		['polyLink3', 'CodeofOrdinanceURL', 7, 'polyLink3b'],
 		['polyLink4', 'ZoningURL', 8, 'polyLink4b'],
 		['polyLink5', 'CompPlanURL', 9, 'polyLink5b'],
 		['polyLink6', 'HazMitPlanURL', 10, 'polyLink6b']
