@@ -252,6 +252,16 @@ function main() {
 		zIndex: 20
 	};
 	
+	var otherPointsStyle = {
+		radius: 5,
+		fillColor: "black",
+		color: "white",
+		weight: 1,
+		opacity: 1,
+		fillOpacity: 0.75,
+		zIndex: 20
+	};
+	
 	// town polygons style
 	var townPolygonStyle = {
 		fillColor: colorPal[2][0],
@@ -422,6 +432,47 @@ function main() {
 				})
 				.addTo(map);
 				pointArray.push(villagesPoints);
+				
+				
+				townshipPoints = L.geoJson(data, {
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, otherPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 44) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				
+				buroughPoints = L.geojson(data, {
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, otherPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 21) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				
+				reservationPoints = L.geojson(data, {
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, otherPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 86) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				
 			}
 		});
 		initiateMapColors();
