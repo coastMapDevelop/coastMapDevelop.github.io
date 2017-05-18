@@ -1488,6 +1488,7 @@ function main() {
 			
 			for (g=0; g < currSltA; g++) {
 				if (currSlt[g] == "Cities") {
+					console.log('Cities'); //testMaple
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
@@ -1507,6 +1508,7 @@ function main() {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAMELSAD;
+						console.log(name);
 						var theID = layer.feature.properties.GEOID;
 						//fifth, find the match row on the google spreadsheet
 						var m;
