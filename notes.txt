@@ -7,6 +7,9 @@ Things to work on:
 	- Search - Burough, Indian Resrvation, Township?
 	- Legend - Burough, Indian Resrvation, Township?
 	- or break Burough, Indian Resrvation, Township; into Other?
+	- use reservation closest to shore (change geoid and change geoemtry)
+	- add charter townships to other
+	- which ones shouldn't be seen as polygons?
 	
 
 
