@@ -1488,7 +1488,6 @@ function main() {
 			
 			for (g=0; g < currSltA; g++) {
 				if (currSlt[g] == "Cities") {
-					console.log('Cities'); //testMaple
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
@@ -1508,7 +1507,6 @@ function main() {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAMELSAD;
-						console.log(name);
 						var theID = layer.feature.properties.GEOID;
 						//fifth, find the match row on the google spreadsheet
 						var m;
@@ -2623,12 +2621,12 @@ function main() {
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
 					
-		var text1 = document.createTextNode("GovtWebURL");
-		var text2 = document.createTextNode("WebMapURL");
-		var text3 = document.createTextNode("CodeofOrdinanceURL");
-		var text4 = document.createTextNode("ZoningURL");
-		var text5 = document.createTextNode("CompPlanURL");
-		var text6 = document.createTextNode("HazMitPlanURL");
+		var text1 = document.createTextNode("Government");
+		var text2 = document.createTextNode("Web Map");
+		var text3 = document.createTextNode("Code of Ordinance");
+		var text4 = document.createTextNode("Zoning");
+		var text5 = document.createTextNode("Compliance Plan");
+		var text6 = document.createTextNode("Hazard Mitigation Plan");
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
@@ -2801,12 +2799,12 @@ function main() {
 		var link5 = document.createElement("a");
 		var link6 = document.createElement("a");
 					
-		var text1 = document.createTextNode("GovtWebURL");
-		var text2 = document.createTextNode("WebMapURL");
-		var text3 = document.createTextNode("CodeofOrdinanceURL");
-		var text4 = document.createTextNode("ZoningURL");
-		var text5 = document.createTextNode("CompPlanURL");
-		var text6 = document.createTextNode("HazMitPlanURL");
+		var text1 = document.createTextNode("Government");
+		var text2 = document.createTextNode("Web Map");
+		var text3 = document.createTextNode("Code of Ordinance");
+		var text4 = document.createTextNode("Zoning");
+		var text5 = document.createTextNode("Compliance Plan");
+		var text6 = document.createTextNode("Hazard Mitigation Plan");
 					
 		link1.appendChild(text1);
 		link2.appendChild(text2);
