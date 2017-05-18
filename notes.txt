@@ -2,14 +2,12 @@
 
 
 Things to work on:
-	- API key not working? new API key?
-	- Filter - Burough, Indian Reservation, Township?
-	- Search - Burough, Indian Resrvation, Township?
-	- Legend - Burough, Indian Resrvation, Township?
-	- or break Burough, Indian Resrvation, Township; into Other?
 	- use reservation closest to shore (change geoid and change geoemtry)
-	- add charter townships to other
 	- which ones shouldn't be seen as polygons?
+	- create three separate maps with links to each one:
+		- regional
+		- wisconsin
+		- full coast
 	
 
 
