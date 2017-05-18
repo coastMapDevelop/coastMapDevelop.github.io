@@ -2750,7 +2750,7 @@ function main() {
 		} else if (color == colorPal[3][0]) {
 			featureColorSelector = "Village of ";
 		} else if (color == colorPal[4][0]) {
-			if (gooleSpreadsheet2[i][11] == 44) {
+			if (googleSpreadsheet2[i][11] == 44) {
 				featureColorSelector = "Township of ";
 			} else if (googleSpreadsheet2[i][11] == 49) {
 				featureColorSelector = "Charter Township of ";
