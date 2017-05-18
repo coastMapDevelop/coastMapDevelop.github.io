@@ -291,6 +291,15 @@ function main() {
 		fillOpacity: 0.75,
 		zIndex: 20
 	};
+	
+	var otherPolygonStyle = {
+		fillColor: "black",
+		weight: 1,
+		opacity: 0.75,
+		color: '#fff',
+		fillOpacity: 0.75,
+		zIndex: 20
+	};
 	/* // initialize and declare layer styles */
 	
 	
@@ -375,7 +384,6 @@ function main() {
 				}
 			});
 			polygonArray.push(villagesPolygon);
-			
 			
 			addPointLayers();
 		}
