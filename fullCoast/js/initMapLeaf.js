@@ -35,7 +35,7 @@ function main() {
 	var holdZoomNum;
 	var myMarkerColor = "white";
 	var myPointColor = "white";
-	var hashFilterVar = "myTestFilter";
+	var hashFilterVar = "";
 	/* // main variable declarations */
 	
 	/* main array declarations */
