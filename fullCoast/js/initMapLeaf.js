@@ -311,9 +311,10 @@ function main() {
 	
 	$.ajax({
 		dataType: "json",
-		url: "data/greatLakes_urbanPolygons.geojson",
+		/*url: "data/greatLakes_urbanPolygons.geojson",*/
+		url: "data/polygons.geojson",
 		success: function(data) {
-			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name_1',  'STATEFP10', 'STATEFP']);
+			searchCtrl.indexFeatures(data, ['NAME10', 'NAMELSAD10', 'Name',  'STATEFP10', 'STATEFP']);
 			
 			geojson = L.geoJson(data, {
 				style: myStyle,
