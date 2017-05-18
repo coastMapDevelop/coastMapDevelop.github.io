@@ -455,7 +455,7 @@ function main() {
 				})
 				.addTo(map);
 				
-				buroughPoints = L.geojson(data, {
+				buroughPoints = L.geoJson(data, {
 					pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, otherPointsStyle);
 					},
@@ -468,7 +468,7 @@ function main() {
 				})
 				.addTo(map);
 				
-				reservationPoints = L.geojson(data, {
+				reservationPoints = L.geoJson(data, {
 					pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, otherPointsStyle);
 					},
