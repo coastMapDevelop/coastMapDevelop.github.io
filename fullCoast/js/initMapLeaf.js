@@ -1401,7 +1401,7 @@ function main() {
 		// first, loop through each item in currentCheckArr (which holds the attributes we're filtering)
 		var i;
 		var ccChk = currentCheckArr.length;
-		console.log(currentCheckArr);
+		
 		for (i=0; i < ccChk; i++) {
 			var attribute = currentCheckArr[i];
 			
@@ -1423,7 +1423,7 @@ function main() {
 				}
 			}
 			
-			console.log(currentSelectArr);
+			
 			// third, determine which layers were selected
 			var g;
 			if (currentSelectArr[0] == "All") {
@@ -1491,17 +1491,17 @@ function main() {
 				var currSlt = countySelectArr;
 			}
 			
-			console.log(currSlt);
+			
 			for (g=0; g < currSltA; g++) {
-				if (currSlt[g] == "Towns") {
-					theLayer = townsPoints;
-					theSecondLayer = townsPolygon;
-				} else if (currSlt[g] == "Cities") {
+				if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
 					theLayer = villagesPoints;
 					theSecondLayer = villagesPolygon;
+				} else if (currSlt[g] == "Towns") {
+					theLayer = townsPoints;
+					theSecondLayer = townsPolygon;
 				} else if (currSlt[g] == "Other") {
 					theLayer = otherPoints;
 					theSecondLayer = otherPolygons;
@@ -1600,7 +1600,7 @@ function main() {
 				try {
 					theThirdLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAME10;
-						var theID = layer.feature.properties.GEOID;
+						var theID = layer.feature.properties.GEOID10;
 						// fifth (b), find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd; m++) {
