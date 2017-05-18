@@ -2198,7 +2198,7 @@ function main() {
 	function listMajors() {
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Counties!A2:Y',
+			range: 'Counties!A2:Z',
 			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
 		}).then(function(response) {
 			var range = response.result;
