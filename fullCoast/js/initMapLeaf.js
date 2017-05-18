@@ -224,7 +224,7 @@ function main() {
 	
 	// town points style
 	var townPointsStyle = {
-		radius: 7,
+		radius: 6,
 		fillColor: colorPal[2][0],
 		color: myPointColor,
 		weight: 1,
@@ -235,7 +235,7 @@ function main() {
 	
 	// city points style
 	var cityPointsStyle = {
-		radius: 7,
+		radius: 6,
 		fillColor: colorPal[1][0],
 		color: myPointColor,
 		weight: 1,
@@ -246,7 +246,7 @@ function main() {
 	
 	// village points style
 	var villagePointsStyle = {
-		radius: 7,
+		radius: 6,
 		fillColor: colorPal[3][0],
 		color: myPointColor,
 		weight: 1,
@@ -256,7 +256,7 @@ function main() {
 	};
 	
 	var otherPointsStyle = {
-		radius: 5,
+		radius: 6,
 		fillColor: colorPal[4][0],
 		color: "white",
 		weight: 1,
@@ -2298,7 +2298,7 @@ function main() {
 		
 		gapi.client.sheets.spreadsheets.values.get({
 			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Town!A2:Z',
+			range: 'Towns!A2:Z',
 			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
 		}).then(function(response) {
 			var range = response.result;
@@ -2375,110 +2375,7 @@ function main() {
 			console.log('Error: ' + response.result.error.message);
 		});
 		*/
-		
-		/*
-		
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Villages!A2:Z',
-			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
-		}).then(function(response) {
-			var range = response.results;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
-					googleSpreadsheet2.push(arr);
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Boroughs!A2:Z',
-			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
-		}).then(function(response) {
-			var range = response.results;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
-					googleSpreadsheet2.push(arr);
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Indian Reservations!A2:Z',
-			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
-		}).then(function(response) {
-			var range = response.results;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
-					googleSpreadsheet2.push(arr);
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Towns!A2:Z',
-			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
-		}).then(function(response) {
-			var range = response.results;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
-					googleSpreadsheet2.push(arr);
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		
-		gapi.client.sheets.spreadsheets.values.get({
-			spreadsheetId: '1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ',
-			range: 'Townships!A2:Z',
-			key: 'AIzaSyCMqrrydnFu4PASIznyL2eCZQ99koTYZ4Q',
-		}).then(function(response) {
-			var range = response.results;
-			if (range.values.length > 0) {
-				for (i=0; i < range.values.length; i++) {
-					var row = range.values[i];
-					var arr = [row[0], row[1], row[2], row[6], row[7], row[8], row[11], row[14], row[17], row[20], row[23]];
-					// row[0]=NAME, row[1]=NAMELSAD, row[2]=GEOID, row[6]=POP2000, row[7]=POP2010, row[8]=GovtWebURL, row[11]=WebMapURL, row[14]=CodeofOrdinanceURL, row[17]=ZoningURL, row[20]=CompPlanURL, row[23]=HazMitPlanURL
-					googleSpreadsheet2.push(arr);
-				}
-			} else {
-				console.log('No data found.');
-			}
-		}, function (response) {
-			console.log('Error: ' + response.result.error.message);
-		});
-		*/
+
 	};
 	/* // store data from spreadsheet */
 	
@@ -2840,7 +2737,7 @@ function main() {
 		var ppupCnty = popupCountyArr.length;
 		for (m=0; m < ppupCnty; m++) {
 			var link = googleSpreadsheet[i][popupCountyArr[m][2]];
-			console.log(link);
+			
 			if (link == 'null' || link == "" || link == " " || link == undefined || link == null) {
 				// deactivate link
 				if (clickHov == "click") {
