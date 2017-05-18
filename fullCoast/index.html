@@ -197,7 +197,7 @@
 				</div>
 			</div>
 		</div>
-		<p>Search for a specific County, City, Village, or Town.</p>
+		<p>Search for a specific County, City, Village, Town, or Other (Township, Charter Township, Burough, Indian Reservation).</p>
 		<hr>
 		
 	</div>
@@ -321,7 +321,7 @@
 			<label for="sel1">Choose a geometry to filter.</label>
 			<select class="form-control mySelections" id="sel1">
 				<option>All</option>
-				<option>Cities, Villages, Towns</p>
+				<option>Cities, Villages, Towns, Other</p>
 				<option>Counties</option>
 			</select>
 		</div>
@@ -407,10 +407,10 @@
 		<i id="infoPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Information</h3>
 		<hr>
-		<p>The Great Lakes Coastal Communities Overview map brings you information on Counties, Cities, Villages, Towns, Indian Reservations, Buroughs, and Townships that lie on the coast from the states surrounding the Great Lakes.</p>
+		<p>The Great Lakes Coastal Communities Overview map brings you information on Counties, Cities, Villages, Towns, and Other (Townships, Charter Townships, Buroughs, Indian Reservations) communities that lie on the coast from the states surrounding the Great Lakes.</p>
 		<p>Hover over a feature to learn more, and click a feature to zoom to it and bring up a menu to navigate through the different community resources of that feature.</p>
 		<p>To the right, you can search for a specific feature, change the basemap, and filter different features based on available resource attributes.</p>
-		<p>The legend, near the bottom-left of the map, allows you to toggle on or off Counties, Cities, Villages, and Towns.</p>
+		<p>The legend, near the bottom-left of the map, allows you to toggle on or off Counties, Cities, Villages, Towns, and Other (Townships, Charter Townships, Buroughs, Indian Reservations).</p>
 		<p>The attribute data and URL's can be accessed separately through a publicly viewable google spreadsheet, which can be accessed <a href="https://docs.google.com/spreadsheets/d/1Yk17OmtUcr9wHYdi-R4Rfu-T4SP3FEwh9TJw42FNnvQ/edit?ts=58f4fb6f#gid=0" target="_blank">here.</a></p>
 		<p>Municipality data was retrieved via Tiger Shapefiles from the <a href="https://www.census.gov/geo/maps-data/data/tiger-line.html" target="_blank">U.S. Census Bureau.</a></p>
 		<p>Leaflet plugins used include <a href="https://github.com/mlevans/leaflet-hash" target="_blank">hash</a> and <a href="https://github.com/naomap/leaflet-fusesearch" target="_blank">fusesearch.</a></p>
@@ -444,22 +444,27 @@
 	<div id="bottomLegend">
 		<div id="layer01" class="legendBox">
 			<div id="bubble01" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
-			<p>Counties</p>
+			<p class="legendText">Counties</p>
 		</div>
 		
 		<div id="layer02" class="legendBox">
 			<div id="bubble02" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
-			<p>Cities</p>
+			<p class="legendText">Cities</p>
 		</div>
 		
 		<div id="layer04" class="legendBox">
 			<div id="bubble04" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
-			<p>Villages</p>
+			<p class="legendText">Villages</p>
 		</div>
 		
 		<div id="layer03" class="legendBox">
 			<div id="bubble03" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
-			<p>Towns</p>
+			<p class="legendText">Towns</p>
+		</div>
+		
+		<div id="layer05" class="legendBox">
+			<div id="bubble05" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
+			<p class="legendText">Other</p>
 		</div>
 		
 	</div>

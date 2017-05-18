@@ -10,12 +10,14 @@ function main() {
 	var townshipPoints;
 	var buroughPoints;
 	var reservationPoints;
+	var otherPoints;
 	var townsPolygon;			// variable to hold town polygons - layer
 	var citiesPolygon;			// variable to hold city polygons - layer
 	var villagesPolygon;		// variable to hold village polygons - layer
 	var townshipPolygon;
 	var buroughPolygon;
 	var reservationPolygon;
+	var otherPolygons;
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
 	var currentZoom = 6; 		// keeps track of current zoom
@@ -49,8 +51,8 @@ function main() {
 	var polygonArray= [];			// holds polygon features in map
 	var currentCheckArr = [];		// holds attributes for filtering
 	var currentSelectArr = ['All'];	// holds layers for filtering
-	var allSelectArr = ['Cities', 'Villages', 'Towns', 'Counties'];	// holds all layers for filtering all layers
-	var urbanSelectArr = ['Cities', 'Villages', 'Towns'];
+	var allSelectArr = ['Cities', 'Villages', 'Towns', 'Other', 'Counties'];	// holds all layers for filtering all layers
+	var urbanSelectArr = ['Cities', 'Villages', 'Towns', 'Other'];
 	var countySelectArr = ['Counties'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
@@ -84,7 +86,8 @@ function main() {
 		["#003744", "bubble01"],
 		["#41b6c4", "bubble02"],
 		["#a1dab4", "bubble03"],
-		["#ffffcc", "bubble04"]
+		["#ffffcc", "bubble04"],
+		["black", "bubble05"]
 	];
 	var clickedCountyName = [];		// stores the last clicked county name
 	var clickedUrbanName = [];		// stores the last clicked urban name
@@ -292,7 +295,7 @@ function main() {
 		zIndex: 20
 	};
 	
-	var otherPolygonStyle = {
+	var otherPolygonsStyle = {
 		fillColor: "black",
 		weight: 1,
 		opacity: 0.75,
@@ -385,6 +388,17 @@ function main() {
 			});
 			polygonArray.push(villagesPolygon);
 			
+			otherPolygons = L.geoJson(data, {
+				style: otherPolygonsStyle,
+				onEachFeature: onEachFeature,
+				filter: function(feature, layer) {
+					if (feature.properties.LSAD == 44 || feature.properties.LSAD == 21 || feature.properties.LSAD == 86) {
+						return feature;
+					}
+				}
+			});
+			polygonArray.push(otherPolygons);
+			
 			addPointLayers();
 		}
 	});
@@ -441,7 +455,30 @@ function main() {
 				.addTo(map);
 				pointArray.push(villagesPoints);
 				
+				otherPoints = L.geoJson(data, {
+					pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, otherPointsStyle);
+					},
+					onEachFeature: onEachFeature,
+					filter: function(feature, layer) {
+						if (feature.properties.LSAD == 44 || feature.properties.LSAD == 21 || feature.properties.LSAD == 86) {
+							return feature;
+						}
+					}
+				})
+				.addTo(map);
+				pointArray.push(otherPoints);
 				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				/*
 				townshipPoints = L.geoJson(data, {
 					pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, otherPointsStyle);
@@ -480,7 +517,7 @@ function main() {
 					}
 				})
 				.addTo(map);
-				
+				*/
 			}
 		});
 		initiateMapColors();
@@ -682,10 +719,12 @@ function main() {
 				townsPoints.resetStyle(e.target);
 				citiesPoints.resetStyle(e.target);
 				villagesPoints.resetStyle(e.target);
+				otherPoints.resetStyle(e.target);
 				
 				townsPoints.setStyle({color: myPointColor});
 				citiesPoints.setStyle({color: myPointColor});
 				villagesPoints.setStyle({color: myPointColor});
+				otherPoints.setStyle({color: myPointColor});
 		
 			} else if (e.target.feature.geometry.type == 'MultiPolygon' && e.target.options.fillColor != colorPal[0][0] && e.target.feature.properties.filter == "true") {
 		
@@ -700,6 +739,11 @@ function main() {
 					}
 				});
 				villagesPolygon.eachLayer(function(layer) {
+					if (layer.feature.properties.GEOID != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					}
+				});
+				otherPolygons.eachLayer(function(layer) {
 					if (layer.feature.properties.GEOID != clickedUrbanName[0] && layer.feature.properties.filter == "true") {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					}
@@ -766,6 +810,11 @@ function main() {
 						}
 					});
 					villagesPolygon.eachLayer(function (layer) {
+						if (layer.feature.properties.GEOID == myPointName) {
+							layer.setStyle({fillOpacity: 1, weight: 2});
+						}
+					});
+					otherPolygons.eachLayer(function (layer) {
 						if (layer.feature.properties.GEOID == myPointName) {
 							layer.setStyle({fillOpacity: 1, weight: 2});
 						}
@@ -838,6 +887,11 @@ function main() {
 						}
 					});
 					villagesPoints.eachLayer(function (layer) {
+						if (polyName == layer.feature.properties.GEOID) {
+							pointPos = layer._latlng;
+						}
+					});
+					otherPoints.eachLayer(function (layer) {
 						if (polyName == layer.feature.properties.GEOID) {
 							pointPos = layer._latlng;
 						}
@@ -943,6 +997,16 @@ function main() {
 						layer.setStyle({fillOpacity: 0.75, weight: 1});
 					} else if (layer.feature.properties.filter == "false") {
 						layer.setStyle({fillOpacity: 0, weight: 0, opacity: 0});
+					}
+				}
+			});
+			
+			otherPolygons.eachLayer(function (layer) {
+				if (layer.feature.properties.GEOID == clickedUrbanName[0]) {
+					if (layer.feature.properties.filter == "true") {
+						layer.setStyle({fillOpacity: 0.75, weight: 1});
+					} else if (layer.feature.properties.filter == "false") {
+						layer.setStyle({fillOpacity: 0, weigt: 0, opacity: 0});
 					}
 				}
 			});
@@ -1168,6 +1232,11 @@ function main() {
 				} catch (err) {
 					
 				}
+				try {
+					otherPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
 			} else if (source == "bubble02") {
 				map.removeLayer(citiesPoints);
 				map.removeLayer(citiesPolygon);
@@ -1199,8 +1268,15 @@ function main() {
 				
 				pointArray.splice(pointSpot, 1);
 				polygonArray.splice(polygonSpot, 1);
+			} else if (source == "bubble05") {
+				map.removeLayer(otherPoints);
+				map.removeLayer(otherPolygons);
 				
+				var pointSpot = pointArray.indexOf(otherPoints);
+				var polygonSpot = polygonArray.indexOf(otherPolygons);
 				
+				pointArray.splice(pointSpot, 1);
+				polygonArray.splice(polygonSpot, 1);
 			}
 		} else if (x == 1) {
 			// add layer
@@ -1226,6 +1302,11 @@ function main() {
 					
 				} try {
 					villagesPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+				try {
+					otherPoints.setStyle({color: myPointColor});
 				} catch (err) {
 					
 				}
@@ -1256,6 +1337,15 @@ function main() {
 				}
 				polygonArray.push(villagesPolygon);
 				pointArray.push(villagesPoints);
+			} else if (source == "bubble05") {
+				// check zoom level
+				if (currentZoom >= 11) {
+					map.addLayer(otherPolygons);
+				} else if (currentZoom <= 10) {
+					map.addLayer(otherPoints);
+				}
+				polygonArray.push(otherPolygons);
+				pointArray.push(otherPoints);
 			}
 		}
 	
@@ -1360,7 +1450,12 @@ function main() {
 				} catch (err) {
 					
 				}
-			} else if (currentSelectArr[0] == "Cities, Villages, Towns") {
+				try {
+					otherPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
+			} else if (currentSelectArr[0] == "Cities, Villages, Towns, Other") {
 				var currSltA = urbanSelectArr.length;
 				var currSlt = urbanSelectArr;
 				myMarkerColor = "black";
@@ -1385,6 +1480,11 @@ function main() {
 				} catch (err) {
 					
 				}
+				try {
+					otherPoints.setStyle({color: myPointColor});
+				} catch (err) {
+					
+				}
 			} else if (currentSelectArr[0] == "Counties") {
 				var currSltA = countySelectArr.length;
 				var currSlt = countySelectArr;
@@ -1401,6 +1501,9 @@ function main() {
 					theSecondLayer = villagesPolygon;
 				} else if (currSlt[g] == "Counties") {
 					theThirdLayer = geojson;
+				} else if (currSlt[g] == "Other") {
+					theLayer = otherPoints;
+					theSecondLayer = otherPolygons;
 				}
 				
 				try {
@@ -1609,6 +1712,31 @@ function main() {
 					}
 				}
 				
+				if (currSlt.indexOf("Other") == -1) {
+					try {
+						// remove all other, treat as null
+						otherPoints.eachLayer(function (layer) {
+							lay.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
+							
+							layer.feature.properties.filter = "false";
+						});
+					} catch (err) {
+						
+					}
+					
+					try {
+						otherPolygons.eachLayer(function (layer) {
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.bringToBack();
+							
+							layer.feature.properties.filter = "false";
+						});
+					} catch (err) {
+						
+					}
+				}
+				
 				if (currSlt.indexOf("Counties") == -1) {
 					try {
 						// remove all counties, treat as null
@@ -1669,6 +1797,11 @@ function main() {
 		} catch (err) {
 					
 		}
+		try {
+			otherPoints.setStyle({color: myPointColor});
+		} catch (err) {
+			
+		}
 		
 		try {
 			geojson.eachLayer(function (layer) {
@@ -1703,6 +1836,11 @@ function main() {
 				layer.bringToFront();
 				layer.feature.properties.filter = "true";
 			});
+			otherPoints.eachLayer(function (layer) {
+				layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+				layer.bringToFront();
+				layer.feature.properties.filter = "true";
+			});
 		} catch (err) {
 			
 		}
@@ -1723,6 +1861,13 @@ function main() {
 				}
 			});
 			villagesPolygon.eachLayer(function (layer) {
+				if (clickedUrbanName != layer.feature.properties.GEOID) {
+					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
+					layer.bringToFront();
+					layer.feature.properties.filter = "true";
+				}
+			});
+			otherPolygons.eachLayer(function (layer) {
 				if (clickedUrbanName != layer.feature.properties.GEOID) {
 					layer.setStyle({opacity: '1', fillOpacity: '0.75', zIndex: '20'});
 					layer.bringToFront();
@@ -1797,6 +1942,15 @@ function main() {
 					urbanSearch(layer);
 				}
 			});
+			
+			otherPoints.eachLayer(function (layer) {
+				var theID = layer.feature.properties.GEOID;
+				if (theID == source) {
+					urbanSearch(layer);
+				}
+			});
+			
+			
 		}
 		
 		function urbanSearch(layer) {
@@ -1844,6 +1998,20 @@ function main() {
 				});
 				
 				villagesPolygon.eachLayer(function (layer) {
+					if (layer.feature.properties.GEOID == myPointName) {
+						if (hasFilter == true) {
+							if (layer.feature.properties.filter == "false") {
+								holdZoom(source, num);
+							} else {
+								addNeccessaryStyles(layer);
+							}
+						} else {
+							addNeccessaryStyles(layer);
+						}
+					}
+				});
+				
+				otherPolygons.eachLayer(function (layer) {
 					if (layer.feature.properties.GEOID == myPointName) {
 						if (hasFilter == true) {
 							if (layer.feature.properties.filter == "false") {
@@ -2006,6 +2174,7 @@ function main() {
 		document.getElementById(colorPal[1][1]).style.background = colorPal[1][0];
 		document.getElementById(colorPal[2][1]).style.background = colorPal[2][0];
 		document.getElementById(colorPal[3][1]).style.background = colorPal[3][0];
+		document.getElementById(colorPal[4][1]).style.background = colorPal[4][0];
 	};
 	/* // handles giving features their color */
 	

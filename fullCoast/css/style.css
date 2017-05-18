@@ -236,15 +236,19 @@ html, body {
 }
 
 #layer02 {
-	left: 25%;
+	left: 85px;
 }
 
 #layer03 {
-	left: 75%;
+	left: 230px;
 }
 
 #layer04 {
-	left: 50%;
+	left: 150px;
+}
+
+#layer05 {
+	left: 300px;
 }
 
 .legendBubble {
@@ -267,6 +271,10 @@ html, body {
 	opacity: 1;
 }
 
+.legendText {
+	font-size: 14px;
+}
+
 #bubble01 {
 	background: black;
 }
@@ -280,6 +288,10 @@ html, body {
 }
 
 #bubble04 {
+	background: black;
+}
+
+#bubble05 {
 	background: black;
 }
 
@@ -945,6 +957,35 @@ html, body {
 	.leaflet-top {
 		top: 0px;
 		left: 0px;
+	}
+	
+	.legendText {
+		font-size: 12px;
+	}
+	
+	.legendBubble {
+		height: 12px;
+		width: 12px;
+	}
+	
+	#layer01 {
+		left: 0;
+	}
+
+	#layer02 {
+		left: 22.5%;
+	}
+
+	#layer03 {
+		left: 60%;
+	}
+
+	#layer04 {
+		left: 40%;
+	}
+
+	#layer05 {
+		left: 80%;
 	}
 	
 }
