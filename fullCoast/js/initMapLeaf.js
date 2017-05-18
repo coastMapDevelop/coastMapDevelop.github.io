@@ -7,16 +7,10 @@ function main() {
 	var townsPoints;	 		// variable to hold town points - layer
 	var citiesPoints;			// variable to hold city points - layer 
 	var villagesPoints;			// variable to hold village points - layer
-	var townshipPoints;
-	var buroughPoints;
-	var reservationPoints;
 	var otherPoints;
 	var townsPolygon;			// variable to hold town polygons - layer
 	var citiesPolygon;			// variable to hold city polygons - layer
 	var villagesPolygon;		// variable to hold village polygons - layer
-	var townshipPolygon;
-	var buroughPolygon;
-	var reservationPolygon;
 	var otherPolygons;
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
@@ -1717,11 +1711,11 @@ function main() {
 				
 				if (currSlt.indexOf("Other") == -1) {
 					try {
-						// remove all other, treat as null
+						// remove all vilages, treat as null
 						otherPoints.eachLayer(function (layer) {
-							lay.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
+							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
-							
+						
 							layer.feature.properties.filter = "false";
 						});
 					} catch (err) {
@@ -1732,7 +1726,7 @@ function main() {
 						otherPolygons.eachLayer(function (layer) {
 							layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 							layer.bringToBack();
-							
+						
 							layer.feature.properties.filter = "false";
 						});
 					} catch (err) {
