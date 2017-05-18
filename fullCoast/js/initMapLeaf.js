@@ -56,30 +56,30 @@ function main() {
 	var countySelectArr = ['Counties'];
 	// for naming and assigning popup contents for points
 	var popupCountyArr = [
-		['countyLink1', 'GovtWebURL', 5, 'countyLink1b'],
-		['countyLink2', 'WebMapURL', 6, 'countyLink2b'],
-		['countyLink3', 'CodeofOrdinanceURL', 7, 'countyLink3b'],
-		['countyLink4', 'ZoningURL', 8, 'countyLink4b'],
-		['countyLink5', 'CompPlanURL', 9, 'countyLink5b'],
-		['countyLink6', 'HazMitPlanURL', 10, 'countyLink6b']
+		['countyLink1', 'Government', 5, 'countyLink1b'],
+		['countyLink2', 'Web Map', 6, 'countyLink2b'],
+		['countyLink3', 'Code of Ordinance', 7, 'countyLink3b'],
+		['countyLink4', 'Zoning', 8, 'countyLink4b'],
+		['countyLink5', 'Compliance Plan', 9, 'countyLink5b'],
+		['countyLink6', 'Hazard Mitigation Plan', 10, 'countyLink6b']
 	];
 	// for naming and assigning popup content for points
 	var popupPointArr = [
-		['pointLink1', 'GovtWebURL', 5, 'pointLink1b'],
-		['pointLink2', 'WebMapURL', 6, 'pointLink2b'],
-		['pointLink3', 'CodeofOrdinanceURL', 7, 'pointLink3b'],
-		['pointLink4', 'ZoningURL', 8, 'pointLink4b'],
-		['pointLink5', 'CompPlanURL', 9, 'pointLink5b'],
-		['pointLink6', 'HazMitPlanURL', 10, 'pointLink6b']
+		['pointLink1', 'Government', 5, 'pointLink1b'],
+		['pointLink2', 'Web Map', 6, 'pointLink2b'],
+		['pointLink3', 'Code of Ordinance', 7, 'pointLink3b'],
+		['pointLink4', 'Zoning', 8, 'pointLink4b'],
+		['pointLink5', 'Compliance Plan', 9, 'pointLink5b'],
+		['pointLink6', 'Hazard Mitigation Plan', 10, 'pointLink6b']
 	];
 	// for naming and assigning popup content for urban polygons
 	var popupPolyArr = [
-		['polyLink1', 'GovtWebURL', 5, 'polyLink1b'],
-		['polyLink2', 'WebMapURL', 6, 'polyLink2b'],
-		['polyLink3', 'CodeofOrdinanceURL', 7, 'polyLink3b'],
-		['polyLink4', 'ZoningURL', 8, 'polyLink4b'],
-		['polyLink5', 'CompPlanURL', 9, 'polyLink5b'],
-		['polyLink6', 'HazMitPlanURL', 10, 'polyLink6b']
+		['polyLink1', 'Government', 5, 'polyLink1b'],
+		['polyLink2', 'Web Map', 6, 'polyLink2b'],
+		['polyLink3', 'Code of Ordinance', 7, 'polyLink3b'],
+		['polyLink4', 'Zoning', 8, 'polyLink4b'],
+		['polyLink5', 'Compliance Plan', 9, 'polyLink5b'],
+		['polyLink6', 'Hazard Mitigation Plan', 10, 'polyLink6b']
 	];
 	// array that stores colors for map and legend
 	var colorPal = [
@@ -87,7 +87,7 @@ function main() {
 		["#41b6c4", "bubble02"],
 		["#a1dab4", "bubble03"],
 		["#ffffcc", "bubble04"],
-		["black", "bubble05"]
+		["#F1948A", "bubble05"]
 	];
 	var clickedCountyName = [];		// stores the last clicked county name
 	var clickedUrbanName = [];		// stores the last clicked urban name
@@ -257,7 +257,7 @@ function main() {
 	
 	var otherPointsStyle = {
 		radius: 5,
-		fillColor: "black",
+		fillColor: colorPal[4][0],
 		color: "white",
 		weight: 1,
 		opacity: 1,
@@ -296,7 +296,7 @@ function main() {
 	};
 	
 	var otherPolygonsStyle = {
-		fillColor: "black",
+		fillColor: colorPal[4][0],
 		weight: 1,
 		opacity: 0.75,
 		color: '#fff',
