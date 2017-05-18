@@ -2,7 +2,6 @@
 
 
 Things to work on:
-	- use reservation closest to shore (change geoid and change geoemtry)
 	- which ones shouldn't be seen as polygons?
 	- create three separate maps with links to each one:
 		- regional
