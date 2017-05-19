@@ -1467,6 +1467,8 @@ function main() {
 						for (m=0; m < gglSprd2; m++) {
 							if (theID == googleSpreadsheet2[m][2]) {
 								var row = m;		// match row is found
+								console.log(row);
+								// row is undefined for city
 							}
 						}
 					
@@ -1497,7 +1499,7 @@ function main() {
 						}
 					});
 				} catch (err) {
-					console.log(err);
+					
 				}
 				
 				// fourth (b) loop through the selected polygon layer
