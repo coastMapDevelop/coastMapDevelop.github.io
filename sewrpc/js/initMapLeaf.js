@@ -727,7 +727,7 @@ function main() {
 					clickedCountyName.push(layer.feature.properties.GEOID10);
 			
 			
-					map.setView(center, 10);
+					map.setView(center, currentZoom);
 					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 
 					window.setTimeout(function() {
@@ -799,7 +799,7 @@ function main() {
 						});
 					}, 50);
 		
-					map.setView(center, 10);
+					map.setView(center, currentZoom);
 		
 					crossReference(e, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 		
@@ -1849,7 +1849,7 @@ function main() {
 									clickedCountyName.push(layer.feature.properties.GEOID10);
 									layer.setStyle({fillOpacity: '1'});
 									var center = layer.getBounds().getCenter();
-									map.setView(center, 10);
+									map.setView(center, currentZoom);
 									checkFeaturePage("featurePage");
 									crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 								}
@@ -1858,7 +1858,7 @@ function main() {
 								clickedCountyName.push(layer.feature.properties.GEOID10);
 								layer.setStyle({fillOpacity: '1'});
 								var center = layer.getBounds().getCenter();
-								map.setView(center, 10);
+								map.setView(center, currentZoom);
 								checkFeaturePage("featurePage");
 								crossReference(null, layer, layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click");
 							}

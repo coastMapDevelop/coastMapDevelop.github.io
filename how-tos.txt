@@ -1,51 +1,45 @@
 
+(note: line numbers may be off when looking at different files for each map application,
+	line numbers are referenced from /greatlakes full community overview javascript file)
+
+Geojson files are organized by points and polygons.
+/polygon.geojson includes spatial data for counties and urban polygons.
+/points.geojson includes spatial data for urban points.
+
 How to add new geojson files:
 	inside initMapLeaf.js,
-	to add new county geojson,
-	line 297, change url to direct to your new geojson file,
-	(attributes must match),
-	also edit filter according to your criteria,
-	to add new urban point geojson,
-	line 351, change url to direct to your new geojson file,
-	(attributes must match),
-	
+	to add new county and urban polygon data,
+	line 328, change url to direct to your new geojson file,
+	(attribute names must match old geojson file),
+	lines 336, 347, 358, 369, 380, edit filter to match which data you want to include
 
-How to change colors:
+	to add new urban point data,
+	line 396, change url to direct to your new geojson file,
+	(attributes names must match old geojson file),
+	lines 405, 420, 435, 449, edit filter to match which data you want to include
 
+How to change colors of map features:
+	inside initMapLeaf.js,
+	line 78 - 82, change hexadecimal color codes to new values.
 
-How to add new panel:
+How to change initial location of map:
+	inside initMapLeaf.js,
+	line 120, change lat lng coordinates.
 
+How to change initial zoom of map:
+	inside initMapLeaf.js,
+	line 127, change zoom to new number.
+	line 17, change currentZoom to same new number.
 
-How to update attribute data:
-
-
-How to update geometry data:
-
-
-How to change urban zoom levels:
-
-
-How to change mobile change width:
-
-
-How to change filter button texts:
-
-
-How to change basemaps:
+How to change radius of points:
+	inside initMapLeaf.js,
+	line 222, change radius to new number.
+	line 233, change radius to new number.
+	line 244, change radius to new number.
+	line 254, change radius to new number.
 
 
-How to change search outputs:
-
-
-How to change feature panel data:
-
-
-How to change google spreadsheet:
-
-
-How to add new function and reveal to public:
-
-
+contact "skywilliams@gmail.com" for any other how-to's or questions on code.
 
 
 
