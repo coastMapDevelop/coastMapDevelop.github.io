@@ -1,13 +1,4 @@
 
-
-
-Things to work on:
-	- filter is not working for *Cities
-	- which ones shouldn't be seen as polygons?
-	- create three separate maps with links to each one:
-		- regional
-		- wisconsin
-		- full coast
 	
 
 
@@ -23,10 +14,4 @@ Things to work on:
 		- documentation for HTML file
 		- documentation for CSS file
 		- documentation for performing specific tasks
-
-	- additional data references:
-		- https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-ohio-current-place
-		- https://catalog.data.gov/dataset?collection_package_id=431430d9-7408-48c3-890d-e0a9cc516c12
-		- https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2016&layergroup=County+Subdivisions
-		- http://www.naturalearthdata.com/downloads/10m-physical-vectors/
 		
