@@ -1497,7 +1497,7 @@ function main() {
 						}
 					});
 				} catch (err) {
-					console.log('three');
+					console.log(err);
 				}
 				
 				// fourth (b) loop through the selected polygon layer
