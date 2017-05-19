@@ -14,7 +14,7 @@ function main() {
 	var otherPolygons;
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
-	var currentZoom = 6; 		// keeps track of current zoom
+	var currentZoom = 7; 		// keeps track of current zoom
 	var circleInterval;			// stores interval variable
 	var maxRadius = 30;			// stores maximum radius of circle throbber
 	var minRadius = 15;			// stores minimum radius of circle throbber
@@ -119,14 +119,14 @@ function main() {
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
     	zoomControl: true,		  // add zoom control to the map
-        center: [44, -84],		  // coordinates of map initation
+        center: [44.5, -89],		  // coordinates of map initation
 		minZoom: 6,				  // minimum zoom level of the map
 		maxZoom: 13,
 		maxBounds: [
 			[27, -115], 	  //southwest bounds
 			[57, -50]    	  //northeast bounds
 		],
-        zoom: 6			  // map initiation zoom level
+        zoom: 7			  // map initiation zoom level
     });
 	/* // initiate basemap */
 	

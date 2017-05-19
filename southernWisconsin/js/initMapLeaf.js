@@ -14,7 +14,7 @@ function main() {
 	var otherPolygons;
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
-	var currentZoom = 6; 		// keeps track of current zoom
+	var currentZoom = 8; 		// keeps track of current zoom
 	var circleInterval;			// stores interval variable
 	var maxRadius = 30;			// stores maximum radius of circle throbber
 	var minRadius = 15;			// stores minimum radius of circle throbber
@@ -119,14 +119,14 @@ function main() {
     var map = new L.Map('map', {
 		attributionControl: true, // add attribution to the map
     	zoomControl: true,		  // add zoom control to the map
-        center: [44, -84],		  // coordinates of map initation
-		minZoom: 6,				  // minimum zoom level of the map
+        center: [42.989, -87.896],		  // coordinates of map initation
+		minZoom: 7,				  // minimum zoom level of the map
 		maxZoom: 13,
 		maxBounds: [
 			[27, -115], 	  //southwest bounds
 			[57, -50]    	  //northeast bounds
 		],
-        zoom: 6			  // map initiation zoom level
+        zoom: 8			  // map initiation zoom level
     });
 	/* // initiate basemap */
 	
@@ -344,7 +344,7 @@ function main() {
 				style: myStyle,
 				onEachFeature: onEachFeature,
 				filter: function(feature, layer) {
-					if (feature.properties.COUNTYFP10 == 59 || feature.properties.COUNTYFP10 == 101 || feature.properties.COUNTYFP10 == 79 || feature.properties.COUNTYFP10 == 89) {
+					if ((feature.properties.COUNTYFP10 == 59 || feature.properties.COUNTYFP10 == 101 || feature.properties.COUNTYFP10 == 79 || feature.properties.COUNTYFP10 == 89) && feature.properties.STATEFP10 == 55) {
 						return feature;
 					}
 				}
@@ -436,7 +436,7 @@ function main() {
 					filter: function(feature, layer) {
 						if (feature.properties.GEOID == 5517975 || feature.properties.GEOID == 5539225 || feature.properties.GEOID == 5551150 || feature.properties.GEOID == 5553000 ||
 							feature.properties.GEOID == 5558800 || feature.properties.GEOID == 5564450 || feature.properties.GEOID == 5566000 || feature.properties.GEOID == 5575125 ||
-							feature.properties.GEOID == 5570650)) {
+							feature.properties.GEOID == 5570650) {
 							return feature;
 						}
 					}
