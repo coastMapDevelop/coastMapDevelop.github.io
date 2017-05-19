@@ -1492,16 +1492,15 @@ function main() {
 				if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
-					console.log(theLayer);
 				} else if (currSlt[g] == "Villages") {
-					//theLayer = villagesPoints;
-					//theSecondLayer = villagesPolygon;
+					theLayer = villagesPoints;
+					theSecondLayer = villagesPolygon;
 				} else if (currSlt[g] == "Towns") {
-					//theLayer = townsPoints;
-					//theSecondLayer = townsPolygon;	// testMAPLE
+					theLayer = townsPoints;
+					theSecondLayer = townsPolygon;	// testMAPLE
 				} else if (currSlt[g] == "Other") {
-					//theLayer = otherPoints;
-					//theSecondLayer = otherPolygons;
+					theLayer = otherPoints;
+					theSecondLayer = otherPolygons;
 				} else if (currSlt[g] == "Counties") {
 					theThirdLayer = geojson;
 				} 
@@ -1509,8 +1508,7 @@ function main() {
 				try {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
-						var name = layer.feature.properties.NAMELSAD;
-						console.log(name);
+						console.log(layer.feature.properties.NAMELSAD);
 						var theID = layer.feature.properties.GEOID;
 						console.log(GEOID);
 						//fifth, find the match row on the google spreadsheet
