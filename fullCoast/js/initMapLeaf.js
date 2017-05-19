@@ -1492,6 +1492,7 @@ function main() {
 				if (currSlt[g] == "Cities") {
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
+					console.log(theLayer);
 				} else if (currSlt[g] == "Villages") {
 					//theLayer = villagesPoints;
 					//theSecondLayer = villagesPolygon;
