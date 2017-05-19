@@ -1497,7 +1497,7 @@ function main() {
 					//theSecondLayer = villagesPolygon;
 				} else if (currSlt[g] == "Towns") {
 					//theLayer = townsPoints;
-					//theSecondLayer = townsPolygon;
+					//theSecondLayer = townsPolygon;	// testMAPLE
 				} else if (currSlt[g] == "Other") {
 					//theLayer = otherPoints;
 					//theSecondLayer = otherPolygons;
