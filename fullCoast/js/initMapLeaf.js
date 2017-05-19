@@ -1530,7 +1530,7 @@ function main() {
 							
 							}
 						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null' || googleSpreadsheet2[row][popupPointArr[index][2]] != "" || googleSpreadsheet2[row][popupPointArr[index][2]] != " " || googleSpreadsheet2[row][popupPointArr[index][2]] != undefined != googleSpreadsheet2[row][popupPointArr[index][2]] != null) {
-						
+							console.log(layer.feature.properties.NAMELSAD);
 							try {
 								// add to array true
 								if (layer.feature.properties.filter == "false") {
