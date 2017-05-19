@@ -466,54 +466,7 @@ function main() {
 				pointArray.push(otherPoints);
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				/*
-				townshipPoints = L.geoJson(data, {
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, otherPointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 44) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				
-				buroughPoints = L.geoJson(data, {
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, otherPointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 21) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				
-				reservationPoints = L.geoJson(data, {
-					pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, otherPointsStyle);
-					},
-					onEachFeature: onEachFeature,
-					filter: function(feature, layer) {
-						if (feature.properties.LSAD == 86) {
-							return feature;
-						}
-					}
-				})
-				.addTo(map);
-				*/
+			
 			}
 		});
 		initiateMapColors();
@@ -1497,7 +1450,7 @@ function main() {
 					theSecondLayer = villagesPolygon;
 				} else if (currSlt[g] == "Towns") {
 					theLayer = townsPoints;
-					theSecondLayer = townsPolygon;	// testMAPLE
+					theSecondLayer = townsPolygon;
 				} else if (currSlt[g] == "Other") {
 					theLayer = otherPoints;
 					theSecondLayer = otherPolygons;
@@ -1508,15 +1461,12 @@ function main() {
 				try {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
-						console.log(layer.feature.properties.NAMELSAD);
 						var theID = layer.feature.properties.GEOID;
-						console.log(GEOID);
 						//fifth, find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd2; m++) {
 							if (theID == googleSpreadsheet2[m][2]) {
 								var row = m;		// match row is found
-								console.log(row);
 							}
 						}
 					
@@ -1529,7 +1479,7 @@ function main() {
 								layer.setStyle({opacity: '0', fillOpacity: '0', zIndex: '-10000'});
 								layer.bringToBack();
 							} catch (err) {
-							
+								console.log('one');
 							}
 						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null' || googleSpreadsheet2[row][popupPointArr[index][2]] != "" || googleSpreadsheet2[row][popupPointArr[index][2]] != " " || googleSpreadsheet2[row][popupPointArr[index][2]] != undefined != googleSpreadsheet2[row][popupPointArr[index][2]] != null) {
 							
@@ -1542,12 +1492,12 @@ function main() {
 									layer.feature.properties.filter = "true";
 								}
 							} catch (err) {
-							
+								console.log('two');
 							}
 						}
 					});
 				} catch (err) {
-					
+					console.log('three');
 				}
 				
 				// fourth (b) loop through the selected polygon layer
