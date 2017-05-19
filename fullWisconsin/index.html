@@ -22,9 +22,7 @@
 		<link href="css/style.css" rel="stylesheet" />
 		
 		<!-- font libraries -->
-		<!--<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">-->
 		<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
-		<!--<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">-->
 		
 		<!-- // CSS Links -->
   </head>
@@ -40,7 +38,6 @@
 	
 	<!-- title in top left -->
 	<div id="title">
-	
 		<a href="http://seagrant.wisc.edu/home/Default.aspx?tabid=39" target="_blank"><img src="img/seaGrant.jpg" alt="Sea Grant Logo"></a>
 		<h2>Wisconsin</h2>
 		<p>Coastal Communities Overview</p>
@@ -62,9 +59,6 @@
 	
 	<!-- mobile feature toggle -->
 	<div id="mobileFeatureMenu" onclick="myNameSpace.mobileFeatureHide(0)">
-		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">dashboard</i>-->
-		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">info_outline</i>-->
-		<!--<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">place</i>-->
 		<i class="material-icons myIcon" style="top: 5px; left: 4.5px;">more</i>
 	</div>
 	<!-- // mobile feature toggle -->
@@ -83,7 +77,6 @@
 	
 	
 	<!-- mobile menu main panel -->
-	
 	<div id="supMobileMenuWrapper">
 	<div id="supMobileMenu">
 		<h3>Wisconsin</h3>
@@ -104,7 +97,6 @@
 		<hr>
 	</div>
 	</div>
-	
 	<!-- // mobile menu main panel -->
 	
 	
@@ -155,7 +147,6 @@
 		</div>
 		
 		
-		
 		<div id="firstCircle" class="menuCircle" onmouseover="myNameSpace.uiHover(this.id, 1)" onmouseout="myNameSpace.uiHover(this.id, 0)" onclick="myNameSpace.uiHover(this.id, 2)">
 			<i class="material-icons myIcon" style="top:13px; left:13px;">search</i>
 		</div>
@@ -175,7 +166,6 @@
 	
 	
 	<!-- Search Page Menu Panel -->
-	
 	<div id="searchPageWrapper">
 	<div id="searchPage" class="pullOutPage">
 		
@@ -203,7 +193,6 @@
 		
 	</div>
 	</div>
-	
 	<!-- // Search Page Menu Panel -->
 	
 	
@@ -211,7 +200,6 @@
 	
 	
 	<!-- Base Map Page Menu Panel -->
-	
 	<div id="basemapPageWrapper">
 	<div id="basemapPage" class="pullOutPage">
 		
@@ -220,8 +208,6 @@
 		<p>Choose any basemap from the selections below.</p>
 		<hr>
 		
-		
-	
 		<div class="row" style="margin-top: 70px;">
 			<div class="col-md-6">
 				<hr>
@@ -234,13 +220,6 @@
 				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
 				<p>Esri Ocean Basemap</p>
 			</div>
-			<!--
-			<div class="col-md-6">
-				<hr>
-				<img id="Tile_Layer_2" class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter" onclick="myNameSpace.changeBaseMap(this.id)">
-				<p>Carto DB Dark Matter</p>
-			</div>
-			-->
 		</div>
 		
 		<div class="row" style="margin-top: 70px;">
@@ -277,18 +256,10 @@
 				<img id="Tile_Layer_7" class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery" onclick="myNameSpace.changeBaseMap(this.id)">
 				<p>Esri World Imagery</p>
 			</div>
-			<!--
-			<div class="col-md-6">
-				<hr>
-				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
-				<p>Esri Ocean Basemap</p>
-			</div>
-			-->
 		</div>
 		
 	</div>
 	</div>
-	
 	<!-- // Base Map Page Menu Panel -->
 	
 	
@@ -296,7 +267,6 @@
 	
 	
 	<!-- Filter Page Menu Panel -->
-	
 	<div id="filterPageWrapper">
 	<div id="filterPage" class="pullOutPage">
 		
@@ -305,8 +275,6 @@
 		<p>Choose feature URL's to filter by.</p>
 		<hr>
 	
-		
-		
 		<div class="row">
 			
 			<div class="col-md-6">
@@ -319,11 +287,8 @@
 				<div id="resweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Zoning</div>
 				<div id="hazmitweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Compliance Plan</div>
 				<div id="susweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Hazard Mitigation Plan</div>
-				<!--<div id="cliweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Cli Plan</div>-->
-				<!--<div id="zoningweb" class="myCheckBox" onclick="myNameSpace.storeChecks(this.innerHTML, this.id)" onmouseover="myNameSpace.hoverChecks(this.id, 0)" onmouseout="myNameSpace.hoverChecks(this.id, 1)">Zoning Code</div>-->
 			</div>
 		</div>
-		
 		
 		<div class="form-group" style="margin-top: 20px;">
 			
@@ -347,7 +312,6 @@
 		
 	</div>
 	</div>
-	
 	<!-- // Filter Page Menu Panel -->
 	
 	
@@ -355,7 +319,6 @@
 	
 	
 	<!-- Feature Page Menu Panel -->
-	
 	<div id="featurePageWrapper">
 	<div id="featurePage" class="pullOutPage">
 		
@@ -375,7 +338,6 @@
 		
 	</div>
 	</div>
-	
 	<!-- // Feature Page Menu Panel -->
 	
 	
@@ -383,13 +345,10 @@
 	
 	
 	<!-- Hover Feature Page Menu -->
-	
 	<div id="hoverFeaturePageWrapper">
 	<div id="hoverFeaturePage" class="pullOutPage">
 		
 		<h3 id="hoverFeaturePageName" style="margin-top: 50px; font-size: 35px;"></h3>
-		
-		
 		
 		<p id="hoverFeaturePop2000"></p>
 		<p id="hoverFeaturePop2010"></p>
@@ -401,7 +360,6 @@
 		
 	</div>
 	</div>
-	
 	<!-- // Hover Feature Page Menu -->
 	
 	
@@ -409,7 +367,6 @@
 	
 	
 	<!-- Information Page Menu Panel -->
-	
 	<div id="infoPageWrapper">
 	<div id="infoPage" class="pullOutPage">
 		
@@ -432,21 +389,26 @@
 		
 	</div>
 	</div>
-	
 	<!-- // Information Page Menu Panel -->
 	
+	
+	
+	
+	
+	
 	<!-- Bottom Menu - White Bar -->
-	
 	<div id="bottomMenu"></div>
-	
 	<!-- // Bottom Menu - White Bar -->
 	
-	<!-- Bottom Menu - Information Button -->
 	
+	
+	
+	
+	
+	<!-- Bottom Menu - Information Button -->
 	<div id="supBottomMenu" onclick="myNameSpace.uiHover(this.id, 2)">
 		<p>&bull; Information</p>
 	</div>
-	
 	<!-- // Bottom Menu - Information Button -->
 	
 	
@@ -454,7 +416,6 @@
 	
 	
 	<!-- Bottom Menu - Legend -->
-	
 	<div id="bottomLegend">
 		<div id="layer01" class="legendBox">
 			<div id="bubble01" class="legendBubble active" onclick="myNameSpace.toggleLayers(this.id)"></div>
@@ -482,7 +443,6 @@
 		</div>
 		
 	</div>
-	
 	<!-- // Bottom Menu - Legend -->
 	
 	

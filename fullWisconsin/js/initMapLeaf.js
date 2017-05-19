@@ -7,11 +7,11 @@ function main() {
 	var townsPoints;	 		// variable to hold town points - layer
 	var citiesPoints;			// variable to hold city points - layer 
 	var villagesPoints;			// variable to hold village points - layer
-	var otherPoints;
+	var otherPoints;			// variable to hold townships, charter townships, buroughs, indian reservations points- layer
 	var townsPolygon;			// variable to hold town polygons - layer
 	var citiesPolygon;			// variable to hold city polygons - layer
 	var villagesPolygon;		// variable to hold village polygons - layer
-	var otherPolygons;
+	var otherPolygons;			// variable to hold townships, charter townships, buroughs, indian reservations polygons - layer
 	var myMarkers;				// variable to hold markers - animation
 	var checkZoom; 				// keeps track of zoom direction
 	var currentZoom = 7; 		// keeps track of current zoom
@@ -19,8 +19,6 @@ function main() {
 	var maxRadius = 30;			// stores maximum radius of circle throbber
 	var minRadius = 15;			// stores minimum radius of circle throbber
 	var radiusControl = false;	// stores boolean value for circle throbber
-	//var firstClick = false;		// stores if the map has yet been clicked
-	//var hoverControl = false;	// stores boolean value for hovering - currently not in use (delete?) (check)
 	var remove;					// for storing search panel
 	var remove2;				// for storing search control
 	var hoverPanel = document.getElementById("hoverFeaturePage");	// stores the hover feature page
@@ -129,6 +127,7 @@ function main() {
         zoom: 7			  // map initiation zoom level
     });
 	/* // initiate basemap */
+	
 	
 	/* initiate url hash */
 	var hash = new L.Hash(map);
@@ -322,17 +321,6 @@ function main() {
 	
 	
 	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	$.ajax({
 		dataType: "json",
 		/*url: "data/greatLakes_urbanPolygons.geojson",*/
@@ -465,9 +453,6 @@ function main() {
 				})
 				.addTo(map);
 				pointArray.push(otherPoints);
-				
-				
-			
 			}
 		});
 		initiateMapColors();
@@ -496,7 +481,6 @@ function main() {
 				hoverFeaturePage.style.right = "";
 				isMobile = true;
 				
-				
 				if (hasFilter == true) {
 					document.getElementById('mobileFilterResetMenu').style.visibility = "visible";
 				}
@@ -504,7 +488,6 @@ function main() {
 				if (clickedCountyName.length != 0 || clickedUrbanName.length != 0) {
 					document.getElementById('mobileFeatureMenu').style.visibility = "visible";
 				}
-				
 			}
 			windowChange = true;
 		} else {
@@ -539,9 +522,7 @@ function main() {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
 			if (props.NAME10 != null) {
-				//name.innerHTML = props.NAME10;
 				name.innerHTML = props.NAMELSAD10;
-				//name.setAttribute("id", props.NAME10);
 				name.setAttribute("id", props.GEOID10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
 				container.appendChild(L.DomUtil.create('br', null, container));
@@ -554,9 +535,7 @@ function main() {
 				}
 				container.appendChild(document.createTextNode("- " + state));
 			} else if (props.NAME10 == null) {
-				//name.innerHTML = props.Name_1;
 				name.innerHTML = props.NAMELSAD;
-				//name.setAttribute("id", props.NAME);
 				name.setAttribute("id", props.GEOID);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
 				container.appendChild(L.DomUtil.create('br', null, container));
@@ -705,7 +684,6 @@ function main() {
 				$('.leaflet-tooltip').css('cursor', '');
 			}
 		}
-		
 	};
 	/* // mouseout feature function */
 	
@@ -819,8 +797,6 @@ function main() {
 					var polyName = layer.feature.properties.GEOID;
 					var center = layer.getBounds().getCenter();
 					map.setView(center, currentZoom);
-					//checkFeaturePage("featurePage");
-					//clickedUrbanName.length = 0;
 					removeMarkers();
 					clickedUrbanName.push(layer.feature.properties.GEOID);
 		
@@ -879,12 +855,10 @@ function main() {
 							layer.setRadius(newRadius);
 						});
 					}, 50);
-					//checkFeaturePage("featurePage");
 					crossReference(e, layer ,layer.feature.properties, layer.feature.geometry.type, layer.options.fillColor, "click"); // call function to cross reference clicked layer name with google spreadsheet data
 					checkFeaturePage("featurePage");
 				}
 			}
-			//firstClick = true;
 		}
 	};
 	/* // click feature function */
@@ -1764,7 +1738,6 @@ function main() {
 						layer.setStyle({opacity: '1', fillOpacity: '0.75'});
 					}
 					
-					//layer.bringToFront(); experimental
 					layer.feature.properties.filter = "true";
 				}
 			});
@@ -2636,9 +2609,9 @@ function main() {
 		page.appendChild(break1);
 		page.appendChild(link2);	// add web map url
 		page.appendChild(break2);
-		page.appendChild(link3);	// add web map other
+		page.appendChild(link3);	// add code of ordinance
 		page.appendChild(break3);
-		page.appendChild(link4);	// add web map state
+		page.appendChild(link4);	// add zoning
 		page.appendChild(break4);
 		page.appendChild(link5);	// add comp plan
 		page.appendChild(break5);
@@ -2815,13 +2788,13 @@ function main() {
 		page.appendChild(break1);
 		page.appendChild(link2);	// web map url
 		page.appendChild(break2);
-		page.appendChild(link3);	// comp plan
+		page.appendChild(link3);	// code of ordinance
 		page.appendChild(break3);
-		page.appendChild(link4);	// res plan
+		page.appendChild(link4);	// zoning
 		page.appendChild(break4);
-		page.appendChild(link5);	// haz mit web
+		page.appendChild(link5);	// comp plan
 		page.appendChild(break5);
-		page.appendChild(link6);	// sus plan
+		page.appendChild(link6);	// haz mit plan
 		page.appendChild(break6);
 		
 		var m;
