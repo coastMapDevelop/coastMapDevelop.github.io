@@ -81,7 +81,7 @@ function main() {
 		["#41b6c4", "bubble02"],
 		["#a1dab4", "bubble03"],
 		["#ffffcc", "bubble04"],
-		["#F1948A", "bubble05"]
+		["#ABB2B9", "bubble05"] 
 	];
 	var clickedCountyName = [];		// stores the last clicked county name
 	var clickedUrbanName = [];		// stores the last clicked urban name
@@ -252,7 +252,7 @@ function main() {
 	};
 	
 	var otherPointsStyle = {
-		radius: 6,
+		radius: 5,
 		fillColor: colorPal[4][0],
 		color: "white",
 		weight: 1,
