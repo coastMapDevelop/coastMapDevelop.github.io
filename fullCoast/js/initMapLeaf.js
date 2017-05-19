@@ -151,11 +151,13 @@ function main() {
 	});
 	
 	// cartodb darkmatter
+	/*
 	var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 		ttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 		subdomains: 'abcd',
 		maxZoom: 19
-	});
+	})
+	*/
 	
 	// openstreet map tiles
 	var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -190,7 +192,7 @@ function main() {
 	// library for holding base map layer information
 	var baseLayers = {
 		"Tile_Layer_1": CartoDB_Positron,
-		"Tile_Layer_2": CartoDB_DarkMatter,
+		/*"Tile_Layer_2": CartoDB_DarkMatter,*/
 		"Tile_Layer_3": OpenStreetMap_Mapnik,
 		"Tile_Layer_4": Hydda_Full,
 		"Tile_Layer_5": Esri_WorldStreetMap,

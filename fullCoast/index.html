@@ -42,7 +42,7 @@
 	<div id="title">
 	
 		<a href="http://seagrant.wisc.edu/home/Default.aspx?tabid=39" target="_blank"><img src="img/seaGrant.jpg" alt="Sea Grant Logo"></a>
-		<h3>Great Lakes</h3>
+		<h2>Great Lakes</h2>
 		<p>Coastal Communities Overview</p>
 	</div>
 	<!-- // title in top left -->
@@ -230,9 +230,16 @@
 			
 			<div class="col-md-6">
 				<hr>
+				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
+				<p>Esri Ocean Basemap</p>
+			</div>
+			<!--
+			<div class="col-md-6">
+				<hr>
 				<img id="Tile_Layer_2" class="img-responsive" src="img/carto_DB_Dark_Matter.JPG" alt="Carto DB Dark Matter" onclick="myNameSpace.changeBaseMap(this.id)">
 				<p>Carto DB Dark Matter</p>
 			</div>
+			-->
 		</div>
 		
 		<div class="row" style="margin-top: 70px;">
@@ -269,12 +276,13 @@
 				<img id="Tile_Layer_7" class="img-responsive" src="img/esri_World_Imagery.JPG" alt="Esri World Imagery" onclick="myNameSpace.changeBaseMap(this.id)">
 				<p>Esri World Imagery</p>
 			</div>
-			
+			<!--
 			<div class="col-md-6">
 				<hr>
 				<img id="Tile_Layer_8" class="img-responsive" src="img/esri_Ocean_Basemap.JPG" alt="Esri Ocean Basemap" onclick="myNameSpace.changeBaseMap(this.id)">
 				<p>Esri Ocean Basemap</p>
 			</div>
+			-->
 		</div>
 		
 	</div>
@@ -406,6 +414,11 @@
 		
 		<i id="infoPageToggle" class="material-icons pageToggle" onclick="myNameSpace.uiHover(this.id, 3)">close</i>
 		<h3 style="margin-top: 50px; font-size: 35px;">Information</h3>
+		<hr>
+		<p>You are currently viewing the entire Great Lakes Community map, click the two links below to view either the full Wisconsin map or the regional Wisconsin map.</p>
+		<a href="#" target="_blank">Wisconsin Focus Full Map</a>
+		<br>
+		<a href="#" target="_blank">Wisconsin Focus Regional Map</a>
 		<hr>
 		<p>The Great Lakes Coastal Communities Overview map brings you information on Counties, Cities, Villages, Towns, and Other (Townships, Charter Townships, Buroughs, Indian Reservations) communities that lie on the coast from the states surrounding the Great Lakes.</p>
 		<p>Hover over a feature to learn more, and click a feature to zoom to it and bring up a menu to navigate through the different community resources of that feature.</p>
