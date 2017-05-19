@@ -391,7 +391,7 @@ function main() {
 			});
 			polygonArray.push(otherPolygons);
 			
-			addPointLayers();
+			addPointLayers();	
 		}
 	});
 	
@@ -534,7 +534,7 @@ function main() {
 		showResultFct: function (feature, container) {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
-			if (props.NAME10 != null) {
+			if ((props.COUNTYFP10 == 59 || props.COUNTYFP10 == 101 || props == 79 || props.COUNTYFP10 == 89) && props.STATEFP10 == 55) {
 				name.innerHTML = props.NAMELSAD10;
 				name.setAttribute("id", props.GEOID10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
@@ -547,7 +547,12 @@ function main() {
 					}
 				}
 				container.appendChild(document.createTextNode("- " + state));
-			} else if (props.NAME10 == null) {
+			} else if (props.GEOID == 5517975 || props.GEOID == 5539225 || props.GEOID == 5551150 || props.GEOID == 5553000 ||
+						props.GEOID == 5558800 || props.GEOID == 5564450 || props.GEOID == 5566000 || props.GEOID == 5575125 ||
+						props.GEOID == 5570650 || props.GEOID == 5508964475 || props.GEOID == 5508906175 || props.GEOID == 5508930025 ||
+						props.GEOID == 5505450 || props.GEOID == 5511950 || props.GEOID == 5527075 || props.GEOID == 5554875 ||
+						props.GEOID == 5557700 || props.GEOID == 5563300 || props.GEOID == 5573725 || props.GEOID == 5586700 ||
+						props.GEOID == 5587700 || props.GEOID == 5574625) {
 				name.innerHTML = props.NAMELSAD;
 				name.setAttribute("id", props.GEOID);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");

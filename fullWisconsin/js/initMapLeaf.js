@@ -521,7 +521,7 @@ function main() {
 		showResultFct: function (feature, container) {
 			props = feature.properties;
 			var name = L.DomUtil.create('b', null, container);
-			if (props.NAME10 != null) {
+			if (props.STATEFP10 == 55) {
 				name.innerHTML = props.NAMELSAD10;
 				name.setAttribute("id", props.GEOID10);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 0)");
@@ -534,7 +534,7 @@ function main() {
 					}
 				}
 				container.appendChild(document.createTextNode("- " + state));
-			} else if (props.NAME10 == null) {
+			} else if (props.STATEFP == 55) {
 				name.innerHTML = props.NAMELSAD;
 				name.setAttribute("id", props.GEOID);
 				name.setAttribute("onclick", "myNameSpace.zoomSearchedFeature(this.id, 1)");
