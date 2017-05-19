@@ -36,7 +36,7 @@ html, body {
 #title h2 {
 	position: absolute;
 	top: -7px;
-	right: 15px;
+	right: 10px;
 	margin-top: 0;
 }
 
@@ -44,7 +44,7 @@ html, body {
 	position: absolute;
 	font-size: 16px;
 	top: 25px;
-	right: -25px;
+	right: -30px;
 	margin-top: 0;
 }
 
