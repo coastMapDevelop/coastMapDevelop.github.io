@@ -1493,14 +1493,14 @@ function main() {
 					theLayer = citiesPoints;
 					theSecondLayer = citiesPolygon;
 				} else if (currSlt[g] == "Villages") {
-					theLayer = villagesPoints;
-					theSecondLayer = villagesPolygon;
+					//theLayer = villagesPoints;
+					//theSecondLayer = villagesPolygon;
 				} else if (currSlt[g] == "Towns") {
-					theLayer = townsPoints;
-					theSecondLayer = townsPolygon;
+					//theLayer = townsPoints;
+					//theSecondLayer = townsPolygon;
 				} else if (currSlt[g] == "Other") {
-					theLayer = otherPoints;
-					theSecondLayer = otherPolygons;
+					//theLayer = otherPoints;
+					//theSecondLayer = otherPolygons;
 				} else if (currSlt[g] == "Counties") {
 					theThirdLayer = geojson;
 				} 
@@ -1509,12 +1509,15 @@ function main() {
 					// fourth, loop through the selected layer
 					theLayer.eachLayer(function (layer) {
 						var name = layer.feature.properties.NAMELSAD;
+						console.log(name);
 						var theID = layer.feature.properties.GEOID;
+						console.log(GEOID);
 						//fifth, find the match row on the google spreadsheet
 						var m;
 						for (m=0; m < gglSprd2; m++) {
 							if (theID == googleSpreadsheet2[m][2]) {
 								var row = m;		// match row is found
+								console.log(row);
 							}
 						}
 					
@@ -1530,7 +1533,7 @@ function main() {
 							
 							}
 						} else if (googleSpreadsheet2[row][popupPointArr[index][2]] != 'null' || googleSpreadsheet2[row][popupPointArr[index][2]] != "" || googleSpreadsheet2[row][popupPointArr[index][2]] != " " || googleSpreadsheet2[row][popupPointArr[index][2]] != undefined != googleSpreadsheet2[row][popupPointArr[index][2]] != null) {
-							console.log(layer.feature.properties.NAMELSAD);
+							
 							try {
 								// add to array true
 								if (layer.feature.properties.filter == "false") {
